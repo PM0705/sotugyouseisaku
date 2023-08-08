@@ -2,6 +2,7 @@
 body {
     margin: 0;
     padding: 0;
+    padding-bottom:5vh;
  }
 
 /* header */
@@ -120,12 +121,41 @@ main{
     background:#333;/*ドットボタンの現在地表示の色*/
 }
 
+/* h3タイトル */
+h3{
+    
+    color: black;
+    font-size: 3vh;
+    border-bottom: solid 0.1vh;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-weight: lighter;
+}
+/* NEW〜情報〜 */
+.info{
+    width:94%;
+    margin:0 auto;
+    padding: 2.5% 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.info > *{
+    min-width: 8%;
+    flex-basis: 25%;
+    background: #fff;
+    font-size: 64px;
+    text-align: center;
+  }
+
 
 /* footer */
 footer{
-    position: relative;
-    width: 100%;
-    height: 150px;
+    position:fixed;
+  bottom:0;
+  width:100%;
+  height:20vh;
+  z-index:100;
     background-color: darkgrey;
     margin-top: 10px;
     clear: both;

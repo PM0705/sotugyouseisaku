@@ -38,6 +38,30 @@
         <li><img src="img/slide4.png" alt="スライド4"></li>
         <li><img src="img/slide5.png" alt="スライド5"></li>
     </ul>
+
+    <h3>NEW〜情報〜</h3>
+    <div class="info">
+        <img src="img/newinfo1.png" alt="newinfo1">
+        <img src="img/newinfo2.png" alt="newinfo2">
+        <img src="img/newinfo3.png" alt="newinfo3">
+        <img src="img/newinfo4.png" alt="newinfo4">
+    </div>
+
+    <h3>NEW〜グッズ〜</h3>
+    <div class="info">
+        <img src="img/newg1.png" alt="newg1">
+        <img src="img/newg2.png" alt="newg2">
+        <img src="img/newg3.png" alt="newg3">
+        <img src="img/newg4.png" alt="newg4">
+    </div>
+    <h3>ランキング</h3>
+    <div class="info">
+        <img src="img/rank1.png" alt="rank1">
+        <img src="img/rank2.png" alt="rank2">
+        <img src="img/rank3.png" alt="rank3">
+        <img src="img/rank4.png" alt="rank4">
+    </div>
+    <h3>店舗情報</h3>
         
  </main>
  <footer>
