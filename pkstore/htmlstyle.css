@@ -43,7 +43,7 @@ li{
 }
 /* main */
 main{
-    height: 1500px;
+    height: 2500px;
     
 }
 
@@ -147,6 +147,29 @@ h3{
     font-size: 64px;
     text-align: center;
   }
+/* 店舗情報 */
+.mapinfo{
+    display: flex;
+    justify-content: center;
+    
+}
+iframe{
+    width:50vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
+    height:auto;
+}
+
+.text-info{
+    color: black;
+    font-size: 1vh;
+    margin-top: -10px;
+    padding-left: 20px;
+    
+    font-weight: lighter;
+
+}
+.googlemap{
+    margin-left: 20px;
+}
 
 
 /* footer */
