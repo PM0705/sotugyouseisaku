@@ -36,7 +36,7 @@
         <img src="img/store.png" alt="PKstoreのロゴ" class="img">
         <img src="img/storeonly.png" alt="PKstoreのロゴ" class="img">
     </div>
-    
+    <h3>MAP</h3>
     <div class="mapinfo-store-page">
         <div class="text-info">
             <p class="title">住所</p>
@@ -57,17 +57,18 @@
     <div class="footer-l">
         <img src="img/logo.png" alt="PKstoreのロゴ" class="img">
         <ul>
-            <li><a href="index.php">Company</a></li>
-            <li><a href="index.php">Contact</a></li>
-            <li><a href="store_info.php">Map</a></li>
+            <li><a href="index.php" class="fotter-text">Company</a></li>
+            <li><a href="index.php" class="fotter-text">Contact</a></li>
+            <li><a href="store_info.php" class="fotter-text">Map</a></li>
         </ul>
     </div>
     <div class="footer-r">
-        <p>OFFICIAL SNS</p>
+        
         <ul>
-                <li><a href="index.php">X（旧twitter）</a></li>
-                <li><a href="index.php">Instagram</a></li>
-                <li><a href="index.php">Youtube</a></li>
+            <li><a href="index.php"><img src="img/twittericon.png" alt="Xのロゴ" class="img1"></a></li>
+            <li><a href="index.php"><img src="img/instaicon.png" alt="Instagramのロゴ" class="img1"></a></li>
+            <li><a href="index.php"><img src="img/youtubeicon.png" alt="Youtubeのロゴ" class="img1 youtubeicon"></a></li>
+ 
         </ul>
     </div>
     
