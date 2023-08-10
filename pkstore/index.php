@@ -81,7 +81,7 @@
     <div class="footer-l">
         <img src="img/logo.png" alt="PKstoreのロゴ" class="img">
         <ul>
-            <li><a href="index.php" class="fotter-text">Company</a></li>
+            <li><a href="company.php" class="fotter-text">Company</a></li>
             <li><a href="index.php" class="fotter-text">Contact</a></li>
             <li><a href="store_info.php" class="fotter-text">Map</a></li>
         </ul>

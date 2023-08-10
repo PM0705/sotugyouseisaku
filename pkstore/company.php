@@ -30,7 +30,34 @@
         </ul>
     </div>
  </header>
- <main>
+ <main class="company-page">
+ 
+    <h3>Company</h3>
+    <div class="company">
+        <div class="company-con">
+            <img src="img/daihyou.png" alt="PKstoreのロゴ" class="company-img">
+        </div>
+        <div class="text-info">
+            <p class="company-title">TOP<br>MESSAGE-代表挨拶-</p>
+            <p class="company-text">texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext<br>
+            texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
+        </div>   
+    </div>
+
+    <div class="company-bottom">
+    
+        <div class="text">
+            <h2>Company</h3>
+            <p>社名:PKstore</p>
+            <p>設立:2000年12月12日</p>
+            <p>所在地:東京都中野区中野四丁目8番1号</p>
+            <p>代表:PKstore</p>
+        </div>
+        <div class="googlemap-storeinfo">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.740446698844!2d139.661134012126!3d35.70800427246428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f29092a6e253%3A0x936cd62aa3dafab6!2z44CSMTY0LTAwMDEg5p2x5Lqs6YO95Lit6YeO5Yy65Lit6YeO77yU5LiB55uu77yY4oiS77yY!5e0!3m2!1sja!2sjp!4v1691581831273!5m2!1sja!2sjp"
+                style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
 
         
  </main>
@@ -39,7 +66,7 @@
     <div class="footer-l">
         <img src="img/logo.png" alt="PKstoreのロゴ" class="img">
         <ul>
-            <li><a href="index.php" class="fotter-text">Company</a></li>
+            <li><a href="company.php" class="fotter-text">Company</a></li>
             <li><a href="index.php" class="fotter-text">Contact</a></li>
             <li><a href="store_info.php" class="fotter-text">Map</a></li>
         </ul>
