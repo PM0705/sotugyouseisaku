@@ -52,7 +52,9 @@ li{
     list-style:none 
 }
 /* main */
-main .main-store{
+main,
+ .main-store,
+ .contact-page{
     height: auto;
     
     
@@ -235,8 +237,7 @@ iframe{
 .company{
     display: flex;
     width: 100%;
-    
-     justify-content: center;
+    justify-content: center;
 }
 
 .company-img{
@@ -271,6 +272,75 @@ h2{
     border-bottom: solid 0.1vh black;
 
 }
+
+/* contactform */
+
+.red{
+    width: 5vw;
+    height: 5vw;
+    background-color: red;
+    color: white;
+    /* 中段配置 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.contactbox-text1{
+    justify-content: center;
+    margin-bottom: 0;
+    
+}
+form{
+    
+    width: 90vw;
+    margin: 0 auto;
+    background-color: #fbfbfb;
+    border: 3px solid #ebebeb;
+    border-radius: 10px;
+    
+}
+div label{
+    font-size: 1.5vw;
+    width: 15vw;
+    background-color: lightblue;
+    text-align: center;
+    /* 中段配置 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+form div{
+    display: flex;
+    padding: 15px;
+    
+}
+.contactbox-text, textarea, .dropdown{
+    width: 50vw;
+   
+    border: 1px solid #dfdfdf;
+    padding: 5px;
+    color:black;
+    
+    
+}
+
+    
+.submit{
+    border: 1px solid lightgray; 
+    padding: 4px 10px;
+    color: black;
+    background-color: lightblue;
+    border-radius: 5px;
+    border-bottom: 2px solid gray;
+}
+
+
+
+
 /* footer */
 footer{
     position:fixed;

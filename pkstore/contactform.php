@@ -26,11 +26,42 @@
             <li><a href="sns.php">SNS</li>
             <li><a href="index.php">新着情報</li>
             <li><a href="store_info.php">店舗情報</a></li>
-            <li><a href="login.php">お問い合わせ</a></li>
+            <li><a href="contactform.php">お問い合わせ</a></li>
         </ul>
     </div>
  </header>
- <main>
+ <main class="contact-page">
+ <h3>お問い合わせフォーム</h3>
+ <div class="contactbox">
+    <form method="post"  action="mail_confirm.php">
+        <div class="contactbox-text1">
+            <label for="必須" class="red">必須</label>
+            <label for="名前">名前</label>
+            <input type="text" class="contactbox-text" size="35" name="name">
+        </div>
+        <div class="contactbox-text1">
+            <label for="必須" class="red">必須</label>
+            <label for="メールアドレス">メールアドレス</label>
+            <input type="text" class="contactbox-text" size="35" name="mail">
+        </div>
+        <div class="contactbox-text1">
+            <label for="必須" class="red">必須</label>
+            <label for="電話番号">電話番号</label>
+            <input type="text" class="contactbox-text" size="35" name="mail">
+
+        </div>
+
+        <div class="contactbox-text1">
+            <label for="必須" class="red">必須</label>
+            <label for="コメント">お問い合わせ内容</label>
+            <br>
+            <textarea name="comments" cols="30" rows="8"></textarea>
+        </div>
+        <div class="contactbox-text1">
+            <input type="submit" class="submit"value="送信する">
+        </div>
+    </form>
+</div>
 
         
  </main>
@@ -39,8 +70,8 @@
     <div class="footer-l">
         <img src="img/logo.png" alt="PKstoreのロゴ" class="img">
         <ul>
-            <li><a href="index.php" class="fotter-text">Company</a></li>
-            <li><a href="index.php" class="fotter-text">Contact</a></li>
+            <li><a href="company.php" class="fotter-text">Company</a></li>
+            <li><a href="contactform.php" class="fotter-text">Contact</a></li>
             <li><a href="store_info.php" class="fotter-text">Map</a></li>
         </ul>
     </div>
