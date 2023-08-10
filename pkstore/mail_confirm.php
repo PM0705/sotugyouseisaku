@@ -26,41 +26,57 @@
             <li><a href="sns.php">SNS</li>
             <li><a href="index.php">新着情報</li>
             <li><a href="store_info.php">店舗情報</a></li>
-            <li><a href="contactform.php">お問い合わせ</a></li>
+            <li><a href="mail.php">お問い合わせ</a></li>
         </ul>
     </div>
  </header>
  <main class="contact-page">
- <h3>お問い合わせフォーム</h3>
- <div class="contactbox">
-    <form method="post"  action="mail_confirm.php">
+ <h3>お問い合わせ内容確認</h3>
+ <div class="contactbox confirm">
+        <p>お問い合わせの内容は、こちらで宜しいでしょうか？
+            <br>よろしければ「送信する」ボタンを押してください。
+        </p>
         <div class="contactbox-text1">
-            <label for="必須" class="red">必須</label>
-            <label for="名前">名前</label>
-            <input type="text" class="contactbox-text" size="35" name="name">
+            <p for="名前">名前:
+            <?php
+            echo $_POST['name'];
+            ?></p>
         </div>
         <div class="contactbox-text1">
-            <label for="必須" class="red">必須</label>
-            <label for="メールアドレス">メールアドレス</label>
-            <input type="text" class="contactbox-text" size="35" name="mail">
+            <p for="メールアドレス">メールアドレス:
+            <?php
+           echo $_POST['mail'];
+           ?>
+           </p>
         </div>
         <div class="contactbox-text1">
-            <label for="必須" class="red">必須</label>
-            <label for="電話番号">電話番号</label>
-            <input type="text" class="contactbox-text" size="35" name="mail">
+            <p for="電話">電話:
+            <?php
+           echo $_POST['tel'];
+           ?>
+           </p>
+        </div>
+        <div class="contactbox-text1">
+            <p for="お問い合わせ内容">お問い合わせ内容:</p>
+            <p><?php
+           echo $_POST['comments'];
+           ?></p>
+           
+        </div>
 
+        <div class="submit-confirm">
+            <form action="mail.php">
+                <input type="submit" class="submit" value="戻って修正する">
+            </form>
+            <form action="mail_complete.php"method="post">
+                <input type="submit" class="submit" value="送信する">
+                <input type="hidden" value="<?php echo $_POST['name']; ?>" name="name">
+                <input type="hidden" value="<?php echo $_POST['mail']; ?>" name="mail">
+                <input type="hidden" value="<?php echo $_POST['tel']; ?>" name="tel">
+                <input type="hidden" value="<?php echo $_POST['comments']; ?>" name="comments">
+            </form>
         </div>
-
-        <div class="contactbox-text1">
-            <label for="必須" class="red">必須</label>
-            <label for="コメント">お問い合わせ内容</label>
-            <br>
-            <textarea name="comments" cols="30" rows="8"></textarea>
-        </div>
-        <div class="contactbox-text1">
-            <input type="submit" class="submit"value="送信する">
-        </div>
-    </form>
+        
 </div>
 
         
@@ -71,7 +87,7 @@
         <img src="img/logo.png" alt="PKstoreのロゴ" class="img">
         <ul>
             <li><a href="company.php" class="fotter-text">Company</a></li>
-            <li><a href="contactform.php" class="fotter-text">Contact</a></li>
+            <li><a href="mail.php" class="fotter-text">Contact</a></li>
             <li><a href="store_info.php" class="fotter-text">Map</a></li>
         </ul>
     </div>

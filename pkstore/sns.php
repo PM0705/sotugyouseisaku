@@ -26,7 +26,7 @@
             <li><a href="sns.php">SNS</li>
             <li><a href="sns.php">新着情報</li>
             <li><a href="store_info.php">店舗情報</a></li>
-            <li><a href="login.php">お問い合わせ</a></li>
+            <li><a href="mail.php">お問い合わせ</a></li>
         </ul>
     </div>
  </header>
@@ -46,7 +46,7 @@
         <img src="img/logo.png" alt="PKstoreのロゴ" class="img">
         <ul>
             <li><a href="index.php" class="fotter-text">Company</a></li>
-            <li><a href="index.php" class="fotter-text">Contact</a></li>
+            <li><a href="mail.php" class="fotter-text">Contact</a></li>
             <li><a href="store_info.php" class="fotter-text">Map</a></li>
         </ul>
     </div>

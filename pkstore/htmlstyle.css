@@ -52,12 +52,9 @@ li{
     list-style:none 
 }
 /* main */
-main,
- .main-store,
- .contact-page{
+main{
     height: auto;
-    
-    
+
 }
 
 /* スライドショー */
@@ -273,7 +270,7 @@ h2{
 
 }
 
-/* contactform */
+/* mail */
 
 .red{
     width: 5vw;
@@ -292,15 +289,7 @@ h2{
     margin-bottom: 0;
     
 }
-form{
-    
-    width: 90vw;
-    margin: 0 auto;
-    background-color: #fbfbfb;
-    border: 3px solid #ebebeb;
-    border-radius: 10px;
-    
-}
+
 div label{
     font-size: 1.5vw;
     width: 15vw;
@@ -318,9 +307,8 @@ form div{
     padding: 15px;
     
 }
-.contactbox-text, textarea, .dropdown{
+.contactbox-text, textarea{
     width: 50vw;
-   
     border: 1px solid #dfdfdf;
     padding: 5px;
     color:black;
@@ -338,9 +326,23 @@ form div{
     border-bottom: 2px solid gray;
 }
 
-
-
-
+/* mail_confirm */
+.confirm > p{
+    text-align: center;
+    color: red;
+}
+.confirm .contactbox-text1{
+    width: 100vw;
+    
+    text-align: center;
+    
+}
+.submit-confirm{
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    gap: 6px 10px; /* 余白 */
+}
 /* footer */
 footer{
     position:fixed;
