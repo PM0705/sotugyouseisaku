@@ -19,7 +19,7 @@
         <img src="img/character.png" alt="PKstoreのキャラクター" class="img">
     </div>
     <div class="header-right">
-        <a href="index.php">ログイン・会員登録はこちら</a>
+        <a href="login.php">ログイン・会員登録はこちら</a>
         <ul>
             <!-- ログインしていない -->
             <li><a href="index.php">グッズ販売</a></li>

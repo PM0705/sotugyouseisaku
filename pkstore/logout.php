@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PKstoreWELCOM</title>
+    <title>ログアウト完了</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="css/6-1-7.css">
     
@@ -30,7 +30,17 @@
         </ul>
     </div>
  </header>
- <main>
+ <main class="contact-page">
+ <h3>ログアウト完了</h3>
+    <div class="complete">
+        <h2>ログアウトが完了しました</h2>
+        <p>PKストアをご利用いただき、ありがとうございました。</p>
+        <div class="button">
+        <button onclick="location.href='index.php'" class="submit">HOMEへ戻る</button>
+        </div>
+    </div>
+    
+    
 
         
  </main>
@@ -39,7 +49,7 @@
     <div class="footer-l">
         <img src="img/logo.png" alt="PKstoreのロゴ" class="img">
         <ul>
-            <li><a href="index.php" class="fotter-text">Company</a></li>
+            <li><a href="company.php" class="fotter-text">Company</a></li>
             <li><a href="mail.php" class="fotter-text">Contact</a></li>
             <li><a href="store_info.php" class="fotter-text">Map</a></li>
         </ul>

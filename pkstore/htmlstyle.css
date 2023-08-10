@@ -2,7 +2,8 @@
 body {
     margin: 0;
     padding: 0;
-    padding-bottom:5vh;
+    height: auto;
+    
  }
 
 /* header */
@@ -54,6 +55,7 @@ li{
 /* main */
 main{
     height: auto;
+    
 
 }
 
@@ -317,7 +319,7 @@ form div{
 }
 
     
-.submit{
+.submit {
     border: 1px solid lightgray; 
     padding: 4px 10px;
     color: black;
@@ -381,6 +383,58 @@ form div{
     margin-left: 10px;
 
 }
+
+/* login */
+
+.loginform{
+    /* 中段配置 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.loginform{
+    display: flex;
+    width: 100vw;
+    height: auto;
+    justify-content: center;
+    
+}
+.loginform-div{
+    width: 70vw;
+    /* 中段配置 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginform-div label{
+    
+    width: 61vw;
+    font-size: 1vw;
+
+}
+.loginform-div input{
+    
+    width: 60vw;
+    height: 3vw;
+}
+.submit-confirm{
+    background-color: lightblue;
+}
+.sub-confirm{
+    justify-content: center;
+}
+.new-ac{
+    text-align: center;
+    justify-content: center;
+    gap: 6px 10px; /* 余白 */
+    color: red;
+    font-size: 2vw;
+}
+
+
 
 
 

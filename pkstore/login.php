@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PKstoreWELCOM</title>
+    <title>ログイン</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="css/6-1-7.css">
     
@@ -30,16 +30,45 @@
         </ul>
     </div>
  </header>
- <main>
+ <main class="login-page">
+ <h3>ログイン</h3>
+ <div class="loginform">  
+        <form  id="loginForm" name="loginForm" action="login.php" method="POST">
+            <div><?php error_reporting(0); echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></div>
+            <div class="loginform-div"><label for="mail">メールアドレス※ <br>半角英数字、半角ハイフンのみ可</label>
+                <input type="text" name="mail" id="mail" maxlength="100"
+                            title="半角英数字、半角ハイフンでご入力ください"><br>
+                    <span class="err-msg-mail"></span>
+            </div>
+            
+            <!-- パスワード -->
+            <div class="loginform-div">
+                <label for="password">パスワード<br>※半角英数字のみ入力可</label>
+                <input type="password" name="password" id="password" maxlength="10"
+                            title="半角英数字でご入力ください"><br>
+                    <span class="err-msg-password"></span>
+                </div>
 
-        
+            <!-- ログインボタン -->
+
+            <div class="sub-confirm">
+            <button class="submit-confirm" type="submit" name="login">ログインする</button>
+            </div>
+            <div class="new-ac">
+            <a href="login.php">会員登録はこちら</a><br>
+            <a href="logout.php">ログアウト（仮）</a>
+            </div>
+            
+        </form> 
+</div>    
+      
  </main>
  <footer>
     
     <div class="footer-l">
         <img src="img/logo.png" alt="PKstoreのロゴ" class="img">
         <ul>
-            <li><a href="index.php" class="fotter-text">Company</a></li>
+            <li><a href="company.php" class="fotter-text">Company</a></li>
             <li><a href="mail.php" class="fotter-text">Contact</a></li>
             <li><a href="store_info.php" class="fotter-text">Map</a></li>
         </ul>

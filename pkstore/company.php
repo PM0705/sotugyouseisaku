@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PKstoreWELCOM</title>
+    <title>PKstoreについて</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="css/6-1-7.css">
     
@@ -19,7 +19,7 @@
         <img src="img/character.png" alt="PKstoreのキャラクター" class="img">
     </div>
     <div class="header-right">
-        <a href="index.php">ログイン・会員登録はこちら</a>
+        <a href="login.php">ログイン・会員登録はこちら</a>
         <ul>
             <!-- ログインしていない -->
             <li><a href="index.php">グッズ販売</a></li>
