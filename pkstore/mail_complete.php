@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>お問い合わせ内容確認</title>
+    <title>お問い合わせ完了</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="css/6-1-7.css">
     
@@ -31,53 +31,18 @@
     </div>
  </header>
  <main class="contact-page">
- <h3>お問い合わせ内容確認</h3>
- <div class="contactbox confirm">
-        <p>お問い合わせの内容は、こちらで宜しいでしょうか？
-            <br>よろしければ「送信する」ボタンを押してください。
+ <h3>お問合せ完了</h3>
+    <div class="complete">
+        <h2>お問い合わせが完了しました</h2>
+        <p>お問い合わせありがとうございます。
+            <br>お問い合わせが完了いたしましたので引き続きPKストアをお楽しみくださいませ。
         </p>
-        <div class="contactbox-text1">
-            <p for="名前">名前:
-            <?php
-            echo $_POST['name'];
-            ?></p>
+        <div class="button">
+        <button onclick="location.href='index.php'" class="submit">HOMEへ戻る</button>
         </div>
-        <div class="contactbox-text1">
-            <p for="メールアドレス">メールアドレス:
-            <?php
-           echo $_POST['mail'];
-           ?>
-           </p>
-        </div>
-        <div class="contactbox-text1">
-            <p for="電話">電話:
-            <?php
-           echo $_POST['tel'];
-           ?>
-           </p>
-        </div>
-        <div class="contactbox-text1">
-            <p for="お問い合わせ内容">お問い合わせ内容:</p>
-            <p><?php
-           echo $_POST['comments'];
-           ?></p>
-           
-        </div>
-
-        <div class="submit-confirm">
-            <form action="mail.php">
-                <input type="submit" class="submit" value="戻って修正する">
-            </form>
-            <form action="mail_complete.php"method="post">
-                <input type="submit" class="submit" value="送信する">
-                <input type="hidden" value="<?php echo $_POST['name']; ?>" name="name">
-                <input type="hidden" value="<?php echo $_POST['mail']; ?>" name="mail">
-                <input type="hidden" value="<?php echo $_POST['tel']; ?>" name="tel">
-                <input type="hidden" value="<?php echo $_POST['comments']; ?>" name="comments">
-            </form>
-        </div>
-        
-</div>
+    </div>
+    
+    
 
         
  </main>

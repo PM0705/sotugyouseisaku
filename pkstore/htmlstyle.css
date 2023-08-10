@@ -327,14 +327,25 @@ form div{
 }
 
 /* mail_confirm */
+.confirm{
+    /* 中段配置 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
 .confirm > p{
     text-align: center;
     color: red;
+    
 }
 .confirm .contactbox-text1{
     width: 100vw;
     
     text-align: center;
+    width: 50%;
+    word-wrap: break-word;
     
 }
 .submit-confirm{
@@ -343,6 +354,38 @@ form div{
     justify-content: center;
     gap: 6px 10px; /* 余白 */
 }
+
+/* mail_conplete*/
+.complete{
+    /* 中段配置 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.complete > .button{
+   
+   display: flex;
+   justify-content: center;
+   margin-top: 30px;
+
+}
+.complete > h2{
+    text-align: center;
+    font-size: 5vw;
+    margin-left: 10px;
+}
+.complete >p{
+    text-align: center;
+    width: 95vw;
+    margin-left: 10px;
+
+}
+
+
+
+
+
 /* footer */
 footer{
     position:fixed;
