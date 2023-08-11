@@ -55,7 +55,7 @@
             <button class="submit-confirm" type="submit" name="login">ログインする</button>
             </div>
             <div class="new-ac">
-            <a href="login.php">会員登録はこちら</a><br>
+            <a href="regist.php">会員登録はこちら</a><br>
             <a href="logout.php">ログアウト（仮）</a>
             </div>
             
