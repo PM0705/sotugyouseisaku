@@ -44,15 +44,15 @@ error_reporting(0);
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="family_name">名前（姓）<br>※漢字・ひらがなのみ可</label>
-                <input type="text" class="text" id="family_name" maxlength="10" size="35"
-                        pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*"value="<?= $_POST['family_name'] ?>"
+                <input type="text" class="text" name="family_name" id="family_name" maxlength="10" size="35"
+                        pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" value="<?= $_POST['family_name'] ?>"
                         title="漢字・ひらがなでご入力ください"><br> 
                 <span class="err-msg-family_name"></span>
             </div>
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="last_name">名前（名）※漢字・ひらがなのみ可</label>
-                <input type="text" class="text" id="last_name" maxlength="10" size="35"
+                <input type="text" class="text" name="last_name" id="last_name" maxlength="10" size="35"
                         pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" value="<?= $_POST['last_name'] ?>"
                         title="漢字・ひらがなでご入力ください"><br> 
                 <span class="err-msg-last_name"></span>
@@ -60,7 +60,7 @@ error_reporting(0);
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="family_name_kana">カナ（姓）※全角カタカナのみ可</label>
-                <input type="text" class="text" id="family_name_kana" maxlength="10" size="35"
+                <input type="text" class="text" name="family_name_kana" id="family_name_kana" maxlength="10" size="35"
                         pattern="^[\u30A0-\u30FF]+$" value="<?= $_POST['family_name_kana'] ?>"
                         title="全角カタカナでご入力ください"><br> 
                 <span class="err-msg-family_name_kana"></span>
@@ -68,7 +68,7 @@ error_reporting(0);
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="last_name_kana">カナ（名）<br>※全角カタカナのみ可</label>
-                <input type="text" class="text" id="last_name_kana" maxlength="10" size="35"
+                <input type="text" class="text" name="last_name_kana" id="last_name_kana" maxlength="10" size="35"
                         pattern="^[\u30A0-\u30FF]+$" value="<?= $_POST['last_name_kana'] ?>"
                         title="全角カタカナでご入力ください"><br> 
                 <span class="err-msg-last_name_kana"></span>
@@ -77,7 +77,7 @@ error_reporting(0);
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="mail">メールアドレス<br>※半角英数字、記号のみ可</label>
-                <input type="text" class="text" id="mail" maxlength="10" size="35"
+                <input type="text" class="text" name="mail" id="mail" maxlength="10" size="35"
                         pattern="^[a-zA-Z0-9\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-]+$" value="<?= $_POST['mail'] ?>"
                         title="半角英数字、記号でご入力ください"><br> 
                 <span class="err-msg-mail"></span>
@@ -86,7 +86,7 @@ error_reporting(0);
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="password">パスワード※半角英数字のみ入力可</label>
-                <input type="text" class="text" id="password" maxlength="10" size="35"
+                <input type="text" class="text" name="password" id="password" maxlength="10" size="35"
                         pattern="^[a-zA-Z0-9]+$" value="<?= $_POST['password'] ?>"
                         title="半角英数字でご入力ください"><br> 
                 <span class="err-msg-password"></span>
@@ -103,7 +103,7 @@ error_reporting(0);
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="postal_code">郵便番号<br>※半角数字 7文字</label>
-                <input type="text" class="text" id="postal_code" maxlength="7" size="35"
+                <input type="text" class="text" name="postal_code" id="postal_code" maxlength="7" size="35"
                         pattern="^[\d]{7}" value="<?= $_POST['postal_code'] ?>"
                         title="半角数字７文字でご入力ください"><br> 
                 <span class="err-msg-postal_code"></span>
@@ -164,7 +164,7 @@ error_reporting(0);
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="address_1">住所（市区町村）<br>※全角で入力/スペースのみ不可</label>
-                <input type="text" class="text" id="address_1" maxlength="10" size="35"
+                <input type="text" class="text"  name="address_1" id="address_1" maxlength="10" size="35"
                         pattern="[\d\u30A1-\u30F6\u4E00-\u9FFF\u3040-\u309Fー\s　\-]*" value="<?= $_POST['address_1'] ?>"
                         title="全角で入力してください/スペースのみ不可"><br> 
                 <span class="err-msg-address_1"></span>
@@ -173,7 +173,7 @@ error_reporting(0);
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="address_2">住所（市区町村）<br>※全角で入力/スペースのみ不可</label>
-                <input type="text" class="text" id="address_2" maxlength="10" size="35"
+                <input type="text" class="text" name="address_2" id="address_2" maxlength="10" size="35"
                         pattern="[\d\u30A1-\u30F6\u4E00-\u9FFF\u3040-\u309Fー\s　\-]*" value="<?= $_POST['address_2'] ?>"
                         title="全角で入力してください/スペースのみ不可"><br> 
                 <span class="err-msg-address_2"></span>
@@ -182,7 +182,7 @@ error_reporting(0);
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="authority">アカウント権限</label>
-                <select name="authority" id="authority" value=array()>
+                <select name="authority" name="authority" id="authority" value=array()>
                     <option value="0"<?php if (isset($_POST['authority']) && $_POST['authority'] == "0") echo 'selected'; ?>>一般</option>
                     <option value="1"<?php if (isset($_POST['authority']) && $_POST['authority'] == "1") echo 'selected'; ?>>管理者</option>
                 </select><br>

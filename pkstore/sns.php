@@ -19,12 +19,12 @@
         <img src="img/character.png" alt="PKstoreのキャラクター" class="img">
     </div>
     <div class="header-right">
-        <a href="index.php">ログイン・会員登録はこちら</a>
+        <a href="login.php">ログイン・会員登録はこちら</a>
         <ul>
             <!-- ログインしていない -->
             <li><a href="index.php">グッズ販売</a></li>
             <li><a href="sns.php">SNS</li>
-            <li><a href="sns.php">新着情報</li>
+            <li><a href="news.php">新着情報</li>
             <li><a href="store_info.php">店舗情報</a></li>
             <li><a href="mail.php">お問い合わせ</a></li>
         </ul>
@@ -42,10 +42,10 @@
  </main>
  <footer>
     
-    <div class="footer-l">
+ <div class="footer-l">
         <img src="img/logo.png" alt="PKstoreのロゴ" class="img">
         <ul>
-            <li><a href="index.php" class="fotter-text">Company</a></li>
+            <li><a href="company.php" class="fotter-text">Company</a></li>
             <li><a href="mail.php" class="fotter-text">Contact</a></li>
             <li><a href="store_info.php" class="fotter-text">Map</a></li>
         </ul>
