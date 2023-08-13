@@ -536,6 +536,18 @@ form{
     
     
 }
+/* NEWグッズ詳細ページ */
+.new-goods{
+    background-color: lightgoldenrodyellow;
+    text-align: center;
+}
+
+.new-goods-text{
+    font-size: 1vw;
+    word-wrap: break-word;
+    background-color: lightgrey; 
+}
+
 
 
 

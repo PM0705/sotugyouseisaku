@@ -31,23 +31,54 @@
     </div>
  </header>
  <main >
-    <h3>Info</h3>
-    <div class="news-page-main">
-
-        <div class="news-page">
-            <img src="img/slide-news.png" alt="スライド情報詳細画像" class="news-page-img">
-            <p class="news-text">
+ <h3>NEW〜グッズ〜</h3>
+    <div class="info">
+        <div class="relative new-goods">
+            <a href="new-goods.php"><img src="img/newg1.png" alt="newg1" class="info-img"></a>
+            <img src="img/newIcon.png" alt="newIcon" class="absolute">
+            <p class="new-goods-text">
                 texttexttexttexttexttexttexttexttexttexttexttexttext
                 <br>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
             </p>
-            <div class="button">
-            <button onclick="location.href='index.php'" class="submit">HOMEへ戻る</button>
+            <div class="submit-confirm">
+            <button onclick="location.href='buyItem.php'" class="submit">カートに入れる</button>
             </div>
         </div>
-    </div>
-
-
+        <div class="relative new-goods">
+            <a href="new-goods.php"><img src="img/newg2.png" alt="newg2" class="info-img"></a>
+            <img src="img/newIcon.png" alt="newIcon" class="absolute">
+            <p class="new-goods-text">
+                texttexttexttexttexttexttexttexttexttexttexttexttext
+                <br>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+            </p>
+            <div class="submit-confirm">
+            <button onclick="location.href='buyItem.php'" class="submit">カートに入れる</button>
+            </div>
+        </div>
+        <div class="relative new-goods">
+            <a href="new-goods.php"><img src="img/newg3.png" alt="newg3" class="info-img"></a>
+            <img src="img/newIcon.png" alt="newIcon" class="absolute">
+            <p class="new-goods-text">
+                texttexttexttexttexttexttexttexttexttexttexttexttext
+                <br>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+            </p>
+            <div class="submit-confirm">
+            <button onclick="location.href='buyItem.php'" class="submit">カートに入れる</button>
+            </div>
+        </div>
+        <div class="relative new-goods">
+            <a href="new-goods.php"><img src="img/newg3.png" alt="newg4" class="info-img"></a>
+            <img src="img/newIcon.png" alt="newIcon" class="absolute">
+            <p class="new-goods-text">
+                texttexttexttexttexttexttexttexttexttexttexttexttext
+                <br>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
+            </p>
+            <div class="submit-confirm">
+            <button onclick="location.href='buyItem.php'" class="submit">カートに入れる</button>
+            </div>
+        </div>
         
+    </div>
  </main>
  <footer>
     
