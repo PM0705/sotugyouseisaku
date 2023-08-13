@@ -39,7 +39,7 @@ header .header-right{
 }
 
 .img{
-    width: 150px;
+    width: 15vw;
     margin-left: 20px; 
 }
 ul{
@@ -144,20 +144,34 @@ h3{
     font-weight: lighter;
 }
 /* NEW〜情報〜 */
-.info{
+/* NEW〜グッズ〜 */
+/* NEW〜ランキング〜 */
+.info, .info-img{
     width:94%;
     margin:0 auto;
     padding: 2.5% 0;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    gap: 1vw ; /* 余白 */
 }
-.info > *{
+/*中央に等間隔 */
+.info > * {
     min-width: 8%;
     flex-basis: 25%;
     background: #fff;
     font-size: 64px;
     text-align: center;
+  }
+/*NEWIcon*/
+.relative {
+    position: relative;
+  }
+  .absolute {
+    width: 10vw;
+    position: absolute;
+    left: 1px;
+    top: 10px;
   }
 /* 店舗情報 */
 
