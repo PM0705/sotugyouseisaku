@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>カートの中身</title>
+    <title>購入完了</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="css/6-1-7.css">
     
@@ -18,7 +18,6 @@
         <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
         <img src="img/character.png" alt="PKstoreのキャラクター" class="img">
     </div>
-    <a href="login.php">カートの中身（仮）</a>
     <div class="header-right">
         <a href="login.php">ログイン・会員登録はこちら</a>
         <ul>
@@ -31,45 +30,21 @@
         </ul>
     </div>
  </header>
- <main class="buyItem-page">
- <h3>カートの中身</h3>
-    <form method="post"  action="buyItem_comfirm.php" class="buyItem-form">
-        <table class="buyItem">
-            <tr class="buyItem-tr">
-                <th class="th-width10">削除</th>
-                <th class="th-width30">商品内容</th>
-                <th class="th-width30">数量</th>
-                <th class="th-width30">小計</th>
-            </tr>
-            <tr>
-                <td>削除</td>
-                <td>
-                    <div class="Item-img">
-                        <img src="img/NEWg1.png" alt="商品画像" class="Itemimg">
-                        <label for="名前">名前</label>
-                        <label for="名前" name="item_name">texttexttexttexttexttext</label>
-                    </div>
-                </td>
-                <td><div class="Item-img"><img src="img/NEWg1.png" alt="商品画像" class="Itemimg">
-                    <p name="item_name">texttexttexttexttexttext</p></div>
-                </td>
-                <td name="count">2</td>
-                <td name="price">¥2000</td>
-            </tr>
-        </table>
-        <p name="total_price">合計:¥2000</p>
-            <div class="contactbox-submit">
-                <input type="submit" class="submit Item-submit"value="レジに進む">
-            </div>  
-    </form>
-    <div class="contactbox-submit">
-    <form action="" class="buyItem-submit">
-            <input type="submit" class="submit Item-submit" value="戻って修正する">
-    </form>
-    </div>  
-        
+ <main class="contact-page">
+ <h3>購入完了</h3>
+    <div class="complete">
+        <h2>ご購入ありがとうございます！</h2>
+        <p>PKストアをご利用いただき、ありがとうございます。
+            <br>引き続きPKストアをお楽しみくださいませ。
+        </p>
+        <div class="button">
+        <button onclick="location.href='index.php'" class="submit">HOMEへ戻る</button>
+        </div>
+    </div>
+    
+    
 
- 
+        
  </main>
  <footer>
     

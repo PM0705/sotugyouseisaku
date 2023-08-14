@@ -1,10 +1,14 @@
+<?php
+error_reporting(0);
+?>
+
 <!DOCTYPE html>
 <html lang="jp">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>カートの中身</title>
+    <title>購入確認ページ</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="css/6-1-7.css">
     
@@ -32,8 +36,59 @@
     </div>
  </header>
  <main class="buyItem-page">
- <h3>カートの中身</h3>
-    <form method="post"  action="buyItem_comfirm.php" class="buyItem-form">
+ <h3>購入最終確認</h3>
+
+ <div class="contactbox buyItem-confirm">
+        <p>まだ注文は完了していません
+            <br>よろしければ「購入する」ボタンを押してください。
+        </p>
+        <div class="contactbox-text1">
+            <p for="商品名">商品名:
+            <?php
+            echo $_POST['item_name'];
+            ?></p>
+        </div>
+        <div class="contactbox-text1">
+            <p for="購入個数">購入個数:
+            <?php
+           echo $_POST['count'];
+           ?>
+           </p>
+        </div>
+        <div class="contactbox-text1">
+            <p for="値段">値段:
+            <?php
+           echo $_POST['price'];
+           ?>
+           </p>
+        </div>
+        <div class="contactbox-text1">
+            <p for="合計金額">合計金額:</p>
+            <p><?php
+           echo $_POST['total_price'];
+           ?></p>
+           
+        </div>
+
+        <div class="submit-confirm">
+            <form action="mail.php">
+                <input type="submit" class="submit" value="戻って修正する">
+            </form>
+            <form action="mail_complete.php"method="post">
+                <input type="submit" class="submit" value="送信する">
+                <input type="hidden" value="<?php echo $_POST['name']; ?>" name="name">
+                <input type="hidden" value="<?php echo $_POST['mail']; ?>" name="mail">
+                <input type="hidden" value="<?php echo $_POST['tel']; ?>" name="tel">
+                <input type="hidden" value="<?php echo $_POST['comments']; ?>" name="comments">
+            </form>
+        </div>
+        
+</div>
+
+
+
+
+    <form method="post"  action="" class="buyItem-form">
         <table class="buyItem">
             <tr class="buyItem-tr">
                 <th class="th-width10">削除</th>
@@ -43,21 +98,14 @@
             </tr>
             <tr>
                 <td>削除</td>
-                <td>
-                    <div class="Item-img">
-                        <img src="img/NEWg1.png" alt="商品画像" class="Itemimg">
-                        <label for="名前">名前</label>
-                        <label for="名前" name="item_name">texttexttexttexttexttext</label>
-                    </div>
-                </td>
                 <td><div class="Item-img"><img src="img/NEWg1.png" alt="商品画像" class="Itemimg">
-                    <p name="item_name">texttexttexttexttexttext</p></div>
+                    <p>texttexttexttexttexttext</p></div>
                 </td>
-                <td name="count">2</td>
-                <td name="price">¥2000</td>
+                <td>2</td>
+                <td>¥2000</td>
             </tr>
         </table>
-        <p name="total_price">合計:¥2000</p>
+        <p>合計:¥2000</p>
             <div class="contactbox-submit">
                 <input type="submit" class="submit Item-submit"value="レジに進む">
             </div>  
