@@ -590,6 +590,15 @@ form{
     
 }
 
+/* 管理者 */
+
+.authority{
+    display: block;
+    margin-left: 5vw;
+    font-size: 3vw;
+}
+
+
 
 
 
