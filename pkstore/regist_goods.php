@@ -26,7 +26,7 @@ error_reporting(0);
         <a href="login.php">ログイン・会員登録はこちら</a>
         <ul>
 <!-- ログインしていない -->
-            <li><a href="index.php">グッズ販売</a></li>
+            <li><a href="pk_onlineshop.php">グッズ販売</a></li>
             <li><a href="sns.php">SNS</li>
             <li><a href="index.php">新着情報</li>
             <li><a href="store_info.php">店舗情報</a></li>
@@ -91,7 +91,7 @@ error_reporting(0);
                             <option value='<?= $_POST["category"] ?>'selected><?php echo $_POST["category"]?></option>
                             <?php
                 
-                                        $cate = array ('カバン','文豪具','タオル','その他');
+                                        $cate = array ('カバン','文房具','タオル','その他');
                                                 foreach($cate as $cate){
                                                     
                                         
@@ -103,7 +103,7 @@ error_reporting(0);
                         <?php else :?>
                                     <?php
                 
-                                        $cate = array ('','カバン','文豪具','タオル','その他');
+                                        $cate = array ('','カバン','文房具','タオル','その他');
                                                 foreach($cate as $cate){
                                                     
                                         

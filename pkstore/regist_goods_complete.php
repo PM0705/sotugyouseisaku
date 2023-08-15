@@ -26,7 +26,7 @@ error_reporting(0);
         <a href="login.php">ログイン・会員登録はこちら</a>
         <ul>
 <!-- ログインしていない -->
-            <li><a href="index.php">グッズ販売</a></li>
+            <li><a href="pk_onlineshop.php">グッズ販売</a></li>
             <li><a href="sns.php">SNS</li>
             <li><a href="index.php">新着情報</li>
             <li><a href="store_info.php">店舗情報</a></li>
