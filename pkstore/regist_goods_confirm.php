@@ -8,7 +8,7 @@ error_reporting(0);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>商品管理</title>
+    <title>商品登録</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="css/6-1-7.css">
     
@@ -35,15 +35,90 @@ error_reporting(0);
     </div>
  </header>
  <main class="regist-page">
-      <h3>表品登録完了</h3>
-      <div class="confirm">
-         <div><?php echo htmlspecialchars($message, ENT_QUOTES); ?></div>
-         <form action="index.php">
-         <button onclick="location.href='index.php'" class="submit" value="TOPページへ戻る" >
-                  TOPページへ戻る          
-         </button>
-         </form>
-      </div>
+ <h3>商品登録フォーム</h3>
+
+ <div class="confirm">
+        <p>アイテム名:
+           <?php
+           echo $_POST['item_name'];
+           ?>
+        </p>
+        <p>値段:
+           <?php
+           echo $_POST['item_price'];
+           ?>
+        </p>
+        <p>在庫:
+           <?php
+           echo $_POST['item_stock'];
+           ?>
+        </p>
+        <p>キーワード:
+           <?php
+           echo $_POST['keyword'];
+           ?>
+        </p>
+        <p>カテゴリー:
+           <?php
+           echo $_POST['category'];
+           ?>
+        </p>
+        <p>NEW:
+           <?php
+           error_reporting(0);
+           if ($_POST['new'] == 0) {
+               echo "ON";
+               }else{
+                    echo "OFF";
+            }
+           ?>
+        </p>
+        <p>表示:
+           <?php
+           error_reporting(0);
+           if ($_POST['display'] == 0) {
+               echo "ON";
+               }else{
+                    echo "OFF";
+            }
+           ?>
+        </p>
+        <p>商品画像:
+           <?php
+           error_reporting(0);
+           if($_FILES['item_img_path']['name']){
+            echo $_FILES['item_img_path']['name'];
+            }
+            ?>
+        </p>
+        <div class="form submit1">
+            <form action="regist_goods.php" method="post">  
+                  <input type="submit" class="submit" value="前に戻る" onclick="window.history.back()">
+                  <input type="hidden" value="<?php echo $_POST['item_name']; ?>" name="item_name">
+                  <input type="hidden" value="<?php echo $_POST['item_price']; ?>" name="item_price">
+                  <input type="hidden" value="<?php echo $_POST['item_stock']; ?>" name="item_stock">
+                  <input type="hidden" value="<?php echo $_POST['keyword']; ?>" name="keyword">
+                  <input type="hidden" value="<?php echo $_POST['category']; ?>" name="category">
+                  <input type="hidden" value="<?php echo $_POST['new']; ?>" name="new">
+                  <input type="hidden" value="<?php echo $_POST['item_img_path']; ?>" name="item_img_path">
+
+            </form>
+            <form action="regist_goods_complete.php" method="post">
+            
+                  <input type="submit" class="submit" value="登録する">
+                  <input type="hidden" value="<?php echo $_POST['item_name']; ?>" name="item_name">
+                  <input type="hidden" value="<?php echo $_POST['item_price']; ?>" name="item_price">
+                  <input type="hidden" value="<?php echo $_POST['item_stock']; ?>" name="item_stock">
+                  <input type="hidden" value="<?php echo $_POST['keyword']; ?>" name="keyword">
+                  <input type="hidden" value="<?php echo $_POST['category']; ?>" name="category">
+                  <input type="hidden" value="<?php echo $_POST['new']; ?>" name="new">
+                  <input type="hidden" value="<?php echo $_POST['item_img_path']; ?>" name="item_img_path">
+
+                  
+            </form>
+        </div> 
+    </div>    
+
  </main>
  <footer>
     

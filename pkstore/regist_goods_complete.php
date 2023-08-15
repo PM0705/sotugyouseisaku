@@ -1,10 +1,14 @@
+<?php
+error_reporting(0);
+?>
+
 <!DOCTYPE html>
 <html lang="jp">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>管理者メニュー</title>
+    <title>会員登録フォーム</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="css/6-1-7.css">
     
@@ -17,33 +21,29 @@
     <div class="header-left">
         <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
         <img src="img/character.png" alt="PKstoreのキャラクター" class="img">
-        <a href="buyItem.php">カートの中身（仮）</a>
-        <a href="buyItem.php">管理者用メニュー（仮）</a>
     </div>
-    
     <div class="header-right">
         <a href="login.php">ログイン・会員登録はこちら</a>
         <ul>
-            <!-- ログインしていない -->
+<!-- ログインしていない -->
             <li><a href="index.php">グッズ販売</a></li>
             <li><a href="sns.php">SNS</li>
-            <li><a href="news.php">新着情報</li>
+            <li><a href="index.php">新着情報</li>
             <li><a href="store_info.php">店舗情報</a></li>
             <li><a href="mail.php">お問い合わせ</a></li>
         </ul>
     </div>
  </header>
- <main>
-    <h3>管理者メニュー</h3>
-    <a href="regist_goods.php" class="authority">商品登録</a>
-    <a href="buyItem.php" class="authority">商品編集</a>
-    <a href="buyItem.php" class="authority">情報登録</a>
-    <a href="buyItem.php" class="authority">スライドショー編集</a>
-    <a href="buyItem.php" class="authority">会員リスト（特別管理者用）</a>
-    <a href="buyItem.php" class="authority">お問い合わせ受信リスト</a>
-
-
-
+ <main class="regist-page">
+      <h3>会員登録完了フォーム</h3>
+      <div class="confirm">
+         <div><?php echo htmlspecialchars($message, ENT_QUOTES); ?></div>
+         <form action="index.php">
+         <button onclick="location.href='index.php'" class="submit" value="HOMEへ戻る" >
+                  TOPページへ戻る          
+         </button>
+         </form>
+      </div>
  </main>
  <footer>
     
