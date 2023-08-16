@@ -501,6 +501,8 @@ form{
 /* エラー */
 .form-invalid{
     color: red;
+    text-align: center;
+    background-color: black;
 }
 
 /* regist/comfirm会員管理確認 */

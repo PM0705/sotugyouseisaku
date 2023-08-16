@@ -1,3 +1,13 @@
+<?php
+mb_internal_encoding("utf8");
+$pdo=new PDO("mysql:dbname=pkstore;host=localhost;","root","root");
+$pdo ->exec("insert into contactform(name,mail,tel,comments)
+       values('".$_POST['name']."',
+              '".$_POST['mail']."',
+              '".$_POST['tel']."',
+              '".$_POST['comments']."');
+            ");
+?>
 <!DOCTYPE html>
 <html lang="jp">
 <head>

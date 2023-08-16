@@ -1,3 +1,10 @@
+
+<?php
+error_reporting(0);
+session_start();
+var_dump($_POST);
+?>
+
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -6,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お問い合わせフォーム</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="css/6-1-7.css">
+    
     
     <link rel="stylesheet" href="htmlstyle.css">
     
@@ -33,21 +40,29 @@
  <main class="contact-page">
  <h3>お問い合わせフォーム</h3>
  <div class="contactbox">
-    <form method="post"  action="mail_confirm.php">
+    <form method="post"  action="mail_confirm.php" name="form">
+    <div class="contact-form errorMsg">
         <div class="contactbox-text1">
             <label for="必須" class="red">必須</label>
-            <label for="名前">名前</label>
-            <input type="text" class="contactbox-text" size="35" name="name" value="<?= $_POST['name'] ?>">
+            <label for="namename">名前</label>
+            <input type="text" class="contactbox-text" size="35" name="namename" required
+            title="漢字・ひらがなでご入力ください" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" value="<?= $_POST['name'] ?>">  
         </div>
+        <span class="form-invalid">てすと</span>
+        <span class="err-msg-namename"></span>
+
+
         <div class="contactbox-text1">
             <label for="必須" class="red">必須</label>
             <label for="メールアドレス">メールアドレス</label>
-            <input type="text" class="contactbox-text" size="35" name="mail" value="<?= $_POST['mail'] ?>">
+            <input type="text" class="contactbox-text" size="35" name="mail" required value="<?= $_POST['mail'] ?>">
+            <span class="err-msg-mail"></span>
         </div>
         <div class="contactbox-text1">
             <label for="必須" class="red">必須</label>
             <label for="電話番号">電話番号</label>
-            <input type="text" class="contactbox-text" size="35" name="tel" value="<?= $_POST['tel'] ?>">
+            <input type="tel" class="contactbox-text" size="35"  required name="tel" value="<?= $_POST['tel'] ?>">
+            <span class="err-msg-tel"></span>
 
         </div>
 
@@ -55,13 +70,13 @@
             <label for="必須" class="red">必須</label>
             <label for="コメント">お問い合わせ内容</label>
             <br>
-            <textarea name="comments" cols="30" rows="8" ><?php print($_POST["comments"]); ?>
-            
-            </textarea>
+            <textarea name="comments" cols="30" required rows="8" ><?php print($_POST['comments']); ?></textarea>
+            <span class="err-msg-comments"></span>
         </div>
-        <div class="contactbox-text1">
-            <input type="submit" class="submit"value="送信する">
+        <div class="contact-submit">         
+                <input type="submit" class="submit" value="確認する">
         </div>
+    </div>
     </form>
 </div>
 
@@ -107,6 +122,7 @@
 		dots: true,//下部ドットナビゲーションの表示
 	});
     </script>
-    <script src="js/6-1-7.js"></script>
+    
+    
 </body>
 </html>
