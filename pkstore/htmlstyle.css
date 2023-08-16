@@ -358,20 +358,26 @@ form .contactbox-text1{
     color: red;
     
 }
-.confirm .contactbox-text1{
-    width: 100vw;
-    
-    text-align: center;
-    width: 50%;
-    word-wrap: break-word;
-    
-}
+
 .submit-confirm{
     display: flex;
     padding: 10px;
     justify-content: center;
     gap: 6px 10px; /* 余白 */
 }
+
+.mail-confirm .mail-contactbox-text{ 
+    font-size: 2vw;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+
+
+
+
 
 /* mail_conplete*/
 .complete{

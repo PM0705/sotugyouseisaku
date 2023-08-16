@@ -137,13 +137,8 @@ error_reporting(0);
                   <input type="hidden" value="<?php echo $_POST['address_1']; ?>" name="address_1">
                   <input type="hidden" value="<?php echo $_POST['address_2']; ?>" name="address_2">
                   <input type="hidden" value="<?php echo $_POST['authority']; ?>" name="authority">
-                
-                  <!-- <button type="button" class="button1"  value="前に戻る" onclick="window.history.back()">
-                          前に戻る
-                  </button> -->
-                
-
             </form>
+
             <form action="regist_complete.php" method="post">
             
                   <input type="submit" class="submit" value="登録する">

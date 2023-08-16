@@ -1,3 +1,13 @@
+<?php
+mb_internal_encoding("utf8");
+$pdo=new PDO("mysql:dbname=pkstore;host=localhost;","root","root");
+$pdo ->exec("insert into contactform(name,mail,tel,comments)
+       values('".$_POST['name']."',
+              '".$_POST['mail']."',
+              '".$_POST['tel']."',
+              '".$_POST['comments']."');
+            ");
+?>
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -36,27 +46,27 @@
         <p>お問い合わせの内容は、こちらで宜しいでしょうか？
             <br>よろしければ「送信する」ボタンを押してください。
         </p>
-        <div class="contactbox-text1">
+        <div class="mail-contactbox-text">
             <p for="名前">名前:
             <?php
             echo $_POST['name'];
             ?></p>
         </div>
-        <div class="contactbox-text1">
+        <div class="mail-contactbox-text">
             <p for="メールアドレス">メールアドレス:
             <?php
            echo $_POST['mail'];
            ?>
            </p>
         </div>
-        <div class="contactbox-text1">
+        <div class="mail-contactbox-text">
             <p for="電話">電話:
             <?php
            echo $_POST['tel'];
            ?>
            </p>
         </div>
-        <div class="contactbox-text1">
+        <div class="mail-contactbox-text">
             <p for="お問い合わせ内容">お問い合わせ内容:</p>
             <p><?php
            echo $_POST['comments'];
@@ -65,8 +75,14 @@
         </div>
 
         <div class="submit-confirm">
-            <form action="mail.php">
-                <input type="submit" class="submit" value="戻って修正する">
+            <form action="mail.php" method="post">  
+                <input type="submit" class="submit" value="戻って修正する" onclick="window.history.back()">
+                <input type="hidden" value="<?php echo $_POST['name']; ?>" name="name">
+                <input type="hidden" value="<?php echo $_POST['mail']; ?>" name="mail">
+                <input type="hidden" value="<?php echo $_POST['tel']; ?>" name="tel">
+                <input type="hidden" value="<?php echo $_POST['comments']; ?>" name="comments">
+            </form>
+
             </form>
             <form action="mail_complete.php"method="post">
                 <input type="submit" class="submit" value="送信する">

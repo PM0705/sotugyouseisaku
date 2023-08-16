@@ -37,17 +37,17 @@
         <div class="contactbox-text1">
             <label for="必須" class="red">必須</label>
             <label for="名前">名前</label>
-            <input type="text" class="contactbox-text" size="35" name="name">
+            <input type="text" class="contactbox-text" size="35" name="name" value="<?= $_POST['name'] ?>">
         </div>
         <div class="contactbox-text1">
             <label for="必須" class="red">必須</label>
             <label for="メールアドレス">メールアドレス</label>
-            <input type="text" class="contactbox-text" size="35" name="mail">
+            <input type="text" class="contactbox-text" size="35" name="mail" value="<?= $_POST['mail'] ?>">
         </div>
         <div class="contactbox-text1">
             <label for="必須" class="red">必須</label>
             <label for="電話番号">電話番号</label>
-            <input type="text" class="contactbox-text" size="35" name="tel">
+            <input type="text" class="contactbox-text" size="35" name="tel" value="<?= $_POST['tel'] ?>">
 
         </div>
 
@@ -55,7 +55,9 @@
             <label for="必須" class="red">必須</label>
             <label for="コメント">お問い合わせ内容</label>
             <br>
-            <textarea name="comments" cols="30" rows="8"></textarea>
+            <textarea name="comments" cols="30" rows="8" ><?php print($_POST["comments"]); ?>
+            
+            </textarea>
         </div>
         <div class="contactbox-text1">
             <input type="submit" class="submit"value="送信する">
