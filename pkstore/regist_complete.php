@@ -1,6 +1,42 @@
 <?php
 error_reporting(0);
 ?>
+<?php
+// エラーメッセージ、登録完了メッセージの初期化
+
+$message = "";
+try {
+
+//フォームから受け取った値を変数に代入
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+mb_internal_encoding("utf8");
+$pdo=new PDO("mysql:dbname=pkstore;host=localhost;","root","root");
+$pdo ->exec("INSERT INTO account_list(family_name,last_name,family_name_kana,last_name_kana,
+                         mail,password,gender,postal_code,prefecture,address_1,address_2,authority) 
+      VALUES ('".$_POST['family_name']."',
+              '".$_POST['last_name']."',
+              '".$_POST['family_name_kana']."',
+              '".$_POST['last_name_kana']."',
+              '".$_POST['mail']."',
+              '$password',
+              '".$_POST['gender']."',
+              '".$_POST['postal_code']."',
+              '".$_POST['prefecture']."',
+              '".$_POST['address_1']."',
+              '".$_POST['address_2']."',
+              '".$_POST['authority']."'
+              
+      );");
+    $message = '登録が完了しました。';
+    } catch (PDOException $e) {
+        
+        $message = 'エラーが発生したためアカウント登録できません。';
+
+            }
+  
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="jp">
@@ -35,7 +71,7 @@ error_reporting(0);
     </div>
  </header>
  <main class="regist-page">
-      <h3>表品登録完了</h3>
+      <h3>会員登録完了</h3>
       <div class="confirm">
          <div><?php echo htmlspecialchars($message, ENT_QUOTES); ?></div>
          <form action="index.php">
@@ -68,23 +104,6 @@ error_reporting(0);
  </footer>
 
     
- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <!--自作のJS-->
-    <script>
-    $('.slider').slick({
-		autoplay: true,//自動的に動き出すか。初期値はfalse。
-		infinite: true,//スライドをループさせるかどうか。初期値はtrue。
-		speed: 500,//スライドのスピード。初期値は300。
-		slidesToShow: 3,//スライドを画面に3枚見せる
-		slidesToScroll: 1,//1回のスクロールで1枚の写真を移動して見せる
-		prevArrow: '<div class="slick-prev"></div>',//矢印部分PreviewのHTMLを変更
-		nextArrow: '<div class="slick-next"></div>',//矢印部分NextのHTMLを変更
-		centerMode: true,//要素を中央ぞろえにする
-		variableWidth: true,//幅の違う画像の高さを揃えて表示
-		dots: true,//下部ドットナビゲーションの表示
-	});
-    </script>
-    <script src="js/6-1-7.js"></script>
+
 </body>
 </html>

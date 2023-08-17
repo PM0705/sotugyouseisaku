@@ -502,7 +502,9 @@ form{
 .form-invalid{
     color: red;
     text-align: center;
-    background-color: black;
+    background-color: gold;
+    
+    
 }
 
 /* regist/comfirm会員管理確認 */

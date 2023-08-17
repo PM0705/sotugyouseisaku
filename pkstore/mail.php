@@ -48,8 +48,6 @@ var_dump($_POST);
             <input type="text" class="contactbox-text" size="35" name="namename" required
             title="漢字・ひらがなでご入力ください" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" value="<?= $_POST['name'] ?>">  
         </div>
-        <span class="form-invalid">てすと</span>
-        <span class="err-msg-namename"></span>
 
 
         <div class="contactbox-text1">
@@ -62,8 +60,6 @@ var_dump($_POST);
             <label for="必須" class="red">必須</label>
             <label for="電話番号">電話番号</label>
             <input type="tel" class="contactbox-text" size="35"  required name="tel" value="<?= $_POST['tel'] ?>">
-            <span class="err-msg-tel"></span>
-
         </div>
 
         <div class="contactbox-text1">
@@ -71,7 +67,6 @@ var_dump($_POST);
             <label for="コメント">お問い合わせ内容</label>
             <br>
             <textarea name="comments" cols="30" required rows="8" ><?php print($_POST['comments']); ?></textarea>
-            <span class="err-msg-comments"></span>
         </div>
         <div class="contact-submit">         
                 <input type="submit" class="submit" value="確認する">

@@ -37,7 +37,7 @@ error_reporting(0);
  <main class="regist-page">
  <h3>会員登録フォーム</h3>
  <div class="registbox">
-    <form method="post" action="regist_confirm.php" name="form">
+    <form method="post" action="regist_confirm.php" name="form"  >
         <div class="contact-form errorMsg">
             
 <!-- お名前 -->
@@ -46,42 +46,45 @@ error_reporting(0);
                 <label for="family_name">名前（姓）<br>※漢字・ひらがなのみ可</label>
                 <input type="text" class="text" name="family_name" id="family_name" maxlength="10" size="35"
                         pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" value="<?= $_POST['family_name'] ?>"
-                        title="漢字・ひらがなでご入力ください"><br> 
-                <span class="err-msg-family_name"></span>
+                        title="漢字・ひらがなでご入力ください"><br>    
             </div>
+            <div class="err-msg-family_name"></div>
+
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="last_name">名前（名）※漢字・ひらがなのみ可</label>
                 <input type="text" class="text" name="last_name" id="last_name" maxlength="10" size="35"
                         pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" value="<?= $_POST['last_name'] ?>"
-                        title="漢字・ひらがなでご入力ください"><br> 
-                <span class="err-msg-last_name"></span>
+                        title="漢字・ひらがなでご入力ください"><br>      
             </div>
+            <div class="err-msg-last_name"></div>
+
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="family_name_kana">カナ（姓）※全角カタカナのみ可</label>
                 <input type="text" class="text" name="family_name_kana" id="family_name_kana" maxlength="10" size="35"
                         pattern="^[\u30A0-\u30FF]+$" value="<?= $_POST['family_name_kana'] ?>"
-                        title="全角カタカナでご入力ください"><br> 
-                <span class="err-msg-family_name_kana"></span>
+                        title="全角カタカナでご入力ください"><br>
             </div>
+            <div class="err-msg-family_name_kana"></div>
+
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="last_name_kana">カナ（名）<br>※全角カタカナのみ可</label>
                 <input type="text" class="text" name="last_name_kana" id="last_name_kana" maxlength="10" size="35"
                         pattern="^[\u30A0-\u30FF]+$" value="<?= $_POST['last_name_kana'] ?>"
-                        title="全角カタカナでご入力ください"><br> 
-                <span class="err-msg-last_name_kana"></span>
+                        title="全角カタカナでご入力ください"><br>
             </div>
+            <div class="err-msg-last_name_kana"></div>
 <!-- mail -->
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="mail">メールアドレス<br>※半角英数字、記号のみ可</label>
-                <input type="text" class="text" name="mail" id="mail" maxlength="10" size="35"
+                <input type="text" class="text" name="mail" id="mail" maxlength="100" size="35"
                         pattern="^[a-zA-Z0-9\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-]+$" value="<?= $_POST['mail'] ?>"
-                        title="半角英数字、記号でご入力ください"><br> 
-                <span class="err-msg-mail"></span>
+                        title="半角英数字、記号でご入力ください"><br>
             </div>
+            <div class="err-msg-mail"></div>
 <!-- パスワード -->
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
@@ -89,16 +92,16 @@ error_reporting(0);
                 <input type="text" class="text" name="password" id="password" maxlength="10" size="35"
                         pattern="^[a-zA-Z0-9]+$" value="<?= $_POST['password'] ?>"
                         title="半角英数字でご入力ください"><br> 
-                <span class="err-msg-password"></span>
             </div>
+            <div class="err-msg-password"></div>
 <!-- 性別 -->
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="gender">性別</label>
                 <input type="radio" name="gender" value="0" checked>男
                 <input type="radio" name="gender" value="1" <?php if (isset($_POST['gender']) && $_POST['gender'] == "1") echo 'checked'; ?>>女
-                <span class="err-msg-gender"></span>
             </div>
+            <div class="err-msg-gender"></div>
 <!-- 郵便番号 -->
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
@@ -106,8 +109,8 @@ error_reporting(0);
                 <input type="text" class="text" name="postal_code" id="postal_code" maxlength="7" size="35"
                         pattern="^[\d]{7}" value="<?= $_POST['postal_code'] ?>"
                         title="半角数字７文字でご入力ください"><br> 
-                <span class="err-msg-postal_code"></span>
             </div>
+            <div class="err-msg-postal_code"></div>
 <!-- 住所（都道府県） -->
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
@@ -158,8 +161,8 @@ error_reporting(0);
                                     ?>
                         <?php endif; ?>
                             </select><br>
-                            <span class="err-msg-prefecture"></span>
             </div>
+            <div class="err-msg-prefecture"></div>
 <!-- 住所（市区町村） -->
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
@@ -167,8 +170,8 @@ error_reporting(0);
                 <input type="text" class="text"  name="address_1" id="address_1" maxlength="10" size="35"
                         pattern="[\d\u30A1-\u30F6\u4E00-\u9FFF\u3040-\u309Fー\s　\-]*" value="<?= $_POST['address_1'] ?>"
                         title="全角で入力してください/スペースのみ不可"><br> 
-                <span class="err-msg-address_1"></span>
             </div>
+            <div class="err-msg-address_1"></div>
 <!-- 住所（番地） -->        
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
@@ -176,8 +179,8 @@ error_reporting(0);
                 <input type="text" class="text" name="address_2" id="address_2" maxlength="10" size="35"
                         pattern="[\d\u30A1-\u30F6\u4E00-\u9FFF\u3040-\u309Fー\s　\-]*" value="<?= $_POST['address_2'] ?>"
                         title="全角で入力してください/スペースのみ不可"><br> 
-                <span class="err-msg-address_2"></span>
             </div>
+            <div class="err-msg-address_2"></div>
 <!-- アカウント権限非表示予定 -->
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
@@ -186,12 +189,13 @@ error_reporting(0);
                     <option value="0"<?php if (isset($_POST['authority']) && $_POST['authority'] == "0") echo 'selected'; ?>>一般</option>
                     <option value="1"<?php if (isset($_POST['authority']) && $_POST['authority'] == "1") echo 'selected'; ?>>管理者</option>
                 </select><br>
-                <span class="err-msg-authority"></span>
             </div>
+            <div class="err-msg-authority"></div>
 <!-- 送信ボタン -->
                 <div class="submit-confirm">
                         <input type="submit" class="submit" value="確認する">
                 </div>
+                
         </div>
     </form>
 
@@ -220,23 +224,7 @@ error_reporting(0);
  </footer>
 
     
- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <!--自作のJS-->
-    <script>
-    $('.slider').slick({
-		autoplay: true,//自動的に動き出すか。初期値はfalse。
-		infinite: true,//スライドをループさせるかどうか。初期値はtrue。
-		speed: 500,//スライドのスピード。初期値は300。
-		slidesToShow: 3,//スライドを画面に3枚見せる
-		slidesToScroll: 1,//1回のスクロールで1枚の写真を移動して見せる
-		prevArrow: '<div class="slick-prev"></div>',//矢印部分PreviewのHTMLを変更
-		nextArrow: '<div class="slick-next"></div>',//矢印部分NextのHTMLを変更
-		centerMode: true,//要素を中央ぞろえにする
-		variableWidth: true,//幅の違う画像の高さを揃えて表示
-		dots: true,//下部ドットナビゲーションの表示
-	});
-    </script>
-    <script src="js/6-1-7.js"></script>
+ <script type="text/javascript" src="app2.js"></script> 
+
 </body>
 </html>
