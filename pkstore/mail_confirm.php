@@ -1,4 +1,8 @@
 
+<?php
+error_reporting(0);
+
+?>
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -37,7 +41,7 @@
         <div class="mail-contactbox-text">
             <p for="名前">名前:
             <?php
-            echo $_POST['namename'];
+            echo $_POST['name'];
             ?></p>
         </div>
         <div class="mail-contactbox-text">
@@ -55,8 +59,8 @@
            </p>
         </div>
         <div class="mail-contactbox-text">
-            <p for="お問い合わせ内容">お問い合わせ内容:</p>
-            <p><?php
+            <p for="お問い合わせ内容">お問い合わせ内容:<br>
+            <?php
            echo $_POST['comments'];
            ?></p>
            
@@ -65,7 +69,7 @@
         <div class="submit-confirm">
             <form action="mail.php" method="post">  
                 <input type="submit" class="submit" value="戻って修正する" onclick="window.history.back()">
-                <input type="hidden" value="<?php echo $_POST['namename']; ?>" name="namename">
+                <input type="hidden" value="<?php echo $_POST['name']; ?>" name="name">
                 <input type="hidden" value="<?php echo $_POST['mail']; ?>" name="mail">
                 <input type="hidden" value="<?php echo $_POST['tel']; ?>" name="tel">
                 <input type="hidden" value="<?php echo $_POST['comments']; ?>" name="comments">
@@ -74,7 +78,7 @@
             </form>
             <form action="mail_complete.php"method="post">
                 <input type="submit" class="submit" value="送信する">
-                <input type="hidden" value="<?php echo $_POST['namename']; ?>" name="namename">
+                <input type="hidden" value="<?php echo $_POST['name']; ?>" name="name">
                 <input type="hidden" value="<?php echo $_POST['mail']; ?>" name="mail">
                 <input type="hidden" value="<?php echo $_POST['tel']; ?>" name="tel">
                 <input type="hidden" value="<?php echo $_POST['comments']; ?>" name="comments">

@@ -1,8 +1,7 @@
 
 <?php
 error_reporting(0);
-session_start();
-var_dump($_POST);
+
 ?>
 
 <!DOCTYPE html>
@@ -12,8 +11,7 @@ var_dump($_POST);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お問い合わせフォーム</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-    
+
     
     <link rel="stylesheet" href="htmlstyle.css">
     
@@ -44,8 +42,8 @@ var_dump($_POST);
     <div class="contact-form errorMsg">
         <div class="contactbox-text1">
             <label for="必須" class="red">必須</label>
-            <label for="namename">名前</label>
-            <input type="text" class="contactbox-text" size="35" name="namename" required
+            <label for="name">名前</label>
+            <input type="text" class="contactbox-text" size="35" name="name" required maxlength="10"
             title="漢字・ひらがなでご入力ください" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" value="<?= $_POST['name'] ?>">  
         </div>
 
@@ -53,20 +51,20 @@ var_dump($_POST);
         <div class="contactbox-text1">
             <label for="必須" class="red">必須</label>
             <label for="メールアドレス">メールアドレス</label>
-            <input type="text" class="contactbox-text" size="35" name="mail" required value="<?= $_POST['mail'] ?>">
+            <input type="text" class="contactbox-text" size="35" name="mail" maxlength="100" required value="<?= $_POST['mail'] ?>">
             <span class="err-msg-mail"></span>
         </div>
         <div class="contactbox-text1">
             <label for="必須" class="red">必須</label>
             <label for="電話番号">電話番号</label>
-            <input type="tel" class="contactbox-text" size="35"  required name="tel" value="<?= $_POST['tel'] ?>">
+            <input type="tel" class="contactbox-text" size="35" maxlength="11" required name="tel" value="<?= $_POST['tel'] ?>">
         </div>
 
         <div class="contactbox-text1">
             <label for="必須" class="red">必須</label>
             <label for="コメント">お問い合わせ内容</label>
             <br>
-            <textarea name="comments" cols="30" required rows="8" ><?php print($_POST['comments']); ?></textarea>
+            <textarea name="comments" cols="30" required rows="8" maxlength="255" ><?php print($_POST['comments']); ?></textarea>
         </div>
         <div class="contact-submit">         
                 <input type="submit" class="submit" value="確認する">
@@ -99,24 +97,7 @@ var_dump($_POST);
     
  </footer>
 
-    
- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <!--自作のJS-->
-    <script>
-    $('.slider').slick({
-		autoplay: true,//自動的に動き出すか。初期値はfalse。
-		infinite: true,//スライドをループさせるかどうか。初期値はtrue。
-		speed: 500,//スライドのスピード。初期値は300。
-		slidesToShow: 3,//スライドを画面に3枚見せる
-		slidesToScroll: 1,//1回のスクロールで1枚の写真を移動して見せる
-		prevArrow: '<div class="slick-prev"></div>',//矢印部分PreviewのHTMLを変更
-		nextArrow: '<div class="slick-next"></div>',//矢印部分NextのHTMLを変更
-		centerMode: true,//要素を中央ぞろえにする
-		variableWidth: true,//幅の違う画像の高さを揃えて表示
-		dots: true,//下部ドットナビゲーションの表示
-	});
-    </script>
+
     
     
 </body>
