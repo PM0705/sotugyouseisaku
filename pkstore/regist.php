@@ -1,6 +1,5 @@
-<?php
-error_reporting(0);
-?>
+
+
 
 <!DOCTYPE html>
 <html lang="jp">
@@ -45,8 +44,12 @@ error_reporting(0);
                 <label for="必須" class="red">必須</label>
                 <label for="family_name">名前（姓）<br>※漢字・ひらがなのみ可</label>
                 <input type="text" class="text" name="family_name" id="family_name" maxlength="10" size="35"
-                        pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" value="<?= $_POST['family_name'] ?>"
-                        title="漢字・ひらがなでご入力ください"><br>    
+                        pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" value="<?php
+if(isset($_POST['family_name'])){ 
+
+    echo $_POST['family_name'];
+}
+?>" title="漢字・ひらがなでご入力ください"><br>    
             </div>
             <div class="err-msg-family_name"></div>
 
