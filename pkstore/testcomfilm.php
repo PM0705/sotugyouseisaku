@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -62,7 +63,7 @@
         </div>
 
         <div class="submit-confirm">
-            <form action="mail.php" method="post">  
+            <form action="test.php" method="post">  
                 <input type="submit" class="submit" value="戻って修正する" onclick="window.history.back()">
                 <input type="hidden" value="<?php echo $_POST['name']; ?>" name="name">
                 <input type="hidden" value="<?php echo $_POST['mail']; ?>" name="mail">

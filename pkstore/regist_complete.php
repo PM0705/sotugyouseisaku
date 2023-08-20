@@ -1,6 +1,4 @@
-<?php
-error_reporting(0);
-?>
+
 <?php
 // エラーメッセージ、登録完了メッセージの初期化
 
@@ -27,7 +25,7 @@ $pdo ->exec("INSERT INTO account_list(family_name,last_name,family_name_kana,las
               '".$_POST['authority']."'
               
       );");
-    $message = '登録が完了しました。';
+    $message = '登録が完了しました。ログインして引き続きPKstoreをお楽しみください';
     } catch (PDOException $e) {
         
         $message = 'エラーが発生したためアカウント登録できません。';
@@ -74,9 +72,9 @@ $pdo ->exec("INSERT INTO account_list(family_name,last_name,family_name_kana,las
       <h3>会員登録完了</h3>
       <div class="confirm">
          <div><?php echo htmlspecialchars($message, ENT_QUOTES); ?></div>
-         <form action="index.php">
-         <button onclick="location.href='index.php'" class="submit" value="TOPページへ戻る" >
-                  TOPページへ戻る          
+         <form action="login.php">
+         <button onclick="location.href='login.php'" class="submit" value="ログインｘ" >
+                  ログイン          
          </button>
          </form>
       </div>

@@ -513,6 +513,9 @@ form{
 }
 
 /* regist/comfirm会員管理確認 */
+.regist-page{
+    font-size: 6vw;
+}
 .submit1{
     display: flex;
 }
