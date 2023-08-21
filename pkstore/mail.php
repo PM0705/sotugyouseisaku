@@ -1,4 +1,7 @@
-
+<?php
+// includeは最初の１行でOK
+include 'vars.php'; 
+?>
 
 <!DOCTYPE html>
 <html lang="jp">
@@ -41,12 +44,7 @@
             <label for="name">名前</label>
             <input type="text" class="contactbox-text" size="35" name="name" required maxlength="10"
                     title="漢字・ひらがなでご入力ください" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" 
-                    value="<?php
-                                if(isset($_POST['name'])){ 
-
-                                    echo $_POST['name'];
-                                }
-                            ?>">  
+                    value="<?= getPostValue('name') ?>">  
         </div>
 
 
@@ -54,36 +52,21 @@
             <label for="必須" class="red">必須</label>
             <label for="メールアドレス">メールアドレス</label>
             <input type="text" class="contactbox-text" size="35" name="mail" maxlength="100" required 
-                    value="<?php
-                                if(isset($_POST['mail'])){ 
-
-                                    echo $_POST['mail'];
-                                }
-                            ?>">  
+                    value="<?= getPostValue('mail') ?>">  
             <span class="err-msg-mail"></span>
         </div>
         <div class="contactbox-text1">
             <label for="必須" class="red">必須</label>
             <label for="電話番号">電話番号</label>
             <input type="tel" class="contactbox-text" size="35" maxlength="11" required name="tel" 
-                    value="<?php
-                                if(isset($_POST['tel'])){ 
-
-                                    echo $_POST['tel'];
-                                }
-                            ?>">  
+                    value="<?= getPostValue('tel') ?>">  
         </div>
 
         <div class="contactbox-text1">
             <label for="必須" class="red">必須</label>
             <label for="コメント">お問い合わせ内容</label>
             <br>
-            <textarea name="comments" cols="30" required rows="8" maxlength="255" ><?php
-                                                                                        if(isset($_POST['comments'])){ 
-
-                                                                                            echo $_POST['comments'];
-                                                                                        }
-                                                                                    ?></textarea>
+            <textarea name="comments" cols="30" required rows="8" maxlength="255" ><?= getPostValue('comments') ?></textarea>
         </div>
         <div class="contact-submit">         
                 <input type="submit" class="submit" value="確認する">
