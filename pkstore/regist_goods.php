@@ -1,5 +1,6 @@
 <?php
-error_reporting(0);
+// includeは最初の１行でOK
+include 'vars.php'; 
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +46,7 @@ error_reporting(0);
                 <label for="必須" class="red">必須</label>
                 <label for="item_name">アイテム名</label>
                 <input type="text" class="text" name="item_name" id="item_name" maxlength="10" size="35"
-                        pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" value="<?= $_POST['item_name'] ?>"
+                        pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" value="<?= getPostValue('item_name') ?>"
                         title="スペースのみ不可"><br> 
                 <span class="err-msg-item_name"></span>
             </div>
@@ -54,7 +55,7 @@ error_reporting(0);
                 <label for="必須" class="red">必須</label>
                 <label for="item_price">値段</label>
                 <input type="text" class="text" name="item_price" id="item_price" maxlength="100" size="35"
-                        pattern="^[\d]{7}" value="<?= $_POST['item_price'] ?>"
+                         value="<?= getPostValue('item_price') ?>"
                         title="半角数字でご入力ください"><br> 
                 <span class="err-msg-item_price"></span>
             </div>
@@ -63,7 +64,7 @@ error_reporting(0);
                 <label for="必須" class="red">必須</label>
                 <label for="item_stock">在庫</label>
                 <input type="text" class="text" name="item_stock" id="item_stock" maxlength="10" size="35"
-                        pattern="^[\d]{7}" value="<?= $_POST['item_stock'] ?>"
+                         value="<?= getPostValue('item_stock') ?>"
                         title="半角数字でご入力ください"><br> 
                 <span class="err-msg-item_stock"></span>
             </div>
@@ -72,7 +73,7 @@ error_reporting(0);
                 <label for="必須" class="red">必須</label>
                 <label for="keyword">キーワード</label>
                 <input type="text" class="text" name="keyword" id="keyword" maxlength="10" size="35"
-                        pattern="^[\u30A0-\u30FF]+$" value="<?= $_POST['keyword'] ?>"
+                         value="<?= getPostValue('keyword') ?>"
                         title="スペースのみ不可"><br> 
                 <span class="err-msg-keyword"></span>
             </div>
@@ -136,7 +137,7 @@ error_reporting(0);
                 <label for="必須" class="red">必須</label>
                 <label for="item_img_path">商品画像</label>
                 <input type="file" class="text"  name="item_img_path" id="item_img_path" size="35" accept="image/*"
-                         value="<?= $_POST['item_img_path'] ?>"><br> 
+                         value="<?= getPostValue('item_img_path') ?>"><br> 
                 
             </div>
 

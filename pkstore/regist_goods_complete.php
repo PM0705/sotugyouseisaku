@@ -1,4 +1,32 @@
+<?php
+// エラーメッセージ、登録完了メッセージの初期化
+var_dump($_POST);
+$message = "";
+try {
 
+//フォームから受け取った値を変数に代入
+mb_internal_encoding("utf8");
+$pdo=new PDO("mysql:dbname=pkstore;host=localhost;","root","root");
+$pdo ->exec("INSERT INTO item_info_transaction(item_name,item_price,item_stock,keyword,
+                         category,item_img_path,new,display) 
+      VALUES ('".$_POST['item_name']."',
+              '".$_POST['item_price']."',
+              '".$_POST['item_stock']."',
+              '".$_POST['keyword']."',
+              '".$_POST['category']."',
+              '".$_POST['item_img_path']."',
+              '".$_POST['new']."',
+              '".$_POST['display']."'
+              
+      );");
+    $message = '登録が完了しました。ログインして引き続きPKstoreをお楽しみください';
+    } catch (PDOException $e) {
+        
+        $message = 'エラーが発生したためアカウント登録できません。';
+
+            }
+  
+?>
 
 <!DOCTYPE html>
 <html lang="jp">

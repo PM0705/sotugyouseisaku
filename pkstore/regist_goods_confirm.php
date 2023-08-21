@@ -1,6 +1,4 @@
-<?php
-error_reporting(0);
-?>
+
 
 <!DOCTYPE html>
 <html lang="jp">
@@ -100,6 +98,7 @@ error_reporting(0);
                   <input type="hidden" value="<?php echo $_POST['keyword']; ?>" name="keyword">
                   <input type="hidden" value="<?php echo $_POST['category']; ?>" name="category">
                   <input type="hidden" value="<?php echo $_POST['new']; ?>" name="new">
+                  <input type="hidden" value="<?php echo $_POST['display']; ?>" name="display">
                   <input type="hidden" value="<?php echo $_POST['item_img_path']; ?>" name="item_img_path">
 
             </form>
@@ -112,6 +111,7 @@ error_reporting(0);
                   <input type="hidden" value="<?php echo $_POST['keyword']; ?>" name="keyword">
                   <input type="hidden" value="<?php echo $_POST['category']; ?>" name="category">
                   <input type="hidden" value="<?php echo $_POST['new']; ?>" name="new">
+                  <input type="hidden" value="<?php echo $_POST['display']; ?>" name="display">
                   <input type="hidden" value="<?php echo $_POST['item_img_path']; ?>" name="item_img_path">
 
                   
