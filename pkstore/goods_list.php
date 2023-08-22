@@ -56,7 +56,7 @@
  <main>
 
         <h3>登録商品検索</h3>
-        <form action="regist_goods_change.php" method="post">
+        <form action="goods_list.php" method="post">
             <table class="mail-search">
                 <thead>
                     <tr>
@@ -197,7 +197,7 @@
                         </td>
                         <td>
                             <!-- ★追加：削除★ -->
-                            <button type="button"  onclick="location.href='update.php?id=<?php echo($row['id']) ?>'">更新</button>
+                            <button type="button"  onclick="location.href='update_goods.php?id=<?php echo($row['id']) ?>'">更新</button>
                             <button type="button"  onclick="location.href='delete.php?id=<?php echo($row['id']) ?>'">削除</button>
                             <button type="button"  onclick="location.href='pw.php?id=<?php echo($row['id']) ?>'">パスワード変更</button>
                         </td>

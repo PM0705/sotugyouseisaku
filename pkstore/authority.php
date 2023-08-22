@@ -33,7 +33,7 @@
  <main>
     <h3>管理者メニュー</h3>
     <a href="regist_goods.php" class="authority">商品登録</a>
-    <a href="regist_goods_change.php" class="authority">商品編集</a>
+    <a href="goods_list.php" class="authority">商品編集</a>
     <a href="buyItem.php" class="authority">情報登録</a>
     <a href="buyItem.php" class="authority">スライドショー編集</a>
     <a href="buyItem.php" class="authority">会員リスト（特別管理者用）</a>
