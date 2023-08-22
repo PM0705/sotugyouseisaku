@@ -127,7 +127,7 @@ include 'vars.php';
 <!-- 表示 -->
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
-                <label for="display">NEW</label>
+                <label for="display">表示</label>
                 <input type="radio" name="display" value="0" checked>ON
                 <input type="radio" name="display" value="1" <?php if (isset($_POST['display']) && $_POST['display'] == "1") echo 'checked'; ?>>OFF
                 

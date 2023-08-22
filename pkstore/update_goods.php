@@ -1,4 +1,5 @@
 <?php
+
 // includeは最初の１行でOK
 include 'vars.php'; 
 ?>
@@ -62,9 +63,14 @@ include 'vars.php';
  </header>
  <main class="regist-page">
  <h3>商品編集フォーム</h3>
+ <?php
+var_dump($_GET);
+?>
  <div class="registbox">
     <form method="post" action="update_confirm_goods.php" name="form" enctype="multipart/form-data">
         <div class="contact-form errorMsg">
+            <!-- ID -->
+            <input type="hidden" name="id" value="<?php echo($member->id) ?>">
             
 <!-- アイテム名 -->
             <div class="contactbox-text1">

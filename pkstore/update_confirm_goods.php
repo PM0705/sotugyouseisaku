@@ -1,4 +1,6 @@
-
+<?php
+var_dump($_POST);
+?>
 
 <!DOCTYPE html>
 <html lang="jp">
@@ -59,7 +61,7 @@
         </p>
         <p>NEW:
            <?php
-           error_reporting(0);
+           
            if ($_POST['new'] == 0) {
                echo "ON";
                }else{
@@ -69,7 +71,7 @@
         </p>
         <p>表示:
            <?php
-           error_reporting(0);
+           
            if ($_POST['display'] == 0) {
                echo "ON";
                }else{
@@ -93,7 +95,7 @@
                     </button>
                 </form>
             <form action="update_complete_goods.php" method="post">
-                <input type="submit" class="submit" value="更新する"href="update_complete.php<? $result['id'] ?>" name="submit">
+                <input type="submit" class="submit" value="更新する"href="update_complete.php<? $result['id'] ?>" name="btnSend">
                 <input type="hidden" value="<?php echo $_POST['id']; ?>" name="id">
                 <input type="hidden" value="<?php echo $_POST['item_name']; ?>" name="item_name">
                 <input type="hidden" value="<?php echo $_POST['item_price']; ?>" name="item_price">

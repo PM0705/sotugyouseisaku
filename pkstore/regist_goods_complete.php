@@ -64,9 +64,8 @@ $pdo ->exec("INSERT INTO item_info_transaction(item_name,item_price,item_stock,k
       <div class="confirm">
          <div><?php echo htmlspecialchars($message, ENT_QUOTES); ?></div>
          <form action="index.php">
-         <button onclick="location.href='index.php'" class="submit" value="HOMEへ戻る" >
-                  TOPページへ戻る          
-         </button>
+         <button onclick="location.href='index.php'" class="submit" value="HOMEへ戻る" >TOPページへ戻る</button>
+         <button onclick="location.href='authority.php'" class="submit" value="管理者メニューへ戻る" >管理者メニューへ戻る</button>
          </form>
       </div>
  </main>

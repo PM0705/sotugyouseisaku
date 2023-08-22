@@ -1,4 +1,5 @@
 <?php
+var_dump($_POST);
 // エラーメッセージ、登録完了メッセージの初期化
 $id = $_POST['id'];
 $message = "";
