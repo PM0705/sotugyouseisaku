@@ -1,4 +1,7 @@
 <?php
+var_dump($_POST);
+?>
+<?php
 $dsn = "mysql:host=localhost; dbname=pkstore; charset=utf8";
 $username = "root";
 $password = "root";
@@ -9,8 +12,9 @@ try {
     echo $e->getMessage();
 }
 
-if (isset($_POST['upload'])){
-          $temp_file = $_FILES['image']['tmp_name'];
+if (isset($_POST['item_img_path'])){
+    // $_FILES['inputで指定したname']['tmp_name']：一時保存ファイル名
+          $temp_file = $_FILES['item_img_path']['tmp_name'];
           $dir = './images/';
 
     if (file_exists($temp_file)) {//②送信した画像が存在するかチェック
@@ -31,10 +35,10 @@ if (isset($_POST['upload'])){
 //⑤DBではなくサーバーのimageディレクトリに画像を保存
         move_uploaded_file($temp_file, $dir . $image);
     }
-//⑥DBにはファイル名保存
-    $sql = "INSERT INTO images(image) VALUES (:image)";
+//⑥DBにはファイル名保存VALUESは取得した値
+    $sql = "INSERT INTO item_info_transaction(item_img_path) VALUES (:item_img_path)";
     $stmt = $dbh->prepare($sql);
-    $stmt->bindValue(':image', $image, PDO::PARAM_STR);
+    $stmt->bindValue(':item_img_path', $image, PDO::PARAM_STR);
     $stmt->execute();
 }
 

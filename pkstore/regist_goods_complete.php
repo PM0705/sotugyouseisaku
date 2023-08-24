@@ -1,31 +1,50 @@
 <?php
-// エラーメッセージ、登録完了メッセージの初期化
 var_dump($_POST);
-$message = "";
+var_dump($_FILES);
+
+?>
+
+<?php
+$dsn = "mysql:host=localhost; dbname=pkstore; charset=utf8";
+$username = "root";
+$password = "root";
+
 try {
+    $dbh = new PDO($dsn, $username, $password);
+} catch (PDOException $e) {
+    echo $e->getMessage();
+}
 
-//フォームから受け取った値を変数に代入
-mb_internal_encoding("utf8");
-$pdo=new PDO("mysql:dbname=pkstore;host=localhost;","root","root");
-$pdo ->exec("INSERT INTO item_info_transaction(item_name,item_price,item_stock,keyword,
-                         category,item_img_path,new,display) 
-      VALUES ('".$_POST['item_name']."',
-              '".$_POST['item_price']."',
-              '".$_POST['item_stock']."',
-              '".$_POST['keyword']."',
-              '".$_POST['category']."',
-              '".$_POST['item_img_path']."',
-              '".$_POST['new']."',
-              '".$_POST['display']."'
-              
-      );");
-    $message = '登録が完了しました。ログインして引き続きPKstoreをお楽しみください';
-    } catch (PDOException $e) {
-        
-        $message = 'エラーが発生したためアカウント登録できません。';
+if (isset($_POST['item_img_path'])){
+    // $_FILES['inputで指定したname']['tmp_name']：一時保存ファイル名
+          $temp_file = $_FILES['item_img_path']['tmp_name'];
+          $dir = './images/';
 
-            }
-  
+    if (file_exists($temp_file)) {//②送信した画像が存在するかチェック
+        $image = uniqid(mt_rand(), false);//③ファイル名をユニーク化
+        switch (@exif_imagetype($temp_file)) {//④画像ファイルかのチェック
+            case IMAGETYPE_GIF:
+                $image .= '.gif';
+                break;
+            case IMAGETYPE_JPEG:
+                $image .= '.jpg';
+                break;
+            case IMAGETYPE_PNG:
+                $image .= '.png';
+                break;
+            default:
+                echo '拡張子を変更してください';
+        }
+//⑤DBではなくサーバーのimageディレクトリに画像を保存
+        move_uploaded_file($temp_file, $dir . $image);
+    }
+//⑥DBにはファイル名保存VALUESは取得した値
+    $sql = "INSERT INTO item_info_transaction(item_img_path) VALUES (:item_img_path)";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue(':item_img_path', $image, PDO::PARAM_STR);
+    $stmt->execute();
+}
+
 ?>
 
 <!DOCTYPE html>

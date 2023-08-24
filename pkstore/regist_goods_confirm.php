@@ -1,3 +1,9 @@
+<?php
+var_dump($_POST);
+var_dump($_FILES);
+session_start();
+
+?>
 
 
 <!DOCTYPE html>
@@ -6,10 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>商品登録</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="css/6-1-7.css">
-    
+    <title>商品登録</title>    
     <link rel="stylesheet" href="htmlstyle.css">
     
 </head>
@@ -73,7 +76,6 @@
         </p>
         <p>表示:
            <?php
-           error_reporting(0);
            if ($_POST['display'] == 0) {
                echo "ON";
                }else{
@@ -82,12 +84,36 @@
            ?>
         </p>
         <p>商品画像:
-           <?php
-           error_reporting(0);
-           if($_FILES['item_img_path']['name']){
-            echo $_FILES['item_img_path']['name'];
+        <?php
+           echo$_FILES['item_img_path']['name'];
+           if (isset($_POST['item_img_path'])){
+            // $_FILES['inputで指定したname']['tmp_name']：一時保存ファイル名
+                  $temp_file = $_FILES['item_img_path']['tmp_name'];
+                  $dir = './images/';
+        
+            if (file_exists($temp_file)) {//②送信した画像が存在するかチェック
+                $image = uniqid(mt_rand(), false);//③ファイル名をユニーク化
+                switch (@exif_imagetype($temp_file)) {//④画像ファイルかのチェック
+                    case IMAGETYPE_GIF:
+                        $image .= '.gif';
+                        break;
+                    case IMAGETYPE_JPEG:
+                        $image .= '.jpg';
+                        break;
+                    case IMAGETYPE_PNG:
+                        $image .= '.png';
+                        break;
+                    default:
+                        echo '拡張子を変更してください';
+                }
+        //⑤DBではなくサーバーのimageディレクトリに画像を保存
+                move_uploaded_file($temp_file, $dir . $image);
             }
-            ?>
+        }
+        $_POST['item_img_path'] = $image
+        ?>
+           
+
         </p>
         <div class="form submit1">
             <form action="regist_goods.php" method="post">  
@@ -99,12 +125,10 @@
                   <input type="hidden" value="<?php echo $_POST['category']; ?>" name="category">
                   <input type="hidden" value="<?php echo $_POST['new']; ?>" name="new">
                   <input type="hidden" value="<?php echo $_POST['display']; ?>" name="display">
-                  <input type="hidden" value="<?php echo $_POST['item_img_path']; ?>" name="item_img_path">
+                  <input type="hidden" value="<?php echo$_FILES['item_img_path']['name'] ?>" name="item_img_path">
 
             </form>
-            <form action="regist_goods_complete.php" method="post">
-            
-                  <input type="submit" class="submit" value="登録する">
+            <form action="regist_goods_complete.php" method="post" enctype="multipart/form-data">
                   <input type="hidden" value="<?php echo $_POST['item_name']; ?>" name="item_name">
                   <input type="hidden" value="<?php echo $_POST['item_price']; ?>" name="item_price">
                   <input type="hidden" value="<?php echo $_POST['item_stock']; ?>" name="item_stock">
@@ -112,9 +136,13 @@
                   <input type="hidden" value="<?php echo $_POST['category']; ?>" name="category">
                   <input type="hidden" value="<?php echo $_POST['new']; ?>" name="new">
                   <input type="hidden" value="<?php echo $_POST['display']; ?>" name="display">
-                  <input type="hidden" value="<?php echo $_POST['item_img_path']; ?>" name="item_img_path">
+                  <input type="hidden" value="<?php echo $image; ?>" name = "<?php echo 'item_img_path'; ?>"> 
+                  <input type="hidden" value="<?php echo $_FILES['item_img_path']; ?>" name = "<?php echo 'item_img'; ?>"> 
+                  <input type="hidden" value="<?php echo $_FILES['name']; ?>" name = "<?php echo 'name'; ?>"> 
 
-                  
+
+                  <input type="submit" class="submit" value="登録する" name="path">
+
             </form>
         </div> 
     </div>    
@@ -141,25 +169,6 @@
     </div>
     
  </footer>
-
-    
- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <!--自作のJS-->
-    <script>
-    $('.slider').slick({
-		autoplay: true,//自動的に動き出すか。初期値はfalse。
-		infinite: true,//スライドをループさせるかどうか。初期値はtrue。
-		speed: 500,//スライドのスピード。初期値は300。
-		slidesToShow: 3,//スライドを画面に3枚見せる
-		slidesToScroll: 1,//1回のスクロールで1枚の写真を移動して見せる
-		prevArrow: '<div class="slick-prev"></div>',//矢印部分PreviewのHTMLを変更
-		nextArrow: '<div class="slick-next"></div>',//矢印部分NextのHTMLを変更
-		centerMode: true,//要素を中央ぞろえにする
-		variableWidth: true,//幅の違う画像の高さを揃えて表示
-		dots: true,//下部ドットナビゲーションの表示
-	});
-    </script>
-    <script src="js/6-1-7.js"></script>
+ <script type="text/javascript" src="app_img.js"></script> 
 </body>
 </html>
