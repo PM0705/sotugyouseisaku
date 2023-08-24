@@ -1,6 +1,6 @@
 <?php
 var_dump($_POST);
-var_dump($_FILES);
+
 session_start();
 
 ?>
@@ -110,14 +110,14 @@ session_start();
                 move_uploaded_file($temp_file, $dir . $image);
             }
         }
-        $_POST['item_img_path'] = $image
+     
         ?>
            
 
         </p>
         <div class="form submit1">
             <form action="regist_goods.php" method="post">  
-                  <input type="submit" class="submit" value="前に戻る" onclick="window.history.back()">
+                  <input type="submit" class="submit" value="前に戻る">
                   <input type="hidden" value="<?php echo $_POST['item_name']; ?>" name="item_name">
                   <input type="hidden" value="<?php echo $_POST['item_price']; ?>" name="item_price">
                   <input type="hidden" value="<?php echo $_POST['item_stock']; ?>" name="item_stock">
@@ -125,7 +125,6 @@ session_start();
                   <input type="hidden" value="<?php echo $_POST['category']; ?>" name="category">
                   <input type="hidden" value="<?php echo $_POST['new']; ?>" name="new">
                   <input type="hidden" value="<?php echo $_POST['display']; ?>" name="display">
-                  <input type="hidden" value="<?php echo$_FILES['item_img_path']['name'] ?>" name="item_img_path">
 
             </form>
             <form action="regist_goods_complete.php" method="post" enctype="multipart/form-data">
@@ -136,9 +135,8 @@ session_start();
                   <input type="hidden" value="<?php echo $_POST['category']; ?>" name="category">
                   <input type="hidden" value="<?php echo $_POST['new']; ?>" name="new">
                   <input type="hidden" value="<?php echo $_POST['display']; ?>" name="display">
-                  <input type="hidden" value="<?php echo $image; ?>" name = "<?php echo 'item_img_path'; ?>"> 
-                  <input type="hidden" value="<?php echo $_FILES['item_img_path']; ?>" name = "<?php echo 'item_img'; ?>"> 
-                  <input type="hidden" value="<?php echo $_FILES['name']; ?>" name = "<?php echo 'name'; ?>"> 
+                  <input type="hidden" value="<?php echo $image; ?>" name = "abc"> 
+
 
 
                   <input type="submit" class="submit" value="登録する" name="path">
