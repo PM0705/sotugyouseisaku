@@ -132,14 +132,15 @@ include 'vars.php';
                 <div class="contactbox-text1">
                     <label for="必須" class="red">必須</label>
                     <label for="item_img_path">商品画像</label>
-                    <input type="file" class="text"  name="item_img_path" id="item_img_path" size="35" accept="image/png, image/jpeg"
+                    <input type="file" class="text"  name="item_img_path" id="item_img_path" size="35" 
                             value="<?= getPostValue('item_img_path') ?>"><br> 
                     
                 </div>
 
     <!-- 送信ボタン -->
+                <!-- 送信ボタン -->
                 <div class="submit-confirm">
-                <input type="submit" class="submit" value="確認する" name="item_img_path">
+                        <input type="submit" class="submit" value="確認する" name="item_img_path">
                 </div>
             </div>
         </form>

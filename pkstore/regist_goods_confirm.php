@@ -1,8 +1,5 @@
 <?php
 var_dump($_POST);
-
-session_start();
-
 ?>
 
 
@@ -34,11 +31,11 @@ session_start();
             <li><a href="mail.php">お問い合わせ</a></li>
         </ul>
     </div>
- </header>
- <main class="regist-page">
- <h3>商品登録フォーム</h3>
+</header>
+<main class="regist-page">
+     <h3>商品登録フォーム</h3>
 
- <div class="confirm">
+    <div class="confirm">
         <p>アイテム名:
            <?php
            echo $_POST['item_name'];
@@ -117,30 +114,26 @@ session_start();
         </p>
         <div class="form submit1">
             <form action="regist_goods.php" method="post">  
-                  <input type="submit" class="submit" value="前に戻る">
-                  <input type="hidden" value="<?php echo $_POST['item_name']; ?>" name="item_name">
-                  <input type="hidden" value="<?php echo $_POST['item_price']; ?>" name="item_price">
-                  <input type="hidden" value="<?php echo $_POST['item_stock']; ?>" name="item_stock">
-                  <input type="hidden" value="<?php echo $_POST['keyword']; ?>" name="keyword">
-                  <input type="hidden" value="<?php echo $_POST['category']; ?>" name="category">
-                  <input type="hidden" value="<?php echo $_POST['new']; ?>" name="new">
-                  <input type="hidden" value="<?php echo $_POST['display']; ?>" name="display">
+                <input type="submit" class="submit" value="前に戻る">
+                <input type="hidden" value="<?php echo $_POST['item_name']; ?>" name="item_name">
+                <input type="hidden" value="<?php echo $_POST['item_price']; ?>" name="item_price">
+                <input type="hidden" value="<?php echo $_POST['item_stock']; ?>" name="item_stock">
+                <input type="hidden" value="<?php echo $_POST['keyword']; ?>" name="keyword">
+                <input type="hidden" value="<?php echo $_POST['category']; ?>" name="category">
+                <input type="hidden" value="<?php echo $_POST['new']; ?>" name="new">
+                <input type="hidden" value="<?php echo $_POST['display']; ?>" name="display">
 
             </form>
-            <form action="regist_goods_complete.php" method="post" enctype="multipart/form-data">
-                  <input type="hidden" value="<?php echo $_POST['item_name']; ?>" name="item_name">
-                  <input type="hidden" value="<?php echo $_POST['item_price']; ?>" name="item_price">
-                  <input type="hidden" value="<?php echo $_POST['item_stock']; ?>" name="item_stock">
-                  <input type="hidden" value="<?php echo $_POST['keyword']; ?>" name="keyword">
-                  <input type="hidden" value="<?php echo $_POST['category']; ?>" name="category">
-                  <input type="hidden" value="<?php echo $_POST['new']; ?>" name="new">
-                  <input type="hidden" value="<?php echo $_POST['display']; ?>" name="display">
-                  <input type="hidden" value="<?php echo $image; ?>" name = "abc"> 
-
-
-
-                  <input type="submit" class="submit" value="登録する" name="path">
-
+            <form action="regist_goods_complete.php" method="post">
+                <input type="submit" class="submit" value="登録する" >
+                <input type="hidden" value="<?php echo $_POST['item_name']; ?>" name="item_name">
+                <input type="hidden" value="<?php echo $_POST['item_price']; ?>" name="item_price">
+                <input type="hidden" value="<?php echo $_POST['item_stock']; ?>" name="item_stock">
+                <input type="hidden" value="<?php echo $_POST['keyword']; ?>" name="keyword">
+                <input type="hidden" value="<?php echo $_POST['category']; ?>" name="category">
+                <input type="hidden" value="<?php echo $image; ?>" name="item_img_path">
+                <input type="hidden" value="<?php echo $_POST['new']; ?>" name="new">
+                <input type="hidden" value="<?php echo $_POST['display']; ?>" name="display"> 
             </form>
         </div> 
     </div>    
