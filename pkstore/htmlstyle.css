@@ -678,6 +678,25 @@ form{
     
 }
 
+/* スライド情報編集画面 */
+.slide{
+    background-color:  lightgray;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
+}
+.slide img{
+    width: 30vw;
+}
+.slide-submit{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10vw;
+    gap: 5vw;
+    margin-top: 5vw;
+
+}
 
 
 
@@ -696,7 +715,6 @@ footer{
     z-index:100;
     background-color: darkgrey;
     clear: both;
-    margin-left: 5px;
     list-style:none;
    
 }

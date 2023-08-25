@@ -17,7 +17,7 @@
     $password = "root";
     $options = [];
     $pdo = new PDO($dsn, $username, $password, $options);
-    $stmt = $pdo->query("SELECT * FROM item_info_transaction ORDER BY id DESC");
+    $stmt = $pdo->query("SELECT * FROM slide ");
             //SQL文を実行して、結果を$stmtに代入する。
 ?>
 
@@ -43,70 +43,7 @@
  </header>
  <main>
 
-        <h3>登録商品検索</h3>
-        <form action="goods_list.php" method="post">
-            <table class="mail-search">
-                <thead>
-                    <tr>
-                
-                        <th>アイテム名</th>
-                        <td>
-                            <input type="text" name="item_name" id="item_name" maxlength="100" size="35"
-                            value="<?= $_POST['item_name'] ?>">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>キーワード</th>
-                        <td>
-                            <input type="text" name="keyword" id="keyword" maxlength="100" size="35"
-                            value="<?= $_POST['keyword'] ?>">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>キーワード</th>
-                        <td>
-                        <select name="category"id="category"  name="category">
-                        <?php 
-                        if (!empty($_POST["category"])) :?>
-                        <?php 
-                        $category=$_POST["category"] 
-                        ?>
-                            
-                            <option value='<?= $_POST["category"] ?>'selected><?php echo $_POST["category"]?></option>
-                            <?php
-                
-                                        $cate = array ('カバン','文房具','タオル','その他');
-                                                foreach($cate as $cate){
-                                                    
-                                        
-                                                        print('<option value="'.$cate.'">'.$cate.'</option>');
-                                                
-                                                    }    
-                                    ?>
-                        
-                        <?php else :?>
-                                    <?php
-                
-                                        $cate = array ('','カバン','文房具','タオル','その他');
-                                                foreach($cate as $cate){
-                                                    
-                                        
-                                                        print('<option value="'.$cate.'">'.$cate.'</option>');
-                                                
-                                                    }    
-                                    ?>
-                        <?php endif; ?>
-                            </select><br>
-                        </td>
-                    </tr>
-                </thead>
-            </table>
-            <div class="contact-submit">
-                <div>
-                    <input type="submit" class="submit" value="検索する">
-                </div>
-            </div>
-        </form>
+        
         <?php
         $count = $stmt->rowCount();
         // var_dump($count);
@@ -115,94 +52,44 @@
         } 
         ?>
         <h3>商品リスト</h3>
+            <div class="slide">
+                    <table>
+                        <tr>
+                            <th>画像</th>
+                            <th>スライドタイトル</th>
+                            <th>最終更新日</th>
+                            <th >操作</th>
+                                
+                        </tr>
+                        <!-- ここでPHPのforeachを使って結果をループさせる -->
+                        <?php foreach ($stmt as $row): ?>
+                        <tr>
 
-                <table>
-                    
-                    <tr>
-                        <th>ID</th>
-                        <th>画像</th>
-                        <th>アイテム名</th>
-                        <th>価格</th>
-                        <th>在庫</th>
-                        <th>キーワード</th>
-                        <th>カテゴリー</th>
-                        <th>新着</th>
-                        <th>表示</th>
-                        <th>登録日</th>
-                        <th>最終更新日</th>
-                        <th >操作</th>
-                            
-                    </tr>
-                    <!-- ここでPHPのforeachを使って結果をループさせる -->
-                    <?php foreach ($stmt as $row): ?>
-                    <tr>
-                        <td>
-                            <?php echo $row['id']?>
-                        </td>
-                        <td>
-                            <img src="images/<?php echo $row['item_img_path']; ?>" width="100" height="100">
-                        </td>
-                        <td>
-                            <?php echo $row['item_name']?>
-                        </td>
-                        <td>
-                            <?php echo $row['item_price']?>
-                        </td>
-                        <td>
-                            <?php echo $row['item_stock']?>
-                        </td>
-                        <td>
-                            <?php echo $row['keyword']?>
-                        </td>
-                        <td>
-                            <?php echo $row['category']?>
-                        </td>
-                        <td>
-                            <?php 
-                                    if ($row['new'] == 0) {
-                                        echo "ON";
-                                        
-                                        }else{
-                                            echo "OFF";
-                                        }?>
-                        </td>
-                        <td>
-                            <?php 
-                                if ($row['display'] == 0) {
-                                    echo "ON";
-                                    }else{
-                                            echo "OFF";
-                                    }?>
-                        </td>
-                        <td>
-                            <?php
-                                error_reporting(0);
-                                echo date('Y/m/d', strtotime($row['registered_time']));
-                            ?>
-                        </td>
-                        <td>
-                            <?php 
-                                echo date('Y/m/d', strtotime($row['update_time']));
-                            ?>
-                        </td>
-                        <td>
-                            <!-- ★追加：削除★ -->
-                            <button type="button"  onclick="location.href='update_goods.php?id=<?php echo($row['id']) ?>'">更新</button>
-                            <button type="button"  onclick="location.href='delete.php?id=<?php echo($row['id']) ?>'">削除</button>
-                            <button type="button"  onclick="location.href='pw.php?id=<?php echo($row['id']) ?>'">パスワード変更</button>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                </table>
+                            <td>
+                                <img src="images/<?php echo $row['slide_img_path']; ?>"  >
+                            </td>
+                            <td>
+                                <?php echo $row['slide_title']?>
+                            </td>
+                            <td>
+                                <?php 
+                                    echo date('Y/m/d', strtotime($row['update_time']));
+                                ?>
+                            </td>
+                            <td>
+                                <!-- ★追加：削除★ -->
+                                <button type="button"  onclick="location.href='update_slide.php?id=<?php echo($row['id']) ?>'">編集</button>
 
-       
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+            </div>
 
-            
-            
-            
-        <p><?php  error_reporting(0); echo htmlspecialchars($errmessage, ENT_QUOTES); ?></p>
-    
-
+        <div class="slide-submit">
+            <button onclick="location.href='index.php'" class="submit" value="HOMEへ戻る" >TOPページへ戻る</button>
+            <button onclick="location.href='authority.php'" class="submit" value="管理者メニューへ戻る" >管理者メニューへ戻る</button>
+        </div>
 
 
 
