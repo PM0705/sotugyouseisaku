@@ -7,15 +7,33 @@ error_reporting(0);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PKstoreWELCOM</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="css/6-1-7.css">
+    <title>PK-onlineshop</title>
     
     <link rel="stylesheet" href="htmlstyle.css">
     
 </head>
 <body>
+<?php
    
+   //データベースへ接続
+       $dsn = "mysql:dbname=pkstore;host=localhost;charset=utf8mb4";
+       $username = "root";
+       $password = "root";
+       $options = [];
+       $pdo = new PDO($dsn, $username, $password, $options);
+           if ((isset($_POST["keyword"]))&& (isset($_POST["category"]))){
+               $stmt = $pdo->query("SELECT * FROM item_info_transaction ORDER BY id DESC");
+               //SQL文を実行して、結果を$stmtに代入する。
+           }
+           error_reporting(0);
+           if($_POST["keyword"] != "" || $_POST["category"] != ""){ //IDおよびユーザー名の入力有無を確認
+               $stmt = $pdo->query("SELECT * FROM item_info_transaction WHERE keyword LIKE  '%".$_POST["keyword"]."%' 
+                                                                       AND category LIKE  '%".$_POST["category"]."%' 
+                                                                       ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。    
+   
+           }
+   
+           ?> 
  <header>
     <div class="header-left">
         <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
@@ -37,7 +55,7 @@ error_reporting(0);
     </div>
  </header>
  <main>
- <div class="kizi1">
+ <div>
         <h3>商品購入</h3>
         <form action="pk_onlineshop.php" method="post">
             <table>
@@ -93,191 +111,22 @@ error_reporting(0);
         } 
         ?>
         <h3>アカウント一覧</h3>
-        <div class="info">
-        <div class="relative new-goods">
-            <a href="new-goods.php"><img src="img/newg1.png" alt="newg1" class="info-img"></a>
-            <img src="img/newIcon.png" alt="newIcon" class="absolute">
-            <p class="new-goods-text">
-                texttexttexttexttexttexttexttexttexttexttexttexttext
-                <br>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-            </p>
-            <div class="submit-confirm">
-            <button onclick="location.href='buyItem.php'" class="submit">カートに入れる</button>
-            </div>
-        </div>
-        <div class="relative new-goods">
-            <a href="new-goods.php"><img src="img/newg2.png" alt="newg2" class="info-img"></a>
-            <img src="img/newIcon.png" alt="newIcon" class="absolute">
-            <p class="new-goods-text">
-                texttexttexttexttexttexttexttexttexttexttexttexttext
-                <br>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-            </p>
-            <div class="submit-confirm">
-            <button onclick="location.href='buyItem.php'" class="submit">カートに入れる</button>
-            </div>
-        </div>
-        <div class="relative new-goods">
-            <a href="new-goods.php"><img src="img/newg3.png" alt="newg3" class="info-img"></a>
-            <img src="img/newIcon.png" alt="newIcon" class="absolute">
-            <p class="new-goods-text">
-                texttexttexttexttexttexttexttexttexttexttexttexttext
-                <br>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-            </p>
-            <div class="submit-confirm">
-            <button onclick="location.href='buyItem.php'" class="submit">カートに入れる</button>
-            </div>
-        </div>
-        <div class="relative new-goods">
-            <a href="new-goods.php"><img src="img/newg3.png" alt="newg4" class="info-img"></a>
-            <img src="img/newIcon.png" alt="newIcon" class="absolute">
-            <p class="new-goods-text">
-                texttexttexttexttexttexttexttexttexttexttexttexttext
-                <br>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-            </p>
-            <div class="submit-confirm">
-            <button onclick="location.href='buyItem.php'" class="submit">カートに入れる</button>
-            </div>
-        </div>
-        
-    </div>
-
-
-
-    <?php
-   
-    //データベースへ接続
-    $dsn = "mysql:dbname=lesson01;host=localhost;charset=utf8mb4";
-    $username = "root";
-    $password = "root";
-    $options = [];
-    $pdo = new PDO($dsn, $username, $password, $options);
-        if ((isset($_POST["family_name"])) && (isset($_POST["last_name"])) && (isset($_POST["family_name_kana"])) && (isset($_POST["last_name_kana"])) && (isset($_POST["mail"]))){
-            $stmt = $pdo->query("SELECT * FROM diblog_account where delete_flag = '1' ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。
-        }
-        error_reporting(0);
-        if($_POST["family_name"] != "" || $_POST["last_name"] != "" || $_POST["family_name_kana"] != "" || $_POST["last_name_kana"] != "" || $_POST["mail"] != "" || $_POST["gender"] != "" || $_POST["authority"] != "" ){ //IDおよびユーザー名の入力有無を確認
-            $stmt = $pdo->query("SELECT * FROM diblog_account WHERE family_name LIKE  '%".$_POST["family_name"]."%' 
-                                                                    AND last_name LIKE  '%".$_POST["last_name"]."%' 
-                                                                    AND family_name_kana LIKE  '%".$_POST["family_name_kana"]."%' 
-                                                                    AND last_name_kana LIKE  '%".$_POST["last_name_kana"]."%' 
-                                                                    AND mail LIKE  '%".$_POST["mail"]."%' 
-                                                                    AND gender LIKE  '%".$_POST["gender"]."%' 
-                                                                    AND authority LIKE  '%".$_POST["authority"]."%' 
-                                                                    AND delete_flag = '1' 
-                                                                    ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。
-
-        }
-
-    ?>
-            <?php
-        $count = $stmt->rowCount();
-        // var_dump($count);
-    if ($count == 0) {
-        $errmessage = "検索結果はありません";
-        } 
-        ?>
-    <div class="kizi1">
-        <h3>削除済みアカウント一覧</h3>
-
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>名前（姓）</th>
-                <th>名前（名）</th>
-                <th>カナ（姓）</th>
-                <th>カナ（名）</th>
-                <th>メールアドレス</th>
-                <th>性別</th>
-                <th>アカウント権限</th>
-                <th>削除フラグ</th>
-                <th>登録日時</th>
-                <th>更新日時</th>
-                <th ><br>操作<br><p class="dl">※削除済みの為操作できません</p></th>
-                
-            </tr>
-            
+        <div class="result-field">
             <!-- ここでPHPのforeachを使って結果をループさせる -->
             <?php foreach ($stmt as $row): ?>
-            <tr><td>
-                    <?php echo $row['id']?>
-                </td>
-                <td>
-                    <?php echo $row['family_name']?>
-                </td>
-                <td>
-                    <?php echo $row['last_name']?>
-                </td>
-                <td>
-                    <?php echo $row['family_name_kana']?>
-                </td>
-                <td>
-                    <?php echo $row['last_name_kana']?>
-                </td>
-                <td>
-                    <?php echo $row['mail']?>
-                </td>
-                <td>
-                    <?php error_reporting(0);
-                            if ($row['gender'] == 0) {
-                                echo "男";
-                                }else{
-                                        echo "女";
-                                }?>
-                </td>
-                <td>
-                    <?php error_reporting(0);
-                        if ($row['authority'] == 0) {
-                            echo "一般";
-                            }else{
-                                    echo "管理者";
-                            }?>
-                </td>
-                <td><?php switch ($row['delete_flag']) {
-                                    case '0':
-                                        echo "有効";
-                                        break;
-                                    
-                                    default:
-                                        echo "無効";
-                                        break;
-                            } 
-                            // switch ($row['delete_flag']) {
-                            //         case '0':
-                            //             echo "有効";
-                            //             break;
-                                    
-                            //         default:
-                            //             echo "無効";
-                            //             break;
-                            // } 
-                        ?>
-                    </td>
-                    <td>
-                        <?php
-                             error_reporting(0);
-                             echo date('Y/m/d', strtotime($row['registered_time']));
-                        ?>
-                    </td>
-                    <td>
-                        <?php 
-                             echo date('Y/m/d', strtotime($row['update_time']));
-                        ?>
-                    </td>
-                    <td>
-                        <!-- ★追加：削除★ -->
-                        <p class="dl_sousa">更新 削除 パスワード変更</p>
-                        
-                    </td>
-            </tr>
+            <li>
+            <div class="result-item">
+            <img src="images/<?php echo $row['item_img_path']; ?>" width="100" height="100">
+            <p class="item-name"><?php echo $row['item_name']?></p>
+            <p class="keyword"><?php echo $row['keyword']?></p>
+            <p class="item_price">¥<?php echo $row['item_price']?></p>
+            </div>
+            </li>
         <?php endforeach; ?>
-        </table>
+        </div>
         <p class="nodate"><?php  error_reporting(0); echo htmlspecialchars($errmessage, ENT_QUOTES); ?></p>
 
     </div>
-    
-
-
-
  </main>
  <footer>
     
@@ -301,24 +150,6 @@ error_reporting(0);
     
  </footer>
 
-    
- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <!--自作のJS-->
-    <script>
-    $('.slider').slick({
-		autoplay: true,//自動的に動き出すか。初期値はfalse。
-		infinite: true,//スライドをループさせるかどうか。初期値はtrue。
-		speed: 500,//スライドのスピード。初期値は300。
-		slidesToShow: 3,//スライドを画面に3枚見せる
-		slidesToScroll: 1,//1回のスクロールで1枚の写真を移動して見せる
-		prevArrow: '<div class="slick-prev"></div>',//矢印部分PreviewのHTMLを変更
-		nextArrow: '<div class="slick-next"></div>',//矢印部分NextのHTMLを変更
-		centerMode: true,//要素を中央ぞろえにする
-		variableWidth: true,//幅の違う画像の高さを揃えて表示
-		dots: true,//下部ドットナビゲーションの表示
-	});
-    </script>
-    <script src="js/6-1-7.js"></script>
+
 </body>
 </html>
