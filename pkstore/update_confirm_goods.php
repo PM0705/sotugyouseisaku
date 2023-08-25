@@ -80,20 +80,45 @@ var_dump($_POST);
            ?>
         </p>
         <p>商品画像:
-           <?php
-           error_reporting(0);
-           if($_FILES['item_img_path']['name']){
-            echo $_FILES['item_img_path']['name'];
+        <?php
+           echo$_FILES['item_img_path']['name'];
+           if (isset($_POST['item_img_path'])){
+            // $_FILES['inputで指定したname']['tmp_name']：一時保存ファイル名
+                  $temp_file = $_FILES['item_img_path']['tmp_name'];
+                  $dir = './images/';
+        
+            if (file_exists($temp_file)) {//②送信した画像が存在するかチェック
+                $image = uniqid(mt_rand(), false);//③ファイル名をユニーク化
+                switch (@exif_imagetype($temp_file)) {//④画像ファイルかのチェック
+                    case IMAGETYPE_GIF:
+                        $image .= '.gif';
+                        break;
+                    case IMAGETYPE_JPEG:
+                        $image .= '.jpg';
+                        break;
+                    case IMAGETYPE_PNG:
+                        $image .= '.png';
+                        break;
+                    default:
+                        echo '拡張子を変更してください';
+                }
+        //⑤DBではなくサーバーのimageディレクトリに画像を保存
+                move_uploaded_file($temp_file, $dir . $image);
             }
-            ?>
+        }
+        ?>
         </p>
         <div class="form submit1">
-        <form action="update_goods.php" method="post">
-                    <!-- <input type="submit" class="button1" value="前に戻る"> -->
-                    <button type="button" class="submit" value="前に戻る" onclick="history.back()">
-                            前に戻る
-                    </button>
-                </form>
+            <form action="regist_goods.php" method="post">  
+                    <input type="submit" class="submit" value="前に戻る">
+                    <input type="hidden" value="<?php echo $_POST['item_name']; ?>" name="item_name">
+                    <input type="hidden" value="<?php echo $_POST['item_price']; ?>" name="item_price">
+                    <input type="hidden" value="<?php echo $_POST['item_stock']; ?>" name="item_stock">
+                    <input type="hidden" value="<?php echo $_POST['keyword']; ?>" name="keyword">
+                    <input type="hidden" value="<?php echo $_POST['category']; ?>" name="category">
+                    <input type="hidden" value="<?php echo $_POST['new']; ?>" name="new">
+                    <input type="hidden" value="<?php echo $_POST['display']; ?>" name="display">
+            </form>
             <form action="update_complete_goods.php" method="post">
                 <input type="submit" class="submit" value="更新する"href="update_complete.php<? $result['id'] ?>" name="btnSend">
                 <input type="hidden" value="<?php echo $_POST['id']; ?>" name="id">
@@ -102,11 +127,9 @@ var_dump($_POST);
                 <input type="hidden" value="<?php echo $_POST['item_stock']; ?>" name="item_stock">
                 <input type="hidden" value="<?php echo $_POST['keyword']; ?>" name="keyword">
                 <input type="hidden" value="<?php echo $_POST['category']; ?>" name="category">
+                <input type="hidden" value="<?php echo $image; ?>" name="item_img_path">
                 <input type="hidden" value="<?php echo $_POST['new']; ?>" name="new">
                 <input type="hidden" value="<?php echo $_POST['display']; ?>" name="display">
-                <input type="hidden" value="<?php echo $_POST['item_img_path']; ?>" name="item_img_path">
-
-                  
             </form>
         </div> 
     </div>   

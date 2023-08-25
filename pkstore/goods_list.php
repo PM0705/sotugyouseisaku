@@ -132,7 +132,7 @@
                     
                     <tr>
                         <th>ID</th>
-
+                        <th>画像</th>
                         <th>アイテム名</th>
                         <th>価格</th>
                         <th>在庫</th>
@@ -151,7 +151,9 @@
                         <td>
                             <?php echo $row['id']?>
                         </td>
-
+                        <td>
+                            <img src="images/<?php echo $row['item_img_path']; ?>" width="100" height="100">
+                        </td>
                         <td>
                             <?php echo $row['item_name']?>
                         </td>

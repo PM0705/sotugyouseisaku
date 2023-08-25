@@ -154,7 +154,7 @@ var_dump($_GET);
 
 <!-- 送信ボタン -->
                 <div class="submit-confirm">
-                        <input type="submit" class="submit" value="確認する">
+                    <input type="submit" class="submit" value="確認する" name="item_img_path">
                 </div>
         </div>
     </form>
