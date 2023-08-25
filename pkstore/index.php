@@ -34,12 +34,22 @@
     </div>
  </header>
  <main>
+ <?php
+   
+   //データベースへ接続
+       $dsn = "mysql:dbname=pkstore;host=localhost;charset=utf8mb4";
+       $username = "root";
+       $password = "root";
+       $options = [];
+       $pdo = new PDO($dsn, $username, $password, $options);
+       $stmt = $pdo->query("SELECT * FROM slide ORDER BY id DESC");
+               //SQL文を実行して、結果を$stmtに代入する。
+   ?>
     <ul class="slider"><!--/slider-->
-        <li><img src="img/slide1.png" alt="スライド1"></li>
-        <li><img src="img/slide2.png" alt="スライド2"></li>
-        <li><img src="img/slide3.png" alt="スライド3"></li>
-        <li><img src="img/slide4.png" alt="スライド4"></li>
-        <li><img src="img/slide5.png" alt="スライド5"></li>
+    <!-- ここでPHPのforeachを使って結果をループさせる -->
+    <?php foreach ($stmt as $row): ?>
+        <li> <img src="images/<?php echo $row['slide_img_path']; ?>" alt="スライド1"></li>
+        <?php endforeach; ?>
     </ul>
 
     <h3>NEW〜情報〜</h3>

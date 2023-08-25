@@ -19,7 +19,7 @@
     $pdo = new PDO($dsn, $username, $password, $options);
     $stmt = $pdo->query("SELECT * FROM item_info_transaction ORDER BY id DESC");
             //SQL文を実行して、結果を$stmtに代入する。
-        ?>
+?>
 
  <header>
     <div class="header-left">
