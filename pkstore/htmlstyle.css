@@ -64,14 +64,17 @@ main{
 }
 
 /* スライドショー */
+
 .slider {/*横幅94%で左右に余白を持たせて中央寄せ*/
     width:94%;
     margin:0 auto;
+    
 }
 
 .slider img {
     width:60vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
-    height:auto;
+    height: 400px;
+    object-fit: cover;/* 画像を縦400px以上はトリミング */
 }
 
 .slider .slick-slide {

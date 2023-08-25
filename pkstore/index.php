@@ -35,7 +35,7 @@
  </header>
  <main>
  <?php
-   
+//スライド情報
    //データベースへ接続
        $dsn = "mysql:dbname=pkstore;host=localhost;charset=utf8mb4";
        $username = "root";
