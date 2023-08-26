@@ -173,7 +173,7 @@
                     </td>
                     <td>
                         <!-- ★追加：削除★ -->                    
-                        <button type="button"  onclick="location.href='update_account.php?id=<?php echo($row['id']) ?>'">表示</button>
+                        <button type="button"  onclick="location.href='account_details.php?id=<?php echo($row['id']) ?>'">表示</button>
                         <button type="button"  onclick="location.href='delete.php?id=<?php echo($row['id']) ?>'">削除</button>
                     </td>
                 </tr>
@@ -244,7 +244,7 @@ if ($count == 0) {
                     </td>
                     <td>
                         <!-- ★追加：削除★ -->                    
-                        <button type="button"  onclick="location.href='update_account.php?id=<?php echo($row['id']) ?>'">表示</button>
+                        <button type="button"  onclick="location.href='account_details.php?id=<?php echo($row['id']) ?>'">表示</button>
                         <button type="button"  onclick="location.href='delete.php?id=<?php echo($row['id']) ?>'">削除</button>
                     </td>
                 </tr>

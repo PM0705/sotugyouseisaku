@@ -1,5 +1,4 @@
 <?php
-var_dump($_POST);
 // エラーメッセージ、登録完了メッセージの初期化
 $id = $_POST['id'];
 $message = "";
@@ -8,17 +7,27 @@ try {
 //フォームから受け取った値を変数に代入
 mb_internal_encoding("utf8");
 $pdo=new PDO("mysql:dbname=pkstore;host=localhost;","root","root");
-$sql='UPDATE slide SET slide_title = :slide_title, slide_keyword = :slide_keyword,
-                    slide_new = :slide_new, display = :display,
-                    slide_img_path = :slide_img_path
+$sql='UPDATE account_list SET family_name = :family_name, last_name = :last_name,
+                    family_name_kana = :family_name_kana, last_name_kana = :last_name_kana,
+                    mail = :mail,
+                    gender = :gender, postal_code = :postal_code,
+                    prefecture = :prefecture, postal_code = :postal_code,
+                    gender = :gender, address_1 = :address_1,
+                    address_2 = :address_2, authority = :authority
                     WHERE id=:id';
 $stmt = $pdo->prepare($sql);
 //配列に格納
-$params = array(':slide_title' => $_REQUEST['slide_title'], 
-                ':slide_keyword' => $_REQUEST['slide_keyword'], 
-                ':slide_new' => $_REQUEST['slide_new'], 
-                ':display' => $_REQUEST['display'], 
-                ':slide_img_path' => $_REQUEST['slide_img_path'], 
+$params = array(':family_name' => $_REQUEST['family_name'], 
+                ':last_name' => $_REQUEST['last_name'], 
+                ':family_name_kana' => $_REQUEST['family_name_kana'], 
+                ':last_name_kana' => $_REQUEST['last_name_kana'], 
+                ':mail' => $_REQUEST['mail'], 
+                ':gender' => $_REQUEST['gender'], 
+                ':postal_code' => $_REQUEST['postal_code'], 
+                ':prefecture' => $_REQUEST['prefecture'], 
+                ':address_1' => $_REQUEST['address_1'], 
+                ':address_2' => $_REQUEST['address_2'],
+                ':authority' => $_REQUEST['authority'],
                 ':id' => $_REQUEST['id']);
 $stmt->execute($params);
 

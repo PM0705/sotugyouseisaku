@@ -201,6 +201,7 @@ include 'vars.php';
                 
         </div>
     </form>
+</div>
 
         
  </main>
