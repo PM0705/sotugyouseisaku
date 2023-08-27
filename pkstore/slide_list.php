@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>商品編集</title>
+    <title>スライド情報管理</title>
     <link rel="stylesheet" href="htmlstyle.css">
     
 </head>
@@ -51,7 +51,7 @@
         $errmessage = "検索結果はありません";
         } 
         ?>
-        <h3>商品リスト</h3>
+        <h3>スライド情報編集</h3>
             <div class="slide">
                     <table>
                         <tr>
