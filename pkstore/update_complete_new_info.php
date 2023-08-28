@@ -8,17 +8,17 @@ try {
 //フォームから受け取った値を変数に代入
 mb_internal_encoding("utf8");
 $pdo=new PDO("mysql:dbname=pkstore;host=localhost;","root","root");
-$sql='UPDATE slide SET slide_title = :slide_title, slide_keyword = :slide_keyword,
-                    slide_new = :slide_new, display = :display,
-                    slide_img_path = :slide_img_path
+$sql='UPDATE information SET info_title = :info_title, info_text = :info_text,
+                    info_new = :info_new, display = :display,
+                    info_img_path = :info_img_path
                     WHERE id=:id';
 $stmt = $pdo->prepare($sql);
 //配列に格納
-$params = array(':slide_title' => $_REQUEST['slide_title'], 
-                ':slide_keyword' => $_REQUEST['slide_keyword'], 
-                ':slide_new' => $_REQUEST['slide_new'], 
+$params = array(':info_title' => $_REQUEST['info_title'], 
+                ':info_text' => $_REQUEST['info_text'], 
+                ':info_new' => $_REQUEST['info_new'], 
                 ':display' => $_REQUEST['display'], 
-                ':slide_img_path' => $_REQUEST['slide_img_path'], 
+                ':info_img_path' => $_REQUEST['info_img_path'], 
                 ':id' => $_REQUEST['id']);
 $stmt->execute($params);
 

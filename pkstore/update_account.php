@@ -1,5 +1,6 @@
 <?php
  var_dump($_GET);
+ var_dump($_POST);
 // includeは最初の１行でOK
 include 'vars.php'; 
 ?>

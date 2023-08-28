@@ -94,13 +94,9 @@ var_dump($_POST);
         ?>
         </p>
         <div class="form submit1">
-            <form action="update_slide.php" method="post">  
-                    <input type="submit" class="submit" value="前に戻る">
-                    <input type="hidden" value="<?php echo $_POST['id']; ?>" name="id">
-                    <input type="hidden" value="<?php echo $_POST['slide_title']; ?>" name="slide_title">
-                    <input type="hidden" value="<?php echo $_POST['slide_keyword']; ?>" name="slide_keyword">
-                    <input type="hidden" value="<?php echo $_POST['slide_new']; ?>" name="slide_new">
-                    <input type="hidden" value="<?php echo $_POST['display']; ?>" name="display">
+            <form action="update_slide.php" method="post">
+                <!-- <input type="submit" class="button1" value="前に戻る"> -->
+                <button type="button" class="submit" value="前に戻る" onclick="history.back()">前に戻る</button>
             </form>
             <form action="update_complete_slide.php" method="post">
                 <input type="submit" class="submit" value="更新する"href="update_complete.php<? $result['id'] ?>" name="btnSend">

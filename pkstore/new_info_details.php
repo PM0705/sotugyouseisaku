@@ -14,7 +14,7 @@ include 'vars.php';
             $dbh = new PDO($dsn, $user, $password);
  
             // SELECT文を発行
-            $sql = "SELECT * FROM account_list WHERE id = :id";
+            $sql = "SELECT * FROM information WHERE id = :id";
             $stmt = $dbh->prepare($sql);
             $stmt->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
             $stmt->execute();
@@ -63,48 +63,38 @@ include 'vars.php';
 </header>
 <main class="regist-page">
 
-<h3>会員情報</h3>
+<h3>NEW~情報~</h3>
 
 <div class="account_field">
-    <form method="post" action="update_account.php" name="form" >
+    <form method="post" action="update_new_info.php" name="form" >
         <div class="contact-form errorMsg">
 <!-- ID -->
             <input type="hidden" name="id" value="<?php echo($member->id) ?>">
-            <input type="hidden" name="delete_flag" value="<?php echo($member->delete_flag) ?>">
-            
-<!-- 名前 -->
-            
-            <span class="account_text">名前:</span><span class="account_text"><?php echo($member->family_name); echo " "; echo($member->last_name); ?></span><br>
-            <span class="account_text">カナ:</span><span class="account_text"><?php echo($member->family_name_kana); echo " "; echo($member->last_name_kana); ?></span><br>
-<!-- mail -->
-            <span class="account_text">mail:</span><span class="account_text"><?php echo($member->mail); ?></span><br>
-<!-- PW-->
-            <span class="account_text">パスワード:</span><span class="account_text">安全の為表示されません</span><br>
-<!-- 性別 -->
-            <span class="account_text">性別:</span><span class="account_text">
+<!-- タイトル・内容 -->            
+            <img src="images/<?php echo($member->info_img_path);?>"><br>
+            <span class="account_text">タイトル:</span><span class="account_text"><?php echo($member->info_title);?></span><br>
+            <span class="account_text">内容:</span><span class="account_text"><?php echo($member->info_text);?></span><br>
+<!-- NEW -->
+            <span class="account_text">NEW:</span><span class="account_text">
             <?php error_reporting(0);
-                if ($gender == 0) {
-                    echo "男";
+                if ($info_new == 0) {
+                    echo "ON";
                     }else{
-                            echo "女";
+                            echo "OFF";
                     } ?></span><br>
-<!-- 郵便住所 -->
-            <span class="account_text">郵便番号:</span><span class="account_text"><?php echo($member->postal_code); ?></span><br>
-            <span class="account_text">都道府県:</span><span class="account_text"><?php echo($member->prefecture); ?></span><br>
-            <span class="account_text">市区町村:</span><span class="account_text"><?php echo($member->address_1); ?></span><br>
-            <span class="account_text">番地:</span><span class="account_text"><?php echo($member->address_2); ?></span><br>
-<!-- 権限 -->
-            <span class="account_text">権限:</span><span class="account_text"><?php 
-                error_reporting(0);
-                if ($authority == 0) {
-                    echo "一般";
+<!-- 情報 -->
+            <span class="account_text">表示:</span><span class="account_text">
+            <?php error_reporting(0);
+                if ($display == 0) {
+                    echo "ON";
                     }else{
-                            echo "管理者";
-                    }; ?></span><br>
+                            echo "OFF";
+                    } ?></span><br>
+
 <!-- 送信ボタン -->
             <div class="contact-submit">
-                <button type="button" class="submit delete" onclick="location.href='delete.php?id=<?php echo($member->id) ?>'">削除</button>
-                <button type="button" class="submit" onclick="location.href='update_account.php?id=<?php echo($member->id) ?>'">表示</button>    
+                <button type="button" class="submit delete" onclick="location.href='delete_new_info.php?id=<?php echo($member->id) ?>'">削除</button>
+                <button type="button" class="submit" onclick="location.href='update_new_info.php?id=<?php echo($member->id) ?>'">表示</button>    
             </div>
         </div>
     </form> 
