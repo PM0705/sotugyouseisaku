@@ -66,7 +66,7 @@ include 'vars.php';
 <h3>会員情報</h3>
 
 <div class="account_field">
-    <form method="post" action="update_account.php" name="form" >
+   
         <div class="contact-form errorMsg">
 <!-- ID -->
             <input type="hidden" name="id" value="<?php echo($member->id) ?>">
@@ -103,11 +103,11 @@ include 'vars.php';
                     }; ?></span><br>
 <!-- 送信ボタン -->
             <div class="contact-submit">
-                <button type="button" class="submit delete" onclick="location.href='delete.php?id=<?php echo($member->id) ?>'">削除</button>
+                <button type="button" class="submit delete" onclick="location.href='delete_confirm_account.php?id=<?php echo($member->id) ?>'">削除</button>
                 <button type="button" class="submit" onclick="location.href='update_account.php?id=<?php echo($member->id) ?>'">表示</button>    
             </div>
         </div>
-    </form> 
+
 </div>
 
 

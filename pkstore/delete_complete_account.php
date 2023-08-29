@@ -1,5 +1,4 @@
 <?php
-var_dump($_POST);
 // エラーメッセージ、登録完了メッセージの初期化
 $id = $_POST['id'];
 $message = "";
@@ -8,18 +7,13 @@ try {
 //フォームから受け取った値を変数に代入
 mb_internal_encoding("utf8");
 $pdo=new PDO("mysql:dbname=pkstore;host=localhost;","root","root");
-$sql='UPDATE information SET info_title = :info_title, info_text = :info_text,
-                    info_new = :info_new, display = :display,
-                    info_img_path = :info_img_path
-                    WHERE id=:id';
+$sql='UPDATE account_list SET delete_flag = :delete_flag  WHERE id=:id';
 $stmt = $pdo->prepare($sql);
-//配列に格納
-$params = array(':info_title' => $_REQUEST['info_title'], 
-                ':info_text' => $_REQUEST['info_text'], 
-                ':info_new' => $_REQUEST['info_new'], 
-                ':display' => $_REQUEST['display'], 
-                ':info_img_path' => $_REQUEST['info_img_path'], 
-                ':id' => $_REQUEST['id']);
+//  更新する値と該当のIDを配列に格納する
+$params = array(':delete_flag' => '1' ,
+                ':id' => $_POST['id']); 
+
+// 更新する値と該当のIDが入った変数をexecuteにセットしてSQLを実行
 $stmt->execute($params);
 
 $message = '更新が完了しました。';

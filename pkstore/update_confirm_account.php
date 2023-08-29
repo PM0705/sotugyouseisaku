@@ -33,7 +33,7 @@ var_dump($_POST);
     </div>
 </header>
 <main class="regist-page">
-<h3>商品編集登録フォーム</h3>
+<h3>会員情報編集フォーム</h3>
 <div class="confirm">
     <p>名前（姓）<span></span>
     

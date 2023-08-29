@@ -594,7 +594,13 @@ form{
         font-size: 1vw;
 }
 
-
+/* 削除 */
+.delete_text{
+    font-size: 5vw;
+    color: #000;
+    background-color: red;
+    text-align: center;
+}
 
 
 
@@ -713,11 +719,13 @@ form{
     margin-left: 5vw;
     margin-right: 5vw;
     margin-bottom: 25vw;
+    
+    
 }
 .account_field table{
-    background-color: red;
-    gap:20vw; /* 余白 */
+    gap:20vw; /* 余白 */   
 }
+
 /* アカウント情報編集 */
 .contact-submit .delete{
     background-color: yellow;

@@ -72,10 +72,8 @@ $message = '更新が完了しました。';
       <h3>会員登録完了フォーム</h3>
       <div class="confirm">
          <div><?php echo htmlspecialchars($message, ENT_QUOTES); ?></div>
-         <form action="index.php">
          <button onclick="location.href='index.php'" class="submit" value="HOMEへ戻る" >HOMEへ戻る</button>
          <button onclick="location.href='authority.php'" class="submit" value="HOMEへ戻る" >管理者メニューへ戻る</button>
-         </form>
       </div>
  </main>
  <footer>

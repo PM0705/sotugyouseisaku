@@ -174,7 +174,6 @@
                     <td>
                         <!-- ★追加：削除★ -->                    
                         <button type="button"  onclick="location.href='account_details.php?id=<?php echo($row['id']) ?>'">表示</button>
-                        <button type="button"  onclick="location.href='delete.php?id=<?php echo($row['id']) ?>'">削除</button>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -185,17 +184,17 @@
 
 <?php
 //データベースへ接続
-$dsn = "mysql:dbname=lesson01;host=localhost;charset=utf8mb4";
+$dsn = "mysql:dbname=pkstore;host=localhost;charset=utf8mb4";
 $username = "root";
 $password = "root";
 $options = [];
 $pdo = new PDO($dsn, $username, $password, $options);
     if ((isset($_POST["family_name"])) && (isset($_POST["last_name"])) && (isset($_POST["family_name_kana"])) && (isset($_POST["last_name_kana"])) && (isset($_POST["mail"]))){
-        $stmt = $pdo->query("SELECT * FROM diblog_account where delete_flag = '1' ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。
+        $stmt = $pdo->query("SELECT * FROM account_list where delete_flag = '1' ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。
     }
     error_reporting(0);
     if($_POST["family_name"] != "" || $_POST["last_name"] != "" || $_POST["family_name_kana"] != "" || $_POST["last_name_kana"] != "" || $_POST["mail"] != "" || $_POST["gender"] != "" || $_POST["authority"] != "" ){ //IDおよびユーザー名の入力有無を確認
-        $stmt = $pdo->query("SELECT * FROM diblog_account WHERE family_name LIKE  '%".$_POST["family_name"]."%' 
+        $stmt = $pdo->query("SELECT * FROM account_list WHERE family_name LIKE  '%".$_POST["family_name"]."%' 
                                                                 AND last_name LIKE  '%".$_POST["last_name"]."%' 
                                                                 AND family_name_kana LIKE  '%".$_POST["family_name_kana"]."%' 
                                                                 AND last_name_kana LIKE  '%".$_POST["last_name_kana"]."%' 
@@ -227,7 +226,8 @@ if ($count == 0) {
                 </tr>
                 <!-- ここでPHPのforeachを使って結果をループさせる -->
                 <?php foreach ($stmt as $row): ?>
-                <tr><td>
+                <tr >
+                    <td>
                         <?php echo $row['id']?>
                     </td>
                     <td>
@@ -245,7 +245,6 @@ if ($count == 0) {
                     <td>
                         <!-- ★追加：削除★ -->                    
                         <button type="button"  onclick="location.href='account_details.php?id=<?php echo($row['id']) ?>'">表示</button>
-                        <button type="button"  onclick="location.href='delete.php?id=<?php echo($row['id']) ?>'">削除</button>
                     </td>
                 </tr>
                 <?php endforeach; ?>
