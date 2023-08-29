@@ -43,43 +43,32 @@
        $options = [];
        $pdo = new PDO($dsn, $username, $password, $options);
        $stmt = $pdo->query("SELECT * FROM slide ORDER BY id DESC");
+       $stmt_newinfo = $pdo->query("SELECT * FROM information ORDER BY id DESC");
+       $stmt_newgoods = $pdo->query("SELECT * FROM item_info_transaction where new = '0' ORDER BY  id DESC , new limit 4");
                //SQL文を実行して、結果を$stmtに代入する。
    ?>
     <ul class="slider"><!--/slider-->
     <!-- ここでPHPのforeachを使って結果をループさせる -->
     <?php foreach ($stmt as $row): ?>
         <li> <img src="images/<?php echo $row['slide_img_path']; ?>" alt="スライド1"></li>
-        <?php endforeach; ?>
+    <?php endforeach; ?>
     </ul>
 
     <h3>NEW〜情報〜</h3>
     <div class="info">
-        <img src="img/newinfo1.png" alt="newinfo1">
-        <img src="img/newinfo2.png" alt="newinfo2">
-        <img src="img/newinfo3.png" alt="newinfo3">
-        <img src="img/newinfo4.png" alt="newinfo4">
+    <?php foreach ($stmt_newinfo as $row): ?>
+         <img src="images/<?php echo $row['info_img_path']; ?>" alt="newinfo">
+    <?php endforeach; ?>
     </div>
 
     <h3>NEW〜グッズ〜</h3>
     <div class="info">
+    <?php foreach ($stmt_newgoods as $row): ?>
         <div class="relative">
-            <a href="new-goods.php"><img src="img/newg1.png" alt="newg1" class="info-img"></a>
-            <img src="img/newIcon.png" alt="newIcon" class="absolute">
+            <a href="new-goods.php"><img src="images/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img"></a>
+            <img src="img/newIcon.png" alt="newIcon" class="absolute">  
         </div>
-        <div class="relative">
-            <a href="new-goods.php"><img src="img/newg2.png" alt="newg2" class="info-img"></a>
-            <img src="img/newIcon.png" alt="newIcon" class="absolute">
-        </div>
-        <div class="relative">
-            <a href="new-goods.php"><img src="img/newg3.png" alt="newg3" class="info-img"></a>
-            <img src="img/newIcon.png" alt="newIcon" class="absolute">
-        </div>
-        <div class="relative">
-            <a href="new-goods.php"><img src="img/newg4.png" alt="newg4" class="info-img"></a>
-            <img src="img/newIcon.png" alt="newIcon" class="absolute">
-        </div>
-        
-        
+    <?php endforeach; ?>
     </div>
     <h3>ランキング</h3>
     <div class="info">
