@@ -75,7 +75,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>キーワード</th>
+                        <th>カテゴリー</th>
                         <td>
                         <select name="category"id="category"  name="category">
                         <?php 
@@ -134,13 +134,6 @@
                         <th>ID</th>
                         <th>画像</th>
                         <th>アイテム名</th>
-                        <th>価格</th>
-                        <th>在庫</th>
-                        <th>キーワード</th>
-                        <th>カテゴリー</th>
-                        <th>新着</th>
-                        <th>表示</th>
-                        <th>登録日</th>
                         <th>最終更新日</th>
                         <th >操作</th>
                             
@@ -158,50 +151,13 @@
                             <?php echo $row['item_name']?>
                         </td>
                         <td>
-                            <?php echo $row['item_price']?>
-                        </td>
-                        <td>
-                            <?php echo $row['item_stock']?>
-                        </td>
-                        <td>
-                            <?php echo $row['keyword']?>
-                        </td>
-                        <td>
-                            <?php echo $row['category']?>
-                        </td>
-                        <td>
-                            <?php 
-                                    if ($row['new'] == 0) {
-                                        echo "ON";
-                                        
-                                        }else{
-                                            echo "OFF";
-                                        }?>
-                        </td>
-                        <td>
-                            <?php 
-                                if ($row['display'] == 0) {
-                                    echo "ON";
-                                    }else{
-                                            echo "OFF";
-                                    }?>
-                        </td>
-                        <td>
-                            <?php
-                                error_reporting(0);
-                                echo date('Y/m/d', strtotime($row['registered_time']));
-                            ?>
-                        </td>
-                        <td>
                             <?php 
                                 echo date('Y/m/d', strtotime($row['update_time']));
                             ?>
                         </td>
                         <td>
                             <!-- ★追加：削除★ -->
-                            <button type="button"  onclick="location.href='update_goods.php?id=<?php echo($row['id']) ?>'">更新</button>
-                            <button type="button"  onclick="location.href='delete.php?id=<?php echo($row['id']) ?>'">削除</button>
-                            <button type="button"  onclick="location.href='pw.php?id=<?php echo($row['id']) ?>'">パスワード変更</button>
+                            <button type="button"  onclick="location.href='goods_details.php?id=<?php echo($row['id']) ?>'">表示</button>
                         </td>
                     </tr>
                     <?php endforeach; ?>

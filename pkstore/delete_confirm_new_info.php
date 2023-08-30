@@ -63,10 +63,10 @@ include 'vars.php';
 </header>
 <main class="regist-page">
 
-<h3>NEW~情報~</h3>
+<h3>情報登録削除フォーム</h3>
+<p class="delete_text">本当に削除してよろしいですか?<br>よろしければ削除ボタンを押してください</p>
 
 <div class="account_field">
-    <form method="post" action="update_new_info.php" name="form" >
         <div class="contact-form errorMsg">
 <!-- ID -->
             <input type="hidden" name="id" value="<?php echo($member->id) ?>">
@@ -90,14 +90,17 @@ include 'vars.php';
                     }else{
                             echo "OFF";
                     } ?></span><br>
-
 <!-- 送信ボタン -->
             <div class="contact-submit">
-                <button type="button" class="submit delete" onclick="location.href='delete_confirm_new_info.php?id=<?php echo($member->id) ?>'">削除</button>
-                <button type="button" class="submit" onclick="location.href='update_new_info.php?id=<?php echo($member->id) ?>'">表示</button>    
+                <form action="new_info_details.php" method="post">
+                    <button type="button" class="submit" value="前に戻る" onclick="history.back()">前に戻る</button>
+                </form>
+                <form action="delete_complete_new_info.php" method="post">
+                    <input type="submit" class="submit" value="削除する"href="delete_complete_new_info.php<? $result['id'] ?>" name="btnSend">
+                    <input type="hidden" value="<?php echo($member->id); ?>" name="id">            
+                </form>    
             </div>
-        </div>
-    </form> 
+        </div> 
 </div>
 
 

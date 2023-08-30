@@ -105,21 +105,8 @@ include 'vars.php';
                 <button type="button" class="submit" value="前に戻る" onclick="history.back()">前に戻る</button>
             </form>
                 <form action="delete_complete_account.php" method="post">
-                
                     <input type="submit" class="submit" value="削除する"href="delete_complete_account.php<? $result['id'] ?>" name="btnSend">
                     <input type="hidden" value="<?php echo($member->id); ?>" name="id">
-                    <input type="hidden" value="<?php echo($member->id); ?>" name="family_name">
-                    <input type="hidden" value="<?php echo($member->id); ?>" name="last_name">
-                    <input type="hidden" value="<?php echo($member->id); ?>" name="family_name_kana">
-                    <input type="hidden" value="<?php echo($member->id); ?>" name="last_name_kana">
-                    <input type="hidden" value="<?php echo($member->id); ?>" name="mail">
-                    <input type="hidden" value="<?php echo($member->id); ?>" name="password">
-                    <input type="hidden" value="<?php echo($member->id); ?>" name="gender">
-                    <input type="hidden" value="<?php echo($member->id); ?>" name="postal_code">
-                    <input type="hidden" value="<?php echo($member->id); ?>" name="prefecture">
-                    <input type="hidden" value="<?php echo($member->id); ?>" name="address_1">
-                    <input type="hidden" value="<?php echo($member->id); ?>" name="address_2">
-                    <input type="hidden" value="<?php echo($member->id); ?>" name="authority">
             
                 </form>    
             </div>

@@ -16,7 +16,7 @@ try {
                 '".$_POST['display']."'
                 
     );");
-    $message = '登録が完了しました。ログインして引き続きPKstoreをお楽しみください';
+    $message = '登録が完了しました。';
     } catch (PDOException $e) {
         
         $message = 'エラーが発生したためアカウント登録できません。';

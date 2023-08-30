@@ -7,7 +7,7 @@ try {
 //フォームから受け取った値を変数に代入
 mb_internal_encoding("utf8");
 $pdo=new PDO("mysql:dbname=pkstore;host=localhost;","root","root");
-$sql='UPDATE account_list SET delete_flag = :delete_flag  WHERE id=:id';
+$sql='UPDATE item_info_transaction SET delete_flag = :delete_flag  WHERE id=:id';
 $stmt = $pdo->prepare($sql);
 //  更新する値と該当のIDを配列に格納する
 $params = array(':delete_flag' => '1' ,
@@ -33,7 +33,7 @@ $message = '削除が完了しました。';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>会員情報削除フォーム</title>
+    <title>商品情報削除フォーム</title>
 
     
     <link rel="stylesheet" href="htmlstyle.css">
@@ -59,7 +59,7 @@ $message = '削除が完了しました。';
     </div>
  </header>
  <main class="regist-page">
-      <h3>会員情報削除フォーム</h3>
+      <h3>商品情報削除フォーム</h3>
       <div class="confirm">
          <div><?php echo htmlspecialchars($message, ENT_QUOTES); ?></div>
          <button onclick="location.href='index.php'" class="submit" value="HOMEへ戻る" >HOMEへ戻る</button>

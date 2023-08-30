@@ -136,7 +136,6 @@
                         <td>
                             <!-- ★追加：削除★ -->
                             <button type="button"  onclick="location.href='new_info_details.php?id=<?php echo($row['id']) ?>'">表示</button>
-                            <button type="button"  onclick="location.href='delete.php?id=<?php echo($row['id']) ?>'">削除</button>
                         </td>
                     </tr>  
                     <?php endforeach; ?>      

@@ -14,7 +14,7 @@ include 'vars.php';
             $dbh = new PDO($dsn, $user, $password);
  
             // SELECT文を発行
-            $sql = "SELECT * FROM information WHERE id = :id";
+            $sql = "SELECT * FROM item_info_transaction WHERE id = :id";
             $stmt = $dbh->prepare($sql);
             $stmt->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
             $stmt->execute();
@@ -66,14 +66,17 @@ include 'vars.php';
 <h3>NEW~情報~</h3>
 
 <div class="account_field">
-    <form method="post" action="update_new_info.php" name="form" >
+
         <div class="contact-form errorMsg">
 <!-- ID -->
             <input type="hidden" name="id" value="<?php echo($member->id) ?>">
 <!-- タイトル・内容 -->            
-            <img src="images/<?php echo($member->info_img_path);?>"><br>
-            <span class="account_text">タイトル:</span><span class="account_text"><?php echo($member->info_title);?></span><br>
-            <span class="account_text">内容:</span><span class="account_text"><?php echo($member->info_text);?></span><br>
+            <img src="images/<?php echo($member->item_img_path);?>"><br>
+            <span class="account_text">商品名:</span><span class="account_text"><?php echo($member->item_name);?></span><br>
+            <span class="account_text">値段:</span><span class="account_text"><?php echo($member->item_price);?></span><br>
+            <span class="account_text">在庫:</span><span class="account_text"><?php echo($member->item_stock);?></span><br>
+            <span class="account_text">キーワード:</span><span class="account_text"><?php echo($member->keyword);?></span><br>
+            <span class="account_text">カテゴリー:</span><span class="account_text"><?php echo($member->category);?></span><br>
 <!-- NEW -->
             <span class="account_text">NEW:</span><span class="account_text">
             <?php error_reporting(0);
@@ -90,14 +93,18 @@ include 'vars.php';
                     }else{
                             echo "OFF";
                     } ?></span><br>
-
 <!-- 送信ボタン -->
             <div class="contact-submit">
-                <button type="button" class="submit delete" onclick="location.href='delete_confirm_new_info.php?id=<?php echo($member->id) ?>'">削除</button>
-                <button type="button" class="submit" onclick="location.href='update_new_info.php?id=<?php echo($member->id) ?>'">表示</button>    
+            <form action="goods_details.php" method="post">
+                <button type="button" class="submit" value="前に戻る" onclick="history.back()">前に戻る</button>
+            </form>
+                <form action="delete_complete_goods.php" method="post">
+                    <input type="submit" class="submit" value="削除する"href="delete_complete_account.php<? $result['id'] ?>" name="btnSend">
+                    <input type="hidden" value="<?php echo($member->id); ?>" name="id">
+            
+                </form>    
             </div>
         </div>
-    </form> 
 </div>
 
 
