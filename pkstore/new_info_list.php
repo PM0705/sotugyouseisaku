@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>商品編集</title>
+    <title>情報検索フォーム</title>
     <link rel="stylesheet" href="htmlstyle.css">
     
 </head>
@@ -19,7 +19,7 @@
     $options = [];
     $pdo = new PDO($dsn, $username, $password, $options);
         if ((isset($_POST["info_title"])) && (isset($_POST["info_text"]))){
-            $stmt = $pdo->query("SELECT * FROM information ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT * FROM information where delete_flag = '0' ORDER BY id DESC");
             //SQL文を実行して、結果を$stmtに代入する。
         }
         error_reporting(0);
@@ -28,6 +28,7 @@
                                                                     AND info_text LIKE  '%".$_POST["info_text"]."%' 
                                                                     AND info_new LIKE  '%".$_POST["info_new"]."%' 
                                                                     AND display LIKE  '%".$_POST["display"]."%' 
+                                                                    AND delete_flag = '0' 
                                                                     ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。    
 
         }
@@ -56,7 +57,7 @@
  </header>
  <main>
 
-        <h3>スライド情報検索フォーム</h3>
+        <h3>情報検索フォーム</h3>
         <form action="new_info_list.php" method="post">
             <table class="mail-search">
                 <thead>
@@ -107,7 +108,59 @@
         $errmessage = "検索結果はありません";
         } 
         ?>
-        <h3>スライド情報リスト</h3>
+        <h3>情報リスト</h3>
+
+        <div class="info_field">
+                <table>
+                    
+                    <tr>
+                        <th>ID</th>
+                        <th>画像</th>
+                        <th>最終更新日</th>
+                        <th >操作</th>
+                            
+                    </tr>
+                    <!-- ここでPHPのforeachを使って結果をループさせる -->
+                    <?php foreach ($stmt as $row): ?>
+                    <tr>
+                        <td>
+                            <?php echo $row['id']?>
+                        </td>
+                        <td>
+                            <img src="images/<?php echo $row['info_img_path']; ?>" width="100" height="100">
+                        </td>
+                        <td>
+                            <?php 
+                                echo date('Y/m/d', strtotime($row['update_time']));
+                            ?>
+                        </td>
+                        <td>
+                            <!-- ★追加：削除★ -->
+                            <button type="button"  onclick="location.href='new_info_details.php?id=<?php echo($row['id']) ?>'">表示</button>
+                        </td>
+                    </tr>  
+                    <?php endforeach; ?>      
+                </table>                      
+        </div>  
+        <p class="nodate"><?php  error_reporting(0); echo htmlspecialchars($errmessage, ENT_QUOTES); ?></p> 
+
+<?php
+if ((isset($_POST["info_title"])) && (isset($_POST["info_text"]))){
+    $stmt = $pdo->query("SELECT * FROM information where delete_flag = '1' ORDER BY id DESC");
+    //SQL文を実行して、結果を$stmtに代入する。
+}
+error_reporting(0);
+if($_POST["info_title"] != "" || $_POST["info_text"] != "" || $_POST["info_new"] != "" || $_POST["display"] != ""){ //IDおよびユーザー名の入力有無を確認
+    $stmt = $pdo->query("SELECT * FROM information WHERE info_title LIKE  '%".$_POST["info_title"]."%' 
+                                                            AND info_text LIKE  '%".$_POST["info_text"]."%' 
+                                                            AND info_new LIKE  '%".$_POST["info_new"]."%' 
+                                                            AND display LIKE  '%".$_POST["display"]."%' 
+                                                            AND delete_flag = '1' 
+                                                            ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。    
+}
+?>
+
+        <h3>削除済み情報リスト</h3>
 
         <div class="info_field">
                 <table>
