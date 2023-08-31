@@ -1,11 +1,41 @@
-
+<?php
+ var_dump($_GET);
+// includeは最初の１行でOK
+include 'vars.php'; 
+?>
+<?php
+    if (isset($_GET['id'])) {
+        try {
+ 
+            // 接続処理
+            $dsn = 'mysql:host=localhost;dbname=pkstore';
+            $user = 'root';
+            $password = 'root';
+            $dbh = new PDO($dsn, $user, $password);
+ 
+            // SELECT文を発行
+            $sql = "SELECT * FROM slide WHERE id = :id";
+            $stmt = $dbh->prepare($sql);
+            $stmt->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            $member = $stmt->fetch(PDO::FETCH_OBJ); // 1件のレコードを取得
+            // 接続切断
+            $dbh = null;
+ 
+        } catch (PDOException $e) {
+            print $e->getMessage() . "<br/>";
+            
+        }
+ 
+    }
+?>
 <!DOCTYPE html>
 <html lang="jp">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PKstoreInfo</title>
+    <title>オススメ情報</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="css/6-1-7.css">
     
@@ -13,45 +43,45 @@
     
 </head>
 <body>
-<?php
-   
-//データベースへ接続
-    $dsn = "mysql:dbname=pkstore;host=localhost;charset=utf8mb4";
-    $username = "root";
-    $password = "root";
-    $options = [];
-    $pdo = new PDO($dsn, $username, $password, $options);
-    $stmt = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' AND new = '0' AND display = '0' ORDER BY id DESC");
-        ?>
-   
- <header>
-    <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img">
-    </div>
-    <div class="header-right">
-        <a href="login.php">ログイン・会員登録はこちら</a>
-        <ul>
-            <!-- ログインしていない -->
-            <li><a href="pk_onlineshop.php">グッズ販売</a></li>
-            <li><a href="sns.php">SNS</li>
-            <li><a href="news.php">新着情報</li>
-            <li><a href="store_info.php">店舗情報</a></li>
-            <li><a href="mail.php">お問い合わせ</a></li>
-        </ul>
-    </div>
- </header>
- <main >
-    <h3>新着情報</h3>
-    <div class="info news_f">
-        <?php foreach ($stmt as $row): ?>
-            <div class="relative">
-                <img src="images/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
-                <img src="img/newIcon.png" alt="newIcon" class="absolute">  
+
+
+
+<header>
+<div class="header-left">
+    <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
+    <img src="img/character.png" alt="PKstoreのキャラクター" class="img">
+</div>
+<div class="header-right">
+    <a href="login.php">ログイン・会員登録はこちら</a>
+    <ul>
+        <!-- ログインしていない -->
+        <li><a href="pk_onlineshop.php">グッズ販売</a></li>
+        <li><a href="sns.php">SNS</li>
+        <li><a href="news.php">新着情報</li>
+        <li><a href="store_info.php">店舗情報</a></li>
+        <li><a href="mail.php">お問い合わせ</a></li>
+    </ul>
+</div>
+</header>
+<main >
+
+    <h3><span><?php echo($member->slide_title);?></span><br></h3>
+    <div class="account_field">
+        <div class="contact-form errorMsg">
+<!-- ID -->
+            <input type="hidden" name="id" value="<?php echo($member->id) ?>">
+<!-- タイトル・内容 -->            
+            <img src="images/<?php echo($member->slide_img_path);?>" class="news-page-img"><br>
+            
+            <span class="news_text"><?php echo($member->slide_keyword);?></span><br>
+
+
+<!-- 送信ボタン -->
+            <div class="contact-submit">
+            <button onclick="location.href='index.php'" class="submit">HOMEへ戻る</button>
             </div>
-        <?php endforeach; ?>
+        </div>
     </div>
-    
 
 
 

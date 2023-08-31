@@ -1,5 +1,20 @@
 <?php
 error_reporting(0);
+
+session_start();
+
+　//POSTデータをカート用のセッションに保存
+ if($_SERVER['REQUEST_METHOD']==='POST'){
+    $id=$_POST['id'];
+    $num=$_POST['item_price'];
+    $_SESSION['cart'][$product]=$num; //セッションにデータを格納
+ }
+  $cart=array();
+  if(isset($_SESSION['cart'])){
+    $cart=$_SESSION['cart'];
+ }
+ var_dump($cart);
+?>
 ?>
 
 <!DOCTYPE html>

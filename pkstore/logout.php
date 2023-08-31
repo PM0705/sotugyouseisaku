@@ -1,3 +1,14 @@
+<?php
+session_start();
+//セッション変数の中身を空にする
+$_SESSION = array();
+//サーバ側のセッションを破棄
+session_destroy();
+$logout = 'ログアウト完了しました。';
+$logout2 = 'PKストアをご利用いただき、ありがとうございました!';
+
+
+?>
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -33,8 +44,8 @@
  <main class="contact-page">
  <h3>ログアウト完了</h3>
     <div class="complete">
-        <h2>ログアウトが完了しました</h2>
-        <p>PKストアをご利用いただき、ありがとうございました。</p>
+        <h2 class="noerror"><?php error_reporting(0);echo htmlspecialchars($logout, ENT_QUOTES); ?></h2>
+        <p class="noerror"><?php error_reporting(0);echo htmlspecialchars($logout2, ENT_QUOTES); ?></p>
         <div class="button">
         <button onclick="location.href='index.php'" class="submit">HOMEへ戻る</button>
         </div>

@@ -97,7 +97,7 @@ include 'vars.php';
 <!-- 送信ボタン -->
             <div class="contact-submit">
                 <button type="button" class="submit delete" onclick="location.href='delete_comfirm_goods.php?id=<?php echo($member->id) ?>'">削除</button>
-                <button type="button" class="submit" onclick="location.href='update_new_info.php?id=<?php echo($member->id) ?>'">表示</button>    
+                <button type="button" class="submit" onclick="location.href='update_goods.php?id=<?php echo($member->id) ?>'">編集</button>    
             </div>
         </div>
     </form> 

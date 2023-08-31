@@ -1,3 +1,68 @@
+<?php
+//セッションを使うことを宣言
+session_start();
+var_dump($_SESSION);
+var_dump($_POST);
+
+?>
+<?php
+$errorMessage = "";
+//データベース接続情報
+$dbuser = 'root';
+$dbpass = 'root';
+$dsn = 'mysql:host=localhost;dbname=pkstore;';
+
+//MySQL接続
+try {
+  $dbh = new PDO($dsn, $dbuser, $dbpass);
+} catch (PDOException $e) {
+  exit('データベース接続失敗: ' . $e->getMessage());
+}
+
+//DBからユーザ情報を取得
+$sql = 'SELECT * FROM account_list WHERE mail = :mail';
+$sth = $dbh->prepare($sql);
+
+if (isset($_POST["login"])) {
+    //ログインされている場合は表示用メッセージを編集
+    $message = $_SESSION['mail']."さんようこそ";
+    $message1 = $_SESSION['family_name']."さんようこそ";
+    $authority = $_SESSION['authority']."さんようこそ";
+    $coution = "権限がないので操作できません";
+    
+    // １．ユーザIDの入力チェック
+    if (empty($_POST["mail"])) {
+      $emptyerrorMessage = "メールアドレスが未入力です。";
+    } else if (empty($_POST["password"])) {
+      $errorMessage = "パスワードが未入力です。";
+      
+    } 
+   
+        //フォームから受け取った値を変数に代入
+    $mail = $_POST['mail'];
+    $password = $_POST['password'];
+    $sth->bindValue(':mail', $mail);
+    $sth->execute();
+    $result = $sth->fetch(PDO::FETCH_ASSOC);
+   
+    //パスワードが正しいかチェック
+    //パスワードが正しい場合
+    if (password_verify($password, $result['password'])) {
+    //情報をセッション変数に登録
+    $_SESSION["family_name"] = $result['family_name']; //セッションにログイン情報を登録
+    $_SESSION["authority"] = $result['authority']; //セッションにログイン情報を登録
+    $_SESSION['mail'] = $result['mail'];
+
+    header("Location: index.php");
+    
+     return;   
+    } else {
+    //パスワードが間違っている場合
+    $errorMessage = 'メールアドレスまたはパスワードが間違っています';
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -5,8 +70,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ログイン</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="css/6-1-7.css">
     
     <link rel="stylesheet" href="htmlstyle.css">
     
@@ -33,12 +96,12 @@
  <main class="login-page">
  <h3>ログイン</h3>
  <div class="loginform">  
-        <form  id="loginForm" name="loginForm" action="login.php" method="POST">
-            <div><?php error_reporting(0); echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></div>
-            <div class="loginform-div"><label for="mail">メールアドレス※ <br>半角英数字、半角ハイフンのみ可</label>
+        <form  id="loginForm" name="form" action="login.php" method="POST">
+            <div><?php  echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></div>
+            <div class="loginform-div"><label for="mail">メールアドレス</label>
                 <input type="text" name="mail" id="mail" maxlength="100"
                             title="半角英数字、半角ハイフンでご入力ください"><br>
-                    <span class="err-msg-mail"></span>
+                    
             </div>
             
             <!-- パスワード -->
@@ -46,20 +109,21 @@
                 <label for="password">パスワード<br>※半角英数字のみ入力可</label>
                 <input type="password" name="password" id="password" maxlength="10"
                             title="半角英数字でご入力ください"><br>
-                    <span class="err-msg-password"></span>
+                    
                 </div>
 
             <!-- ログインボタン -->
 
             <div class="sub-confirm">
-            <button class="submit-confirm" type="submit" name="login">ログインする</button>
+            <input type="submit" class="submit" value="ログインする" name="login">
             </div>
+            </form> 
             <div class="new-ac">
             <a href="regist.php">会員登録はこちら</a><br>
             <a href="logout.php">ログアウト（仮）</a>
             </div>
             
-        </form> 
+       
 </div>    
       
  </main>
@@ -85,24 +149,5 @@
     
  </footer>
 
-    
- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <!--自作のJS-->
-    <script>
-    $('.slider').slick({
-		autoplay: true,//自動的に動き出すか。初期値はfalse。
-		infinite: true,//スライドをループさせるかどうか。初期値はtrue。
-		speed: 500,//スライドのスピード。初期値は300。
-		slidesToShow: 3,//スライドを画面に3枚見せる
-		slidesToScroll: 1,//1回のスクロールで1枚の写真を移動して見せる
-		prevArrow: '<div class="slick-prev"></div>',//矢印部分PreviewのHTMLを変更
-		nextArrow: '<div class="slick-next"></div>',//矢印部分NextのHTMLを変更
-		centerMode: true,//要素を中央ぞろえにする
-		variableWidth: true,//幅の違う画像の高さを揃えて表示
-		dots: true,//下部ドットナビゲーションの表示
-	});
-    </script>
-    <script src="js/6-1-7.js"></script>
 </body>
 </html>

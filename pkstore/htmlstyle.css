@@ -182,6 +182,16 @@ h3{
     left: 1px;
     top: 10px;
   }
+  .toprank{
+    background-color: gray;
+  }
+
+/* 新着情報 */
+.news_f{
+    flex-wrap: wrap;
+}
+
+
 /* 店舗情報 */
 
 .mapinfo {
@@ -536,7 +546,11 @@ form{
     display: block;
     
 }
-.news-text{
+.news_title{
+    font-size: 4vw;
+    font-weight: bold;
+}
+.news_text{
     width: 50vw;
     line-height: 35px;
     word-wrap: break-word;

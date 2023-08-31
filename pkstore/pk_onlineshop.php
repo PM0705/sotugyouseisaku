@@ -1,5 +1,6 @@
 <?php
-error_reporting(0);
+ session_start();
+ //POSTデータをカート用のセッションに保存
 ?>
 <!DOCTYPE html>
 <html lang="jp">
@@ -22,12 +23,13 @@ error_reporting(0);
        $options = [];
        $pdo = new PDO($dsn, $username, $password, $options);
            if ((isset($_POST["keyword"]))&& (isset($_POST["category"]))){
-               $stmt = $pdo->query("SELECT * FROM item_info_transaction ORDER BY id DESC");
+               $stmt = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' ORDER BY id DESC");
                //SQL文を実行して、結果を$stmtに代入する。
            }
            error_reporting(0);
            if($_POST["keyword"] != "" || $_POST["category"] != ""){ //IDおよびユーザー名の入力有無を確認
-               $stmt = $pdo->query("SELECT * FROM item_info_transaction WHERE keyword LIKE  '%".$_POST["keyword"]."%' 
+               $stmt = $pdo->query("SELECT * FROM item_info_transaction WHERE delete_flag = '0' 
+                                                                       AND keyword LIKE  '%".$_POST["keyword"]."%' 
                                                                        AND category LIKE  '%".$_POST["category"]."%' 
                                                                        ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。    
    
@@ -116,13 +118,25 @@ error_reporting(0);
             <?php foreach ($stmt as $row): ?>
             <li>
             <div class="result-item">
+            <form action="cart.php" method="post">
             <img src="images/<?php echo $row['item_img_path']; ?>" width="100" height="100">
-            <p class="item-name"><?php echo $row['item_name']?></p>
-            <p class="keyword"><?php echo $row['keyword']?></p>
-            <p class="item_price">¥<?php echo $row['item_price']?></p>
+            <p class="item-name" name='item_name'><?php echo $row['item_name']?></p>
+            <p class="keyword" ><?php echo $row['keyword']?></p>
+            <p class="item_price" name='item_price'>¥<?php echo $row['item_price']?></p>
+            
+                <select name="buy_count">
+                    <?php
+                    for ($i = 0; $i <= 9; $i++) {
+                        echo "<option>$i</option>";
+                    }
+                    ?>
+                </select>
+                <input type="hidden" name="id" value="<?php echo $g['id'] ?>">
+                <input type="submit" name="submit" value="カートへ">
+            </form>
             </div>
             </li>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
         </div>
         <p class="nodate"><?php  error_reporting(0); echo htmlspecialchars($errmessage, ENT_QUOTES); ?></p>
 

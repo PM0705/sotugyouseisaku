@@ -1,3 +1,34 @@
+<?php
+ var_dump($_GET);
+// includeは最初の１行でOK
+include 'vars.php'; 
+?>
+<?php
+    if (isset($_GET['id'])) {
+        try {
+ 
+            // 接続処理
+            $dsn = 'mysql:host=localhost;dbname=pkstore';
+            $user = 'root';
+            $password = 'root';
+            $dbh = new PDO($dsn, $user, $password);
+ 
+            // SELECT文を発行
+            $sql = "SELECT * FROM item_info_transaction WHERE id = :id";
+            $stmt = $dbh->prepare($sql);
+            $stmt->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            $member = $stmt->fetch(PDO::FETCH_OBJ); // 1件のレコードを取得
+            // 接続切断
+            $dbh = null;
+ 
+        } catch (PDOException $e) {
+            print $e->getMessage() . "<br/>";
+            
+        }
+ 
+    }
+?>
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -13,98 +44,72 @@
 </head>
 <body>
    
- <header>
-    <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img">
+<header>
+<div class="header-left">
+    <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
+    <img src="img/character.png" alt="PKstoreのキャラクター" class="img">
+</div>
+<div class="header-right">
+    <a href="login.php">ログイン・会員登録はこちら</a>
+    <ul>
+        <!-- ログインしていない -->
+        <li><a href="pk_onlineshop.php">グッズ販売</a></li>
+        <li><a href="sns.php">SNS</li>
+        <li><a href="news.php">新着情報</li>
+        <li><a href="store_info.php">店舗情報</a></li>
+        <li><a href="mail.php">お問い合わせ</a></li>
+    </ul>
+</div>
+</header>
+<main >
+<h3>新着グッズ</h3>
+    <div class="account_field">
+        <div class="contact-form errorMsg">
+    <!-- ID -->
+            <input type="hidden" name="id" value="<?php echo($member->id) ?>">
+    <!-- タイトル・内容 -->  
+    <div class="relative">          
+            <img src="images/<?php echo($member->item_img_path);?>" class="news-page-img" class="info-img"><br>
+            <img src="img/newIcon.png" alt="newIcon" class="absolute">  
     </div>
-    <div class="header-right">
-        <a href="login.php">ログイン・会員登録はこちら</a>
-        <ul>
-            <!-- ログインしていない -->
-            <li><a href="pk_onlineshop.php">グッズ販売</a></li>
-            <li><a href="sns.php">SNS</li>
-            <li><a href="news.php">新着情報</li>
-            <li><a href="store_info.php">店舗情報</a></li>
-            <li><a href="mail.php">お問い合わせ</a></li>
-        </ul>
-    </div>
- </header>
- <main >
- <h3>NEW〜グッズ〜</h3>
-    <div class="info">
-        <div class="relative new-goods">
-            <a href="new-goods.php"><img src="img/newg1.png" alt="newg1" class="info-img"></a>
-            <img src="img/newIcon.png" alt="newIcon" class="absolute">
-            <p class="new-goods-text">
-                texttexttexttexttexttexttexttexttexttexttexttexttext
-                <br>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-            </p>
-            <div class="submit-confirm">
-            <button onclick="location.href='buyItem.php'" class="submit">カートに入れる</button>
-            </div>
-        </div>
-        <div class="relative new-goods">
-            <a href="new-goods.php"><img src="img/newg2.png" alt="newg2" class="info-img"></a>
-            <img src="img/newIcon.png" alt="newIcon" class="absolute">
-            <p class="new-goods-text">
-                texttexttexttexttexttexttexttexttexttexttexttexttext
-                <br>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-            </p>
-            <div class="submit-confirm">
-            <button onclick="location.href='buyItem.php'" class="submit">カートに入れる</button>
-            </div>
-        </div>
-        <div class="relative new-goods">
-            <a href="new-goods.php"><img src="img/newg3.png" alt="newg3" class="info-img"></a>
-            <img src="img/newIcon.png" alt="newIcon" class="absolute">
-            <p class="new-goods-text">
-                texttexttexttexttexttexttexttexttexttexttexttexttext
-                <br>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-            </p>
-            <div class="submit-confirm">
-            <button onclick="location.href='buyItem.php'" class="submit">カートに入れる</button>
-            </div>
-        </div>
-        <div class="relative new-goods">
-            <a href="new-goods.php"><img src="img/newg3.png" alt="newg4" class="info-img"></a>
-            <img src="img/newIcon.png" alt="newIcon" class="absolute">
-            <p class="new-goods-text">
-                texttexttexttexttexttexttexttexttexttexttexttexttext
-                <br>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext
-            </p>
-            <div class="submit-confirm">
-            <button onclick="location.href='buyItem.php'" class="submit">カートに入れる</button>
-            </div>
-        </div>
-        
-    </div>
- </main>
- <footer>
-    
- <div class="footer-l">
-        <img src="img/logo.png" alt="PKstoreのロゴ" class="img">
-        <ul>
-            <li><a href="company.php" class="fotter-text">Company</a></li>
-            <li><a href="mail.php" class="fotter-text">Contact</a></li>
-            <li><a href="store_info.php" class="fotter-text">Map</a></li>
-        </ul>
-    </div>
-    <div class="footer-r">
-        
-        <ul>
-            <li><a href="index.php"><img src="img/twittericon.png" alt="Xのロゴ" class="img1"></a></li>
-            <li><a href="index.php"><img src="img/instaicon.png" alt="Instagramのロゴ" class="img1"></a></li>
-            <li><a href="index.php"><img src="img/youtubeicon.png" alt="Youtubeのロゴ" class="img1 youtubeicon"></a></li>
- 
-        </ul>
-    </div>
-    
- </footer>
+            <span class="news_text"><?php echo($member->item_name);?></span><br>
+            <span class="news_text">¥<?php echo($member->item_price);?></span><br>
 
+
+    <!-- 送信ボタン -->
+            <div class="contact-submit">
+            <button onclick="location.href='index.php'" class="submit">HOMEへ戻る</button>
+            <button onclick="location.href='buyItem.php'" class="submit">カートに入れる</button>
+            </div>
+        </div>
+    </div>
+
+</main>
+<footer>
+
+<div class="footer-l">
+    <img src="img/logo.png" alt="PKstoreのロゴ" class="img">
+    <ul>
+        <li><a href="company.php" class="fotter-text">Company</a></li>
+        <li><a href="mail.php" class="fotter-text">Contact</a></li>
+        <li><a href="store_info.php" class="fotter-text">Map</a></li>
+    </ul>
+</div>
+<div class="footer-r">
     
- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <ul>
+        <li><a href="index.php"><img src="img/twittericon.png" alt="Xのロゴ" class="img1"></a></li>
+        <li><a href="index.php"><img src="img/instaicon.png" alt="Instagramのロゴ" class="img1"></a></li>
+        <li><a href="index.php"><img src="img/youtubeicon.png" alt="Youtubeのロゴ" class="img1 youtubeicon"></a></li>
+
+    </ul>
+</div>
+
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <!--自作のJS-->
     <script>
     $('.slider').slick({
