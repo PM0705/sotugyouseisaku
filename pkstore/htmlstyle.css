@@ -620,6 +620,23 @@ form{
 
 
 /* カートの中身 */
+.cart_f{
+    display: flex;
+    justify-content: center;
+}
+.total_price_text{
+   text-align: right;
+   padding-right:5vw;
+    
+}
+.cart_title{
+    text-align: center;
+    
+}
+.cart_text{
+    color: red;
+}
+
 .buyItem{
     background-color: wheat;
     

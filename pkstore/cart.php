@@ -1,18 +1,53 @@
 <?php
-
-　//POSTデータをカート用のセッションに保存
-if($_SERVER['REQUEST_METHOD']==='POST'){
-    $id=$_POST['id'];
-    $buy_count=$_POST['buy_count'];
-    $_SESSION['cart'][$id]=$buy_count; //セッションにデータを格納
-}
-$cart=array();
-if(isset($_SESSION['cart'])){
-$cart=$_SESSION['cart'];
-}
-var_dump($cart);
-
+    session_start();
+    // カートが空の時
+    if (isset($_SESSION["cart"])) {
+        $array=$_SESSION["cart"];
+        // 商品の追加
+        // 商品の数量がPOSTされた時
+        if (isset($_POST["item_name"])&& isset($_POST["buy_count"])) {
+            $array_item_name = array_column($array,"item_name");
+            // すでにカートに入ってるのと同じ商品がカゴに入った時
+            if (in_array($_POST["item_name"],$array_item_name)) {
+                $index = array_search($_POST["item_name"],$array_item_name);
+                // indexの中のbuy_countのみ増やす
+                $array[$index]["buy_count"] += $_POST["buy_count"];
+            // 異なる商品がカートに入った時
+            }else {
+                $array[] = [
+                    'item_name' => $_POST['item_name'],
+                    'buy_count' => $_POST['buy_count'],
+                    'item_price' => $_POST['item_price'],
+                    'item_img_path' => $_POST['item_img_path']
+                ];
+            }
+        }
+        // 商品の削除
+        // 商品名だけがPOSTされたとき
+        if (isset($_POST["item_name"])&& !isset($_POST["buy_count"])){
+            $array_item_name = array_column($array,"item_name");
+            // 商品を削除する
+            // 削除フォームにitem_nameだけをPOSTしているのでitem_nameだけPOSTされた時になる
+            if (in_array($_POST["item_name"],$array_item_name)){
+                $index = array_search($_POST["item_name"],$array_item_name);
+                unset($array[$index]);
+                $array = array_values($array);
+            }
+        }
+    // カートに初めて商品を入れる時
+    }else {
+        $array[] = [
+            'item_name' => $_POST['item_name'],
+            'buy_count' => $_POST['buy_count'],
+            'item_price' => $_POST['item_price'],
+            'item_img_path' => $_POST['item_img_path']
+        ];
+    }
+    // 配列をセッションに格納
+    $_SESSION["cart"] = $array;
 ?>
+
+
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -24,29 +59,7 @@ var_dump($cart);
     
 </head>
 <body>
-<?php
-   
-//データベースへ接続
-    $dsn = "mysql:dbname=pkstore;host=localhost;charset=utf8mb4";
-    $username = "root";
-    $password = "root";
-    $options = [];
-    $pdo = new PDO($dsn, $username, $password, $options);
-        if ((isset($_POST["item_name"])) && (isset($_POST["keyword"]))&& (isset($_POST["category"]))){
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' ORDER BY id DESC");
-            //SQL文を実行して、結果を$stmtに代入する。
-        }
-        error_reporting(0);
-        if($_POST["item_name"] != "" || $_POST["keyword"] != "" || $_POST["category"] != ""){ //IDおよびユーザー名の入力有無を確認
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction WHERE item_name LIKE  '%".$_POST["item_name"]."%' 
-                                                                    AND keyword LIKE  '%".$_POST["keyword"]."%' 
-                                                                    AND category LIKE  '%".$_POST["category"]."%' 
-                                                                    AND delete_flag = '0' 
-                                                                    ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。    
 
-        }
-
-        ?>
 
 <header>
 <div class="header-left">
@@ -70,20 +83,45 @@ var_dump($cart);
 </header>
 <main>
 <h3>カートの中身</h3>
-<table>
-  <tr><th>商品名</th><th>単価</th><th>数量</th><th>小計</th></tr>
-  <?php foreach($rows as $r) { ?>
+<!-- カート一覧 -->
+
+<table class="cart_f">
+  <tr><th>商品名</th><th>単価</th><th>数量</th><th>小計</th><th>操作</th></tr>
+  <?php 
+  $total =0;
+  foreach($array as $key => $value){ ?>
     <tr>
-      <td><?php echo $r['item_name'] ?></td>
-      <td><?php echo $r['buy_price'] ?></td>
-      <td><?php echo $r['buy_count'] ?></td>
-      <td><?php echo $r['buy_price'] * $r['buy_count'] ?> 円</td>
+        <td><img src="images/<?php echo $value['item_img_path']; ?>" width="100" height="100"></td>
+        <td><?php echo $value['item_name'] ?></td>
+        <td><?php echo $value['buy_count'] ?></td>
+        <td><?php echo $value['item_price'] * $value['buy_count'] ?> 円</td>
+        <td>
+            <form method="post" action="cart.php">
+                <input type="submit" value="削除">
+                <input type="hidden" name="item_name" value="<?php echo $value['item_name']; ?>">
+            </form>
+        </td>
     </tr>
-  <?php } ?>
-  <tr><td colspan='2'> </td><td><strong>合計</strong></td><td><?php echo $sum ?> 円</td></tr>
+    
+    <?php 
+    $price=
+    $total += $value["buy_count"] * $value['item_price'] ?>
+    <?php } ?>
 </table>
+<div class="total_price_text">
+<?php
+    echo "合計金額:".number_format($total)."円";
+    ?>
+    <form method="post" action="cart_complete.php">
+      <input type="submit" value="購入する">
+    </form>
+</div>
+
+
+  
+
 <div class="base">
-  <a href="index.php">お買い物に戻る</a>
+  <a href="pk_onlineshop.php">お買い物に戻る</a>
   <a href="cart_empty.php">カートを空にする</a>
   <a href="buy.php">購入する</a>
 </div>

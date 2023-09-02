@@ -22,7 +22,7 @@ var_dump($_SESSION);
     <div class="header-left">
         <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
         <img src="img/character.png" alt="PKstoreのキャラクター" class="img">
-        <a href="buyItem.php">カートの中身（仮）</a>
+        <a href="cart.php">カートの中身（仮）</a>
         <a href="authority.php">管理者用メニュー（仮）</a>
     </div>
     

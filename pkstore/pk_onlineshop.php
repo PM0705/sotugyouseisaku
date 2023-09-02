@@ -1,7 +1,8 @@
 <?php
- session_start();
- //POSTデータをカート用のセッションに保存
-?>
+session_start();
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -40,7 +41,7 @@
     <div class="header-left">
         <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
         <img src="img/character.png" alt="PKstoreのキャラクター" class="img">
-        <a href="buyItem.php">カートの中身（仮）</a>
+        <a href="cart.php">カートの中身（仮）</a>
         <a href="authority.php">管理者用メニュー（仮）</a>
     </div>
     
@@ -59,6 +60,18 @@
  <main>
  <div>
         <h3>商品購入</h3>
+        <div class="cart_title"><a href="cart.php" class="cart_text">カート</a>は
+                
+        <?php
+        if (isset($_SESSION["cart"])&& count($_SESSION["cart"]) > 0) {
+            echo count($_SESSION["cart"]);
+            echo "商品が入っています。";
+        }else{
+            echo "空です。";
+        }
+        ?>
+        </div>
+        
         <form action="pk_onlineshop.php" method="post">
             <table>
                 <thead>
@@ -112,28 +125,37 @@
         $errmessage = "検索結果はありません";
         } 
         ?>
-        <h3>アカウント一覧</h3>
+        <h3>商品リスト</h3>
         <div class="result-field">
+            
             <!-- ここでPHPのforeachを使って結果をループさせる -->
             <?php foreach ($stmt as $row): ?>
             <li>
             <div class="result-item">
-            <form action="cart.php" method="post">
+            
             <img src="images/<?php echo $row['item_img_path']; ?>" width="100" height="100">
             <p class="item-name" name='item_name'><?php echo $row['item_name']?></p>
             <p class="keyword" ><?php echo $row['keyword']?></p>
             <p class="item_price" name='item_price'>¥<?php echo $row['item_price']?></p>
+
             
-                <select name="buy_count">
-                    <?php
-                    for ($i = 0; $i <= 9; $i++) {
-                        echo "<option>$i</option>";
-                    }
-                    ?>
+            <form method="post" action="cart.php" enctype="multipart/form-data">
+                <select name="buy_count" >
+                    <?php for($i=0;$i<10;$i++): ?>
+                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                    <?php endfor; ?>
                 </select>
-                <input type="hidden" name="id" value="<?php echo $g['id'] ?>">
-                <input type="submit" name="submit" value="カートへ">
+                <!-- 売り切れの場合は、formを置換 -->
+                <?php if($row['item_stock'] > 0){ ?>
+            
+                <input type="hidden" name="item_img_path" value="<?php echo $row['item_img_path'] ?>">
+                <input type="hidden" name="item_name" value="<?php echo $row['item_name'] ?>">
+                <input type="hidden" name="item_price" value="<?php echo $row['item_price'] ?>">
+                <input type="submit" name="item_id" value="カートへ">
             </form>
+            <?php }else{ ?>
+                <p>売切</p>
+            <?php } ?>
             </div>
             </li>
             <?php endforeach; ?>
