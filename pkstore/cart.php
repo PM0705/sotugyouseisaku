@@ -1,5 +1,7 @@
 <?php
     session_start();
+    var_dump($_SESSION);
+    
     // カートが空の時
     if (isset($_SESSION["cart"])) {
         $array=$_SESSION["cart"];
@@ -18,7 +20,8 @@
                     'item_name' => $_POST['item_name'],
                     'buy_count' => $_POST['buy_count'],
                     'item_price' => $_POST['item_price'],
-                    'item_img_path' => $_POST['item_img_path']
+                    'item_img_path' => $_POST['item_img_path'],
+                    'user_id' => $_SESSION['id']
                 ];
             }
         }
@@ -40,7 +43,8 @@
             'item_name' => $_POST['item_name'],
             'buy_count' => $_POST['buy_count'],
             'item_price' => $_POST['item_price'],
-            'item_img_path' => $_POST['item_img_path']
+            'item_img_path' => $_POST['item_img_path'],
+            'user_id' => $_SESSION['id']
         ];
     }
     // 配列をセッションに格納
@@ -59,7 +63,6 @@
     
 </head>
 <body>
-
 
 <header>
 <div class="header-left">

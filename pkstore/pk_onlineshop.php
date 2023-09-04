@@ -1,5 +1,6 @@
 <?php
 session_start();
+var_dump($_SESSION);
 
 ?>
 
@@ -137,7 +138,8 @@ session_start();
                 </select>
                 <!-- 売り切れの場合は、formを置換 -->
                 <?php if($row['item_stock'] > 0){ ?>
-            
+
+                <input type="hidden" name="item_img_path" value="<?php echo $_SESSION['id'] ?>">
                 <input type="hidden" name="item_img_path" value="<?php echo $row['item_img_path'] ?>">
                 <input type="hidden" name="item_name" value="<?php echo $row['item_name'] ?>">
                 <input type="hidden" name="item_price" value="<?php echo $row['item_price'] ?>">

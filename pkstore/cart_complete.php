@@ -1,10 +1,43 @@
+<?php
+session_start();
+// エラーメッセージ、登録完了メッセージの初期化
+
+$message = "";
+
+$array=$_SESSION["cart"];
+
+
+var_dump($_SESSION);
+
+
+try {
+
+    //フォームから受け取った値を変数に代入
+    mb_internal_encoding("utf8");
+    $pdo=new PDO("mysql:dbname=pkstore;host=localhost;","root","root");
+
+    foreach ($array as $key => $value) {
+        /**
+         * データベースへの追加（新規追加時だけ実行。コメント忘れずに）
+         */
+        $sql = $pdo->prepare('INSERT INTO test_ec(item_name, item_price, buy_count, user_id)
+                                 VALUES(:item_name, :item_price, :buy_count, :user_id)');
+        $sql->execute(array(':item_name' => $value['item_name'], ':item_price' => $value['item_price'], ':buy_count' => $value['buy_count'], ':user_id' => $_SESSION["id"]));
+        $message = 'ご購入ありがとうございます！';
+      }
+    } catch (PDOException $e) {
+        
+        $message = 'エラーが発生したため商品を購入できません';
+
+        }
+?>
 <!DOCTYPE html>
 <html lang="jp">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>購入完了</title>
+    <title>商品購入フォーム</title>
     
     <link rel="stylesheet" href="htmlstyle.css">
     
@@ -28,22 +61,17 @@
         </ul>
     </div>
  </header>
- <main class="contact-page">
- <h3>購入完了</h3>
-    <div class="complete">
-        <h2>ご購入ありがとうございます！</h2>
-        <p>PKストアをご利用いただき、ありがとうございます。
-            <br>引き続きPKストアをお楽しみくださいませ。
-        </p>
-        <div class="button">
-        <button onclick="location.href='index.php'" class="submit">HOMEへ戻る</button>
-        </div>
-    </div>
+ <main class="regist-page">
+    <h3>商品購入フォーム</h3>
     
-    
+    <div class="confirm">
+        <div><?php echo htmlspecialchars($message, ENT_QUOTES); ?></div>
 
-        
- </main>
+        <button onclick="location.href='index.php'" class="submit" value="HOMEへ戻る" >TOPページへ戻る</button>
+        <button onclick="location.href='authority.php'" class="submit" value="管理者メニューへ戻る" >管理者メニューへ戻る</button>
+
+    </div>
+</main>
  <footer>
     
     <div class="footer-l">

@@ -52,6 +52,7 @@ if (isset($_POST["login"])) {
     $_SESSION["family_name"] = $result['family_name']; //セッションにログイン情報を登録
     $_SESSION["authority"] = $result['authority']; //セッションにログイン情報を登録
     $_SESSION['mail'] = $result['mail'];
+    $_SESSION['id'] = $result['id'];
 
     header("Location: index.php");
     
