@@ -5,10 +5,10 @@
         $array=$_SESSION["cart"];
         // 商品の追加
         // 商品の数量がPOSTされた時
-        if (isset($_POST["item_name"])&& isset($_POST["buy_count"])) {
+        if (isset($_POST["item_name"])&& isset($_POST["buy_count"])){
             $array_item_name = array_column($array,"item_name");
             // すでにカートに入ってるのと同じ商品がカゴに入った時
-            if (in_array($_POST["item_name"],$array_item_name)) {
+            if (in_array($_POST["item_name"],$array_item_name)){
                 $index = array_search($_POST["item_name"],$array_item_name);
                 // indexの中のbuy_countのみ増やす
                 $array[$index]["buy_count"] += $_POST["buy_count"];
@@ -89,12 +89,13 @@
   <tr><th>商品名</th><th>単価</th><th>数量</th><th>小計</th><th>操作</th></tr>
   <?php 
   $total =0;
-  foreach($array as $key => $value){ ?>
+  foreach ($array as $key => $value): ?>
+
     <tr>
         <td><img src="images/<?php echo $value['item_img_path']; ?>" width="100" height="100"></td>
-        <td><?php echo $value['item_name'] ?></td>
-        <td><?php echo $value['buy_count'] ?></td>
-        <td><?php echo $value['item_price'] * $value['buy_count'] ?> 円</td>
+        <td><?php echo $value['item_name']; ?></td>
+        <td><?php echo $value['buy_count']; ?></td>
+        <td><?php echo $value['item_price'] * $value['buy_count']; ?> 円</td>
         <td>
             <form method="post" action="cart.php">
                 <input type="submit" value="削除">
@@ -102,29 +103,20 @@
             </form>
         </td>
     </tr>
-    
-    <?php 
-    $price=
-    $total += $value["buy_count"] * $value['item_price'] ?>
-    <?php } ?>
+    <?php endforeach; ?>
+
 </table>
 <div class="total_price_text">
-<?php
+    <?php
+    $total += $value['item_price'] * $value['buy_count'];
     echo "合計金額:".number_format($total)."円";
     ?>
     <form method="post" action="cart_complete.php">
       <input type="submit" value="購入する">
     </form>
+    <button onclick="location.href='pk_onlineshop.php'"  value="HOMEへ戻る" >お買い物に戻る</button>
 </div>
 
-
-  
-
-<div class="base">
-  <a href="pk_onlineshop.php">お買い物に戻る</a>
-  <a href="cart_empty.php">カートを空にする</a>
-  <a href="buy.php">購入する</a>
-</div>
 
 
 

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
- ?>
+?>
 
 <!DOCTYPE html>
 <html lang="jp">
@@ -60,17 +60,7 @@ session_start();
  <main>
  <div>
         <h3>商品購入</h3>
-        <div class="cart_title"><a href="cart.php" class="cart_text">カート</a>は
-                
-        <?php
-        if (isset($_SESSION["cart"])&& count($_SESSION["cart"]) > 0) {
-            echo count($_SESSION["cart"]);
-            echo "商品が入っています。";
-        }else{
-            echo "空です。";
-        }
-        ?>
-        </div>
+
         
         <form action="pk_onlineshop.php" method="post">
             <table>
