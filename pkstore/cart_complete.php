@@ -24,10 +24,18 @@ try {
                                  VALUES(:item_name, :item_price, :buy_count, :user_id)');
         $sql->execute(array(':item_name' => $value['item_name'], ':item_price' => $value['item_price'], ':buy_count' => $value['buy_count'], ':user_id' => $_SESSION["id"]));
         $message = 'ご購入ありがとうございます！';
+        
       }
+      $_SESSION = array();
+      unset($_SESSION["cart"]);
+
+      $array="";
+
+
     } catch (PDOException $e) {
         
         $message = 'エラーが発生したため商品を購入できません';
+
 
         }
 ?>

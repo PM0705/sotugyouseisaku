@@ -1,6 +1,12 @@
 <?php
     session_start();
+    include 'vars.php'; 
     var_dump($_SESSION);
+
+   
+
+
+
     
     // カートが空の時
     if (isset($_SESSION["cart"])) {
@@ -20,8 +26,7 @@
                     'item_name' => $_POST['item_name'],
                     'buy_count' => $_POST['buy_count'],
                     'item_price' => $_POST['item_price'],
-                    'item_img_path' => $_POST['item_img_path'],
-                    'user_id' => $_SESSION['id']
+                    'item_img_path' => $_POST['item_img_path']
                 ];
             }
         }
@@ -43,8 +48,7 @@
             'item_name' => $_POST['item_name'],
             'buy_count' => $_POST['buy_count'],
             'item_price' => $_POST['item_price'],
-            'item_img_path' => $_POST['item_img_path'],
-            'user_id' => $_SESSION['id']
+            'item_img_path' => $_POST['item_img_path']
         ];
     }
     // 配列をセッションに格納
@@ -86,11 +90,14 @@
 </header>
 <main>
 <h3>カートの中身</h3>
-<!-- カート一覧 -->
+<!-- カートが空の時 -->
+
 
 <table class="cart_f">
+<?php 
+  if (!empty($_SESSION["cart"])) {?>
   <tr><th>商品名</th><th>単価</th><th>数量</th><th>小計</th><th>操作</th></tr>
-  <?php 
+  <?php
   $total =0;
   foreach ($array as $key => $value): ?>
 
@@ -107,16 +114,27 @@
         </td>
     </tr>
     <?php endforeach; ?>
+    <?php } else{
+        echo '<div style="text-align: center;;">買い物カゴは空です。</div>';
+    }
+    ?>
 
 </table>
 <div class="total_price_text">
     <?php
-    $total += $value['item_price'] * $value['buy_count'];
-    echo "合計金額:".number_format($total)."円";
+    if (!empty($_SESSION["cart"])) {
+        $total += $value['item_price'] * $value['buy_count'];
+        echo "合計金額:".number_format($total)."円";
+
+    }
     ?>
+    <?php 
+  if (!empty($_SESSION["cart"])) {?>
     <form method="post" action="cart_complete.php">
       <input type="submit" value="購入する">
     </form>
+    <?php } ?>
+
     <button onclick="location.href='pk_onlineshop.php'"  value="HOMEへ戻る" >お買い物に戻る</button>
 </div>
 

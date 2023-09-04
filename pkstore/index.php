@@ -1,8 +1,21 @@
 <?php
 //セッションの開始
 session_start();
-var_dump($_SESSION);
+
 ?>
+ <?php
+//スライド情報
+   //データベースへ接続
+       $dsn = "mysql:dbname=pkstore;host=localhost;charset=utf8mb4";
+       $username = "root";
+       $password = "root";
+       $options = [];
+       $pdo = new PDO($dsn, $username, $password, $options);
+       $stmt = $pdo->query("SELECT * FROM slide ORDER BY id DESC");
+       $stmt_newinfo = $pdo->query("SELECT * FROM information where delete_flag = '0' AND display = '0' ORDER BY id DESC , info_new limit 4");
+       $stmt_newgoods = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' AND new = '0' AND display = '0' ORDER BY  id DESC , new limit 4");
+               //SQL文を実行して、結果を$stmtに代入する。
+   ?>
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -39,19 +52,7 @@ var_dump($_SESSION);
     </div>
  </header>
  <main>
- <?php
-//スライド情報
-   //データベースへ接続
-       $dsn = "mysql:dbname=pkstore;host=localhost;charset=utf8mb4";
-       $username = "root";
-       $password = "root";
-       $options = [];
-       $pdo = new PDO($dsn, $username, $password, $options);
-       $stmt = $pdo->query("SELECT * FROM slide ORDER BY id DESC");
-       $stmt_newinfo = $pdo->query("SELECT * FROM information where delete_flag = '0' AND display = '0' ORDER BY id DESC , info_new limit 4");
-       $stmt_newgoods = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' AND new = '0' AND display = '0' ORDER BY  id DESC , new limit 4");
-               //SQL文を実行して、結果を$stmtに代入する。
-   ?>
+
     <ul class="slider"><!--/slider-->
     <!-- ここでPHPのforeachを使って結果をループさせる -->
     <?php foreach ($stmt as $row): ?>

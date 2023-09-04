@@ -22,6 +22,7 @@ function getResultValue($key)
 }
 ?>
 
+
 <!-- データベースに接続関数（サンプル） -->
 <?php
 // データベースに接続
