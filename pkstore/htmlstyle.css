@@ -762,6 +762,12 @@ form{
     font-weight: bold;
 
 }
+/* 受注BOX */
+.transaction_box{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
 
 
 

@@ -21,6 +21,16 @@ function getResultValue($key)
    return $value;
 }
 ?>
+<?php
+function incart($key)
+{
+    $cart_c = ""; 
+   if(!empty($_SESSION[$key])){
+        $cart_c =  $result[$key];
+    }  
+   return $cart_c;
+}
+?>
 
 
 <!-- データベースに接続関数（サンプル） -->

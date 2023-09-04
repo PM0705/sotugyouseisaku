@@ -39,6 +39,7 @@
     <a href="slide_list.php" class="authority">スライドショー編集</a>
     <a href="account_list.php" class="authority">会員リスト（特別管理者用）</a>
     <a href="mail_box.php" class="authority">お問い合わせ受信リスト</a>
+    <a href="transaction_box.php" class="authority">受注BOX</a>
 
 
 

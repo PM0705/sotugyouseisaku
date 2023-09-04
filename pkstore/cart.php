@@ -129,13 +129,17 @@
     }
     ?>
     <?php 
-  if (!empty($_SESSION["cart"])) {?>
+    if (!empty($_SESSION["cart"])) {?>
     <form method="post" action="cart_complete.php">
       <input type="submit" value="購入する">
     </form>
+    <button onclick="location.href='pk_onlineshop.php'"  value="お買い物に戻る" >お買い物に戻る</button>
+    <?php }else{?>
+        <button onclick="location.href='pk_onlineshop.php'"  value="お買い物に戻る" >お買い物に戻る</button>
+        <button onclick="location.href='index.php'"  value="HOMEに戻る" >HOMEに戻る</button>
     <?php } ?>
 
-    <button onclick="location.href='pk_onlineshop.php'"  value="HOMEへ戻る" >お買い物に戻る</button>
+
 </div>
 
 

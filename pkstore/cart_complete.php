@@ -20,7 +20,7 @@ try {
         /**
          * データベースへの追加（新規追加時だけ実行。コメント忘れずに）
          */
-        $sql = $pdo->prepare('INSERT INTO test_ec(item_name, item_price, buy_count, user_id)
+        $sql = $pdo->prepare('INSERT INTO transaction(item_name, item_price, buy_count, user_id)
                                  VALUES(:item_name, :item_price, :buy_count, :user_id)');
         $sql->execute(array(':item_name' => $value['item_name'], ':item_price' => $value['item_price'], ':buy_count' => $value['buy_count'], ':user_id' => $_SESSION["id"]));
         $message = 'ご購入ありがとうございます！';
