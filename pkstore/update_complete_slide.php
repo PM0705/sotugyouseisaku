@@ -2,7 +2,23 @@
 var_dump($_POST);
 // エラーメッセージ、登録完了メッセージの初期化
 $id = $_POST['id'];
+$image = $_POST['slide_img_path'];
+$dir1 = './images/';
+$dir2 = './images_comp/';
 $message = "";
+var_dump($image);
+// varディレクトリに移動する
+if (rename($dir1 . $image, $dir2 . $image)) {
+ 
+    // 移動が成功したら表示される
+    echo '移動しました。';
+   
+  } else {
+   
+    // 移動に失敗したら表示される
+    echo '移動できない！';
+   
+  }
 try {
 
 //フォームから受け取った値を変数に代入

@@ -56,7 +56,7 @@ session_start();
     <ul class="slider"><!--/slider-->
     <!-- ここでPHPのforeachを使って結果をループさせる -->
     <?php foreach ($stmt as $row): ?>
-        <li> <img src="images/<?php echo $row['slide_img_path']; ?>" alt="スライド" onclick="location.href='salide.php?id=<?php echo($row['id']) ?>'"></li>
+        <li> <img src="images/<?php echo $row['slide_img_path']; ?>" alt="スライド" onclick="location.href='slide.php?id=<?php echo($row['id']) ?>'"></li>
     <?php endforeach; ?>
     </ul>
 
