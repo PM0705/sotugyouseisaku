@@ -116,16 +116,16 @@ include 'vars.php';
                 <div class="contactbox-text1">
                     <label for="必須" class="red">必須</label>
                     <label for="new">NEW</label>
-                    <input type="radio" name="new" value="0" checked>ON
-                    <input type="radio" name="new" value="1" <?php if (isset($_POST['new']) && $_POST['new'] == "1") echo 'checked'; ?>>OFF
+                    <label><input type="radio" name="new" value="0" checked>ON</label>
+                    <label><input type="radio" name="new" value="1" <?php if (isset($_POST['new']) && $_POST['new'] == "1") echo 'checked'; ?>>OFF</label>
                     
                 </div>
     <!-- 表示 -->
                 <div class="contactbox-text1">
                     <label for="必須" class="red">必須</label>
                     <label for="display">表示</label>
-                    <input type="radio" name="display" value="0" checked>ON
-                    <input type="radio" name="display" value="1" <?php if (isset($_POST['display']) && $_POST['display'] == "1") echo 'checked'; ?>>OFF
+                    <label><input type="radio" name="display" value="0" checked>ON</label>
+                    <label><input type="radio" name="display" value="1" <?php if (isset($_POST['display']) && $_POST['display'] == "1") echo 'checked'; ?>>OFF</label>
                     
                 </div>
     <!-- 画像 -->

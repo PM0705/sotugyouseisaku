@@ -1,6 +1,5 @@
 <?php
-var_dump($_GET);
-var_dump($_POST);
+
 // includeは最初の１行でOK
 include 'vars.php'; 
 ?>
@@ -64,9 +63,7 @@ include 'vars.php';
  </header>
  <main class="regist-page">
  <h3>商品編集フォーム</h3>
- <?php
-var_dump($_GET);
-?>
+
  <div class="registbox">
     <form method="post" action="update_confirm_goods.php" name="form" enctype="multipart/form-data">
         <div class="contact-form errorMsg">
@@ -78,7 +75,7 @@ var_dump($_GET);
                 <label for="必須" class="red">必須</label>
                 <label for="item_name">アイテム名</label>
                 <input type="text" class="text" name="item_name" id="item_name" maxlength="10" size="35"
-                        pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" value="<?php print($member->item_name) ?>"
+                         value="<?php print($member->item_name) ?>"
                         title="スペースのみ不可"><br> 
                 <span class="err-msg-item_name"></span>
             </div>

@@ -56,14 +56,14 @@ session_start();
     <ul class="slider"><!--/slider-->
     <!-- ここでPHPのforeachを使って結果をループさせる -->
     <?php foreach ($stmt as $row): ?>
-        <li> <img src="images/<?php echo $row['slide_img_path']; ?>" alt="スライド" onclick="location.href='slide.php?id=<?php echo($row['id']) ?>'"></li>
+        <li> <img src="images_comp/<?php echo $row['slide_img_path']; ?>" alt="スライド" onclick="location.href='slide.php?id=<?php echo($row['id']) ?>'"></li>
     <?php endforeach; ?>
     </ul>
 
     <h3>NEW〜情報〜</h3>
     <div class="info">
     <?php foreach ($stmt_newinfo as $row): ?>
-         <img src="images/<?php echo $row['info_img_path']; ?>" alt="newinfo" onclick="location.href='news_info.php?id=<?php echo($row['id']) ?>'">
+         <img src="images_comp/<?php echo $row['info_img_path']; ?>" alt="newinfo" onclick="location.href='news_info.php?id=<?php echo($row['id']) ?>'">
     <?php endforeach; ?>
     </div>
 
@@ -71,7 +71,7 @@ session_start();
     <div class="info">
     <?php foreach ($stmt_newgoods as $row): ?>
         <div class="relative">
-            <img src="images/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
+            <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
             <img src="img/newIcon.png" alt="newIcon" class="absolute">  
         </div>
     <?php endforeach; ?>

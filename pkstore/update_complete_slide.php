@@ -1,5 +1,4 @@
 <?php
-var_dump($_POST);
 // エラーメッセージ、登録完了メッセージの初期化
 $id = $_POST['id'];
 $image = $_POST['slide_img_path'];

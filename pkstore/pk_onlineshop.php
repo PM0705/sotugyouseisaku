@@ -124,7 +124,7 @@ var_dump($_SESSION);
             <li>
             <div class="result-item">
             
-            <img src="images/<?php echo $row['item_img_path']; ?>" width="100" height="100">
+            <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="100" height="100">
             <p class="item-name" name='item_name'><?php echo $row['item_name']?></p>
             <p class="keyword" ><?php echo $row['keyword']?></p>
             <p class="item_price" name='item_price'>¥<?php echo $row['item_price']?></p>

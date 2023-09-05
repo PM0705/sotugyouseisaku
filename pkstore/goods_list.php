@@ -146,7 +146,17 @@
                             <?php echo $row['id']?>
                         </td>
                         <td>
-                            <img src="images/<?php echo $row['item_img_path']; ?>" width="100" height="100">
+                    <!-- NEW０の時だけNEWアイコン表示 -->
+                        <?php if (($row['new']) == 0){ ?>
+                            <div class="relative">
+                                <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="100" height="100" >
+                                <img src="img/newIcon.png" alt="newIcon" class="absolute absolute2 ">
+                            </div>
+
+                        <?php }else{ ?>
+                            <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="100" height="100" >
+                        <?php } ?>
+                        
                         </td>
                         <td>
                             <?php echo $row['item_name']?>

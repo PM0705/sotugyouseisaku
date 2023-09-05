@@ -127,7 +127,7 @@
                             <?php echo $row['id']?>
                         </td>
                         <td>
-                            <img src="images/<?php echo $row['info_img_path']; ?>" width="100" height="100">
+                            <img src="images_comp/<?php echo $row['info_img_path']; ?>" width="100" height="100">
                         </td>
                         <td>
                             <?php 

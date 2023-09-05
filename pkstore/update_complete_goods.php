@@ -48,7 +48,7 @@ $message = '更新が完了しました。';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>会員登録フォーム</title>
+    <title>商品編集フォーム</title>
 
     
     <link rel="stylesheet" href="htmlstyle.css">
@@ -74,7 +74,7 @@ $message = '更新が完了しました。';
     </div>
  </header>
  <main class="regist-page">
-      <h3>会員登録完了フォーム</h3>
+      <h3>商品編集フォーム</h3>
       <div class="confirm">
          <div><?php echo htmlspecialchars($message, ENT_QUOTES); ?></div>
          <button onclick="location.href='index.php'" class="submit" value="HOMEへ戻る" >HOMEへ戻る</button>

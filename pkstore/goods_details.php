@@ -1,5 +1,5 @@
 <?php
- var_dump($_GET);
+
 // includeは最初の１行でOK
 include 'vars.php'; 
 ?>
@@ -71,7 +71,7 @@ include 'vars.php';
 <!-- ID -->
             <input type="hidden" name="id" value="<?php echo($member->id) ?>">
 <!-- タイトル・内容 -->            
-            <img src="images/<?php echo($member->item_img_path);?>"><br>
+            <img src="images_comp/<?php echo($member->item_img_path);?>"><br>
             <span class="account_text">商品名:</span><span class="account_text"><?php echo($member->item_name);?></span><br>
             <span class="account_text">値段:</span><span class="account_text"><?php echo($member->item_price);?></span><br>
             <span class="account_text">在庫:</span><span class="account_text"><?php echo($member->item_stock);?></span><br>

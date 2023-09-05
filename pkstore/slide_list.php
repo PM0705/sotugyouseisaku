@@ -66,7 +66,7 @@
                         <tr>
 
                             <td>
-                                <img src="images/<?php echo $row['slide_img_path']; ?>" >
+                                <img src="images_comp/<?php echo $row['slide_img_path']; ?>" >
                             </td>
                             <td>
                                 <?php echo $row['slide_title']?>

@@ -1,14 +1,8 @@
 <?php
 session_start();
 // エラーメッセージ、登録完了メッセージの初期化
-
 $message = "";
-
 $array=$_SESSION["cart"];
-
-
-var_dump($_SESSION);
-
 
 try {
 
