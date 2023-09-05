@@ -101,8 +101,8 @@ include 'vars.php';
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="gender">性別</label>
-                <input type="radio" name="gender" value="0" checked>男
-                <input type="radio" name="gender" value="1" <?= getPostValue('gender') ?>>女
+                <label><input type="radio" name="gender" value="0" checked>男</label>
+                <label><input type="radio" name="gender" value="1" <?= getPostValue('gender') ?>>女</label>
             </div>
             <div class="err-msg-gender"></div>
 <!-- 郵便番号 -->
@@ -118,7 +118,7 @@ include 'vars.php';
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="prefecture">住所（都道府県）</label>
-                <select name="prefecture"id="prefecture"  >
+                <label><select name="prefecture"id="prefecture"  >
                         <?php 
                         if (!empty($_POST["prefecture"])) :?>
                         <?php 
@@ -163,7 +163,7 @@ include 'vars.php';
                                                     }    
                                     ?>
                         <?php endif; ?>
-                            </select><br>
+                            </select></label><br>
             </div>
             <div class="err-msg-prefecture"></div>
 <!-- 住所（市区町村） -->
@@ -188,10 +188,10 @@ include 'vars.php';
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="authority">アカウント権限</label>
-                <select name="authority" name="authority" id="authority" value=array()>
+                <label><select name="authority" name="authority" id="authority" value=array()>
                     <option value="0"<?php if (isset($_POST['authority']) && $_POST['authority'] == "0") echo 'selected'; ?>>一般</option>
                     <option value="1"<?php if (isset($_POST['authority']) && $_POST['authority'] == "1") echo 'selected'; ?>>管理者</option>
-                </select><br>
+                </select><label><br>
             </div>
             <div class="err-msg-authority"></div>
 <!-- 送信ボタン -->

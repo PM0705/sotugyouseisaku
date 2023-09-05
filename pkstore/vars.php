@@ -5,7 +5,7 @@ function getPostValue($key)
 {
     $value = ""; 
    if(isset($_POST[$key])){
-        $value =  $_POST[$key];
+        $value = $_POST[$key];
     }  
    return $value;
 }
@@ -15,7 +15,7 @@ function get_SessionValue($key)
 {
     $value = ""; 
    if(isset($_SESSION[$key])){
-        $value =  $_POST[$key];
+        $value = $_SESSION[$key];
     }  
    return $value;
 }

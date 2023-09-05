@@ -1,6 +1,8 @@
 <?php
 //セッションの開始
 session_start();
+var_dump($_SESSION);
+include 'vars.php'; 
 
 ?>
  <?php
@@ -35,19 +37,34 @@ session_start();
     <div class="header-left">
         <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
         <img src="img/character.png" alt="PKstoreのキャラクター" class="img">
+        <!-- 一般 -->
+        <?php if ($_SESSION['authority'] == 1):?>
+        <div class="authority_menu">
         <a href="cart.php">カートの中身（仮）</a>
         <a href="authority.php">管理者用メニュー（仮）</a>
+        </div>
+        <?php endif; ?>
     </div>
     
     <div class="header-right">
         <a href="login.php">ログイン・会員登録はこちら</a>
         <ul>
             <!-- ログインしていない -->
+            <?php if (empty($_SESSION["id"])) :?>
+            
+            <li><a href="sns.php">SNS</li>
+            <li><a href="news.php">新着情報</li>
+            <li><a href="store_info.php">店舗情報</a></li>
+            <li><a href="mail.php">お問い合わせ</a></li>
+
+            <!-- 一般 -->
+            <?php else:?>
             <li><a href="pk_onlineshop.php">グッズ販売</a></li>
             <li><a href="sns.php">SNS</li>
             <li><a href="news.php">新着情報</li>
             <li><a href="store_info.php">店舗情報</a></li>
             <li><a href="mail.php">お問い合わせ</a></li>
+            <?php endif; ?>
         </ul>
     </div>
  </header>
