@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 // includeは最初の１行でOK
 include 'vars.php'; 
 ?>
@@ -82,16 +83,17 @@ include 'vars.php';
                 <!-- 売り切れの場合は、formを置換 -->
                 <?php if(($member->item_stock) > 0){ ?>
 
-                <input type="hidden" name="id" value="<?php echo $_SESSION['id'] ?>">
+                <input type="hidden" name="id" value="<?= get_SessionValue('id') ?>">
                 <input type="hidden" name="item_img_path" value="<?php echo ($member->item_img_path) ?>">
                 <input type="hidden" name="item_name" value="<?php echo($member->item_name) ?>">
                 <input type="hidden" name="item_price" value="<?php echo ($member->item_price) ?>">
                 <div class="contact-submit">
-                <button onclick="location.href='index.php'" class="submit">HOMEへ戻る</button>
-                <input type="submit" name="item_id" value="カートへ" class="submit ">
-                </div>
-                
+                <input type="submit" name="item_id" value="カートへ" class="submit contact-submit">
+                </div> 
             </form>
+            <div class="contact-submit">
+                <button onclick="location.href='index.php'" class="submit contact-submit">HOMEへ戻る</button>
+            </div>
             
             <?php }else{ ?>
                 <p>売切</p>

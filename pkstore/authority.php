@@ -32,14 +32,16 @@
  </header>
  <main>
     <h3>管理者メニュー</h3>
-    <a href="regist_goods.php" class="authority">商品登録</a>
-    <a href="goods_list.php" class="authority">商品編集</a>
-    <a href="regist_new_info.php" class="authority">情報登録</a>
-    <a href="new_info_list.php" class="authority">情報編集</a>
-    <a href="slide_list.php" class="authority">スライドショー編集</a>
-    <a href="account_list.php" class="authority">会員リスト（特別管理者用）</a>
-    <a href="mail_box.php" class="authority">お問い合わせ受信リスト</a>
-    <a href="transaction_box.php" class="authority">受注BOX</a>
+    <div class="authority_f">
+        <a href="regist_goods.php" class="authority">商品登録</a>
+        <a href="goods_list.php" class="authority">商品編集</a>
+        <a href="regist_new_info.php" class="authority">情報登録</a>
+        <a href="new_info_list.php" class="authority">情報編集</a>
+        <a href="slide_list.php" class="authority">スライドショー編集</a>
+        <a href="account_list.php" class="authority">会員リスト（特別管理者用）</a>
+        <a href="mail_box.php" class="authority">お問い合わせ受信リスト</a>
+        <a href="transaction_box.php" class="authority">受注BOX</a>
+    </div>
 
 
 
@@ -52,6 +54,7 @@
             <li><a href="company.php" class="fotter-text">Company</a></li>
             <li><a href="mail.php" class="fotter-text">Contact</a></li>
             <li><a href="store_info.php" class="fotter-text">Map</a></li>
+            
         </ul>
     </div>
     <div class="footer-r">

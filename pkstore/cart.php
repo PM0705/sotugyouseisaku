@@ -1,6 +1,14 @@
 <?php
     session_start();
     include 'vars.php'; 
+    $message="";
+    if (empty($array)) {
+        echo 'カートは空です！';
+        echo '<br>';
+        echo'<button type="button" onclick="location.href=\'index.php\'">HOMEに戻る</button>';
+        exit;
+    }
+    
 
     // カートが空の時
     if (isset($_SESSION["cart"])) {
@@ -110,6 +118,7 @@
     <?php endforeach; ?>
     <?php } else{
         echo '<div style="text-align: center;;">買い物カゴは空です。</div>';
+        
     }
     ?>
 

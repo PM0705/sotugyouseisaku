@@ -6,6 +6,7 @@
 body {
     margin: 0;
     padding: 0;
+    height: 100%;;
 
     
  }
@@ -16,7 +17,7 @@ header {
     position: relative;
     width: 100%;
     height: 150px;
-    background-color: darkgrey;
+    background-color: lightgoldenrodyellow;
 }
 .header-left > a > img {
     max-width: 150px;
@@ -425,7 +426,7 @@ form .contactbox-text1{
 }
 .complete >p{
     text-align: center;
-    width: 95vw;
+    width: 100%;
     margin-left: 10px;
 
 }
@@ -434,17 +435,15 @@ form .contactbox-text1{
 /* login */
 
 .loginform{
+    margin-top: -10vw;
     /* 中段配置 */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-.loginform{
-    display: flex;
     width: 100vw;
-    height: auto;
-    justify-content: center;
+    height: 100vw;
+ 
     
 }
 .loginform-div{
@@ -513,6 +512,7 @@ form{
     gap: 6px 10px;
     display: flex;
     justify-content: center;
+    margin-top: 1vw;
 }
 
 .submit-confirm{
@@ -685,7 +685,9 @@ form{
 }
 
 /* 管理者 */
-
+.authority_f{
+    text-align: center;
+}
 .authority{
     display: block;
     margin-left: 5vw;
@@ -768,6 +770,7 @@ form{
     background-color: yellow;
     color: red;
     font-weight: bold;
+    
 
 }
 /* 受注BOX */
@@ -778,30 +781,6 @@ form{
 }
 
 
-
-
-
-
-
-/* footer */
-footer{
-    position:fixed;
-    bottom:0;
-    width:100%;
-    height:10vh;
-    z-index:100;
-    background-color: darkgrey;
-    clear: both;
-    list-style:none;
-   
-}
-
-.footer-l > ul > li > a {
-    font-size: 1vw;
-    margin-right: 50px;
-    padding-bottom: 10px;
-    margin-left: -30px;
-}
 .nodate{
     text-align: center;
     margin-bottom: 25vw;
@@ -810,35 +789,50 @@ footer{
 
 
 
-a > .img1{
-    width: 5vh;
-    margin-right: 30px;
-    margin-left: -28px;
+/* footer */
+footer{
+    position: fixed;
+    bottom:0;
+    width:100%;
+    height:10vh;
+    z-index:100;
+    background-color: lightgoldenrodyellow;
+    
+    overflow: hidden;
+        /* 中段配置 */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    
+}
+
+
+.img1{
+    width: 4vh;
+    margin-right: 3px;
+    margin-left: 1vw;
+    padding-top:1vw;
 
 }
 
+.footer-l  .logo{
+    align-items: center;
+    min-height: 70px;
+    max-height: 80px;
+    height:15vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
+    width:auto;
+
+}
 
 footer > .footer-l{
     display: flex;
-    position: absolute;
-    left: 0;
-    
-    
-    
+
+    font-size: 1vw;
     
 }
 
-footer > .footer-r{
-    position: absolute;
-    right: 0;
-    
-}
 
-.footer-l > .img {
-    max-width: 100px;
-    height:auto;
-    width: 10vh;
-}
-.fotter-text{
-    margin-bottom: 0;
-}
+
+

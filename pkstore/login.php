@@ -1,9 +1,6 @@
 <?php
 //セッションを使うことを宣言
 session_start();
-var_dump($_SESSION);
-var_dump($_POST);
-
 ?>
 <?php
 $errorMessage = "";
@@ -115,7 +112,7 @@ if (isset($_POST["login"])) {
 
             <!-- ログインボタン -->
 
-            <div class="sub-confirm">
+            <div class="contact-submit">
             <input type="submit" class="submit" value="ログインする" name="login">
             </div>
             </form> 
@@ -131,22 +128,19 @@ if (isset($_POST["login"])) {
  <footer>
     
     <div class="footer-l">
-        <img src="img/logo.png" alt="PKstoreのロゴ" class="img">
+        <img src="img/logo.png" alt="PKstoreのロゴ" class="logo">
         <ul>
             <li><a href="company.php" class="fotter-text">Company</a></li>
             <li><a href="mail.php" class="fotter-text">Contact</a></li>
             <li><a href="store_info.php" class="fotter-text">Map</a></li>
-        </ul>
-    </div>
-    <div class="footer-r">
-        
-        <ul>
+
             <li><a href="index.php"><img src="img/twittericon.png" alt="Xのロゴ" class="img1"></a></li>
             <li><a href="index.php"><img src="img/instaicon.png" alt="Instagramのロゴ" class="img1"></a></li>
             <li><a href="index.php"><img src="img/youtubeicon.png" alt="Youtubeのロゴ" class="img1 youtubeicon"></a></li>
- 
+
         </ul>
     </div>
+
     
  </footer>
 

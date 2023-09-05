@@ -1,6 +1,5 @@
 
 
-
 <?php
 function getPostValue($key)
 {
@@ -9,6 +8,26 @@ function getPostValue($key)
         $value =  $_POST[$key];
     }  
    return $value;
+}
+?>
+<?php
+function get_SessionValue($key)
+{
+    $value = ""; 
+   if(isset($_SESSION[$key])){
+        $value =  $_POST[$key];
+    }  
+   return $value;
+}
+?>
+<?php
+function total($key)
+{
+    $total = ""; 
+   if(isset($value[$key])){
+        $total =  $value[$key];
+    }  
+   return $total;
 }
 ?>
 <?php
