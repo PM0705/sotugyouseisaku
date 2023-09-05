@@ -8,19 +8,8 @@ $dir2 = './images_comp/';
 $message = "";
 var_dump($image);
 // varディレクトリに移動する
-if (rename($dir1 . $image, $dir2 . $image)) {
- 
-    // 移動が成功したら表示される
-    echo '移動しました。';
-   
-  } else {
-   
-    // 移動に失敗したら表示される
-    echo '移動できない！';
-   
-  }
+rename($dir1 . $image, $dir2 . $image);
 try {
-
 //フォームから受け取った値を変数に代入
 mb_internal_encoding("utf8");
 $pdo=new PDO("mysql:dbname=pkstore;host=localhost;","root","root");

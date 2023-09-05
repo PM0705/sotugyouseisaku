@@ -1,8 +1,12 @@
 
 <?php
 // エラーメッセージ、登録完了メッセージの初期化
-var_dump($_POST);
 $message = "";
+$image = $_POST['item_img_path'];
+$dir1 = './images/';
+$dir2 = './images_comp/';
+// varディレクトリに移動する
+rename($dir1 . $image, $dir2 . $image);
 try {
 
     //フォームから受け取った値を変数に代入
