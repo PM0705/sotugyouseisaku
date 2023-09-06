@@ -57,6 +57,13 @@ li{
     line-height: 3;
     list-style:none 
 }
+.authority_menu{
+    text-align: right;
+}
+.authority-1{
+    font-size: 1vw;
+    text-align: right;
+}
 /* main */
 main{
     height: auto;

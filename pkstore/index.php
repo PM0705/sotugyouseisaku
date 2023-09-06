@@ -1,7 +1,6 @@
 <?php
 //セッションの開始
 session_start();
-var_dump($_SESSION);
 include 'vars.php'; 
 
 ?>
@@ -37,35 +36,41 @@ include 'vars.php';
     <div class="header-left">
         <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
         <img src="img/character.png" alt="PKstoreのキャラクター" class="img">
-        <!-- 一般 -->
-        <?php if ($_SESSION['authority'] == 1):?>
-        <div class="authority_menu">
-        <a href="cart.php">カートの中身（仮）</a>
-        <a href="authority.php">管理者用メニュー（仮）</a>
-        </div>
-        <?php endif; ?>
+        
     </div>
+    <!-- 特別管理者 -->
     
+    <?php 
+    if(!empty($_SESSION['authority'])){
+    $authority = $_SESSION['authority'];
+    if ($_SESSION['authority'] == 1){?>
+    <div class="authority_menu">
+        <a href="authority.php" class="authority-1">管理者用メニュー（仮）</a>
+    </div>
+    <?php }
+    }?>
     <div class="header-right">
+    <!-- ログインしていない -->
+    <?php if (empty($_SESSION["id"])) :?>
         <a href="login.php">ログイン・会員登録はこちら</a>
         <ul>
-            <!-- ログインしていない -->
-            <?php if (empty($_SESSION["id"])) :?>
-            
             <li><a href="sns.php">SNS</li>
             <li><a href="news.php">新着情報</li>
             <li><a href="store_info.php">店舗情報</a></li>
             <li><a href="mail.php">お問い合わせ</a></li>
-
-            <!-- 一般 -->
-            <?php else:?>
+        </ul>
+        <!-- 一般 -->
+        <?php else:?>
+        <a href="login.php">ログイン・会員登録はこちら</a>
+        <a href="cart.php">カートの中身（仮）</a>
+        <ul>
             <li><a href="pk_onlineshop.php">グッズ販売</a></li>
             <li><a href="sns.php">SNS</li>
             <li><a href="news.php">新着情報</li>
             <li><a href="store_info.php">店舗情報</a></li>
             <li><a href="mail.php">お問い合わせ</a></li>
-            <?php endif; ?>
         </ul>
+        <?php endif; ?>
     </div>
  </header>
  <main>
@@ -114,28 +119,20 @@ include 'vars.php';
         </div>
     </div>
         
- </main>
- <footer>
-    
+</main>
+<footer>
     <div class="footer-l">
-        <img src="img/logo.png" alt="PKstoreのロゴ" class="img">
+        <img src="img/logo.png" alt="PKstoreのロゴ" class="logo">
         <ul>
             <li><a href="company.php" class="fotter-text">Company</a></li>
             <li><a href="mail.php" class="fotter-text">Contact</a></li>
             <li><a href="store_info.php" class="fotter-text">Map</a></li>
-        </ul>
-    </div>
-    <div class="footer-r">
-        
-        <ul>
             <li><a href="index.php"><img src="img/twittericon.png" alt="Xのロゴ" class="img1"></a></li>
             <li><a href="index.php"><img src="img/instaicon.png" alt="Instagramのロゴ" class="img1"></a></li>
             <li><a href="index.php"><img src="img/youtubeicon.png" alt="Youtubeのロゴ" class="img1 youtubeicon"></a></li>
- 
         </ul>
     </div>
-    
- </footer>
+</footer>
 
     
  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

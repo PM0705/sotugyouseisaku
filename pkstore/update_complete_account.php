@@ -48,7 +48,7 @@ $message = '更新が完了しました。';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>スライド情報編集完了</title>
+    <title>会員情報編集完了</title>
 
     
     <link rel="stylesheet" href="htmlstyle.css">
@@ -56,7 +56,7 @@ $message = '更新が完了しました。';
 </head>
 <body>
    
- <header>
+<header>
     <div class="header-left">
         <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
         <img src="img/character.png" alt="PKstoreのキャラクター" class="img">
@@ -72,36 +72,28 @@ $message = '更新が完了しました。';
             <li><a href="mail.php">お問い合わせ</a></li>
         </ul>
     </div>
- </header>
- <main class="regist-page">
-      <h3>スライド情報編集完了</h3>
+</header>
+<main class="regist-page">
+      <h3>会員情報編集完了</h3>
       <div class="confirm">
          <div><?php echo htmlspecialchars($message, ENT_QUOTES); ?></div>
          <button onclick="location.href='index.php'" class="submit" value="HOMEへ戻る" >HOMEへ戻る</button>
          <button onclick="location.href='authority.php'" class="submit" value="HOMEへ戻る" >管理者メニューへ戻る</button>
       </div>
- </main>
- <footer>
-    
+</main>
+<footer>
     <div class="footer-l">
-        <img src="img/logo.png" alt="PKstoreのロゴ" class="img">
+        <img src="img/logo.png" alt="PKstoreのロゴ" class="logo">
         <ul>
             <li><a href="company.php" class="fotter-text">Company</a></li>
             <li><a href="mail.php" class="fotter-text">Contact</a></li>
             <li><a href="store_info.php" class="fotter-text">Map</a></li>
-        </ul>
-    </div>
-    <div class="footer-r">
-        
-        <ul>
             <li><a href="index.php"><img src="img/twittericon.png" alt="Xのロゴ" class="img1"></a></li>
             <li><a href="index.php"><img src="img/instaicon.png" alt="Instagramのロゴ" class="img1"></a></li>
             <li><a href="index.php"><img src="img/youtubeicon.png" alt="Youtubeのロゴ" class="img1 youtubeicon"></a></li>
- 
         </ul>
     </div>
-    
- </footer>
+</footer>
 
 </body>
 </html>

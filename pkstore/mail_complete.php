@@ -23,7 +23,7 @@ $pdo ->exec("insert into contactform(name,mail,tel,comments)
 </head>
 <body>
    
- <header>
+<header>
     <div class="header-left">
         <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
         <img src="img/character.png" alt="PKstoreのキャラクター" class="img">
@@ -39,9 +39,9 @@ $pdo ->exec("insert into contactform(name,mail,tel,comments)
             <li><a href="mail.php">お問い合わせ</a></li>
         </ul>
     </div>
- </header>
- <main class="contact-page">
- <h3>お問合せ完了</h3>
+</header>
+<main class="contact-page">
+<h3>お問合せ完了</h3>
     <div class="complete">
         <h2>お問い合わせが完了しました</h2>
         <p>お問い合わせありがとうございます。
@@ -55,28 +55,20 @@ $pdo ->exec("insert into contactform(name,mail,tel,comments)
     
 
         
- </main>
- <footer>
-    
+</main>
+<footer>
     <div class="footer-l">
-        <img src="img/logo.png" alt="PKstoreのロゴ" class="img">
+        <img src="img/logo.png" alt="PKstoreのロゴ" class="logo">
         <ul>
             <li><a href="company.php" class="fotter-text">Company</a></li>
             <li><a href="mail.php" class="fotter-text">Contact</a></li>
             <li><a href="store_info.php" class="fotter-text">Map</a></li>
-        </ul>
-    </div>
-    <div class="footer-r">
-        
-        <ul>
             <li><a href="index.php"><img src="img/twittericon.png" alt="Xのロゴ" class="img1"></a></li>
             <li><a href="index.php"><img src="img/instaicon.png" alt="Instagramのロゴ" class="img1"></a></li>
             <li><a href="index.php"><img src="img/youtubeicon.png" alt="Youtubeのロゴ" class="img1 youtubeicon"></a></li>
- 
         </ul>
     </div>
-    
- </footer>
+</footer>
 
 </body>
 </html>

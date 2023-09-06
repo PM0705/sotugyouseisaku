@@ -203,28 +203,20 @@ if($_POST["info_title"] != "" || $_POST["info_text"] != "" || $_POST["info_new"]
 
 
 
- </main>
- <footer>
-    
+</main>
+<footer>
     <div class="footer-l">
-        <img src="img/logo.png" alt="PKstoreのロゴ" class="img">
+        <img src="img/logo.png" alt="PKstoreのロゴ" class="logo">
         <ul>
             <li><a href="company.php" class="fotter-text">Company</a></li>
             <li><a href="mail.php" class="fotter-text">Contact</a></li>
             <li><a href="store_info.php" class="fotter-text">Map</a></li>
-        </ul>
-    </div>
-    <div class="footer-r">
-        
-        <ul>
             <li><a href="index.php"><img src="img/twittericon.png" alt="Xのロゴ" class="img1"></a></li>
             <li><a href="index.php"><img src="img/instaicon.png" alt="Instagramのロゴ" class="img1"></a></li>
             <li><a href="index.php"><img src="img/youtubeicon.png" alt="Youtubeのロゴ" class="img1 youtubeicon"></a></li>
- 
         </ul>
     </div>
-    
- </footer>
+</footer>
 
     
 

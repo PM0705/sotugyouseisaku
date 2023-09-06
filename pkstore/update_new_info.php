@@ -36,7 +36,7 @@ include 'vars.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>スライド情報編集フォーム</title>
+    <title>登録情報編集フォーム</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="css/6-1-7.css">
     
@@ -63,7 +63,7 @@ include 'vars.php';
     </div>
  </header>
  <main class="regist-page">
- <h3>スライド情報編集フォーム</h3>
+ <h3>登録情報編集フォーム</h3>
 
  <div class="registbox">
     <form method="post" action="update_confirm_new_info.php" name="form" enctype="multipart/form-data">
@@ -118,29 +118,20 @@ include 'vars.php';
         </div>
     </form>
 
-        
- </main>
- <footer>
-    
+</main>
+<footer>
     <div class="footer-l">
-        <img src="img/logo.png" alt="PKstoreのロゴ" class="img">
+        <img src="img/logo.png" alt="PKstoreのロゴ" class="logo">
         <ul>
             <li><a href="company.php" class="fotter-text">Company</a></li>
             <li><a href="mail.php" class="fotter-text">Contact</a></li>
             <li><a href="store_info.php" class="fotter-text">Map</a></li>
-        </ul>
-    </div>
-    <div class="footer-r">
-        
-        <ul>
             <li><a href="index.php"><img src="img/twittericon.png" alt="Xのロゴ" class="img1"></a></li>
             <li><a href="index.php"><img src="img/instaicon.png" alt="Instagramのロゴ" class="img1"></a></li>
             <li><a href="index.php"><img src="img/youtubeicon.png" alt="Youtubeのロゴ" class="img1 youtubeicon"></a></li>
- 
         </ul>
     </div>
-    
- </footer>
+</footer>
 
 </body>
 </html>
