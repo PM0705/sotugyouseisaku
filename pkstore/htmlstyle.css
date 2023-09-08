@@ -21,7 +21,7 @@ header {
 }
 .header-left > a > img {
     max-width: 150px;
-    width:15vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
+    width:60vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
     height:auto;
     
 }
@@ -53,7 +53,7 @@ ul{
 li{
     display: inline;
     line-height: 60px;
-    margin-right: 20px;
+
     line-height: 3;
     list-style:none 
 }
@@ -74,16 +74,16 @@ main{
 /* スライドショー */
 
 .slider {/*横幅94%で左右に余白を持たせて中央寄せ*/
-    width:94%;
-    margin:0 auto;
+    width:90vw;
+    margin-left: 2.5vw;
     margin-top: 5vw;
     
 }
 
 .slider img {
-    width:60vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
+    width:45vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
     height: 30vw;
-    max-height: 400px;
+    max-height: 600px;
     object-fit: cover;/* 画像を縦400px以上はトリミング */
 }
 
@@ -108,19 +108,19 @@ main{
     top: 42%;
     cursor: pointer;/*マウスカーソルを指マークに*/
     outline: none;/*クリックをしたら出てくる枠線を消す*/
-    border-top: 2px solid #666;/*矢印の色*/
-    border-right: 2px solid #666;/*矢印の色*/
-    height: 15px;
-    width: 15px;
+    border-top: 1px solid #666;/*矢印の色*/
+    border-right: 1px solid #666;/*矢印の色*/
+    height: 10px;
+    width: 10px;
 }
 
 .slick-prev {/*戻る矢印の位置と形状*/
-    left: -1.5%;
+    left: 1.5%;
     transform: rotate(-135deg);
 }
 
 .slick-next {/*次へ矢印の位置と形状*/
-    right: -1.5%;
+    right: -5%;
     transform: rotate(45deg);
 }
 
@@ -139,15 +139,16 @@ main{
 .slick-dots button {
     color: transparent;
     outline: none;
-    width:8px;/*ドットボタンのサイズ*/
-    height:8px;/*ドットボタンのサイズ*/
+    width:4px;/*ドットボタンのサイズ*/
+    height:4px;/*ドットボタンのサイズ*/
     display:block;
-    border-radius:50%;
-    background:#ccc;/*ドットボタンの色*/
+    border-radius:90%;
+    background:yellow;/*ドットボタンの色*/
+
 }
 
 .slick-dots .slick-active button{
-    background:#333;/*ドットボタンの現在地表示の色*/
+    background:red;/*ドットボタンの現在地表示の色*/
 }
 
 /* h3タイトル */

@@ -32,14 +32,12 @@ include 'vars.php';
 </head>
 <body>
    
- <header>
+<header>
     <div class="header-left">
         <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img">
-        
+        <img src="img/character.png" alt="PKstoreのキャラクター" class="img">   
     </div>
     <!-- 特別管理者 -->
-    
     <?php 
     if(!empty($_SESSION['authority'])){
     $authority = $_SESSION['authority'];
@@ -72,7 +70,7 @@ include 'vars.php';
         </ul>
         <?php endif; ?>
     </div>
- </header>
+</header>
  <main>
 
     <ul class="slider"><!--/slider-->

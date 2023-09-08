@@ -35,29 +35,47 @@
 
         ?>
 
- <header>
+<header>
     <div class="header-left">
         <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img">
-        <a href="buyItem.php">カートの中身（仮）</a>
-        <a href="authority.php">管理者用メニュー（仮）</a>
+        <img src="img/character.png" alt="PKstoreのキャラクター" class="img">   
     </div>
-    
+    <!-- 特別管理者 -->
+    <?php 
+    if(!empty($_SESSION['authority'])){
+    $authority = $_SESSION['authority'];
+    if ($_SESSION['authority'] == 1){?>
+    <div class="authority_menu">
+        <a href="authority.php" class="authority-1">管理者用メニュー（仮）</a>
+    </div>
+    <?php }
+    }?>
     <div class="header-right">
+    <!-- ログインしていない -->
+    <?php if (empty($_SESSION["id"])) :?>
         <a href="login.php">ログイン・会員登録はこちら</a>
         <ul>
-            <!-- ログインしていない -->
+            <li><a href="sns.php">SNS</li>
+            <li><a href="news.php">新着情報</li>
+            <li><a href="store_info.php">店舗情報</a></li>
+            <li><a href="mail.php">お問い合わせ</a></li>
+        </ul>
+        <!-- 一般 -->
+        <?php else:?>
+        <a href="login.php">ログイン・会員登録はこちら</a>
+        <a href="cart.php">カートの中身（仮）</a>
+        <ul>
             <li><a href="pk_onlineshop.php">グッズ販売</a></li>
             <li><a href="sns.php">SNS</li>
             <li><a href="news.php">新着情報</li>
             <li><a href="store_info.php">店舗情報</a></li>
             <li><a href="mail.php">お問い合わせ</a></li>
         </ul>
+        <?php endif; ?>
     </div>
- </header>
- <main>
-
-        <h3>情報検索フォーム</h3>
+</header>
+<main>
+    <h3>情報検索フォーム</h3>
         <form action="new_info_list.php" method="post">
             <table class="mail-search">
                 <thead>
