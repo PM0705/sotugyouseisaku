@@ -7,8 +7,8 @@ include 'vars.php';
  <?php
 //スライド情報
    //データベースへ接続
-       $dsn = "mysql:dbname=pkstore;host=localhost;charset=utf8mb4";
-       $username = "root";
+       $dsn = "mysql:dbname=pkstore77;host=localhost;charset=utf8mb4";
+       $username = "pkstore77";
        $password = "root";
        $options = [];
        $pdo = new PDO($dsn, $username, $password, $options);
@@ -94,7 +94,7 @@ include 'vars.php';
     <?php foreach ($stmt_newgoods as $row): ?>
         <div class="relative">
             <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
-            <img src="img/newIcon.png" alt="newIcon" class="absolute">  
+            <img src="img/newicon.png" alt="newicon" class="absolute">  
         </div>
     <?php endforeach; ?>
     </div>

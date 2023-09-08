@@ -93,7 +93,6 @@
     </p>
     <div class="form submit1">
         <form action="update_new_info.php" method="post">
-            <!-- <input type="submit" class="button1" value="前に戻る"> -->
             <button type="button" class="submit" value="前に戻る" onclick="history.back()">前に戻る</button>
         </form>
         <form action="update_complete_new_info.php" method="post">

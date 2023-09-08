@@ -1,7 +1,4 @@
 <?php
-var_dump($_GET);
-var_dump($_POST);
-// includeは最初の１行でOK
 include 'vars.php'; 
 ?>
 <?php
@@ -9,8 +6,8 @@ include 'vars.php';
         try {
  
             // 接続処理
-            $dsn = 'mysql:host=localhost;dbname=pkstore';
-            $user = 'root';
+            $dsn = 'mysql:host=localhost;dbname=pkstore77';
+            $user = 'pkstore77';
             $password = 'root';
             $dbh = new PDO($dsn, $user, $password);
  

@@ -13,8 +13,8 @@
 <?php
    
 //データベースへ接続
-    $dsn = "mysql:dbname=pkstore;host=localhost;charset=utf8mb4";
-    $username = "root";
+    $dsn = "mysql:dbname=pkstore77;host=localhost;charset=utf8mb4";
+    $username = "pkstore77";
     $password = "root";
     $options = [];
     $pdo = new PDO($dsn, $username, $password, $options);
@@ -150,7 +150,7 @@
                         <?php if (($row['new']) == 0){ ?>
                             <div class="relative">
                                 <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="100" height="100" >
-                                <img src="img/newIcon.png" alt="newIcon" class="absolute absolute2 ">
+                                <img src="img/newicon.png" alt="newicon" class="absolute absolute2 ">
                             </div>
 
                         <?php }else{ ?>

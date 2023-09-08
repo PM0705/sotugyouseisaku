@@ -5,9 +5,9 @@ session_start();
 <?php
 $errorMessage = "";
 //データベース接続情報
-$dbuser = 'root';
+$dbuser = 'pkstore77';
 $dbpass = 'root';
-$dsn = 'mysql:host=localhost;dbname=pkstore;';
+$dsn = 'mysql:host=localhost;dbname=pkstore77;';
 
 //MySQL接続
 try {

@@ -6,7 +6,7 @@ try {
 
 //フォームから受け取った値を変数に代入
 mb_internal_encoding("utf8");
-$pdo=new PDO("mysql:dbname=pkstore;host=localhost;","root","root");
+$pdo=new PDO("mysql:dbname=pkstore77;host=localhost;","pkstore77","root");
 $sql='UPDATE item_info_transaction SET delete_flag = :delete_flag  WHERE id=:id';
 $stmt = $pdo->prepare($sql);
 //  更新する値と該当のIDを配列に格納する

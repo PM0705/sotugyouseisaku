@@ -56,9 +56,10 @@ function incart($key)
 <?php
 // データベースに接続
 function connectDB() {
-    $param = 'mysql:dbname=pkstore;host=localhost';
+    $pdo="";
+    $dsn = 'mysql:dbname=pkstore;host=localhost';
     try {
-        $pdo = new PDO($param, 'root', 'root');
+        $pdo = new PDO($dsn, 'root', 'root');
         return $pdo;
 
     } catch (PDOException $e) {

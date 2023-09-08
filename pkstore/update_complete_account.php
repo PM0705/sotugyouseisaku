@@ -6,7 +6,7 @@ try {
 
 //フォームから受け取った値を変数に代入
 mb_internal_encoding("utf8");
-$pdo=new PDO("mysql:dbname=pkstore;host=localhost;","root","root");
+$pdo=new PDO("mysql:dbname=pkstore77;host=localhost;","pkstore77","root");
 $sql='UPDATE account_list SET family_name = :family_name, last_name = :last_name,
                     family_name_kana = :family_name_kana, last_name_kana = :last_name_kana,
                     mail = :mail,

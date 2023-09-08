@@ -11,7 +11,7 @@ rename($dir1 . $image, $dir2 . $image);
 try {
 //フォームから受け取った値を変数に代入
 mb_internal_encoding("utf8");
-$pdo=new PDO("mysql:dbname=pkstore;host=localhost;","root","root");
+$pdo=new PDO("mysql:dbname=pkstore77;host=localhost;","pkstore77","root");
 $sql='UPDATE slide SET slide_title = :slide_title, slide_keyword = :slide_keyword,
                     slide_new = :slide_new, display = :display,
                     slide_img_path = :slide_img_path

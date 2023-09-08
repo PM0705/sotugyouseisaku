@@ -11,7 +11,7 @@ try {
 
     //フォームから受け取った値を変数に代入
     mb_internal_encoding("utf8");
-    $pdo=new PDO("mysql:dbname=pkstore;host=localhost;","root","root");
+    $pdo=new PDO("mysql:dbname=pkstore77;host=localhost;","pkstore77","root");
     $pdo ->exec("INSERT INTO item_info_transaction (item_name,item_price,item_stock,keyword,
                             category,item_img_path,new,display) 
         VALUES ('".$_POST['item_name']."',

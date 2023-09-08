@@ -2,7 +2,7 @@
 var_dump($_POST);
 
 mb_internal_encoding("utf8");
-$pdo=new PDO("mysql:dbname=pkstore;host=localhost;","root","root");
+$pdo=new PDO("mysql:dbname=pkstore77;host=localhost;","pkstore77","root");
 $pdo ->exec("insert into contactform(name,mail,tel,comments)
        values('".$_POST['name']."',
               '".$_POST['mail']."',

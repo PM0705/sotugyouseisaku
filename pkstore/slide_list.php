@@ -12,8 +12,8 @@
 <?php
    
 //データベースへ接続
-    $dsn = "mysql:dbname=pkstore;host=localhost;charset=utf8mb4";
-    $username = "root";
+    $dsn = "mysql:dbname=pkstore77;host=localhost;charset=utf8mb4";
+    $username = "pkstore77";
     $password = "root";
     $options = [];
     $pdo = new PDO($dsn, $username, $password, $options);

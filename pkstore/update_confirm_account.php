@@ -1,8 +1,3 @@
-<?php
-var_dump($_GET);
-var_dump($_POST);
-?>
-
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -65,13 +60,6 @@ var_dump($_POST);
     echo $_POST['mail'];
     ?>
     </p>
-    <!-- <p>パスワード<span></span> -->
-    
-    <?php
-    // $pw = $_POST['password'];
-    // echo str_repeat('⚫︎', mb_strlen($pw, 'UTF8'));
-    
-    // ?>
     
     </p>
     <p>性別<span></span>

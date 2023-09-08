@@ -12,7 +12,7 @@ try {
 
 //フォームから受け取った値を変数に代入
 mb_internal_encoding("utf8");
-$pdo=new PDO("mysql:dbname=pkstore;host=localhost;","root","root");
+$pdo=new PDO("mysql:dbname=pkstore77;host=localhost;","pkstore77","root");
 $sql='UPDATE information SET info_title = :info_title, info_text = :info_text,
                     info_new = :info_new, display = :display,
                     info_img_path = :info_img_path

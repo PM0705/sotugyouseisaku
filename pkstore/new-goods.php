@@ -10,8 +10,8 @@ include 'vars.php';
         try {
  
             // 接続処理
-            $dsn = 'mysql:host=localhost;dbname=pkstore';
-            $user = 'root';
+            $dsn = 'mysql:host=localhost;dbname=pkstore77';
+            $user = 'pkstore77';
             $password = 'root';
             $dbh = new PDO($dsn, $user, $password);
  
@@ -69,7 +69,7 @@ include 'vars.php';
     <!-- タイトル・内容 -->  
             <div class="relative">          
                 <img src="images_comp/<?php echo($member->item_img_path);?>" class="news-page-img" class="info-img"><br>
-                <img src="img/newIcon.png" alt="newIcon" class="absolute">  
+                <img src="img/newicon.png" alt="newicon" class="absolute">  
                 </div>
             <span class="news_text"><?php echo($member->item_name);?></span><br>
             <span class="news_text">¥<?php echo($member->item_price);?></span><br>

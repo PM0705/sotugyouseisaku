@@ -8,7 +8,7 @@ try {
 //フォームから受け取った値を変数に代入
 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 mb_internal_encoding("utf8");
-$pdo=new PDO("mysql:dbname=pkstore;host=localhost;","root","root");
+$pdo=new PDO("mysql:dbname=pkstore77;host=localhost;","pkstore77","root");
 $pdo ->exec("INSERT INTO account_list(family_name,last_name,family_name_kana,last_name_kana,
                          mail,password,gender,postal_code,prefecture,address_1,address_2,authority) 
       VALUES ('".$_POST['family_name']."',
