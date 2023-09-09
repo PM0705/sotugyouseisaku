@@ -11,9 +11,7 @@
 </head>
 <body>
 <?php
-session_start();
-var_dump($_POST);
-   
+session_start();   
    //データベースへ接続
        $dsn = "mysql:dbname=pkstore77;host=localhost;charset=utf8mb4";
        $username = "pkstore77";
@@ -59,7 +57,7 @@ var_dump($_POST);
 <header>
     <div class="header-left">
         <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img">   
+        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -72,26 +70,28 @@ var_dump($_POST);
     <?php }
     }?>
     <div class="header-right">
-    <!-- ログインしていない -->
-    <?php if (empty($_SESSION["id"])) :?>
-        <a href="login.php">ログイン・会員登録はこちら</a>
-        <ul>
-            <li><a href="sns.php">SNS</li>
-            <li><a href="news.php">新着情報</li>
-            <li><a href="store_info.php">店舗情報</a></li>
-            <li><a href="mail.php">お問い合わせ</a></li>
-        </ul>
+        <!-- ログインしていない -->
+        <?php if (empty($_SESSION["id"])) :?>
+            <a href="login.php">ログイン・会員登録はこちら</a>
+            <ul>
+                <li><a href="sns.php">SNS</li>
+                <li><a href="news.php">新着情報</li>
+                <li><a href="store_info.php">店舗情報</a></li>
+                <li><a href="mail.php">お問い合わせ</a></li>
+            </ul>
         <!-- 一般 -->
         <?php else:?>
-        <a href="login.php">ログイン・会員登録はこちら</a>
-        <a href="cart.php">カートの中身（仮）</a>
-        <ul>
-            <li><a href="pk_onlineshop.php">グッズ販売</a></li>
-            <li><a href="sns.php">SNS</li>
-            <li><a href="news.php">新着情報</li>
-            <li><a href="store_info.php">店舗情報</a></li>
-            <li><a href="mail.php">お問い合わせ</a></li>
-        </ul>
+                <?php $message = $_SESSION['mail']."さんようこそ";?>
+                <div class="message-text"><?php echo htmlspecialchars($message, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
+            <ul>
+                <li><a href="pk_onlineshop.php">shop</a></li>
+                <li><a href="sns.php">SNS</li>
+                <li><a href="news.php">新着情報</li>
+                <li><a href="store_info.php">店舗情報</a></li>
+                <li><a href="mail.php">お問い合わせ</a></li>
+                <li><a href="cart.php"><img src="img/cart.png" alt="買い物カゴ" class="cart-img"></a></li>
+            </ul>
+            
         <?php endif; ?>
     </div>
 </header>
@@ -163,19 +163,17 @@ var_dump($_POST);
                             <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="100" height="100" >
                         <?php } ?>
                 <p class="item-name" name='item_name'><?php echo $row['item_name']?></p>
-                <p class="keyword" ><?php echo $row['keyword']?></p>
                 <p class="item_price" name='item_price'>¥<?php echo $row['item_price']?></p>
 
                 
                 <form method="post" action="cart.php" enctype="multipart/form-data">
+                    <!-- 売り切れの場合は、formを置換 -->
+                    <?php if($row['item_stock'] > 0){ ?>
                     <select name="buy_count" >
                         <?php for($i=0;$i<10;$i++): ?>
                             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                         <?php endfor; ?>
                     </select>
-                    <!-- 売り切れの場合は、formを置換 -->
-                    <?php if($row['item_stock'] > 0){ ?>
-
                     <input type="hidden" name="item_img_path" value="<?php echo $_SESSION['id'] ?>">
                     <input type="hidden" name="item_img_path" value="<?php echo $row['item_img_path'] ?>">
                     <input type="hidden" name="item_name" value="<?php echo $row['item_name'] ?>">
@@ -183,7 +181,11 @@ var_dump($_POST);
                     <input type="submit" name="item_id" value="カートへ">
                 </form>
                 <?php }else{ ?>
-                    <p>売切</p>
+                    <input type="hidden" name="item_img_path" value="<?php echo $_SESSION['id'] ?>">
+                    <input type="hidden" name="item_img_path" value="<?php echo $row['item_img_path'] ?>">
+                    <input type="hidden" name="item_name" value="<?php echo $row['item_name'] ?>">
+                    <input type="hidden" name="item_price" value="<?php echo $row['item_price'] ?>">
+                    <p style="color: red;">売切</p>
                 <?php } ?>
             </div>
             </li>

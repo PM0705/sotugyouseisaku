@@ -32,22 +32,24 @@ include 'vars.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>会員管理フォーム</title>
+    <title>会員情報</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="css/6-1-7.css">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="htmlstyle.css">
     
 </head>
 <body>
    
- <header>
+<header>
     <div class="header-left">
         <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img">
+        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
     </div>
-<!-- 特別管理者 -->
-<?php 
+    <!-- 特別管理者 -->
+    <?php 
     if(!empty($_SESSION['authority'])){
     $authority = $_SESSION['authority'];
     if ($_SESSION['authority'] == 1){?>
@@ -57,26 +59,28 @@ include 'vars.php';
     <?php }
     }?>
     <div class="header-right">
-    <!-- ログインしていない -->
-    <?php if (empty($_SESSION["id"])) :?>
-        <a href="login.php">ログイン・会員登録はこちら</a>
-        <ul>
-            <li><a href="sns.php">SNS</li>
-            <li><a href="news.php">新着情報</li>
-            <li><a href="store_info.php">店舗情報</a></li>
-            <li><a href="mail.php">お問い合わせ</a></li>
-        </ul>
+        <!-- ログインしていない -->
+        <?php if (empty($_SESSION["id"])) :?>
+            <a href="login.php">ログイン・会員登録はこちら</a>
+            <ul>
+                <li><a href="sns.php">SNS</li>
+                <li><a href="news.php">新着情報</li>
+                <li><a href="store_info.php">店舗情報</a></li>
+                <li><a href="mail.php">お問い合わせ</a></li>
+            </ul>
         <!-- 一般 -->
         <?php else:?>
-        <a href="login.php">ログイン・会員登録はこちら</a>
-        <a href="cart.php">カートの中身（仮）</a>
-        <ul>
-            <li><a href="pk_onlineshop.php">グッズ販売</a></li>
-            <li><a href="sns.php">SNS</li>
-            <li><a href="news.php">新着情報</li>
-            <li><a href="store_info.php">店舗情報</a></li>
-            <li><a href="mail.php">お問い合わせ</a></li>
-        </ul>
+                <?php $message = $_SESSION['mail']."さんようこそ";?>
+                <div class="message-text"><?php echo htmlspecialchars($message, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
+            <ul>
+                <li><a href="pk_onlineshop.php">shop</a></li>
+                <li><a href="sns.php">SNS</li>
+                <li><a href="news.php">新着情報</li>
+                <li><a href="store_info.php">店舗情報</a></li>
+                <li><a href="mail.php">お問い合わせ</a></li>
+                <li><a href="cart.php"><img src="img/cart.png" alt="買い物カゴ" class="cart-img"></a></li>
+            </ul>
+            
         <?php endif; ?>
     </div>
 </header>

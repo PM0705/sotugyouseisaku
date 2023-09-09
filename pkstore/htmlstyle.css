@@ -24,7 +24,7 @@ header {
     background-size:cover;   
 }
 
-.pkc, .cart-img{
+.pkc{
     position: absolute;
     top: 0;
 }
@@ -74,17 +74,21 @@ li{
 
 .cart-img{
     width: 5vw;
-    min-width: 100pw;
-    margin-top: -10px;
+    margin-bottom: -3vw;
+
 }
 
 a{
     color: white;
+}
+.message-text{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    font-weight: bold;
 
 }
-
-
-
 /* main */
 main{
     height: auto;
@@ -512,7 +516,8 @@ form .contactbox-text1{
 .sub-confirm{
     justify-content: center;
 }
-.new-ac{
+.new-ac > a{
+    line-height: 3vw;
     text-align: center;
     justify-content: center;
     gap: 6px 10px; /* 余白 */
@@ -733,6 +738,10 @@ form{
 /* 管理者 */
 .authority_f{
     text-align: center;
+    margin-bottom: 20vw;
+}
+.authority_f a{
+    color: #000;
 }
 .authority{
     display: block;
@@ -838,13 +847,13 @@ form{
 
 /* footer */
 footer{
+    background-image: url(img/headerback.png);
+    background-size:cover;   
     position: fixed;
     bottom:0;
     width:100%;
     height:10vh;
     z-index:100;
-    background-color: lightgoldenrodyellow;
-    
     overflow: hidden;
         /* 中段配置 */
         display: flex;

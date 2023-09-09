@@ -54,22 +54,24 @@ include 'vars.php';
         <?php if (empty($_SESSION["id"])) :?>
             <a href="login.php">ログイン・会員登録はこちら</a>
             <ul>
-                <li><a href="sns.php">shop</li>
+                <li><a href="sns.php">SNS</li>
                 <li><a href="news.php">新着情報</li>
                 <li><a href="store_info.php">店舗情報</a></li>
                 <li><a href="mail.php">お問い合わせ</a></li>
             </ul>
         <!-- 一般 -->
         <?php else:?>
-                <a href="login.php">ログイン・会員登録はこちら</a>
-                <a href="cart.php"><img src="img/cart.png" alt="買い物カゴ" class="cart-img"></a>
+                <?php $message = $_SESSION['mail']."さんようこそ";?>
+                <div class="message-text"><?php echo htmlspecialchars($message, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
             <ul>
                 <li><a href="pk_onlineshop.php">shop</a></li>
                 <li><a href="sns.php">SNS</li>
                 <li><a href="news.php">新着情報</li>
                 <li><a href="store_info.php">店舗情報</a></li>
                 <li><a href="mail.php">お問い合わせ</a></li>
+                <li><a href="cart.php"><img src="img/cart.png" alt="買い物カゴ" class="cart-img"></a></li>
             </ul>
+            
         <?php endif; ?>
     </div>
 </header>
