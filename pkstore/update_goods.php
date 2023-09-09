@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'vars.php'; 
 ?>
 <?php
@@ -21,10 +22,8 @@ include 'vars.php';
             $dbh = null;
  
         } catch (PDOException $e) {
-            print $e->getMessage() . "<br/>";
-            
+            print $e->getMessage() . "<br/>";   
         }
- 
     }
 ?>
 <!DOCTYPE html>

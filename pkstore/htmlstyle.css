@@ -527,7 +527,7 @@ form{
     display: flex;
     padding: 10px;
     justify-content: center;
-    gap: 6px 10px; /* 余白 */
+     /* 余白 */
 }
 .submit-confirm .submit{
     background-color: lightblue;
@@ -602,8 +602,12 @@ form{
 }
 
 /* ECサイト */
+.pk-f{
+    display: flex;
+    justify-content: center;
+}
 .result-field{
-    background-color: gray;
+    background-color: lightskyblue;
     display: flex;
 }
 .result-item{
@@ -738,8 +742,13 @@ form{
 }
 
 /* スライド情報編集画面 */
+.slide-page{
+    margin-bottom: 20vw;
+
+}
+
 .slide{
-    background-color:  lightgray;
+    background-color:  lightskyblue;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -766,11 +775,8 @@ form{
     margin-left: 5vw;
     margin-right: 5vw;
     margin-bottom: 25vw;
+    background-color: lightskyblue;
     
-    
-}
-.account_field table{
-    gap:20vw; /* 余白 */   
 }
 
 /* アカウント情報編集 */

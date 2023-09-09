@@ -14,7 +14,8 @@
         <img src="img/character.png" alt="PKstoreのキャラクター" class="img">   
     </div>
     <!-- 特別管理者 -->
-    <?php 
+    <?php
+    session_start(); 
     if(!empty($_SESSION['authority'])){
     $authority = $_SESSION['authority'];
     if ($_SESSION['authority'] == 1){?>

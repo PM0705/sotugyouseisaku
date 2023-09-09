@@ -10,7 +10,7 @@
 </head>
 <body>
 <?php
-   
+session_start();
 //データベースへ接続
     $dsn = "mysql:dbname=pkstore77;host=localhost;charset=utf8mb4";
     $username = "pkstore77";
@@ -60,7 +60,7 @@
         <?php endif; ?>
     </div>
 </header>
-<main>        
+<main class="slide-page">        
     <?php
     $count = $stmt->rowCount();
     // var_dump($count);

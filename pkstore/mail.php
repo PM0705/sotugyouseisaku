@@ -1,5 +1,5 @@
 <?php
-// includeは最初の１行でOK
+session_start();
 include 'vars.php'; 
 ?>
 
@@ -10,10 +10,7 @@ include 'vars.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お問い合わせフォーム</title>
-
-    
-    <link rel="stylesheet" href="htmlstyle.css">
-    
+    <link rel="stylesheet" href="htmlstyle.css">  
 </head>
 <body>
    
@@ -68,14 +65,11 @@ include 'vars.php';
                     title="漢字・ひらがなでご入力ください" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" 
                     value="<?= getPostValue('name') ?>">  
         </div>
-
-
         <div class="contactbox-text1">
             <label for="必須" class="red">必須</label>
             <label for="メールアドレス">メールアドレス</label>
             <input type="text" class="contactbox-text" size="35" name="mail" maxlength="100" required 
                     value="<?= getPostValue('mail') ?>">  
-            <span class="err-msg-mail"></span>
         </div>
         <div class="contactbox-text1">
             <label for="必須" class="red">必須</label>
@@ -91,13 +85,11 @@ include 'vars.php';
             <textarea name="comments" cols="30" required rows="8" maxlength="255" ><?= getPostValue('comments') ?></textarea>
         </div>
         <div class="contact-submit">         
-                <input type="submit" class="submit" value="確認する">
+            <input type="submit" class="submit" value="確認する">
         </div>
     </div>
     </form>
-</div>
-
-        
+</div>  
 </main>
 <footer>
     <div class="footer-l">

@@ -1,15 +1,19 @@
 <?php
     session_start();
     include 'vars.php'; 
+?>
+<?php
     $message="";
-    if (empty($array)) {
-        echo 'カートは空です！';
-        echo '<br>';
-        echo'<button type="button" onclick="location.href=\'index.php\'">HOMEに戻る</button>';
-        exit;
-    }
+    if (empty($array)) { ?>
+            <p> カートは空です！ぜひお買い物をお楽しみください！</p>
+            <div class="empty-cart">
+            <button onclick="location.href='pk_onlineshop.php'" class="submit" value="オンラインショップへ">オンラインショップへ</button>
+            <button onclick="location.href='index.php'" class="submit" value="HOMEにもどる">HOMEにもどる</button>
+            </div>
+    <?php exit; 
+     } ?>
     
-
+        <?php
     // カートが空の時
     if (isset($_SESSION["cart"])) {
         $array=$_SESSION["cart"];

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'vars.php'; 
 ?>
 <!DOCTYPE html>
@@ -60,17 +61,14 @@ include 'vars.php';
             <label for="必須" class="red">必須</label>
             <label for="info_title">タイトル</label>
             <input type="text" class="contactbox-text" size="35" name="info_title" required maxlength="10"
-                    title="漢字・ひらがなでご入力ください" 
+                    title="漢字・ひらがなでご入力ください"
                     value="<?= getPostValue('info_title') ?>">  
         </div>
-
-
         <div class="contactbox-text1">
             <label for="必須" class="red">必須</label>
             <label for="info_text">内容</label>
             <input type="text" class="contactbox-text" size="35" name="info_text" maxlength="100" required 
                     value="<?= getPostValue('info_text') ?>">  
-            <span class="err-msg-mail"></span>
         </div>
 <!-- NEW -->
        <div class="contactbox-text1">
@@ -90,7 +88,7 @@ include 'vars.php';
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="info_img_path">関連画像</label>
-                <input type="file" class="text"  name="info_img_path" id="info_img_path" size="35" 
+                <input type="file" class="text"  name="info_img_path" id="info_img_path" size="35" required
                         value="<?= getPostValue('info_img_path') ?>"><br>        
             </div>
     <!-- 送信ボタン -->

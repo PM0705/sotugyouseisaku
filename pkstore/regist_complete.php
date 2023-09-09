@@ -1,6 +1,5 @@
-
 <?php
-// エラーメッセージ、登録完了メッセージの初期化
+session_start();
 $message = "";
 try {
 

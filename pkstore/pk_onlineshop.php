@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -15,6 +11,7 @@ session_start();
 </head>
 <body>
 <?php
+session_start();
    
    //データベースへ接続
        $dsn = "mysql:dbname=pkstore77;host=localhost;charset=utf8mb4";
@@ -28,9 +25,9 @@ session_start();
            }
            error_reporting(0);
            if($_POST["keyword"] != "" || $_POST["category"] != ""){ //IDおよびユーザー名の入力有無を確認
-               $stmt = $pdo->query("SELECT * FROM item_info_transaction WHERE delete_flag = '0' 
-                                                                       AND keyword LIKE  '%".$_POST["keyword"]."%' 
+               $stmt = $pdo->query("SELECT * FROM item_info_transaction WHERE keyword LIKE  '%".$_POST["keyword"]."%' 
                                                                        AND category LIKE  '%".$_POST["category"]."%' 
+                                                                       AND delete_flag = '0'
                                                                        ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。    
    
            }
@@ -78,15 +75,16 @@ session_start();
 <main>
 <div>
     <h3>商品購入</h3>
-        <form action="pk_onlineshop.php" method="post">
-            <table>
+        <form action="pk_onlineshop.php" method="post" >
+            <table class="pk-f">
                 <thead>
                     <tr>
                 
                         <th>キーワード</th>
                         <td>
-                        <input type="text" name="keyword" id="keyword" maxlength="10" 
+                            <input type="text" name="keyword" id="keyword" maxlength="10" size="45"
                             value="<?= $_POST['keyword'] ?>">
+                        </td>
                     </tr>
                     <tr>
                         <th>カテゴリー</th>
@@ -96,32 +94,25 @@ session_start();
                                 <option value="0" <?php if (isset($_POST['category']) && $_POST['category'] == "0") echo 'selected'; ?>>カバン</option>
                                 <option value="1" <?php if (isset($_POST['category']) && $_POST['category'] == "1") echo 'selected'; ?>>文房具</option>
                                 <option value="2" <?php if (isset($_POST['category']) && $_POST['category'] == "2") echo 'selected'; ?>>タオル</option>
-                                <option value="3" <?php if (isset($_POST['category']) && $_POST['category'] == "3") echo 'selected'; ?>>その他</option>
-                                
-                                
+                                <option value="3" <?php if (isset($_POST['category']) && $_POST['category'] == "3") echo 'selected'; ?>>その他</option>   
                             </select><br>
                         </td>
+                    </tr>
+                    <tr>
                         <th>並び順</th>
                         <td>
                             <select name="authority" id="authority" value=array()>
                                 <option value=""selected>選択無し</option>
                                 <option value="0" <?php if (isset($_POST['id']) && $_POST['id'] == "0") echo 'selected'; ?>>新着</option>
                                 <option value="1" <?php if (isset($_POST['item_price']) && $_POST['item_price'] == "1") echo 'selected'; ?>>値段の安い順</option>
-                                <option value="2" <?php if (isset($_POST['item_price']) && $_POST['item_price'] == "2") echo 'selected'; ?>>値段の高い順</option>
-                                
-                                
+                                <option value="2" <?php if (isset($_POST['item_price']) && $_POST['item_price'] == "2") echo 'selected'; ?>>値段の高い順</option>   
                             </select><br>
                         </td>
                     </tr>
-
                 </thead>
-                
-
             </table>
             <div class="contact-submit">
-                <div>
                     <input type="submit" class="submit" value="検索する">
-                </div>
             </div>
         </form>
         <?php
@@ -138,31 +129,39 @@ session_start();
             <?php foreach ($stmt as $row): ?>
             <li>
             <div class="result-item">
-            
-            <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="100" height="100">
-            <p class="item-name" name='item_name'><?php echo $row['item_name']?></p>
-            <p class="keyword" ><?php echo $row['keyword']?></p>
-            <p class="item_price" name='item_price'>¥<?php echo $row['item_price']?></p>
+                <!-- NEW０の時だけNEWアイコン表示 -->
+                <?php if (($row['new']) == 0){ ?>
+                            <div class="relative">
+                                <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="100" height="100" >
+                                <img src="img/newicon.png" alt="newicon" class="absolute absolute2 ">
+                            </div>
 
-            
-            <form method="post" action="cart.php" enctype="multipart/form-data">
-                <select name="buy_count" >
-                    <?php for($i=0;$i<10;$i++): ?>
-                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                    <?php endfor; ?>
-                </select>
-                <!-- 売り切れの場合は、formを置換 -->
-                <?php if($row['item_stock'] > 0){ ?>
+                        <?php }else{ ?>
+                            <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="100" height="100" >
+                        <?php } ?>
+                <p class="item-name" name='item_name'><?php echo $row['item_name']?></p>
+                <p class="keyword" ><?php echo $row['keyword']?></p>
+                <p class="item_price" name='item_price'>¥<?php echo $row['item_price']?></p>
 
-                <input type="hidden" name="item_img_path" value="<?php echo $_SESSION['id'] ?>">
-                <input type="hidden" name="item_img_path" value="<?php echo $row['item_img_path'] ?>">
-                <input type="hidden" name="item_name" value="<?php echo $row['item_name'] ?>">
-                <input type="hidden" name="item_price" value="<?php echo $row['item_price'] ?>">
-                <input type="submit" name="item_id" value="カートへ">
-            </form>
-            <?php }else{ ?>
-                <p>売切</p>
-            <?php } ?>
+                
+                <form method="post" action="cart.php" enctype="multipart/form-data">
+                    <select name="buy_count" >
+                        <?php for($i=0;$i<10;$i++): ?>
+                            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                        <?php endfor; ?>
+                    </select>
+                    <!-- 売り切れの場合は、formを置換 -->
+                    <?php if($row['item_stock'] > 0){ ?>
+
+                    <input type="hidden" name="item_img_path" value="<?php echo $_SESSION['id'] ?>">
+                    <input type="hidden" name="item_img_path" value="<?php echo $row['item_img_path'] ?>">
+                    <input type="hidden" name="item_name" value="<?php echo $row['item_name'] ?>">
+                    <input type="hidden" name="item_price" value="<?php echo $row['item_price'] ?>">
+                    <input type="submit" name="item_id" value="カートへ">
+                </form>
+                <?php }else{ ?>
+                    <p>売切</p>
+                <?php } ?>
             </div>
             </li>
             <?php endforeach; ?>

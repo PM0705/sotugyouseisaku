@@ -22,10 +22,8 @@ include 'vars.php';
             $dbh = null;
  
         } catch (PDOException $e) {
-            print $e->getMessage() . "<br/>";
-            
+            print $e->getMessage() . "<br/>";   
         }
- 
     }
 ?>
 <!DOCTYPE html>
@@ -87,7 +85,7 @@ include 'vars.php';
             <input type="hidden" name="id" value="<?php echo($member->id) ?>">
     <!-- タイトル・内容 -->  
             <div class="relative">          
-                <img src="images_comp/<?php echo($member->item_img_path);?>" class="news-page-img" class="info-img"><br>
+                <img src="images_comp/<?php echo($member->item_img_path);?>" class="news-page-img info-img"><br>
                 <img src="img/newicon.png" alt="newicon" class="absolute">  
                 </div>
             <span class="news_text"><?php echo($member->item_name);?></span><br>

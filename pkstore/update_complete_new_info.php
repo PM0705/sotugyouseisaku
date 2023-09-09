@@ -1,5 +1,5 @@
 <?php
-// エラーメッセージ、登録完了メッセージの初期化
+session_start();
 $id = $_POST['id'];
 $message = "";
 $image = $_POST['info_img_path'];

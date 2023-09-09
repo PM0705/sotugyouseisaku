@@ -10,7 +10,7 @@
 </head>
 <body>
 <?php
-   
+session_start();
 //データベースへ接続
     $dsn = "mysql:dbname=pkstore77;host=localhost;charset=utf8mb4";
     $username = "pkstore77";
@@ -119,10 +119,7 @@
                 
                                         $cate = array ('','カバン','文房具','タオル','その他');
                                                 foreach($cate as $cate){
-                                                    
-                                        
                                                         print('<option value="'.$cate.'">'.$cate.'</option>');
-                                                
                                                     }    
                                     ?>
                         <?php endif; ?>
@@ -145,16 +142,13 @@
         } 
         ?>
         <h3>商品リスト</h3>
-
-                <table>
-                    
+                <table> 
                     <tr>
                         <th>ID</th>
                         <th>画像</th>
                         <th>アイテム名</th>
                         <th>最終更新日</th>
-                        <th >操作</th>
-                            
+                        <th >操作</th>     
                     </tr>
                     <!-- ここでPHPのforeachを使って結果をループさせる -->
                     <?php foreach ($stmt as $row): ?>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 mb_internal_encoding("utf8");
 $pdo=new PDO("mysql:dbname=pkstore77;host=localhost;","pkstore77","root");
 $pdo ->exec("insert into contactform(name,mail,tel,comments)

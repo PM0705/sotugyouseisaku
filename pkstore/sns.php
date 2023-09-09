@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="htmlstyle.css"> 
 </head>
 <body>
-   
 <header>
     <div class="header-left">
         <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
         <img src="img/character.png" alt="PKstoreのキャラクター" class="img">   
     </div>
     <!-- 特別管理者 -->
-    <?php 
+    <?php
+    session_start();
     if(!empty($_SESSION['authority'])){
     $authority = $_SESSION['authority'];
     if ($_SESSION['authority'] == 1){?>

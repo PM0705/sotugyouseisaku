@@ -1,8 +1,5 @@
 <?php
-//セッションを使うことを宣言
 session_start();
-?>
-<?php
 $errorMessage = "";
 //データベース接続情報
 $dbuser = 'pkstore77';

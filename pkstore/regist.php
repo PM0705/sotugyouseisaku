@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'vars.php'; 
 ?>
 <!DOCTYPE html>
@@ -234,6 +235,6 @@ include 'vars.php';
         </ul>
     </div>
 </footer>
-
+<script type="text/javascript" src="app2.js"></script>
 </body>
 </html>

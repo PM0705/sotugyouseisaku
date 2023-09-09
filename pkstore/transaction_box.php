@@ -12,7 +12,7 @@ error_reporting(0);
 </head>
 <body>
 <?php
-   
+session_start();   
 //データベースへ接続
     $dsn = "mysql:dbname=pkstore77;host=localhost;charset=utf8mb4";
     $username = "pkstore77";

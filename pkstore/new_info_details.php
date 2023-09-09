@@ -1,6 +1,5 @@
 <?php
-
-// includeは最初の１行でOK
+session_start();
 include 'vars.php'; 
 ?>
 <?php

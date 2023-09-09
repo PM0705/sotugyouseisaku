@@ -10,7 +10,7 @@
 </head>
 <body>
 <?php
-   
+    session_start();
     //データベースへ接続
     $dsn = "mysql:dbname=pkstore77;host=localhost;charset=utf8mb4";
     $username = "pkstore77";
@@ -80,13 +80,11 @@
     </div>
 </header>
  <main>
-
         <h3>会員リスト</h3>
         <form action="account_list.php" method="post">
             <table class="mail-search">
                 <thead>
                     <tr>
-                
                         <th>名前（姓）</th>
                         <td>
                         <input type="text" name="family_name" id="family_name" maxlength="10" 
@@ -204,8 +202,8 @@
 
 <?php
 //データベースへ接続
-$dsn = "mysql:dbname=pkstore;host=localhost;charset=utf8mb4";
-$username = "root";
+$dsn = "mysql:dbname=pkstore77;host=localhost;charset=utf8mb4";
+$username = "pkstore77";
 $password = "root";
 $options = [];
 $pdo = new PDO($dsn, $username, $password, $options);

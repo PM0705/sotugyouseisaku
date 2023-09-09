@@ -16,6 +16,7 @@
     </div>
     <!-- 特別管理者 -->
     <?php 
+    session_start();
     if(!empty($_SESSION['authority'])){
     $authority = $_SESSION['authority'];
     if ($_SESSION['authority'] == 1){?>

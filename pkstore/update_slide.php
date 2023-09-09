@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'vars.php'; 
 ?>
 <?php
