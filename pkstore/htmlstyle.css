@@ -12,20 +12,19 @@ body {
  }
 
 /* header */
-.cart-img{
-    width: 7vw;
-}
+
+
 header {
     font-family: 'Noto Sans JP', sans-serif;
     overflow: hidden;
     position: relative;
     width: 100%;
     height: 150px;
-    background-image: url(img/headerback.jpg);
-    background-size:cover;
-    
+    background-image: url(img/headerback.png);
+    background-size:cover;   
 }
-.pkc{
+
+.pkc, .cart-img{
     position: absolute;
     top: 0;
 }
@@ -46,26 +45,22 @@ header .header-right{
     bottom: 0;
     align-items: flex-end;
 }
+
 .header-right{
-    text-align: center;
     font-size: 1vw;
     margin-right: 0;
-    text-align: right;
-    
-    
+    text-align: center; 
 }
 
 .img{
     width: 15vw;
     margin-left: 20px; 
 }
-ul{
-    text-align: right;
-}
+
 li{
+    margin-left: 1vw;
     display: inline;
     line-height: 60px;
-
     line-height: 3;
     list-style:none 
 }
@@ -76,6 +71,20 @@ li{
     font-size: 1vw;
     text-align: right;
 }
+
+.cart-img{
+    width: 5vw;
+    min-width: 100pw;
+    margin-top: -10px;
+}
+
+a{
+    color: white;
+
+}
+
+
+
 /* main */
 main{
     height: auto;

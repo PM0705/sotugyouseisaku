@@ -12,6 +12,7 @@
 <body>
 <?php
 session_start();
+var_dump($_POST);
    
    //データベースへ接続
        $dsn = "mysql:dbname=pkstore77;host=localhost;charset=utf8mb4";
@@ -28,9 +29,31 @@ session_start();
                $stmt = $pdo->query("SELECT * FROM item_info_transaction WHERE keyword LIKE  '%".$_POST["keyword"]."%' 
                                                                        AND category LIKE  '%".$_POST["category"]."%' 
                                                                        AND delete_flag = '0'
-                                                                       ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。    
-   
+                                                                       ORDER BY item_price DESC"); //SQL文を実行して、結果を$stmtに代入する。
+                                                                       
            }
+           if($_POST["ip"] == "新着のみ" ){ //IDおよびユーザー名の入力有無を確認
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction WHERE keyword LIKE  '%".$_POST["keyword"]."%' 
+                                                                    AND category LIKE  '%".$_POST["category"]."%' 
+                                                                    AND delete_flag = '0'
+                                                                    AND new = '0'
+                                                                    ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。
+        }
+           if($_POST["ip"] == "値段の安い順" ){ //IDおよびユーザー名の入力有無を確認
+               $stmt = $pdo->query("SELECT * FROM item_info_transaction WHERE keyword LIKE  '%".$_POST["keyword"]."%' 
+                                                                       AND category LIKE  '%".$_POST["category"]."%' 
+                                                                       AND delete_flag = '0'
+                                                                       ORDER BY item_price ASC"); //SQL文を実行して、結果を$stmtに代入する。
+           }
+           if($_POST["ip"] == "値段の高い順" ){ //IDおよびユーザー名の入力有無を確認
+               $stmt = $pdo->query("SELECT * FROM item_info_transaction WHERE keyword LIKE  '%".$_POST["keyword"]."%' 
+                                                                       AND category LIKE  '%".$_POST["category"]."%' 
+                                                                       AND delete_flag = '0'
+                                                                       ORDER BY item_price DESC"); //SQL文を実行して、結果を$stmtに代入する。
+           }
+           
+        
+  
    
            ?> 
 <header>
@@ -91,21 +114,21 @@ session_start();
                         <td>
                             <select name="category" id="category" value=array()>
                                 <option value=""selected>選択無し</option>
-                                <option value="0" <?php if (isset($_POST['category']) && $_POST['category'] == "0") echo 'selected'; ?>>カバン</option>
-                                <option value="1" <?php if (isset($_POST['category']) && $_POST['category'] == "1") echo 'selected'; ?>>文房具</option>
-                                <option value="2" <?php if (isset($_POST['category']) && $_POST['category'] == "2") echo 'selected'; ?>>タオル</option>
-                                <option value="3" <?php if (isset($_POST['category']) && $_POST['category'] == "3") echo 'selected'; ?>>その他</option>   
+                                <option value="カバン" <?php if (isset($_POST['category']) && $_POST['category'] == "カバン") echo 'selected'; ?>>カバン</option>
+                                <option value="文房具" <?php if (isset($_POST['category']) && $_POST['category'] == "文房具") echo 'selected'; ?>>文房具</option>
+                                <option value="タオル" <?php if (isset($_POST['category']) && $_POST['category'] == "タオル") echo 'selected'; ?>>タオル</option>
+                                <option value="その他" <?php if (isset($_POST['category']) && $_POST['category'] == "その他") echo 'selected'; ?>>その他</option>   
                             </select><br>
                         </td>
                     </tr>
                     <tr>
-                        <th>並び順</th>
+                        <th>条件</th>
                         <td>
-                            <select name="authority" id="authority" value=array()>
+                            <select name="ip" id="ip" value=array()>
                                 <option value=""selected>選択無し</option>
-                                <option value="0" <?php if (isset($_POST['id']) && $_POST['id'] == "0") echo 'selected'; ?>>新着</option>
-                                <option value="1" <?php if (isset($_POST['item_price']) && $_POST['item_price'] == "1") echo 'selected'; ?>>値段の安い順</option>
-                                <option value="2" <?php if (isset($_POST['item_price']) && $_POST['item_price'] == "2") echo 'selected'; ?>>値段の高い順</option>   
+                                <option value="新着のみ" <?php if (isset($_POST['ip']) && $_POST['ip'] == "新着のみ") echo 'selected'; ?>>新着のみ</option>
+                                <option value="値段の安い順" <?php if (isset($_POST['ip']) && $_POST['ip'] == "値段の安い順") echo 'selected'; ?>>値段の安い順</option>
+                                <option value="値段の高い順" <?php if (isset($_POST['ip']) && $_POST['ip'] == "値段の高い順") echo 'selected'; ?>>値段の高い順</option>   
                             </select><br>
                         </td>
                     </tr>
