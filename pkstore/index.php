@@ -26,7 +26,9 @@ include 'vars.php';
     <title>PKstoreWELCOM</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="css/6-1-7.css">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="htmlstyle.css">
     
 </head>
@@ -35,7 +37,7 @@ include 'vars.php';
 <header>
     <div class="header-left">
         <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img">   
+        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -60,9 +62,9 @@ include 'vars.php';
         <!-- 一般 -->
         <?php else:?>
         <a href="login.php">ログイン・会員登録はこちら</a>
-        <a href="cart.php">カートの中身（仮）</a>
+        <a href="cart.php"><img src="img/cart.png" alt="買い物カゴ" class="cart-img"></a>
         <ul>
-            <li><a href="pk_onlineshop.php">グッズ販売</a></li>
+            <li><a href="pk_onlineshop.php">shop</a></li>
             <li><a href="sns.php">SNS</li>
             <li><a href="news.php">新着情報</li>
             <li><a href="store_info.php">店舗情報</a></li>
@@ -107,9 +109,8 @@ include 'vars.php';
     <div class="mapinfo">
         <div class="text-info">
             <p class="title">住所</p>
-            <p class="add">〒164-8501<br>東京都中野区中野四丁目8番1号<br></p>
-            <p class="add2"><br>TEL<br>000-0000-0000<br>
-                            営業時間<br>10:00~21:00</p>
+            <p class="add">〒164-8501<br>東京都○○区○○町○丁目○番○号</p>
+            <p class="add2">TEL:000-0000-0000<br>営業時間:10:00~21:00</p>
         </div>
         <div class="googlemap">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.740446698844!2d139.661134012126!3d35.70800427246428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f29092a6e253%3A0x936cd62aa3dafab6!2z44CSMTY0LTAwMDEg5p2x5Lqs6YO95Lit6YeO5Yy65Lit6YeO77yU5LiB55uu77yY4oiS77yY!5e0!3m2!1sja!2sjp!4v1691581831273!5m2!1sja!2sjp"

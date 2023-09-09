@@ -12,12 +12,22 @@ body {
  }
 
 /* header */
-header { 
+.cart-img{
+    width: 7vw;
+}
+header {
+    font-family: 'Noto Sans JP', sans-serif;
     overflow: hidden;
     position: relative;
     width: 100%;
     height: 150px;
-    background-color: lightgoldenrodyellow;
+    background-image: url(img/headerback.jpg);
+    background-size:cover;
+    
+}
+.pkc{
+    position: absolute;
+    top: 0;
 }
 .header-left > a > img {
     max-width: 150px;
@@ -32,13 +42,15 @@ header .header-left{
 }
 header .header-right{
     position: absolute;
-    right: 0;
+    right: 1vw;
     bottom: 0;
     align-items: flex-end;
 }
 .header-right{
     text-align: center;
     font-size: 1vw;
+    margin-right: 0;
+    text-align: right;
     
     
 }
@@ -67,20 +79,21 @@ li{
 /* main */
 main{
     height: auto;
-    
-
 }
+
 
 /* スライドショー */
 
 .slider {/*横幅94%で左右に余白を持たせて中央寄せ*/
-    width:90vw;
-    margin-left: 2.5vw;
-    margin-top: 5vw;
+    width:100vw;
+    background-color: lightskyblue;
+    margin: 0auto;
+    margin-top: 0;
     
 }
 
 .slider img {
+    margin-top: 1vw;
     width:45vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
     height: 30vw;
     max-height: 600px;
@@ -88,9 +101,9 @@ main{
 }
 
 .slider .slick-slide {
-	transform: scale(0.8);/*左右の画像のサイズを80%に*/
+	transform: scale(0.6);/*左右の画像のサイズを80%に*/
 	transition: all .5s;/*拡大や透過のアニメーションを0.5秒で行う*/
-	opacity: 0.5;/*透過50%*/
+	opacity: 0.4;/*透過50%*/
 }
 
 .slider .slick-slide.slick-center{
@@ -115,12 +128,12 @@ main{
 }
 
 .slick-prev {/*戻る矢印の位置と形状*/
-    left: 1.5%;
+    left: 1%;
     transform: rotate(-135deg);
 }
 
 .slick-next {/*次へ矢印の位置と形状*/
-    right: -5%;
+    right: 1%;
     transform: rotate(45deg);
 }
 
@@ -231,15 +244,27 @@ iframe{
     font-weight: lighter;
 
 }
+.googlemap{
+    /* 中段配置 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .googlemap > iframe{
     margin-left: 20px;
     width:40vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
     height:30vw;
+    
 
 }
 
 
 /* 店舗情報ページ */
+.mapinfo > .text-info{
+    text-align: center;
+    font-size: 2.5vw;
+}
 .main-store{
     margin-bottom: 100px;
 }
@@ -744,7 +769,6 @@ form{
 /* スライド情報編集画面 */
 .slide-page{
     margin-bottom: 20vw;
-
 }
 
 .slide{

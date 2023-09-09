@@ -56,18 +56,17 @@
         <img src="img/storeonly.png" alt="PKstoreのロゴ" class="img">
     </div>
     <h3>MAP</h3>
-    <div class="mapinfo-store-page">
+    <div class="mapinfo">
         <div class="text-info">
             <p class="title">住所</p>
-            <p class="add">〒164-8501<br>東京都中野区中野四丁目8番1号<br></p>
-            <p class="add2"><br>TEL<br>000-0000-0000<br>
-                            営業時間<br>10:00~21:00</p>
+            <p class="add">〒164-8501<br>東京都○○区○○町○丁目○番○号</p>
+            <p class="add2">TEL:000-0000-0000<br>営業時間:10:00~21:00</p>
         </div>
-        <div class="googlemap-storeinfo">
+        <div class="googlemap">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.740446698844!2d139.661134012126!3d35.70800427246428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f29092a6e253%3A0x936cd62aa3dafab6!2z44CSMTY0LTAwMDEg5p2x5Lqs6YO95Lit6YeO5Yy65Lit6YeO77yU5LiB55uu77yY4oiS77yY!5e0!3m2!1sja!2sjp!4v1691581831273!5m2!1sja!2sjp"
                 style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-    </div>       
+    </div>
 </main>
 <footer>
     <div class="footer-l">
