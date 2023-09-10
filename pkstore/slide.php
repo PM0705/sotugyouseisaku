@@ -65,8 +65,8 @@ include 'vars.php';
             </ul>
         <!-- 一般 -->
         <?php else:?>
-                <?php $message = $_SESSION['mail']."さんようこそ";?>
-                <div class="message-text"><?php echo htmlspecialchars($message, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
+                <?php $message1 = $_SESSION['mail']."さんようこそ";?>
+                <div class="message-text"><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
             <ul>
                 <li><a href="pk_onlineshop.php">shop</a></li>
                 <li><a href="sns.php">SNS</li>
@@ -86,8 +86,16 @@ include 'vars.php';
         <div class="contact-form errorMsg">
 <!-- ID -->
             <input type="hidden" name="id" value="<?php echo($member->id) ?>">
-<!-- タイトル・内容 -->            
-            <img src="images_comp/<?php echo($member->slide_img_path);?>" class="news-page-img"><br>
+<!-- タイトル・内容 -->
+<!-- NEW０の時だけNEWアイコン表示 -->
+<?php if (($row['new']) == 0){ ?>
+    <div class="relative">          
+            <img src="images_comp/<?php echo($member->slide_img_path);?>" class="news-page-img">
+            <img src="img/newicon.png" alt="newicon" class="absolute3">
+            </div>
+                        <?php }else{ ?>
+                            <img src="images_comp/<?php echo($member->slide_img_path);; ?>" class="news-page-img" >
+                        <?php } ?>
             
             <span class="news_text"><?php echo($member->slide_keyword);?></span><br>
 

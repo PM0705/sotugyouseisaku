@@ -98,8 +98,8 @@ if (isset($_POST["login"])) {
             </ul>
         <!-- 一般 -->
         <?php else:?>
-                <?php $message = $_SESSION['mail']."さんようこそ";?>
-                <div class="message-text"><?php echo htmlspecialchars($message, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
+                <?php $message1 = $_SESSION['mail']."さんようこそ";?>
+                <div class="message-text"><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
             <ul>
                 <li><a href="pk_onlineshop.php">shop</a></li>
                 <li><a href="sns.php">SNS</li>
@@ -138,8 +138,7 @@ if (isset($_POST["login"])) {
             </div>
             </form> 
             <div class="new-ac">
-            <a href="regist.php">会員登録はこちら</a><br>
-            <a href="logout.php">ログアウト（仮）</a>
+            <a href="regist.php">会員登録はこちら!</a><br>
             </div>
             
        

@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品編集</title>
-    <link rel="stylesheet" href="htmlstyle.css">
-    
+    <link rel="stylesheet" href="htmlstyle.css">  
 </head>
 <body>
 <?php
@@ -60,8 +59,8 @@ session_start();
             </ul>
         <!-- 一般 -->
         <?php else:?>
-                <?php $message = $_SESSION['mail']."さんようこそ";?>
-                <div class="message-text"><?php echo htmlspecialchars($message, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
+                <?php $message1 = $_SESSION['mail']."さんようこそ";?>
+                <div class="message-text"><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
             <ul>
                 <li><a href="pk_onlineshop.php">shop</a></li>
                 <li><a href="sns.php">SNS</li>
@@ -144,6 +143,7 @@ session_start();
         } 
         ?>
         <h3>商品リスト</h3>
+            <div class="goods-list-f">
                 <table> 
                     <tr>
                         <th>ID</th>
@@ -186,13 +186,8 @@ session_start();
                     </tr>
                     <?php endforeach; ?>
                 </table>
-
-       
-
-            
-            
-            
-        <p><?php  error_reporting(0); echo htmlspecialchars($errmessage, ENT_QUOTES); ?></p>
+            </div>  
+            <div class="goods-err"><?php  echo htmlspecialchars($errmessage, ENT_QUOTES); ?></div>
 <?php
 
 if ((isset($_POST["item_name"])) && (isset($_POST["keyword"]))&& (isset($_POST["category"]))){
@@ -208,45 +203,44 @@ if($_POST["item_name"] != "" || $_POST["keyword"] != "" || $_POST["category"] !=
                                                             ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。    
 }
 ?>
- <h3>削除済み商品リスト</h3>
+<h3>削除済み商品リスト</h3>
+<div class="goods-list-f-bottom">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>画像</th>
+            <th>アイテム名</th>
+            <th>最終更新日</th>
+            <th >操作</th>        
+        </tr>
+        <!-- ここでPHPのforeachを使って結果をループさせる -->
+        <?php foreach ($stmt as $row): ?>
+        <tr>
+            <td>
+                <?php echo $row['id']?>
+            </td>
+            <td>
+                <img src="images/<?php echo $row['item_img_path']; ?>" width="100" height="100">
+            </td>
+            <td>
+                <?php echo $row['item_name']?>
+            </td>
+            <td>
+                <?php 
+                    echo date('Y/m/d', strtotime($row['update_time']));
+                ?>
+            </td>
+            <td>
+                <!-- ★追加：削除★ -->
+                <button type="button"  onclick="location.href='goods_details.php?id=<?php echo($row['id']) ?>'">表示</button>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+</div>
+<div class="goods-err"><?php  echo htmlspecialchars($errmessage, ENT_QUOTES); ?></div>
 
-<table>
     
-    <tr>
-        <th>ID</th>
-        <th>画像</th>
-        <th>アイテム名</th>
-        <th>最終更新日</th>
-        <th >操作</th>
-            
-    </tr>
-    <!-- ここでPHPのforeachを使って結果をループさせる -->
-    <?php foreach ($stmt as $row): ?>
-    <tr>
-        <td>
-            <?php echo $row['id']?>
-        </td>
-        <td>
-            <img src="images/<?php echo $row['item_img_path']; ?>" width="100" height="100">
-        </td>
-        <td>
-            <?php echo $row['item_name']?>
-        </td>
-        <td>
-            <?php 
-                echo date('Y/m/d', strtotime($row['update_time']));
-            ?>
-        </td>
-        <td>
-            <!-- ★追加：削除★ -->
-            <button type="button"  onclick="location.href='goods_details.php?id=<?php echo($row['id']) ?>'">表示</button>
-        </td>
-    </tr>
-    <?php endforeach; ?>
-</table>
-
-<p><?php  error_reporting(0); echo htmlspecialchars($errmessage, ENT_QUOTES); ?></p>
-
 
 </main>
 <footer>

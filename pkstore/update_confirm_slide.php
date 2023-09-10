@@ -35,8 +35,8 @@
             </ul>
         <!-- 一般 -->
         <?php else:?>
-                <?php $message = $_SESSION['mail']."さんようこそ";?>
-                <div class="message-text"><?php echo htmlspecialchars($message, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
+                <?php $message1 = $_SESSION['mail']."さんようこそ";?>
+                <div class="message-text"><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
             <ul>
                 <li><a href="pk_onlineshop.php">shop</a></li>
                 <li><a href="sns.php">SNS</li>
@@ -51,7 +51,7 @@
 </header>
 <main class="regist-page">
 <h3>スライド情報編集フォーム</h3>
-<div class="confirm">
+<div class="confirm slide-f">
         <p>スライドタイトル:
            <?php
            echo $_POST['slide_title'];

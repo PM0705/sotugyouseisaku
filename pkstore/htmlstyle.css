@@ -208,8 +208,9 @@ h3{
     text-align: center;
   }
 /*NEWIcon*/
-.relative {
+.relative, .relative2 > img{
     position: relative;
+    
   }
   .absolute {
     width: 10vw;
@@ -219,10 +220,21 @@ h3{
   }
   .absolute2{
     width: 5vw;
+    min-width: 50px;
+    max-width: 3vw;
     position: absolute;
     left: 0;
     top: 1px;
   }
+  .absolute3{
+    width: 5vw;
+    min-width: 50px;
+    max-width: 5vw;
+    position: absolute;
+    left: 0;
+    top: 1px;
+  }
+
   .toprank{
     background-color: gray;
   }
@@ -361,7 +373,9 @@ h2{
 }
 
 /* mail */
-
+.contact-page{
+    margin-bottom: 20vw;
+}
 .red{
     width: 5vw;
     height: 5vw;
@@ -608,7 +622,9 @@ form{
     line-height: 35px;
     word-wrap: break-word;
     margin: auto;
-    display: block; 
+    display: block;
+    font-size: 3vw;
+    margin-top: 1vw; 
 }
 .news-page .button{
     margin-top: 10px;
@@ -785,6 +801,10 @@ form{
 }
 
 /* スライド情報編集画面 */
+.contact-form span{
+    background-color: lightyellow;
+    line-height: 2;
+}
 .slide-page{
     margin-bottom: 20vw;
 }
@@ -807,6 +827,11 @@ form{
     margin-top: 5vw;
 
 }
+.slide-f{
+    text-align: center;
+    font-size: 3vw;
+}
+
 
 /* アカウントリスト画面 */
 .account_field, .info_field{
@@ -816,7 +841,7 @@ form{
     text-align: center;
     margin-left: 5vw;
     margin-right: 5vw;
-    margin-bottom: 25vw;
+    margin-bottom: 10vw;
     background-color: lightskyblue;
     
 }
@@ -834,12 +859,29 @@ form{
     display: flex;
     justify-content: center;
     text-align: center;
+    margin-bottom: 20vw;
 }
 
 
 .nodate{
     text-align: center;
     margin-bottom: 25vw;
+}
+/* 商品登録 */
+.goods-list-f{
+    display: flex;
+    justify-content: center;
+}
+.goods-list-f-bottom{
+    display: flex;
+    justify-content: center;
+    
+}
+.goods-err{
+    text-align: center;
+    color: red;
+    margin-bottom:  30vw;
+    text-align: center;
 }
 
 

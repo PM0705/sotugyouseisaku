@@ -67,8 +67,8 @@ include 'vars.php';
             </ul>
         <!-- 一般 -->
         <?php else:?>
-                <?php $message = $_SESSION['mail']."さんようこそ";?>
-                <div class="message-text"><?php echo htmlspecialchars($message, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
+                <?php $message1 = $_SESSION['mail']."さんようこそ";?>
+                <div class="message-text"><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
             <ul>
                 <li><a href="pk_onlineshop.php">shop</a></li>
                 <li><a href="sns.php">SNS</li>
@@ -94,7 +94,7 @@ include 'vars.php';
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="slide_title">スライドタイトル</label>
-                <input type="text" class="text" name="slide_title" id="slide_title" maxlength="10" size="35"
+                <input type="text" class="text" name="slide_title" id="slide_title"  size="35"
                         value="<?php print($member->slide_title) ?>">
                 <span class="err-msg-slide_title"></span>
             </div>

@@ -26,10 +26,15 @@ session_start();
             $stmt = $pdo->query("SELECT * FROM information WHERE info_title LIKE  '%".$_POST["info_title"]."%' 
                                                                     AND info_text LIKE  '%".$_POST["info_text"]."%' 
                                                                     AND info_new LIKE  '%".$_POST["info_new"]."%' 
-                                                                    AND display LIKE  '%".$_POST["display"]."%' 
                                                                     AND delete_flag = '0' 
                                                                     ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。    
-
+        }
+        if($_POST["info_new"] == "0" ){ //IDおよびユーザー名の入力有無を確認
+            $stmt = $pdo->query("SELECT * FROM information WHERE info_title LIKE  '%".$_POST["info_title"]."%' 
+                                                                    AND info_text LIKE  '%".$_POST["info_text"]."%' 
+                                                                    AND delete_flag = '0'
+                                                                    AND info_new = '0' 
+                                                                    ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。
         }
 
         ?>
@@ -61,8 +66,8 @@ session_start();
             </ul>
         <!-- 一般 -->
         <?php else:?>
-                <?php $message = $_SESSION['mail']."さんようこそ";?>
-                <div class="message-text"><?php echo htmlspecialchars($message, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
+                <?php $message1 = $_SESSION['mail']."さんようこそ";?>
+                <div class="message-text"><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
             <ul>
                 <li><a href="pk_onlineshop.php">shop</a></li>
                 <li><a href="sns.php">SNS</li>
@@ -102,15 +107,7 @@ session_start();
                                 <lavel><input type="radio" name="info_new" value="0" <?php if (isset($_POST['info_new']) && $_POST['info_new'] == "0") echo 'checked'; ?>>ON</label>
                                 <lavel><input type="radio" name="info_new" value="1" <?php if (isset($_POST['info_new']) && $_POST['info_new'] == "1") echo 'checked'; ?>>OFF</label>
                             </div>
-                        </td>                    
-                        <th>表示</th>
-                        <td>
-                            <div class="radiogender">
-                                <lavel><input type="radio" name="display" value="" checked>選択無し</lavel>
-                                <lavel><input type="radio" name="display" value="0" <?php if (isset($_POST['display']) && $_POST['display'] == "0") echo 'checked'; ?>>ON</label>
-                                <lavel><input type="radio" name="display" value="1" <?php if (isset($_POST['display']) && $_POST['display'] == "1") echo 'checked'; ?>>OFF</label>
-                            </div>
-                        </td>                    
+                        </td>                                       
                     </tr>
                 </thead>
             </table>
@@ -146,6 +143,76 @@ session_start();
                             <?php echo $row['id']?>
                         </td>
                         <td>
+                            <!-- NEW０の時だけNEWアイコン表示 -->
+                            <?php if (($row['info_new']) == 0){ ?>
+                            <div class="relative info_field-new">
+                                <img src="images_comp/<?php echo $row['info_img_path']; ?>" width="100" height="100">
+                                <img src="img/newicon.png" alt="newicon" class="absolute3" >  
+                            </div>
+                            <?php }else{ ?>
+                                <img src="images_comp/<?php echo $row['info_img_path']; ?>" width="100" height="100" >
+                            <?php } ?>
+                        </td>
+                        <td>
+                            <?php 
+                                echo date('Y/m/d', strtotime($row['update_time']));
+                            ?>
+                        </td>
+                        <td>
+                            <!-- ★追加：削除★ -->
+                            <button type="button"  onclick="location.href='new_info_details.php?id=<?php echo($row['id']) ?>'">表示</button>
+                        </td>
+                    </tr>  
+                    <?php endforeach; ?>      
+                </table>                      
+        </div>  
+        <div class="goods-err"><?php  echo htmlspecialchars($errmessage, ENT_QUOTES); ?></div>
+
+<?php
+if ((isset($_POST["info_title"])) && (isset($_POST["info_text"]))){
+    $stmt = $pdo->query("SELECT * FROM information where delete_flag = '1' ORDER BY id DESC");
+    //SQL文を実行して、結果を$stmtに代入する。
+}
+error_reporting(0);
+if($_POST["info_title"] != "" || $_POST["info_text"] != "" || $_POST["info_new"] != "" || $_POST["display"] != ""){ //IDおよびユーザー名の入力有無を確認
+    $stmt = $pdo->query("SELECT * FROM information WHERE info_title LIKE  '%".$_POST["info_title"]."%' 
+                                                            AND info_text LIKE  '%".$_POST["info_text"]."%' 
+                                                            AND info_new LIKE  '%".$_POST["info_new"]."%' 
+                                                            AND delete_flag = '1' 
+                                                            ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。    
+}
+if($_POST["info_new"] == "0" ){ //IDおよびユーザー名の入力有無を確認
+    $stmt = $pdo->query("SELECT * FROM information WHERE info_title LIKE  '%".$_POST["info_title"]."%' 
+                                                            AND info_text LIKE  '%".$_POST["info_text"]."%' 
+                                                            AND delete_flag = '1'
+                                                            AND info_new = '0' 
+                                                            ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。
+}
+
+?>
+ <?php
+        $count = $stmt->rowCount();
+        // var_dump($count);
+    if ($count == 0) {
+        $errmessage = "検索結果はありません";
+        } 
+        ?>
+        <h3>削除済み情報リスト</h3>
+        <div class="info_field">
+                <table> 
+                    <tr>
+                        <th>ID</th>
+                        <th>画像</th>
+                        <th>最終更新日</th>
+                        <th >操作</th>      
+                    </tr>
+                    <!-- ここでPHPのforeachを使って結果をループさせる -->
+                    <?php foreach ($stmt as $row): ?>
+                    <tr>
+                        <td>
+                            <?php echo $row['id']?>
+                        </td>
+                        <td>
                             <img src="images_comp/<?php echo $row['info_img_path']; ?>" width="100" height="100">
                         </td>
                         <td>
@@ -161,66 +228,7 @@ session_start();
                     <?php endforeach; ?>      
                 </table>                      
         </div>  
-        <p class="nodate"><?php  error_reporting(0); echo htmlspecialchars($errmessage, ENT_QUOTES); ?></p> 
-
-<?php
-if ((isset($_POST["info_title"])) && (isset($_POST["info_text"]))){
-    $stmt = $pdo->query("SELECT * FROM information where delete_flag = '1' ORDER BY id DESC");
-    //SQL文を実行して、結果を$stmtに代入する。
-}
-error_reporting(0);
-if($_POST["info_title"] != "" || $_POST["info_text"] != "" || $_POST["info_new"] != "" || $_POST["display"] != ""){ //IDおよびユーザー名の入力有無を確認
-    $stmt = $pdo->query("SELECT * FROM information WHERE info_title LIKE  '%".$_POST["info_title"]."%' 
-                                                            AND info_text LIKE  '%".$_POST["info_text"]."%' 
-                                                            AND info_new LIKE  '%".$_POST["info_new"]."%' 
-                                                            AND display LIKE  '%".$_POST["display"]."%' 
-                                                            AND delete_flag = '1' 
-                                                            ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。    
-}
-?>
-
-        <h3>削除済み情報リスト</h3>
-
-        <div class="info_field">
-                <table>
-                    
-                    <tr>
-                        <th>ID</th>
-                        <th>画像</th>
-                        <th>最終更新日</th>
-                        <th >操作</th>
-                            
-                    </tr>
-                    <!-- ここでPHPのforeachを使って結果をループさせる -->
-                    <?php foreach ($stmt as $row): ?>
-                    <tr>
-                        <td>
-                            <?php echo $row['id']?>
-                        </td>
-                        <td>
-                            <img src="images/<?php echo $row['info_img_path']; ?>" width="100" height="100">
-                        </td>
-                        <td>
-                            <?php 
-                                echo date('Y/m/d', strtotime($row['update_time']));
-                            ?>
-                        </td>
-                        <td>
-                            <!-- ★追加：削除★ -->
-                            <button type="button"  onclick="location.href='new_info_details.php?id=<?php echo($row['id']) ?>'">表示</button>
-                        </td>
-                    </tr>  
-                    <?php endforeach; ?>      
-                </table>                      
-        </div>  
-        <p class="nodate"><?php  error_reporting(0); echo htmlspecialchars($errmessage, ENT_QUOTES); ?></p> 
-    
-
-
-
-
-
-
+        <div class="goods-err"><?php  echo htmlspecialchars($errmessage, ENT_QUOTES); ?></div>
 
 </main>
 <footer>

@@ -50,8 +50,8 @@ session_start();
             </ul>
         <!-- 一般 -->
         <?php else:?>
-                <?php $message = $_SESSION['mail']."さんようこそ";?>
-                <div class="message-text"><?php echo htmlspecialchars($message, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
+                <?php $message1 = $_SESSION['mail']."さんようこそ";?>
+                <div class="message-text"><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
             <ul>
                 <li><a href="pk_onlineshop.php">shop</a></li>
                 <li><a href="sns.php">SNS</li>
@@ -64,10 +64,8 @@ session_start();
         <?php endif; ?>
     </div>
 </header>
-<main>
-<div class="kizi1">       
+<main>    
     <h3>受注BOX</h3>
-    <div class="mail-main">
         <div class="transaction_box">
             <table>
                     <tr>
@@ -90,10 +88,10 @@ session_start();
                             <?php echo $row['user_id']?>
                         </td>
                         <td>
-                            <?php echo $row['buy_count']?>
+                            <?php echo $row['item_name']?>
                         </td>
                         <td>
-                            <?php echo $row['item_name']?>
+                            <?php echo $row['buy_count']?>
                         </td>
                         <td>
                             <?php 
@@ -112,8 +110,6 @@ session_start();
                     <?php } ?>
             </table>
         </div>   
-    </div>
-</div>
 </main>
 <footer>
     <div class="footer-l">
@@ -128,8 +124,5 @@ session_start();
         </ul>
     </div>
 </footer>
-
-    
-
 </body>
 </html>

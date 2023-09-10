@@ -9,9 +9,9 @@
     
 </head>
 <body>
-<?php
-session_start();
-//データベースへ接続
+    <?php
+    session_start();
+    //データベースへ接続
     $dsn = "mysql:dbname=pkstore77;host=localhost;charset=utf8mb4";
     $username = "pkstore77";
     $password = "root";
@@ -20,7 +20,7 @@ session_start();
     $stmt = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' AND new = '0' AND display = '0' ORDER BY id DESC");
         ?>
    
-   <header>
+<header>
     <div class="header-left">
         <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
         <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
@@ -47,8 +47,8 @@ session_start();
             </ul>
         <!-- 一般 -->
         <?php else:?>
-                <?php $message = $_SESSION['mail']."さんようこそ";?>
-                <div class="message-text"><?php echo htmlspecialchars($message, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
+                <?php $message1 = $_SESSION['mail']."さんようこそ";?>
+                <div class="message-text"><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
             <ul>
                 <li><a href="pk_onlineshop.php">shop</a></li>
                 <li><a href="sns.php">SNS</li>

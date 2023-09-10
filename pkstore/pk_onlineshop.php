@@ -27,6 +27,7 @@ session_start();
                $stmt = $pdo->query("SELECT * FROM item_info_transaction WHERE keyword LIKE  '%".$_POST["keyword"]."%' 
                                                                        AND category LIKE  '%".$_POST["category"]."%' 
                                                                        AND delete_flag = '0'
+                                                                       AND display = '0'
                                                                        ORDER BY item_price DESC"); //SQL文を実行して、結果を$stmtに代入する。
                                                                        
            }
@@ -35,18 +36,21 @@ session_start();
                                                                     AND category LIKE  '%".$_POST["category"]."%' 
                                                                     AND delete_flag = '0'
                                                                     AND new = '0'
+                                                                    AND display = '0'
                                                                     ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。
         }
            if($_POST["ip"] == "値段の安い順" ){ //IDおよびユーザー名の入力有無を確認
                $stmt = $pdo->query("SELECT * FROM item_info_transaction WHERE keyword LIKE  '%".$_POST["keyword"]."%' 
                                                                        AND category LIKE  '%".$_POST["category"]."%' 
                                                                        AND delete_flag = '0'
+                                                                       AND display = '0'
                                                                        ORDER BY item_price ASC"); //SQL文を実行して、結果を$stmtに代入する。
            }
            if($_POST["ip"] == "値段の高い順" ){ //IDおよびユーザー名の入力有無を確認
                $stmt = $pdo->query("SELECT * FROM item_info_transaction WHERE keyword LIKE  '%".$_POST["keyword"]."%' 
                                                                        AND category LIKE  '%".$_POST["category"]."%' 
                                                                        AND delete_flag = '0'
+                                                                       AND display = '0'
                                                                        ORDER BY item_price DESC"); //SQL文を実行して、結果を$stmtに代入する。
            }
            
@@ -81,8 +85,8 @@ session_start();
             </ul>
         <!-- 一般 -->
         <?php else:?>
-                <?php $message = $_SESSION['mail']."さんようこそ";?>
-                <div class="message-text"><?php echo htmlspecialchars($message, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
+                <?php $message1 = $_SESSION['mail']."さんようこそ";?>
+                <div class="message-text"><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
             <ul>
                 <li><a href="pk_onlineshop.php">shop</a></li>
                 <li><a href="sns.php">SNS</li>
@@ -158,7 +162,6 @@ session_start();
                                 <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="100" height="100" >
                                 <img src="img/newicon.png" alt="newicon" class="absolute absolute2 ">
                             </div>
-
                         <?php }else{ ?>
                             <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="100" height="100" >
                         <?php } ?>

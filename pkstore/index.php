@@ -12,7 +12,7 @@ include 'vars.php';
        $password = "root";
        $options = [];
        $pdo = new PDO($dsn, $username, $password, $options);
-       $stmt = $pdo->query("SELECT * FROM slide ORDER BY id DESC");
+       $stmt = $pdo->query("SELECT * FROM slide  where display = '0'ORDER BY id DESC");
        $stmt_newinfo = $pdo->query("SELECT * FROM information where delete_flag = '0' AND display = '0' ORDER BY id DESC , info_new limit 4");
        $stmt_newgoods = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' AND new = '0' AND display = '0' ORDER BY  id DESC , new limit 4");
                //SQL文を実行して、結果を$stmtに代入する。
@@ -61,8 +61,8 @@ include 'vars.php';
             </ul>
         <!-- 一般 -->
         <?php else:?>
-                <?php $message = $_SESSION['mail']."さんようこそ";?>
-                <div class="message-text"><?php echo htmlspecialchars($message, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
+                <?php $message1 = $_SESSION['mail']."さんようこそ";?>
+                <div class="message-text"><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
             <ul>
                 <li><a href="pk_onlineshop.php">shop</a></li>
                 <li><a href="sns.php">SNS</li>

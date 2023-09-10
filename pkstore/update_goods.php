@@ -65,8 +65,8 @@ include 'vars.php';
             </ul>
         <!-- 一般 -->
         <?php else:?>
-                <?php $message = $_SESSION['mail']."さんようこそ";?>
-                <div class="message-text"><?php echo htmlspecialchars($message, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
+                <?php $message1 = $_SESSION['mail']."さんようこそ";?>
+                <div class="message-text"><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
             <ul>
                 <li><a href="pk_onlineshop.php">shop</a></li>
                 <li><a href="sns.php">SNS</li>
@@ -101,17 +101,17 @@ include 'vars.php';
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="item_price">値段</label>
-                <input type="text" class="text" name="item_price" id="item_price" maxlength="100" size="35"
-                value="<?php print($member->item_price) ?>" title="半角数字でご入力ください"><br> 
+                <input type="number" class="text" name="item_price" id="item_price" maxlength="100" size="35"
+                value="<?php print($member->item_price) ?>" title="半角数字でご入力ください" ><br> 
                 <span class="err-msg-item_price"></span>
             </div>
 <!-- 在庫 -->
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="item_stock">在庫</label>
-                <input type="text" class="text" name="item_stock" id="item_stock" maxlength="10" size="35"
+                <input type="number" class="text" name="item_stock" id="item_stock" maxlength="10" size="35"
                 value="<?php print($member->item_stock) ?>"
-                        title="半角数字でご入力ください"><br> 
+                        title="半角数字でご入力ください" ><br> 
                 <span class="err-msg-item_stock"></span>
             </div>
 <!-- キーワード -->
