@@ -21,7 +21,6 @@ session_start();
             $stmt = $pdo->query("SELECT * FROM information where delete_flag = '0' ORDER BY id DESC");
             //SQL文を実行して、結果を$stmtに代入する。
         }
-        error_reporting(0);
         if($_POST["info_title"] != "" || $_POST["info_text"] != "" || $_POST["info_new"] != "" || $_POST["display"] != ""){ //IDおよびユーザー名の入力有無を確認
             $stmt = $pdo->query("SELECT * FROM information WHERE info_title LIKE  '%".$_POST["info_title"]."%' 
                                                                     AND info_text LIKE  '%".$_POST["info_text"]."%' 
@@ -41,8 +40,8 @@ session_start();
 
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -173,7 +172,6 @@ if ((isset($_POST["info_title"])) && (isset($_POST["info_text"]))){
     $stmt = $pdo->query("SELECT * FROM information where delete_flag = '1' ORDER BY id DESC");
     //SQL文を実行して、結果を$stmtに代入する。
 }
-error_reporting(0);
 if($_POST["info_title"] != "" || $_POST["info_text"] != "" || $_POST["info_new"] != "" || $_POST["display"] != ""){ //IDおよびユーザー名の入力有無を確認
     $stmt = $pdo->query("SELECT * FROM information WHERE info_title LIKE  '%".$_POST["info_title"]."%' 
                                                             AND info_text LIKE  '%".$_POST["info_text"]."%' 
@@ -190,46 +188,7 @@ if($_POST["info_new"] == "0" ){ //IDおよびユーザー名の入力有無を�
 }
 
 ?>
- <?php
-        $count = $stmt->rowCount();
-        // var_dump($count);
-    if ($count == 0) {
-        $errmessage = "検索結果はありません";
-        } 
-        ?>
-        <h3>削除済み情報リスト</h3>
-        <div class="info_field">
-                <table> 
-                    <tr>
-                        <th>ID</th>
-                        <th>画像</th>
-                        <th>最終更新日</th>
-                        <th >操作</th>      
-                    </tr>
-                    <!-- ここでPHPのforeachを使って結果をループさせる -->
-                    <?php foreach ($stmt as $row): ?>
-                    <tr>
-                        <td>
-                            <?php echo $row['id']?>
-                        </td>
-                        <td>
-                            <img src="images_comp/<?php echo $row['info_img_path']; ?>" width="100" height="100">
-                        </td>
-                        <td>
-                            <?php 
-                                echo date('Y/m/d', strtotime($row['update_time']));
-                            ?>
-                        </td>
-                        <td>
-                            <!-- ★追加：削除★ -->
-                            <button type="button"  onclick="location.href='new_info_details.php?id=<?php echo($row['id']) ?>'">表示</button>
-                        </td>
-                    </tr>  
-                    <?php endforeach; ?>      
-                </table>                      
-        </div>  
-        <div class="goods-err"><?php  echo htmlspecialchars($errmessage, ENT_QUOTES); ?></div>
-
+ 
 </main>
 <footer>
     <div class="footer-l">

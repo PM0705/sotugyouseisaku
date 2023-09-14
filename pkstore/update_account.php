@@ -47,8 +47,8 @@ include 'vars.php';
    
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -192,8 +192,8 @@ include 'vars.php';
                 <!-- アカウント権限 -->
                 <label for="アカウント権限">アカウント権限</label>
                 <select name="authority" id="authority" value=array()>
-                            <option value="0"<?php error_reporting(0); if ( $member->authority == "0" ) { echo ' selected'; } ?>>一般</option>
-                            <option value="1"<?php error_reporting(0); if ( $member->authority == "1" ) { echo ' selected'; } ?>>管理者</option>
+                            <option value="0"<?php if ( $member->authority == "0" ) { echo ' selected'; } ?>>一般</option>
+                            <option value="1"<?php if ( $member->authority == "1" ) { echo ' selected'; } ?>>管理者</option>
                 </select>
                 <br>
                 

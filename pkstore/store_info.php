@@ -11,11 +11,12 @@
 <body>
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
+    session_start(); 
     if(!empty($_SESSION['authority'])){
     $authority = $_SESSION['authority'];
     if ($_SESSION['authority'] == 1){?>
@@ -53,7 +54,7 @@
  <main class="main-store">
     <h3>店舗情報</h3>
     <div class="store-page">
-        <img src="img/store.png" alt="PKstoreのロゴ" class="img">
+        <img src="img/storeimg.png" alt="PKstoreのロゴ" class="img">
         <img src="img/storeonly.png" alt="PKstoreのロゴ" class="img">
     </div>
     <h3>MAP</h3>

@@ -21,7 +21,7 @@
             $stmt = $pdo->query("SELECT * FROM account_list where delete_flag = '0' ORDER BY id DESC");
             //SQL文を実行して、結果を$stmtに代入する。
         }
-        error_reporting(0);
+        
         if($_POST["family_name"] != "" || $_POST["last_name"] != "" || $_POST["family_name_kana"] != "" || $_POST["last_name_kana"] != "" || $_POST["mail"] != "" || $_POST["gender"] != "" || $_POST["authority"] != "" ){ //IDおよびユーザー名の入力有無を確認
             $stmt = $pdo->query("SELECT * FROM account_list WHERE family_name LIKE  '%".$_POST["family_name"]."%' 
                                                                     AND last_name LIKE  '%".$_POST["last_name"]."%' 
@@ -40,8 +40,8 @@
 
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -197,7 +197,7 @@
                 <?php endforeach; ?>
             </table>
         </div>
-        <p class="nodate"><?php  error_reporting(0); echo htmlspecialchars($errmessage, ENT_QUOTES); ?></p>
+        <p class="nodate"><?php   echo htmlspecialchars($errmessage, ENT_QUOTES); ?></p>
 
 
 <?php
@@ -210,7 +210,7 @@ $pdo = new PDO($dsn, $username, $password, $options);
     if ((isset($_POST["family_name"])) && (isset($_POST["last_name"])) && (isset($_POST["family_name_kana"])) && (isset($_POST["last_name_kana"])) && (isset($_POST["mail"]))){
         $stmt = $pdo->query("SELECT * FROM account_list where delete_flag = '1' ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。
     }
-    error_reporting(0);
+    
     if($_POST["family_name"] != "" || $_POST["last_name"] != "" || $_POST["family_name_kana"] != "" || $_POST["last_name_kana"] != "" || $_POST["mail"] != "" || $_POST["gender"] != "" || $_POST["authority"] != "" ){ //IDおよびユーザー名の入力有無を確認
         $stmt = $pdo->query("SELECT * FROM account_list WHERE family_name LIKE  '%".$_POST["family_name"]."%' 
                                                                 AND last_name LIKE  '%".$_POST["last_name"]."%' 
@@ -268,7 +268,7 @@ if ($count == 0) {
                 <?php endforeach; ?>
             </table>
         </div>
-    <p class="nodate"><?php  error_reporting(0); echo htmlspecialchars($errmessage, ENT_QUOTES); ?></p>
+    <p class="nodate"><?php echo htmlspecialchars($errmessage, ENT_QUOTES); ?></p>
 
  </main>
  <footer>

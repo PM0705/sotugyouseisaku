@@ -1,6 +1,3 @@
-<?php
-error_reporting(0);
-?>
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -25,8 +22,8 @@ session_start();
         ?>
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 

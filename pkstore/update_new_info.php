@@ -42,8 +42,8 @@ include 'vars.php';
 <body>  
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -94,7 +94,7 @@ include 'vars.php';
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="info_title">タイトル</label>
-                <input type="text" class="text" name="info_title" id="info_title" maxlength="10" size="35"
+                <input type="text" class="text" name="info_title" id="info_title" size="35"
                         value="<?php print($member->info_title)?>">
                 <span class="err-msg-info_title"></span>
             </div>

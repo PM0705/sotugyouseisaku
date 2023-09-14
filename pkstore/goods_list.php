@@ -20,7 +20,6 @@ session_start();
             $stmt = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' ORDER BY id DESC");
             //SQL文を実行して、結果を$stmtに代入する。
         }
-        error_reporting(0);
         if($_POST["item_name"] != "" || $_POST["keyword"] != "" || $_POST["category"] != ""){ //IDおよびユーザー名の入力有無を確認
             $stmt = $pdo->query("SELECT * FROM item_info_transaction WHERE item_name LIKE  '%".$_POST["item_name"]."%' 
                                                                     AND keyword LIKE  '%".$_POST["keyword"]."%' 
@@ -34,8 +33,8 @@ session_start();
 
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -194,7 +193,6 @@ if ((isset($_POST["item_name"])) && (isset($_POST["keyword"]))&& (isset($_POST["
     $stmt = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '1' ORDER BY id DESC");
     //SQL文を実行して、結果を$stmtに代入する。
 }
-error_reporting(0);
 if($_POST["item_name"] != "" || $_POST["keyword"] != "" || $_POST["category"] != ""){ //IDおよびユーザー名の入力有無を確認
     $stmt = $pdo->query("SELECT * FROM item_info_transaction WHERE item_name LIKE  '%".$_POST["item_name"]."%' 
                                                             AND keyword LIKE  '%".$_POST["keyword"]."%' 
@@ -203,42 +201,7 @@ if($_POST["item_name"] != "" || $_POST["keyword"] != "" || $_POST["category"] !=
                                                             ORDER BY id DESC"); //SQL文を実行して、結果を$stmtに代入する。    
 }
 ?>
-<h3>削除済み商品リスト</h3>
-<div class="goods-list-f-bottom">
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>画像</th>
-            <th>アイテム名</th>
-            <th>最終更新日</th>
-            <th >操作</th>        
-        </tr>
-        <!-- ここでPHPのforeachを使って結果をループさせる -->
-        <?php foreach ($stmt as $row): ?>
-        <tr>
-            <td>
-                <?php echo $row['id']?>
-            </td>
-            <td>
-                <img src="images/<?php echo $row['item_img_path']; ?>" width="100" height="100">
-            </td>
-            <td>
-                <?php echo $row['item_name']?>
-            </td>
-            <td>
-                <?php 
-                    echo date('Y/m/d', strtotime($row['update_time']));
-                ?>
-            </td>
-            <td>
-                <!-- ★追加：削除★ -->
-                <button type="button"  onclick="location.href='goods_details.php?id=<?php echo($row['id']) ?>'">表示</button>
-            </td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
-</div>
-<div class="goods-err"><?php  echo htmlspecialchars($errmessage, ENT_QUOTES); ?></div>
+
 
     
 

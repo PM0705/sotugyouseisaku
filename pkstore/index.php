@@ -36,8 +36,8 @@ include 'vars.php';
    
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -100,7 +100,7 @@ include 'vars.php';
         </div>
     <?php endforeach; ?>
     </div>
-    <h3 class="info toprank">ランキング</h3>
+    <h3 class="info toprank">ランキング（将来的に挑戦したい内容）</h3>
     <div class="info toprank">
         <img src="img/rank1.png" alt="rank1">
         <img src="img/rank2.png" alt="rank2">
@@ -123,7 +123,7 @@ include 'vars.php';
 </main>
 <footer>
     <div class="footer-l">
-        <img src="img/logo.png" alt="PKstoreのロゴ" class="logo">
+        <img src="img/PKlogo.png" alt="PKstoreのロゴ" class="logo">
         <ul>
             <li><a href="company.php" class="fotter-text">Company</a></li>
             <li><a href="mail.php" class="fotter-text">Contact</a></li>

@@ -21,8 +21,8 @@ $logout2 = 'PKストアをご利用いただき、ありがとうございまし
    
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -63,8 +63,8 @@ $logout2 = 'PKストアをご利用いただき、ありがとうございまし
 <main class="contact-page">
 <h3>ログアウト完了</h3>
     <div class="complete">
-        <h2 class="noerror"><?php error_reporting(0);echo htmlspecialchars($logout, ENT_QUOTES); ?></h2>
-        <p class="noerror"><?php error_reporting(0);echo htmlspecialchars($logout2, ENT_QUOTES); ?></p>
+        <h2 class="noerror"><?php echo htmlspecialchars($logout, ENT_QUOTES); ?></h2>
+        <p class="noerror"><?php echo htmlspecialchars($logout2, ENT_QUOTES); ?></p>
         <div class="button">
         <button onclick="location.href='index.php'" class="submit">HOMEへ戻る</button>
         </div>

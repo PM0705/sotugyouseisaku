@@ -16,8 +16,8 @@ include 'vars.php';
    
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -63,8 +63,7 @@ include 'vars.php';
         <div class="contactbox-text1">
             <label for="必須" class="red">必須</label>
             <label for="name">名前</label>
-            <input type="text" class="contactbox-text" size="35" name="name" required maxlength="10"
-                    title="漢字・ひらがなでご入力ください" pattern="[\u4E00-\u9FFF\u3040-\u309Fー]*" 
+            <input type="text" class="contactbox-text" size="35" name="name" required
                     value="<?= getPostValue('name') ?>">  
         </div>
         <div class="contactbox-text1">
@@ -106,9 +105,5 @@ include 'vars.php';
         </ul>
     </div>
 </footer>
-
-
-    
-    
 </body>
 </html>

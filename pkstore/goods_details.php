@@ -43,8 +43,8 @@ include 'vars.php';
    
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -100,7 +100,7 @@ include 'vars.php';
             <span class="account_text">カテゴリー:</span><span class="account_text"><?php echo($member->category);?></span><br>
 <!-- NEW -->
             <span class="account_text">NEW:</span><span class="account_text">
-            <?php error_reporting(0);
+            <?php 
                 if ($info_new == 0) {
                     echo "ON";
                     }else{
@@ -108,7 +108,7 @@ include 'vars.php';
                     } ?></span><br>
 <!-- 情報 -->
             <span class="account_text">表示:</span><span class="account_text">
-            <?php error_reporting(0);
+            <?php 
                 if ($display == 0) {
                     echo "ON";
                     }else{

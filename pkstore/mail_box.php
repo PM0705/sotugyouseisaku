@@ -25,7 +25,7 @@ error_reporting(0);
             $stmt = $pdo->query("SELECT * FROM contactform ORDER BY id DESC");
             //SQL文を実行して、結果を$stmtに代入する。
         }
-        error_reporting(0);
+
         if($_POST["name"] != "" || $_POST["mail"] != "" ){ //IDおよびユーザー名の入力有無を確認
             $stmt = $pdo->query("SELECT * FROM contactform WHERE name LIKE  '%".$_POST["name"]."%' 
                                                                     AND mail LIKE  '%".$_POST["mail"]."%' 
@@ -36,8 +36,8 @@ error_reporting(0);
         ?>
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -124,13 +124,10 @@ error_reporting(0);
                 <p>連絡先:<br><?php echo $row['tel']?></p>
                 <p>受信日:<br>
                     <?php
-                        error_reporting(0);
                         echo date('Y/m/d', strtotime($row['registered_time']));
                     ?>
                 </p>
             </div>
-           
-            
                 <p class="comments">
                     <?php echo $row['comments']?>
                 </p>

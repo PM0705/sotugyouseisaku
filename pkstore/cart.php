@@ -1,8 +1,6 @@
 <?php
-    session_start();
-    include 'vars.php'; 
-?>
-<?php
+session_start();
+include 'vars.php'; 
     $message="";
     if (empty($array)) { ?>
             <p> カートは空です！ぜひお買い物をお楽しみください！</p>
@@ -11,9 +9,10 @@
             <button onclick="location.href='index.php'" class="submit" value="HOMEにもどる">HOMEにもどる</button>
             </div>
     <?php exit; 
-     } ?>
+     } 
+?>
     
-        <?php
+<?php
     // カートが空の時
     if (isset($_SESSION["cart"])) {
         $array=$_SESSION["cart"];
@@ -71,11 +70,10 @@
     
 </head>
 <body>
-
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 

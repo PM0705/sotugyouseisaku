@@ -43,8 +43,8 @@ include 'vars.php';
    
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -92,12 +92,12 @@ include 'vars.php';
 <!-- ID -->
             <input type="hidden" name="id" value="<?php echo($member->id) ?>">
 <!-- タイトル・内容 -->            
-            <img src="images/<?php echo($member->info_img_path);?>"><br>
+            <img src="images_comp/<?php echo($member->info_img_path);?>"><br>
             <span class="account_text">タイトル:</span><span class="account_text"><?php echo($member->info_title);?></span><br>
             <span class="account_text">内容:</span><span class="account_text"><?php echo($member->info_text);?></span><br>
 <!-- NEW -->
             <span class="account_text">NEW:</span><span class="account_text">
-            <?php error_reporting(0);
+            <?php 
                 if ($info_new == 0) {
                     echo "ON";
                     }else{
@@ -105,7 +105,7 @@ include 'vars.php';
                     } ?></span><br>
 <!-- 情報 -->
             <span class="account_text">表示:</span><span class="account_text">
-            <?php error_reporting(0);
+            <?php 
                 if ($display == 0) {
                     echo "ON";
                     }else{

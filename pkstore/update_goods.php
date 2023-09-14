@@ -40,8 +40,8 @@ include 'vars.php';
 <body>
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -79,8 +79,8 @@ include 'vars.php';
         <?php endif; ?>
     </div>
 </header>
- <main class="regist-page">
- <h3>登録商品編集フォーム</h3>
+<main class="regist-page">
+<h3>登録商品編集フォーム</h3>
 
  <div class="registbox">
     <form method="post" action="update_confirm_goods.php" name="form" enctype="multipart/form-data">
@@ -92,7 +92,7 @@ include 'vars.php';
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="item_name">アイテム名</label>
-                <input type="text" class="text" name="item_name" id="item_name" maxlength="10" size="35"
+                <input type="text" class="text" name="item_name" id="item_name"  size="35"
                          value="<?php print($member->item_name) ?>"
                         title="スペースのみ不可"><br> 
                 <span class="err-msg-item_name"></span>
@@ -118,7 +118,7 @@ include 'vars.php';
             <div class="contactbox-text1">
                 <label for="必須" class="red">必須</label>
                 <label for="keyword">キーワード</label>
-                <input type="text" class="text" name="keyword" id="keyword" maxlength="10" size="35"
+                <input type="text" class="text" name="keyword" id="keyword" size="35"
                 value="<?php print($member->keyword) ?>"
                         title="スペースのみ不可"><br> 
                 <span class="err-msg-keyword"></span>

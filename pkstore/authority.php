@@ -1,3 +1,8 @@
+<?php
+//セッションの開始
+session_start();
+include 'vars.php'; 
+?>
 <!DOCTYPE html>
 <html lang="jp">
 <head>
@@ -12,8 +17,8 @@
    
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -59,7 +64,7 @@
         <a href="regist_new_info.php" class="authority">情報登録</a>
         <a href="new_info_list.php" class="authority">情報編集</a>
         <a href="slide_list.php" class="authority">スライドショー編集</a>
-        <a href="account_list.php" class="authority">会員リスト（特別管理者用）</a>
+        <a href="account_list.php" class="authority">会員リスト</a>
         <a href="mail_box.php" class="authority">お問い合わせ受信リスト</a>
         <a href="transaction_box.php" class="authority">受注BOX</a>
     </div>

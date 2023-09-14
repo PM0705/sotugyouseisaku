@@ -25,8 +25,13 @@ header {
 }
 
 .pkc{
+    margin-left: 20px;
     position: absolute;
     top: 0;
+    min-height: 100px;
+    width: auto;
+    height: 10vw;
+    max-height: 150px;
 }
 .header-left > a > img {
     max-width: 150px;
@@ -51,10 +56,10 @@ header .header-right{
     margin-right: 0;
     text-align: center; 
 }
-
-.img{
-    width: 15vw;
+.h-img{
+    width: auto;
     margin-left: 20px; 
+
 }
 
 li{
@@ -434,6 +439,7 @@ form .contactbox-text1{
 
 /* mail_confirm */
 .confirm{
+    text-align: center;
     /* 中段配置 */
     display: flex;
     flex-direction: column;
@@ -916,9 +922,10 @@ footer{
 }
 
 .footer-l  .logo{
+    position:static;
     align-items: center;
     min-height: 70px;
-    max-height: 80px;
+    max-height: 110px;
     height:15vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
     width:auto;
 

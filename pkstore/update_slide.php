@@ -42,8 +42,8 @@ include 'vars.php';
 <body>
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -81,9 +81,8 @@ include 'vars.php';
         <?php endif; ?>
     </div>
 </header>
- <main class="regist-page">
- <h3>スライド情報編集フォーム</h3>
-
+<main class="regist-page">
+<h3>スライド情報編集フォーム</h3>
  <div class="registbox">
     <form method="post" action="update_confirm_slide.php" name="form" enctype="multipart/form-data">
         <div class="contact-form errorMsg">

@@ -43,8 +43,8 @@ include 'vars.php';
    
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -84,7 +84,7 @@ include 'vars.php';
 </header>
 <main class="regist-page">
 
-<h3>会員情報</h3>
+<h3>注文者情報</h3>
 
 <div class="account_field">
    
@@ -103,7 +103,7 @@ include 'vars.php';
             <span class="account_text">パスワード:</span><span class="account_text">安全の為表示されません</span><br>
 <!-- 性別 -->
             <span class="account_text">性別:</span><span class="account_text">
-            <?php error_reporting(0);
+            <?php 
                 if ($gender == 0) {
                     echo "男";
                     }else{
@@ -116,7 +116,6 @@ include 'vars.php';
             <span class="account_text">番地:</span><span class="account_text"><?php echo($member->address_2); ?></span><br>
 <!-- 権限 -->
             <span class="account_text">権限:</span><span class="account_text"><?php 
-                error_reporting(0);
                 if ($authority == 0) {
                     echo "一般";
                     }else{

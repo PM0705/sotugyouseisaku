@@ -1,8 +1,6 @@
 <?php
 session_start();
 include 'vars.php'; 
-?>
-<?php
     if (isset($_GET['id'])) {
         try {
  
@@ -45,8 +43,8 @@ include 'vars.php';
    
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -87,6 +85,7 @@ include 'vars.php';
 <main class="regist-page">
 
 <h3>NEW~情報~</h3>
+<p class="delete_text">本当に削除してよろしいですか?<br>よろしければ削除ボタンを押してください</p>
 
 <div class="account_field">
 
@@ -94,7 +93,7 @@ include 'vars.php';
 <!-- ID -->
             <input type="hidden" name="id" value="<?php echo($member->id) ?>">
 <!-- タイトル・内容 -->            
-            <img src="images/<?php echo($member->item_img_path);?>"><br>
+            <img src="images_comp/<?php echo($member->item_img_path);?>"><br>
             <span class="account_text">商品名:</span><span class="account_text"><?php echo($member->item_name);?></span><br>
             <span class="account_text">値段:</span><span class="account_text"><?php echo($member->item_price);?></span><br>
             <span class="account_text">在庫:</span><span class="account_text"><?php echo($member->item_stock);?></span><br>
@@ -102,7 +101,7 @@ include 'vars.php';
             <span class="account_text">カテゴリー:</span><span class="account_text"><?php echo($member->category);?></span><br>
 <!-- NEW -->
             <span class="account_text">NEW:</span><span class="account_text">
-            <?php error_reporting(0);
+            <?php 
                 if ($info_new == 0) {
                     echo "ON";
                     }else{
@@ -110,7 +109,7 @@ include 'vars.php';
                     } ?></span><br>
 <!-- 情報 -->
             <span class="account_text">表示:</span><span class="account_text">
-            <?php error_reporting(0);
+            <?php 
                 if ($display == 0) {
                     echo "ON";
                     }else{
@@ -124,18 +123,10 @@ include 'vars.php';
                 <form action="delete_complete_goods.php" method="post">
                     <input type="submit" class="submit" value="削除する"href="delete_complete_account.php<? $result['id'] ?>" name="btnSend">
                     <input type="hidden" value="<?php echo($member->id); ?>" name="id">
-            
                 </form>    
             </div>
         </div>
-</div>
-
-
-
-
-
-
-       
+</div>  
 </main>
 <footer>
     <div class="footer-l">

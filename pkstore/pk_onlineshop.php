@@ -22,14 +22,12 @@ session_start();
                $stmt = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' ORDER BY id DESC");
                //SQL文を実行して、結果を$stmtに代入する。
            }
-           error_reporting(0);
            if($_POST["keyword"] != "" || $_POST["category"] != ""){ //IDおよびユーザー名の入力有無を確認
                $stmt = $pdo->query("SELECT * FROM item_info_transaction WHERE keyword LIKE  '%".$_POST["keyword"]."%' 
                                                                        AND category LIKE  '%".$_POST["category"]."%' 
                                                                        AND delete_flag = '0'
                                                                        AND display = '0'
-                                                                       ORDER BY item_price DESC"); //SQL文を実行して、結果を$stmtに代入する。
-                                                                       
+                                                                       ORDER BY item_price DESC"); //SQL文を実行して、結果を$stmtに代入する。                                                          
            }
            if($_POST["ip"] == "新着のみ" ){ //IDおよびユーザー名の入力有無を確認
             $stmt = $pdo->query("SELECT * FROM item_info_transaction WHERE keyword LIKE  '%".$_POST["keyword"]."%' 
@@ -60,8 +58,8 @@ session_start();
            ?> 
 <header>
     <div class="header-left">
-        <a href="index.php"><img src="img/logo.png" alt="PKstoreのロゴ" class="img"></a>
-        <img src="img/character.png" alt="PKstoreのキャラクター" class="img pkc">   
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
     <!-- 特別管理者 -->
     <?php 
@@ -194,7 +192,7 @@ session_start();
             </li>
             <?php endforeach; ?>
         </div>
-        <p class="nodate"><?php  error_reporting(0); echo htmlspecialchars($errmessage, ENT_QUOTES); ?></p>
+        <p class="nodate"><?php echo htmlspecialchars($errmessage, ENT_QUOTES); ?></p>
 
     </div>
 </main>
