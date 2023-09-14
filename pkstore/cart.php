@@ -2,14 +2,7 @@
 session_start();
 include 'vars.php'; 
     $message="";
-    if (empty($array)) { ?>
-            <p> カートは空です！ぜひお買い物をお楽しみください！</p>
-            <div class="empty-cart">
-            <button onclick="location.href='pk_onlineshop.php'" class="submit" value="オンラインショップへ">オンラインショップへ</button>
-            <button onclick="location.href='index.php'" class="submit" value="HOMEにもどる">HOMEにもどる</button>
-            </div>
-    <?php exit; 
-     } 
+
 ?>
     
 <?php

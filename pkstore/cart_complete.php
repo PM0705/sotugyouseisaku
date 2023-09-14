@@ -3,6 +3,7 @@ session_start();
 // エラーメッセージ、登録完了メッセージの初期化
 $message = "";
 $array=$_SESSION["cart"];
+var_dump($_REQUEST);
 
 try {
 
@@ -18,9 +19,17 @@ try {
                                  VALUES(:item_name, :item_price, :buy_count, :user_id)');
         $sql->execute(array(':item_name' => $value['item_name'], ':item_price' => $value['item_price'], ':buy_count' => $value['buy_count'], ':user_id' => $_SESSION["id"]));
         $message = 'ご購入ありがとうございます！';
+
+        // ここからbuy_countプラス１
+        $sql2 = "UPDATE item_info_transaction SET buy_count = buy_count + :buy_count WHERE item_name = :item_name";
+        // クエリを実行
+        $stmt = $pdo->prepare($sql2);
+        $params = array(':buy_count' => $value['buy_count'] , ':item_name' => $value['item_name']);
+        $stmt->execute($params);
         
+
       }
-      $_SESSION = array();
+  
       unset($_SESSION["cart"]);
 
       $array="";

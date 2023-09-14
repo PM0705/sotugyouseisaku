@@ -92,8 +92,7 @@ session_start();
                 <li><a href="store_info.php">店舗情報</a></li>
                 <li><a href="mail.php">お問い合わせ</a></li>
                 <li><a href="cart.php"><img src="img/cart.png" alt="買い物カゴ" class="cart-img"></a></li>
-            </ul>
-            
+            </ul> 
         <?php endif; ?>
     </div>
 </header>
@@ -171,7 +170,7 @@ session_start();
                     <!-- 売り切れの場合は、formを置換 -->
                     <?php if($row['item_stock'] > 0){ ?>
                     <select name="buy_count" >
-                        <?php for($i=0;$i<10;$i++): ?>
+                        <?php for($i=1;$i<10;$i++): ?>
                             <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                         <?php endfor; ?>
                     </select>
