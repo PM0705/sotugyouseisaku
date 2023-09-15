@@ -239,9 +239,11 @@ h3{
     left: 0;
     top: 1px;
   }
-
-  .toprank{
-    background-color: gray;
+  .absolute4{
+    width: 30%;
+    position: absolute;
+    left: 40%;
+    bottom: 0px;
   }
 
 /* 新着情報 */

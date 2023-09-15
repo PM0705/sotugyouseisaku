@@ -1,8 +1,6 @@
 <?php
 //セッションの開始
 session_start();
-var_dump($_SESSION);
-var_dump($_REQUEST);
 include 'vars.php'; 
 
 ?>
@@ -17,6 +15,10 @@ include 'vars.php';
        $stmt = $pdo->query("SELECT * FROM slide  where display = '0'ORDER BY id DESC");
        $stmt_newinfo = $pdo->query("SELECT * FROM information where delete_flag = '0' AND display = '0' ORDER BY id DESC , info_new limit 4");
        $stmt_newgoods = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' AND new = '0' AND display = '0' ORDER BY  id DESC , new limit 4");
+       $stmt_rank1 = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' AND display = '0' ORDER BY  buy_count DESC limit 1");
+       $stmt_rank2 = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' AND display = '0' ORDER BY  buy_count DESC limit 1,1");
+       $stmt_rank3 = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' AND display = '0' ORDER BY  buy_count DESC limit 2,1");
+       $stmt_rank4 = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' AND display = '0' ORDER BY  buy_count DESC limit 3,1");
                //SQL文を実行して、結果を$stmtに代入する。
    ?>
 <!DOCTYPE html>
@@ -102,12 +104,32 @@ include 'vars.php';
         </div>
     <?php endforeach; ?>
     </div>
-    <h3 class="info toprank">ランキング（将来的に挑戦したい内容）</h3>
+    <h3 class="info toprank">人気売上ランキング</h3>
     <div class="info toprank">
-        <img src="img/rank1.png" alt="rank1">
-        <img src="img/rank2.png" alt="rank2">
-        <img src="img/rank3.png" alt="rank3">
-        <img src="img/rank4.png" alt="rank4">
+        <?php foreach ($stmt_rank1 as $row): ?>
+            <div class="relative">
+                <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
+                <img src="img/1st.png" alt="newicon" class="absolute4">  
+            </div>
+        <?php endforeach; ?>
+        <?php foreach ($stmt_rank2 as $row): ?>
+            <div class="relative">
+                <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
+                <img src="img/2nd.png" alt="newicon" class="absolute4">  
+            </div>
+        <?php endforeach; ?>
+        <?php foreach ($stmt_rank3 as $row): ?>
+            <div class="relative">
+                <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
+                <img src="img/3rd.png" alt="newicon" class="absolute4">  
+            </div>
+        <?php endforeach; ?>
+        <?php foreach ($stmt_rank4 as $row): ?>
+            <div class="relative">
+                <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
+                <img src="img/4th.png" alt="newicon" class="absolute4">  
+            </div>
+        <?php endforeach; ?>
     </div>
     <h3>店舗情報</h3>
     <div class="mapinfo">
