@@ -10,64 +10,68 @@ body {
 
     
  }
+ /* header0 */
+ .header0{
+    background-color: gray;
+    font-size: 10%;
+    display: flex;
+    align-items: flex-end;
+    white-space: nowrap;
+    position: relative;
+    margin-bottom: -10px;
+    /* 中段配置 */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1vw;
+ }
+ .header0 li{
+    margin-right: 10px;
+ }
+ .cart-img{
+    width:  25px;
+    margin-bottom: -3vw;
+    position: absolute;
+    top: 15%;
+
+}
 
 /* header */
 
 
 header {
+    display: flex;
     font-family: 'Noto Sans JP', sans-serif;
     overflow: hidden;
     position: relative;
     width: 100%;
-    height: 150px;
+    height: 70px;
     background-image: url(img/headerback.png);
     background-size:cover;   
 }
 
-.pkc{
-    margin-left: 20px;
-    position: absolute;
-    top: 0;
-    min-height: 100px;
-    width: auto;
-    height: 10vw;
-    max-height: 150px;
-}
 .header-left > a > img {
     max-width: 150px;
-    width:60vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
-    height:auto;
-    
-}
-header .header-left{
-    position: absolute;
-    left: 0;
+    width:auto;/*スライダー内の画像を60vwにしてレスポンシブ化*/
+    height:70px;
     
 }
 header .header-right{
-    position: absolute;
-    right: 1vw;
-    bottom: 0;
-    align-items: flex-end;
+    width: 70%;
+    height: 30px;
+    margin-left: 10vw;
+    padding-top: 15px;
+ 
 }
 
-.header-right{
-    font-size: 1vw;
-    margin-right: 0;
-    text-align: center; 
-}
-.h-img{
-    width: auto;
-    margin-left: 20px; 
-
-}
 
 li{
     margin-left: 1vw;
     display: inline;
     line-height: 60px;
     line-height: 3;
-    list-style:none 
+    list-style:none;
+    color: white;
 }
 .authority_menu{
     text-align: right;
@@ -75,12 +79,6 @@ li{
 .authority-1{
     font-size: 1vw;
     text-align: right;
-}
-
-.cart-img{
-    width: 5vw;
-    margin-bottom: -3vw;
-
 }
 
 a{
@@ -93,6 +91,25 @@ a{
     color: white;
     font-weight: bold;
 
+}
+/* top_msg */
+.top_msg p{
+    margin-left: 1vw;
+}
+.top_msg{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1vw;
+    height: 30px;
+    padding-top: 7px;
+    
+}
+.top_msg span, .top_msg .fa-user{
+    color: red;
+
+}
+.input-group span{
+    margin-right: 1vw;
 }
 /* main */
 main{
