@@ -49,12 +49,14 @@
     <!-- 管理者 -->
             <?php elseif ($_SESSION['authority'] == 1) :?>
                 <?php $message1 = $_SESSION['mail']."さんようこそ";?>
-        <ul>           
+        <ul>
+            <li><a href="pk_onlineshop.php">shop</a></li>           
             <li><a href="sns.php">SNS</li>
             <li><a href="news.php">新着情報</li>
             <li><a href="store_info.php">店舗情報</a></li>
             <li><a href="mail.php">お問い合わせ</a></li>
             <li><a href="authority.php">管理者用メニュー</a></li>
+            <li><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
             <li><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></li>
         </ul>
             
@@ -67,6 +69,7 @@
             <li><a href="news.php">新着情報</li>
             <li><a href="store_info.php">店舗情報</a></li>
             <li><a href="mail.php">お問い合わせ</a></li>
+            <li><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
             <li><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></li>
   
         </ul>   
@@ -90,70 +93,95 @@
     <a href="login.php"><i class="fa-regular fa-user"></i><span>会員登録（無料）</a>
 </div>
 
- <main>
+<main>
+    <!-- slide -->
+        <ul class="slider"><!--/slider-->
+        <!-- ここでPHPのforeachを使って結果をループさせる -->
+        <?php foreach ($stmt as $row): ?>
+            <li> <img src="images_comp/<?php echo $row['slide_img_path']; ?>" alt="スライド" onclick="location.href='slide.php?id=<?php echo($row['id']) ?>'"></li>
+        <?php endforeach; ?>
+        </ul>
+<div class="cl">
+    <div class="left">
+        <h6>ジャンル（以下未実装）</h6>
+        <p><i class="fa-solid fa-bag-shopping"></i>カバン</p>
+        <p><i class="fa-solid fa-layer-group"></i>タオル</p>
+        <p><i class="fa-solid fa-pen"></i>文房具</p>
+        <p><i class="fa-solid fa-camera-retro"></i>カメラ</p>
+        <p><i class="fa-solid fa-gift"></i>プレゼント</p>
+        <p><i class="fa-solid fa-umbrella"></i>雨具</p>
+        <p><i class="fa-solid fa-headphones"></i>音楽</p>
+        <p><i class="fa-solid fa-gamepad"></i>ゲーム</p>
+        <p><i class="fa-solid fa-mug-saucer"></i>食器</p>
+        <p><i class="fa-solid fa-shirt"></i>衣服</p>
+        <p><i class="fa-solid fa-car-side"></i>車用品</p>
+        <p><i class="fa-solid fa-clock"></i>時計</p>
+        <p><i class="fa-solid fa-wallet"></i>財布</p>
+        <p><i class="fa-solid fa-stamp"></i>スタンプ</p>
+        <p><i class="fa-solid fa-socks"></i>靴下</p>
+        <p><i class="fa-solid fa-mobile-screen"></i>スマホアクセサリー</p>
+        <p><i class="fa-solid fa-computer"></i>PCアクセサリー</p>
+        <p><i class="fa-solid fa-dog"></i>ペット用品</p>
 
-    <ul class="slider"><!--/slider-->
-    <!-- ここでPHPのforeachを使って結果をループさせる -->
-    <?php foreach ($stmt as $row): ?>
-        <li> <img src="images_comp/<?php echo $row['slide_img_path']; ?>" alt="スライド" onclick="location.href='slide.php?id=<?php echo($row['id']) ?>'"></li>
-    <?php endforeach; ?>
-    </ul>
+    </div>
+    <div class="right">
+        <h3>NEW〜情報〜</h3>
+        <div class="info">
+        <?php foreach ($stmt_newinfo as $row): ?>
+            <img src="images_comp/<?php echo $row['info_img_path']; ?>" alt="newinfo" onclick="location.href='news_info.php?id=<?php echo($row['id']) ?>'">
+        <?php endforeach; ?>
+        </div>
 
-    <h3>NEW〜情報〜</h3>
-    <div class="info">
-    <?php foreach ($stmt_newinfo as $row): ?>
-         <img src="images_comp/<?php echo $row['info_img_path']; ?>" alt="newinfo" onclick="location.href='news_info.php?id=<?php echo($row['id']) ?>'">
-    <?php endforeach; ?>
-    </div>
-
-    <h3>NEW〜グッズ〜</h3>
-    <div class="info">
-    <?php foreach ($stmt_newgoods as $row): ?>
-        <div class="relative">
-            <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
-            <img src="img/newicon.png" alt="newicon" class="absolute">  
+        <h3>NEW〜グッズ〜</h3>
+        <div class="info">
+        <?php foreach ($stmt_newgoods as $row): ?>
+            <div class="relative">
+                <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
+                <img src="img/newicon.png" alt="newicon" class="absolute">  
+            </div>
+        <?php endforeach; ?>
         </div>
-    <?php endforeach; ?>
-    </div>
-    <h3 class="info toprank">人気売上ランキング</h3>
-    <div class="info toprank">
-        <?php foreach ($stmt_rank1 as $row): ?>
-            <div class="relative">
-                <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
-                <img src="img/1st.png" alt="newicon" class="absolute4">  
-            </div>
-        <?php endforeach; ?>
-        <?php foreach ($stmt_rank2 as $row): ?>
-            <div class="relative">
-                <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
-                <img src="img/2nd.png" alt="newicon" class="absolute4">  
-            </div>
-        <?php endforeach; ?>
-        <?php foreach ($stmt_rank3 as $row): ?>
-            <div class="relative">
-                <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
-                <img src="img/3rd.png" alt="newicon" class="absolute4">  
-            </div>
-        <?php endforeach; ?>
-        <?php foreach ($stmt_rank4 as $row): ?>
-            <div class="relative">
-                <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
-                <img src="img/4th.png" alt="newicon" class="absolute4">  
-            </div>
-        <?php endforeach; ?>
-    </div>
-    <h3>店舗情報</h3>
-    <div class="mapinfo">
-        <div class="text-info">
-            <p class="title">住所</p>
-            <p class="add">〒164-8501<br>東京都○○区○○町○丁目○番○号</p>
-            <p class="add2">TEL:000-0000-0000<br>営業時間:10:00~21:00</p>
+        <h3 class="info toprank">人気売上ランキング</h3>
+        <div class="info toprank">
+            <?php foreach ($stmt_rank1 as $row): ?>
+                <div class="relative">
+                    <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
+                    <img src="img/1st.png" alt="newicon" class="absolute4">  
+                </div>
+            <?php endforeach; ?>
+            <?php foreach ($stmt_rank2 as $row): ?>
+                <div class="relative">
+                    <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
+                    <img src="img/2nd.png" alt="newicon" class="absolute4">  
+                </div>
+            <?php endforeach; ?>
+            <?php foreach ($stmt_rank3 as $row): ?>
+                <div class="relative">
+                    <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
+                    <img src="img/3rd.png" alt="newicon" class="absolute4">  
+                </div>
+            <?php endforeach; ?>
+            <?php foreach ($stmt_rank4 as $row): ?>
+                <div class="relative">
+                    <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
+                    <img src="img/4th.png" alt="newicon" class="absolute4">  
+                </div>
+            <?php endforeach; ?>
         </div>
-        <div class="googlemap">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.740446698844!2d139.661134012126!3d35.70800427246428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f29092a6e253%3A0x936cd62aa3dafab6!2z44CSMTY0LTAwMDEg5p2x5Lqs6YO95Lit6YeO5Yy65Lit6YeO77yU5LiB55uu77yY4oiS77yY!5e0!3m2!1sja!2sjp!4v1691581831273!5m2!1sja!2sjp"
-                style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <h3>店舗情報</h3>
+        <div class="mapinfo">
+            <div class="text-info">
+                <p class="title">住所</p>
+                <p class="add">〒164-8501<br>東京都○○区○○町○丁目○番○号</p>
+                <p class="add2">TEL:000-0000-0000<br>営業時間:10:00~21:00</p>
+            </div>
+            <div class="googlemap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.740446698844!2d139.661134012126!3d35.70800427246428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f29092a6e253%3A0x936cd62aa3dafab6!2z44CSMTY0LTAwMDEg5p2x5Lqs6YO95Lit6YeO5Yy65Lit6YeO77yU5LiB55uu77yY4oiS77yY!5e0!3m2!1sja!2sjp!4v1691581831273!5m2!1sja!2sjp"
+                    style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </div>
     </div>
+</div>
         
 </main>
 <footer>
@@ -176,14 +204,14 @@
     <!--自作のJS-->
     <script>
     $('.slider').slick({
-		autoplay: false,//自動的に動き出すか。初期値はfalse。
+		autoplay: true,//自動的に動き出すか。初期値はfalse。
 		infinite: true,//スライドをループさせるかどうか。初期値はtrue。
 		speed: 500,//スライドのスピード。初期値は300。
 		slidesToShow: 1,//スライドを画面に3枚見せる
 		slidesToScroll: 3,//1回のスクロールで1枚の写真を移動して見せる
 		prevArrow: '<div class="slick-prev"></div>',//矢印部分PreviewのHTMLを変更
 		nextArrow: '<div class="slick-next"></div>',//矢印部分NextのHTMLを変更
-		centerMode: false,//要素を中央ぞろえにする
+		centerMode: true,//要素を中央ぞろえにする
 		variableWidth: true,//幅の違う画像の高さを揃えて表示
 		dots: false,//下部ドットナビゲーションの表示
 	});

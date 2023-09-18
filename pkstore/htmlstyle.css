@@ -132,7 +132,6 @@ main{
     height: 30vw;
     max-height: 600px;
     object-fit: cover;/* 画像を縦400px以上はトリミング */
-    padding-right: 64px;
     
 }
 
@@ -167,6 +166,48 @@ main{
     right: 1%;
     transform: rotate(45deg);
 }
+
+/*ドットナビゲーションの設定*/
+
+.slick-dots {
+    text-align:center;
+	margin:20px 0 0 0;
+}
+
+.slick-dots li {
+    display:inline-block;
+	margin:0 5px;
+}
+
+
+.slick-dots .slick-active button{
+    background:red;/*ドットボタンの現在地表示の色*/
+}
+
+/* 2カラム */
+.cl{
+    display: flex;
+
+}
+.left{
+    background-color: antiquewhite;
+    width: 20%;
+    height: auto;
+    padding-left: 1vw;
+}
+.left h6{
+    font-weight: bold;
+}
+.left p{
+    font-size: 2vw;
+    line-height: 3px;
+}
+.right{
+    width: 80%;
+    height: auto;
+}
+
+
 
 /* h3タイトル */
 h3{
