@@ -34,49 +34,64 @@ include 'vars.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>会員削除フォーム</title>
     <link rel="stylesheet" href="htmlstyle.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/9e0ab757d4.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="header0">
+    <!-- ログインしていない -->
+            <?php if (empty($_SESSION['id'])) :?> 
+            
+        <ul>
+            <li><a href="sns.php">SNS</li>
+            <li><a href="news.php">新着情報</li>
+            <li><a href="store_info.php">店舗情報</a></li>
+            <li><a href="mail.php">お問い合わせ</a></li>
+            <li><a href="login.php">ログイン・会員登録はこちら</a></li>
+        </ul>
+    <!-- 管理者 -->
+            <?php elseif ($_SESSION['authority'] == 1) :?>
+                <?php $message1 = $_SESSION['mail']."さんようこそ";?>
+        <ul>
+            <li><a href="pk_onlineshop.php">shop</a></li>           
+            <li><a href="sns.php">SNS</li>
+            <li><a href="news.php">新着情報</li>
+            <li><a href="store_info.php">店舗情報</a></li>
+            <li><a href="mail.php">お問い合わせ</a></li>
+            <li><a href="authority.php">管理者用メニュー</a></li>
+            <li><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            <li><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></li>
+        </ul>
+            
+        
+        <?php else:?>
+            <?php $message1 = $_SESSION['mail']."さんようこそ";?>
+        <ul>
+            <li><a href="pk_onlineshop.php">shop</a></li>
+            <li><a href="sns.php">SNS</li>
+            <li><a href="news.php">新着情報</li>
+            <li><a href="store_info.php">店舗情報</a></li>
+            <li><a href="mail.php">お問い合わせ</a></li>
+            <li><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            <li><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></li>
+  
+        </ul>   
+        <?php endif; ?>
+</div>
+   
 <header>
     <div class="header-left">
         <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
-        <img src="img/PKlogo.png" alt="PKstoreのキャラクター" class="pkc">   
     </div>
-    <!-- 特別管理者 -->
-    <?php 
-    if(!empty($_SESSION['authority'])){
-    $authority = $_SESSION['authority'];
-    if ($_SESSION['authority'] == 1){?>
-    <div class="authority_menu">
-        <a href="authority.php" class="authority-1">管理者用メニュー（仮）</a>
+    <div class="input-group header-right">
+        <input type="text" id="txt-search" class="form-control input-group-prepend" placeholder="キーワードを入力(機能は未実装）"></input>
+        <span class="input-group-btn input-group-append">
+            <submit type="submit" id="btn-search" class="btn btn-primary"><i class="fas fa-search"></i></submit>
+        </span>
     </div>
-    <?php }
-    }?>
-    <div class="header-right">
-        <!-- ログインしていない -->
-        <?php if (empty($_SESSION["id"])) :?>
-            <a href="login.php">ログイン・会員登録はこちら</a>
-            <ul>
-                <li><a href="sns.php">SNS</li>
-                <li><a href="news.php">新着情報</li>
-                <li><a href="store_info.php">店舗情報</a></li>
-                <li><a href="mail.php">お問い合わせ</a></li>
-            </ul>
-        <!-- 一般 -->
-        <?php else:?>
-                <?php $message1 = $_SESSION['mail']."さんようこそ";?>
-                <div class="message-text"><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></div>
-            <ul>
-                <li><a href="pk_onlineshop.php">shop</a></li>
-                <li><a href="sns.php">SNS</li>
-                <li><a href="news.php">新着情報</li>
-                <li><a href="store_info.php">店舗情報</a></li>
-                <li><a href="mail.php">お問い合わせ</a></li>
-                <li><a href="cart.php"><img src="img/cart.png" alt="買い物カゴ" class="cart-img"></a></li>
-            </ul>
-            
-        <?php endif; ?>
-    </div>
+
 </header>
 <main>
 <h3>会員削除フォーム</h3>
