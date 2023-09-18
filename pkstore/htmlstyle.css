@@ -126,6 +126,9 @@ main{
     margin-top: 0;
     
 }
+.slider:hover img{
+    opacity: 0.6;
+}
 
 .slider img {
     width:100vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
@@ -190,7 +193,7 @@ main{
 
 }
 .left{
-    background-color: antiquewhite;
+    background-color: snow;
     width: 20%;
     height: auto;
     padding-left: 1vw;
@@ -199,12 +202,15 @@ main{
     font-weight: bold;
 }
 .left p{
-    font-size: 2vw;
+    font-size: 1.5vw;
     line-height: 3px;
 }
 .right{
     width: 80%;
     height: auto;
+}
+.left i{
+    color: red;
 }
 
 
@@ -230,6 +236,11 @@ h3{
     flex-direction: row;
     flex-wrap: nowrap;
     gap: 1vw ; /* 余白 */
+}
+
+.img_container:hover img{
+    transform: rotateY(360deg);
+  transition: transform .5s;
 }
 /*中央に等間隔 */
 .info > * {
@@ -294,14 +305,12 @@ iframe{
     height:auto;
 }
 
-.text-info{
+.text-info p{
     color: black;
     font-size: 2vh;
     margin-top: 30px;
     padding-left: 20px;
-    
     font-weight: lighter;
-
 }
 .googlemap{
     /* 中段配置 */

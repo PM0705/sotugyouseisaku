@@ -128,14 +128,16 @@
         <h3>NEW〜情報〜</h3>
         <div class="info">
         <?php foreach ($stmt_newinfo as $row): ?>
-            <img src="images_comp/<?php echo $row['info_img_path']; ?>" alt="newinfo" onclick="location.href='news_info.php?id=<?php echo($row['id']) ?>'">
+            <div class="img_container">
+            <img src="images_comp/<?php echo $row['info_img_path']; ?>" alt="newinfo" onclick="location.href='news_info.php?id=<?php echo($row['id']) ?>'" class="info-img">
+            </div>
         <?php endforeach; ?>
         </div>
 
         <h3>NEW〜グッズ〜</h3>
         <div class="info">
         <?php foreach ($stmt_newgoods as $row): ?>
-            <div class="relative">
+            <div class="relative img_container">
                 <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
                 <img src="img/newicon.png" alt="newicon" class="absolute">  
             </div>
@@ -144,25 +146,25 @@
         <h3 class="info toprank">人気売上ランキング</h3>
         <div class="info toprank">
             <?php foreach ($stmt_rank1 as $row): ?>
-                <div class="relative">
+                <div class="relative img_container">
                     <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
                     <img src="img/1st.png" alt="newicon" class="absolute4">  
                 </div>
             <?php endforeach; ?>
             <?php foreach ($stmt_rank2 as $row): ?>
-                <div class="relative">
+                <div class="relative img_container">
                     <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
                     <img src="img/2nd.png" alt="newicon" class="absolute4">  
                 </div>
             <?php endforeach; ?>
             <?php foreach ($stmt_rank3 as $row): ?>
-                <div class="relative">
+                <div class="relative img_container">
                     <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
                     <img src="img/3rd.png" alt="newicon" class="absolute4">  
                 </div>
             <?php endforeach; ?>
             <?php foreach ($stmt_rank4 as $row): ?>
-                <div class="relative">
+                <div class="relative img_container">
                     <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
                     <img src="img/4th.png" alt="newicon" class="absolute4">  
                 </div>
@@ -174,6 +176,7 @@
                 <p class="title">住所</p>
                 <p class="add">〒164-8501<br>東京都○○区○○町○丁目○番○号</p>
                 <p class="add2">TEL:000-0000-0000<br>営業時間:10:00~21:00</p>
+                <p class="add2">定休日:不定休</p>
             </div>
             <div class="googlemap">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.740446698844!2d139.661134012126!3d35.70800427246428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f29092a6e253%3A0x936cd62aa3dafab6!2z44CSMTY0LTAwMDEg5p2x5Lqs6YO95Lit6YeO5Yy65Lit6YeO77yU5LiB55uu77yY4oiS77yY!5e0!3m2!1sja!2sjp!4v1691581831273!5m2!1sja!2sjp"
