@@ -12,7 +12,6 @@ include 'vars.php';
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="css/6-1-7.css">
     <link rel="stylesheet" href="htmlstyle.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/9e0ab757d4.js" crossorigin="anonymous"></script>
@@ -59,19 +58,6 @@ include 'vars.php';
         </ul>   
         <?php endif; ?>
 </div>
-   
-<header>
-    <div class="header-left">
-        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
-    </div>
-    <div class="input-group header-right">
-        <input type="text" id="txt-search" class="form-control input-group-prepend" placeholder="キーワードを入力(機能は未実装）"></input>
-        <span class="input-group-btn input-group-append">
-            <submit type="submit" id="btn-search" class="btn btn-primary"><i class="fas fa-search"></i></submit>
-        </span>
-    </div>
-
-</header>
 <main class="regist-page">
 <h3>会員登録フォーム</h3>
 <div class="registbox">
@@ -242,7 +228,7 @@ include 'vars.php';
 </main>
 <footer>
     <div class="footer-l">
-        <img src="img/logo.png" alt="PKstoreのロゴ" class="logo">
+        <a href="index.php"><img src="img/PKlogo.png" alt="PKstoreのロゴ" class="h-img logo"></a>
         <ul>
             <li><a href="company.php" class="fotter-text">Company</a></li>
             <li><a href="mail.php" class="fotter-text">Contact</a></li>

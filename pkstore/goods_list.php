@@ -75,19 +75,6 @@ session_start();
         </ul>   
         <?php endif; ?>
 </div>
-   
-<header>
-    <div class="header-left">
-        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
-    </div>
-    <div class="input-group header-right">
-        <input type="text" id="txt-search" class="form-control input-group-prepend" placeholder="キーワードを入力(機能は未実装）"></input>
-        <span class="input-group-btn input-group-append">
-            <submit type="submit" id="btn-search" class="btn btn-primary"><i class="fas fa-search"></i></submit>
-        </span>
-    </div>
-
-</header>
 <main>
     <h3>登録商品検索</h3>
         <form action="goods_list.php" method="post">
@@ -224,7 +211,7 @@ if($_POST["item_name"] != "" || $_POST["keyword"] != "" || $_POST["category"] !=
 </main>
 <footer>
     <div class="footer-l">
-        <img src="img/logo.png" alt="PKstoreのロゴ" class="logo">
+        <a href="index.php"><img src="img/PKlogo.png" alt="PKstoreのロゴ" class="h-img logo"></a>
         <ul>
             <li><a href="company.php" class="fotter-text">Company</a></li>
             <li><a href="mail.php" class="fotter-text">Contact</a></li>

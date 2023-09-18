@@ -18,22 +18,15 @@ body {
     align-items: flex-end;
     white-space: nowrap;
     position: relative;
-    margin-bottom: -10px;
     /* 中段配置 */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 1vw;
+    font-size: 0.5vw;
  }
  .header0 li{
-    margin-right: 10px;
+    margin-right: 3px;
  }
- .cart-img{
-    width:  25px;
-    margin-bottom: -3vw;
-    position: absolute;
-    top: 15%;
-}
 
 .header0 a{
     color: white;
@@ -313,7 +306,7 @@ iframe{
 
 .text-info p{
     color: black;
-    font-size: 2vh;
+    font-size: 2vw;
     margin-top: 30px;
     padding-left: 20px;
     font-weight: lighter;
@@ -592,6 +585,7 @@ form .contactbox-text1{
 /* regist会員登録 */
 .registbox{
     display:block;
+    width: 90%;
 }
 form{
     
@@ -717,6 +711,9 @@ form{
 }
 .result-item{
     background-color: lemonchiffon;
+}
+.result-item p{
+    color: #000;
 }
 .result-field{
         width:94%;
@@ -944,7 +941,7 @@ footer{
     position: fixed;
     bottom:0;
     width:100%;
-    height:10vh;
+    height:8vh;
     z-index:100;
     overflow: hidden;
     /* 中段配置 */
@@ -970,8 +967,8 @@ footer a{
     position:static;
     align-items: center;
     min-height: 70px;
-    max-height: 110px;
-    height:15vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
+    max-height: 90px;
+    height:9vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
     width:auto;
 
 }
