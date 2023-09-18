@@ -33,12 +33,14 @@ body {
     margin-bottom: -3vw;
     position: absolute;
     top: 15%;
+}
+.header0 a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
 
 }
-
 /* header */
-
-
 header {
     display: flex;
     font-family: 'Noto Sans JP', sans-serif;
@@ -81,9 +83,7 @@ li{
     text-align: right;
 }
 
-a{
-    color: white;
-}
+
 .message-text{
     position: absolute;
     top: 0;
@@ -128,18 +128,14 @@ main{
 }
 
 .slider img {
-    margin-top: 1vw;
-    width:45vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
+    width:100vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
     height: 30vw;
     max-height: 600px;
     object-fit: cover;/* 画像を縦400px以上はトリミング */
+    padding-right: 64px;
+    
 }
 
-.slider .slick-slide {
-	transform: scale(0.6);/*左右の画像のサイズを80%に*/
-	transition: all .5s;/*拡大や透過のアニメーションを0.5秒で行う*/
-	opacity: 0.4;/*透過50%*/
-}
 
 .slider .slick-slide.slick-center{
 	transform: scale(1);/*中央の画像のサイズだけ等倍に*/
@@ -170,33 +166,6 @@ main{
 .slick-next {/*次へ矢印の位置と形状*/
     right: 1%;
     transform: rotate(45deg);
-}
-
-/*ドットナビゲーションの設定*/
-
-.slick-dots {
-    text-align:center;
-	margin:20px 0 0 0;
-}
-
-.slick-dots li {
-    display:inline-block;
-	margin:0 5px;
-}
-
-.slick-dots button {
-    color: transparent;
-    outline: none;
-    width:4px;/*ドットボタンのサイズ*/
-    height:4px;/*ドットボタンのサイズ*/
-    display:block;
-    border-radius:90%;
-    background:yellow;/*ドットボタンの色*/
-
-}
-
-.slick-dots .slick-active button{
-    background:red;/*ドットボタンの現在地表示の色*/
 }
 
 /* h3タイトル */

@@ -1,11 +1,6 @@
-<?php
-//セッションの開始
-session_start();
-include 'vars.php'; 
-
-?>
  <?php
-//スライド情報
+ session_start();
+ include 'vars.php'; 
    //データベースへ接続
        $dsn = "mysql:dbname=pkstore77;host=localhost;charset=utf8mb4";
        $username = "pkstore77";
@@ -50,9 +45,11 @@ include 'vars.php';
             <li><a href="store_info.php">店舗情報</a></li>
             <li><a href="mail.php">お問い合わせ</a></li>
             <li><a href="login.php">ログイン・会員登録はこちら</a></li>
+        </ul>
     <!-- 管理者 -->
             <?php elseif ($_SESSION['authority'] == 1) :?>
-                        
+                <?php $message1 = $_SESSION['mail']."さんようこそ";?>
+        <ul>           
             <li><a href="sns.php">SNS</li>
             <li><a href="news.php">新着情報</li>
             <li><a href="store_info.php">店舗情報</a></li>
@@ -60,6 +57,8 @@ include 'vars.php';
             <li><a href="authority.php">管理者用メニュー</a></li>
             <li><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></li>
         </ul>
+            
+        
         <?php else:?>
             <?php $message1 = $_SESSION['mail']."さんようこそ";?>
         <ul>
@@ -69,7 +68,7 @@ include 'vars.php';
             <li><a href="store_info.php">店舗情報</a></li>
             <li><a href="mail.php">お問い合わせ</a></li>
             <li><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></li>
-            <li><a href="cart.php"><img src="img/cart.png" alt="買い物カゴ" class="cart-img"></a></li>  
+  
         </ul>   
         <?php endif; ?>
 </div>
@@ -177,16 +176,16 @@ include 'vars.php';
     <!--自作のJS-->
     <script>
     $('.slider').slick({
-		autoplay: true,//自動的に動き出すか。初期値はfalse。
+		autoplay: false,//自動的に動き出すか。初期値はfalse。
 		infinite: true,//スライドをループさせるかどうか。初期値はtrue。
 		speed: 500,//スライドのスピード。初期値は300。
-		slidesToShow: 3,//スライドを画面に3枚見せる
-		slidesToScroll: 1,//1回のスクロールで1枚の写真を移動して見せる
+		slidesToShow: 1,//スライドを画面に3枚見せる
+		slidesToScroll: 3,//1回のスクロールで1枚の写真を移動して見せる
 		prevArrow: '<div class="slick-prev"></div>',//矢印部分PreviewのHTMLを変更
 		nextArrow: '<div class="slick-next"></div>',//矢印部分NextのHTMLを変更
-		centerMode: true,//要素を中央ぞろえにする
+		centerMode: false,//要素を中央ぞろえにする
 		variableWidth: true,//幅の違う画像の高さを揃えて表示
-		dots: true,//下部ドットナビゲーションの表示
+		dots: false,//下部ドットナビゲーションの表示
 	});
     </script>
     <script src="js/6-1-7.js"></script>
