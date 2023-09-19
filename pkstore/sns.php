@@ -54,6 +54,17 @@ session_start();
         </ul>   
         <?php endif; ?>
 </div>
+<header>
+    <div class="header-left">
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+    </div>
+    <div class="input-group header-right">
+        <input type="text" id="txt-search" class="form-control input-group-prepend" placeholder="キーワードを入力(機能は未実装）"></input>
+        <span class="input-group-btn input-group-append">
+            <submit type="submit" id="btn-search" class="btn btn-primary"><i class="fas fa-search"></i></submit>
+        </span>
+        </div>
+</header>
 <main class="main-store">
 <h3>SNS</h3>
 <div class="sns">
@@ -64,7 +75,7 @@ session_start();
     <a href=""><img src="img/youtubesns.png" alt="youtubeリンク" class="sns-img"></a>
     </div>
     <div class="contact-submit">
-        <button onclick="location.href='index.php'" class="submit contact-submit">HOMEへ戻る</button>
+        <button onclick="location.href='index.php'" class="btn btn-danger">HOMEへ戻る</button>
     </div>
  </main>
 <footer>

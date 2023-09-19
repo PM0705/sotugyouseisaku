@@ -107,6 +107,17 @@ include 'vars.php';
         </ul>   
         <?php endif; ?>
 </div>
+<header>
+    <div class="header-left">
+        <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+    </div>
+    <div class="input-group header-right">
+        <input type="text" id="txt-search" class="form-control input-group-prepend" placeholder="キーワードを入力(機能は未実装）"></input>
+        <span class="input-group-btn input-group-append">
+            <submit type="submit" id="btn-search" class="btn btn-primary"><i class="fas fa-search"></i></submit>
+        </span>
+    </div>
+</header>
 
 <main>
 <h3>カートの中身</h3>
@@ -135,7 +146,7 @@ include 'vars.php';
     </tr>
     <?php endforeach; ?>
     <?php } else{
-        echo '<div style="text-align: center;;">買い物カゴは空です。</div>';
+        echo '<div style="text-align: center;;">買い物カゴは空です。お買い物をお楽しみください！</div>';
         
     }
     ?>
@@ -152,12 +163,12 @@ include 'vars.php';
     <?php 
     if (!empty($_SESSION["cart"])) {?>
     <form method="post" action="cart_complete.php">
-      <input type="submit" value="購入する">
+      <input type="submit" value="購入する" class="btn btn-danger">
     </form>
     <button onclick="location.href='pk_onlineshop.php'"  value="お買い物に戻る" >お買い物に戻る</button>
     <?php }else{?>
-        <button onclick="location.href='pk_onlineshop.php'"  value="お買い物に戻る" >お買い物に戻る</button>
-        <button onclick="location.href='index.php'"  value="HOMEに戻る" >HOMEに戻る</button>
+        <button onclick="location.href='pk_onlineshop.php'"  value="お買い物に戻る" class="btn btn-danger">お買い物に戻る</button>
+        <button onclick="location.href='index.php'"  value="HOMEに戻る" class="btn btn-secondary">HOMEに戻る</button>
     <?php } ?>
 
 

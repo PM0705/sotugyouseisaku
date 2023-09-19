@@ -42,7 +42,7 @@ include 'vars.php';
 <body>
 <div class="header0">
     <!-- ログインしていない -->
-            <?php if (empty($_SESSION['id'])) :?> 
+        <?php if (empty($_SESSION['id'])) :?> 
             
         <ul>
             <li><a href="sns.php">SNS</li>
@@ -80,47 +80,66 @@ include 'vars.php';
         </ul>   
         <?php endif; ?>
 </div>
+<header>
+        <div class="header-left">
+            <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        </div>
+        <div class="input-group header-right">
+            <input type="text" id="txt-search" class="form-control input-group-prepend" placeholder="キーワードを入力(機能は未実装）"></input>
+            <span class="input-group-btn input-group-append">
+                <submit type="submit" id="btn-search" class="btn btn-primary"><i class="fas fa-search"></i></submit>
+            </span>
+        </div>
+    </header>
 <main >
 <h3>新着グッズ</h3>
-    <div class="account_field">
+
+        <p class="free-m">送料無料キャンペーン実施中！</p>
+
+    <div class="newgoods_f">
+
         <div class="contact-form errorMsg">
     <!-- ID -->
             <input type="hidden" name="id" value="<?php echo($member->id) ?>">
     <!-- タイトル・内容 -->  
-            <div class="relative">          
-                <img src="images_comp/<?php echo($member->item_img_path);?>" class="news-page-img info-img"><br>
-                <img src="img/newicon.png" alt="newicon" class="absolute">  
+            <div class="relative newimg_text">
+                <div class="new_img">       
+                    <img src="images_comp/<?php echo($member->item_img_path);?>" class="news-page-img info-img">
+                    <img src="img/newicon.png" alt="newicon" class="absolute">
                 </div>
-            <span class="news_text"><?php echo($member->item_name);?></span><br>
-            <span class="news_text">¥<?php echo($member->item_price);?></span><br>
+                <div class="new_text">
+                        <span class="news_text">【<?php echo($member->category);?>】<?php echo($member->item_name);?></span><br>
+                        <span class="news_text price">¥<?php echo($member->item_price);?>(税込)</span><br>
+                        <form method="post" action="cart.php" enctype="multipart/form-data">
+                        <span>個数</span>
+                            <select name="buy_count" >
+                                <?php for($i=1;$i<10;$i++): ?>
+                                    <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                <?php endfor; ?>
+                            </select>
+                            <!-- 売り切れの場合は、formを置換 -->
+                            <?php if(($member->item_stock) > 0){ ?>
 
-            <form method="post" action="cart.php" enctype="multipart/form-data">
-                <select name="buy_count" >
-                    <?php for($i=1;$i<10;$i++): ?>
-                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                    <?php endfor; ?>
-                </select>
-                <!-- 売り切れの場合は、formを置換 -->
-                <?php if(($member->item_stock) > 0){ ?>
-
-                <input type="hidden" name="id" value="<?= get_SessionValue('id') ?>">
-                <input type="hidden" name="item_img_path" value="<?php echo ($member->item_img_path) ?>">
-                <input type="hidden" name="item_name" value="<?php echo($member->item_name) ?>">
-                <input type="hidden" name="item_price" value="<?php echo ($member->item_price) ?>">
-                <div class="contact-submit">
-                <input type="submit" name="item_id" value="カートへ" class="submit contact-submit">
-                </div> 
-            </form>
-            <div class="contact-submit">
-                <button onclick="location.href='index.php'" class="submit contact-submit">HOMEへ戻る</button>
+                            <input type="hidden" name="id" value="<?= get_SessionValue('id') ?>">
+                            <input type="hidden" name="item_img_path" value="<?php echo ($member->item_img_path) ?>">
+                            <input type="hidden" name="item_name" value="<?php echo($member->item_name) ?>">
+                            <input type="hidden" name="item_price" value="<?php echo ($member->item_price) ?>">
+                            <div class="contact-submit">
+                                <button type="submit" class="btn btn-danger">
+                                <i class="fa-solid fa-cart-plus"></i>カートに入れる
+                                </button>
+                            </div> 
+                        </form>
+                    <div class="contact-submit">
+                        <button onclick="location.href='index.php'" class="btn btn-secondary">HOMEへ戻る</button>
+                    </div>
+                
+                    <?php }else{ ?>
+                        <p>売切</p>
+                        <button onclick="location.href='index.php'" class="btn btn-secondary">HOMEへ戻る</button>
+                    <?php } ?>
+                </div>
             </div>
-            
-            <?php }else{ ?>
-                <p>売切</p>
-                <button onclick="location.href='index.php'" class="submit">HOMEへ戻る</button>
-            <?php } ?>
-            
-
         </div>
     </div>
 

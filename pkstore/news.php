@@ -21,7 +21,7 @@
     $options = [];
     $pdo = new PDO($dsn, $username, $password, $options);
     $stmt = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' AND new = '0' AND display = '0' ORDER BY id DESC");
-        ?>
+    ?>
    
    <div class="header0">
     <!-- ログインしていない -->
@@ -62,12 +62,23 @@
   
         </ul>   
         <?php endif; ?>
-</div>
+    </div>
+    <header>
+        <div class="header-left">
+            <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+        </div>
+        <div class="input-group header-right">
+            <input type="text" id="txt-search" class="form-control input-group-prepend" placeholder="キーワードを入力(機能は未実装）"></input>
+            <span class="input-group-btn input-group-append">
+                <submit type="submit" id="btn-search" class="btn btn-primary"><i class="fas fa-search"></i></submit>
+            </span>
+        </div>
+    </header>
 <main >
     <h3>新着情報</h3>
     <div class="info news_f">
         <?php foreach ($stmt as $row): ?>
-            <div class="relative">
+            <div class="relative news_img">
                 <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo($row['id']) ?>'">
                 <img src="img/newicon.png" alt="newicon" class="absolute">  
             </div>

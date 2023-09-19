@@ -118,7 +118,7 @@ main{
 
 /* スライドショー */
 
-.slider {/*横幅94%で左右に余白を持たせて中央寄せ*/
+.slider{/*横幅94%で左右に余白を持たせて中央寄せ*/
     width:100vw;
     background-color: lightskyblue;
     margin: 0auto;
@@ -288,7 +288,12 @@ h3{
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
+    margin-bottom: 10vw;
 }
+.news_img:hover img{
+    opacity: 0.6;
+}
+
 
 
 /* 店舗情報 */
@@ -473,6 +478,10 @@ form .contactbox-text1{
     border-radius: 5px;
     border-bottom: 2px solid gray;
 }
+.btn{
+    gap: 10vw ; /* 余白 */
+
+}
 
 /* mail_confirm */
 .confirm{
@@ -482,6 +491,7 @@ form .contactbox-text1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1vw ; /* 余白 */
     
 }
 .mail-confirm > p{
@@ -653,9 +663,7 @@ form{
 .news-page-img{
     width:50vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
     height:auto;
-    margin: auto;
-    display: block;
-    
+    margin: auto; 
 }
 .news_title{
     font-size: 4vw;
@@ -699,7 +707,36 @@ form{
     word-wrap: break-word;
     background-color: lightgrey; 
 }
+.newgoods_f{
+    display: flex;
+    justify-content: center;
+    font-size: 3vw;
+    text-align: center;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-bottom: 10vw;
+    
+}
+.free-m{
+    text-align: center;
+    border: solid 2px red;
+    font-size: 3vw;
+    margin: 5% 10%;
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.newimg_text{
+    display: flex;
+}
+.newimg_text .price{
+    color: salmon;
 
+}
+.newimg_text{
+    margin-left: 5vw;
+
+}
 /* ECサイト */
 .pk-f{
     display: flex;
@@ -849,8 +886,7 @@ form{
 
 /* スライド情報編集画面 */
 .contact-form span{
-    background-color: lightyellow;
-    line-height: 2;
+    line-height: 1;
 }
 .slide-page{
     margin-bottom: 20vw;

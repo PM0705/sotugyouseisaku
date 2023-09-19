@@ -106,8 +106,8 @@ try {
     <div class="confirm">
         <div><?php echo htmlspecialchars($message, ENT_QUOTES); ?></div>
 
-        <button onclick="location.href='index.php'" class="submit" value="HOMEへ戻る" >TOPページへ戻る</button>
-        <button onclick="location.href='authority.php'" class="submit" value="管理者メニューへ戻る" >管理者メニューへ戻る</button>
+        <button onclick="location.href='index.php'" class="btn btn-danger" value="HOMEへ戻る" >TOPページへ戻る</button>
+        <button onclick="location.href='authority.php'" class="btn btn-danger" value="管理者メニューへ戻る" >管理者メニューへ戻る</button>
 
     </div>
 </main>
