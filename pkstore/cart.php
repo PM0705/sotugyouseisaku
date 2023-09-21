@@ -139,7 +139,7 @@ include 'vars.php';
         <td><?php echo $value['item_price'] * $value['buy_count']; ?> 円</td>
         <td>
             <form method="post" action="cart.php">
-                <input type="submit" value="削除">
+                <input type="submit" value="削除" class="btn btn-outline-secondary">
                 <input type="hidden" name="item_name" value="<?php echo $value['item_name']; ?>">
             </form>
         </td>
@@ -165,7 +165,7 @@ include 'vars.php';
     <form method="post" action="cart_complete.php">
       <input type="submit" value="購入する" class="btn btn-danger">
     </form>
-    <button onclick="location.href='pk_onlineshop.php'"  value="お買い物に戻る" >お買い物に戻る</button>
+    <button onclick="location.href='pk_onlineshop.php'"  value="お買い物に戻る" class="btn btn-secondary">お買い物に戻る</button>
     <?php }else{?>
         <button onclick="location.href='pk_onlineshop.php'"  value="お買い物に戻る" class="btn btn-danger">お買い物に戻る</button>
         <button onclick="location.href='index.php'"  value="HOMEに戻る" class="btn btn-secondary">HOMEに戻る</button>
