@@ -118,7 +118,6 @@
                     <p><i class="fa-solid fa-mobile-screen"></i>スマホアクセサリー</p>
                     <p><i class="fa-solid fa-computer"></i>PCアクセサリー</p>
                     <p><i class="fa-solid fa-dog"></i>ペット用品</p>
-
                 </div>
                 <div class="right">
                     <h3>NEW〜情報〜</h3>
