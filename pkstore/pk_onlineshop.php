@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PK-onlineshop</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/9e0ab757d4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="htmlstyle.css">
 
 </head>
@@ -100,6 +102,17 @@
                 </ul>
             <?php endif; ?>
         </div>
+        <header>
+            <div class="header-left">
+                <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+            </div>
+            <div class="input-group header-right">
+                <input type="text" id="txt-search" class="form-control input-group-prepend" placeholder="キーワードを入力(機能は未実装）"></input>
+                <span class="input-group-btn input-group-append">
+                    <submit type="submit" id="btn-search" class="btn btn-primary"><i class="fas fa-search"></i></submit>
+                </span>
+            </div>
+        </header>
         <main>
             <div>
                 <h3>商品購入</h3>
@@ -109,30 +122,30 @@
                             <tr>
                                 <th>キーワード</th>
                                 <td>
-                                    <input type="text" name="keyword" id="keyword" maxlength="10" size="45" value="<?= $_POST['keyword'] ?>">
+                                    <input type="text" name="keyword" id="keyword" class="form-control" size="45" value="<?= $_POST['keyword'] ?>">
                                 </td>
                             </tr>
                             <tr>
                                 <th>カテゴリー</th>
                                 <td>
-                                    <select name="category" id="category" value=array()>
+                                    <select name="category" id="category" value=array() class="form-select">
                                         <option value="" selected>選択無し</option>
                                         <option value="カバン" <?php if (isset($_POST['category']) && $_POST['category'] == "カバン") echo 'selected'; ?>>カバン</option>
                                         <option value="文房具" <?php if (isset($_POST['category']) && $_POST['category'] == "文房具") echo 'selected'; ?>>文房具</option>
                                         <option value="タオル" <?php if (isset($_POST['category']) && $_POST['category'] == "タオル") echo 'selected'; ?>>タオル</option>
                                         <option value="その他" <?php if (isset($_POST['category']) && $_POST['category'] == "その他") echo 'selected'; ?>>その他</option>
-                                    </select><br>
+                                    </select>
                                 </td>
                             </tr>
                             <tr>
                                 <th>条件</th>
                                 <td>
-                                    <select name="ip" id="ip" value=array()>
+                                    <select name="ip" id="ip" value=array() class="form-select">
                                         <option value="" selected>選択無し</option>
                                         <option value="新着のみ" <?php if (isset($_POST['ip']) && $_POST['ip'] == "新着のみ") echo 'selected'; ?>>新着のみ</option>
                                         <option value="値段の安い順" <?php if (isset($_POST['ip']) && $_POST['ip'] == "値段の安い順") echo 'selected'; ?>>値段の安い順</option>
                                         <option value="値段の高い順" <?php if (isset($_POST['ip']) && $_POST['ip'] == "値段の高い順") echo 'selected'; ?>>値段の高い順</option>
-                                    </select><br>
+                                    </select>
                                 </td>
                             </tr>
                         </thead>
@@ -210,6 +223,8 @@
                 </ul>
             </div>
         </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/9e0ab757d4.js" crossorigin="anonymous"></script>
     </div>
 </body>
 

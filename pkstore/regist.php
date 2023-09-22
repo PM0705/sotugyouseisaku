@@ -120,11 +120,13 @@ include 'vars.php';
                     </div>
                     <div class="err-msg-password"></div>
                     <!-- 性別 -->
-                    <div class="contactbox-text1">
+                    <div class="contactbox-text1 gender">
                         <label for="必須" class="red">必須</label>
                         <label for="gender" class="form-label">性別</label>
-                        <label><input type="radio" name="gender" value="0" checked class="form-label">男</label>
-                        <label><input type="radio" name="gender" value="1" <?= getPostValue('gender') ?> class="form-label">女</label>
+                        <span class="gender">
+                            <label><input type="radio" name="gender" value="0" checked class="form-check-label gender">男</label>
+                            <label><input type="radio" name="gender" value="1" <?= getPostValue('gender') ?> class="form-check-label gender">女</label>
+                        </span>
                     </div>
                     <div class="err-msg-gender"></div>
                     <!-- 郵便番号 -->
@@ -137,7 +139,7 @@ include 'vars.php';
                     <!-- 住所（都道府県） -->
                     <div class="contactbox-text1">
                         <label for="必須" class="red">必須</label>
-                        <label for="prefecture" class="form-label">都道府県</label>
+                        <label for="prefecture" class="form-label">都道府県</label><br>
                         <label><select name="prefecture" id="prefecture" class="form-select">
                                 <?php
                                 if (!empty($_POST["prefecture"])) : ?>
@@ -187,6 +189,7 @@ include 'vars.php';
                                 <?php endif; ?>
                             </select></label><br>
                     </div>
+                    <br>
                     <div class="err-msg-prefecture"></div>
                     <!-- 住所（市区町村） -->
                     <div class="contactbox-text1">
@@ -198,14 +201,14 @@ include 'vars.php';
                     <!-- 住所（番地） -->
                     <div class="contactbox-text1">
                         <label for="必須" class="red">必須</label>
-                        <label for="address_2" class="form-label">市区町村※全角で入力/スペースのみ不可</label>
+                        <label for="address_2" class="form-label">番地</label>
                         <input type="text" class="form-control" name="address_2" id="address_2" maxlength="10" size="45" pattern="[\d\u30A1-\u30F6\u4E00-\u9FFF\u3040-\u309Fー\s　\-]*" value="<?= getPostValue('address_2') ?>" title="全角で入力してください/スペースのみ不可"><br>
                     </div>
                     <div class="err-msg-address_2"></div>
 
                     <!-- 送信ボタン -->
                     <div class="submit-confirm">
-                        <input type="submit" class="btn btn-primary" value="確認する">
+                        <input type="submit" class="btn btn-primary submit" value="確認する">
                     </div>
 
                 </div>

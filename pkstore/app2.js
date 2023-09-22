@@ -179,7 +179,7 @@ window.addEventListener('DOMContentLoaded', () => {
             // クラスを追加(エラーメッセージを表示する)
             errMsgprefecture.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgprefecture.textContent = '↑住所（都道府県）が未入力です。↑';
+            errMsgprefecture.textContent = '↑都道府県が未入力です。↑';
             // クラスを追加(フォームの枠線を赤くする)
             prefecture.classList.add('input-invalid');
             // 後続の処理を止める
@@ -202,7 +202,7 @@ window.addEventListener('DOMContentLoaded', () => {
             // クラスを追加(エラーメッセージを表示する)
             errMsgaddress_1.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgaddress_1.textContent = '↑住所（市区町村）が未入力です。↑';
+            errMsgaddress_1.textContent = '↑市区町村が未入力です。↑';
             // クラスを追加(フォームの枠線を赤くする)
             address_1.classList.add('input-invalid');
             // 後続の処理を止める
@@ -225,7 +225,7 @@ window.addEventListener('DOMContentLoaded', () => {
             // クラスを追加(エラーメッセージを表示する)
             errMsgaddress_2.classList.add('form-invalid');
             // エラーメッセージのテキスト
-            errMsgaddress_2.textContent = '↑住所（番地）が未入力です。↑';
+            errMsgaddress_2.textContent = '↑番地が未入力です。↑';
             // クラスを追加(フォームの枠線を赤くする)
             address_2.classList.add('input-invalid');
             // 後続の処理を止める
