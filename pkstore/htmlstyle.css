@@ -580,6 +580,7 @@ textarea,
   margin-top: 1vw;
   display: flex;
   justify-content: center;
+  gap: 1vw; /* 余白 */
   
 }
 .new-ac{
@@ -590,7 +591,7 @@ textarea,
   display: flex;
   padding: 10px;
   justify-content: center;
-  /* 余白 */
+
 }
 .submit-confirm .submit {
   background-color: lightblue;
@@ -613,7 +614,7 @@ textarea,
   display: flex;
 }
 .gender .gender{
-  font-size: 3vw;
+  font-size: 15px;
 }
 
 /* news.phpスライド情報詳細画面 */
@@ -838,6 +839,10 @@ textarea,
 }
 
 /* スライド情報編集画面 */
+.slide th{
+  text-align: center;
+
+}
 .contact-form span {
   line-height: 1;
 }
@@ -846,10 +851,12 @@ textarea,
 }
 
 .slide {
-  background-color: lightskyblue;
   display: flex;
   justify-content: center;
-  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: 2vw;
+  
 }
 .slide img {
   width: 30vw;
@@ -912,6 +919,22 @@ textarea,
   margin-bottom: 30vw;
   text-align: center;
 }
+.goods-list-f th{
+  font-weight: bold;
+  padding-bottom: 1vw;
+  text-align: center;
+  padding-right: 1vw;
+}
+.goods-list-f table{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.new-goods-f img{
+  width: 60vw;
+  height: auto;
+}
+
+
 
 /* footer */
 footer {
