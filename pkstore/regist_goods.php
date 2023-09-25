@@ -81,25 +81,25 @@ include 'vars.php';
                     <div class="contactbox-text1">
                         <label for="必須" class="red">必須</label>
                         <label for="item_name" class="form-label">アイテム名</label>
-                        <input type="text" class="form-control" name="item_name" id="item_name" size="35" value="<?= getPostValue('item_name') ?>" title="スペースのみ不可" required><br>
+                        <input type="text" class="form-control" name="item_name" id="item_name" value="<?= getPostValue('item_name') ?>" title="スペースのみ不可" required><br>
                     </div>
                     <!-- 値段 -->
                     <div class="contactbox-text1">
                         <label for="必須" class="red">必須</label>
                         <label for="item_price" class="form-label">値段</label>
-                        <input type="number" class="form-control" name="item_price" id="item_price" maxlength="10" size="35" value="<?= getPostValue('item_price') ?>" title="半角数字でご入力ください" required><br>
+                        <input type="number" class="form-control" name="item_price" id="item_price" maxlength="10" value="<?= getPostValue('item_price') ?>" title="半角数字でご入力ください" required><br>
                     </div>
                     <!-- 在庫 -->
                     <div class="contactbox-text1">
                         <label for="必須" class="red">必須</label>
                         <label for="item_stock" class="form-label">在庫</label>
-                        <input type="number" class="form-control" name="item_stock" id="item_stock" maxlength="10" size="35" value="<?= getPostValue('item_stock') ?>" title="半角数字でご入力ください" required><br>
+                        <input type="number" class="form-control" name="item_stock" id="item_stock" maxlength="10" value="<?= getPostValue('item_stock') ?>" title="半角数字でご入力ください" required><br>
                     </div>
                     <!-- キーワード -->
                     <div class="contactbox-text1">
                         <label for="必須" class="red">必須</label>
                         <label for="keyword" class="form-label">キーワード</label>
-                        <input type="text" class="form-control" name="keyword" id="keyword" size="35" value="<?= getPostValue('keyword') ?>" title="スペースのみ不可" required><br>
+                        <input type="text" class="form-control" name="keyword" id="keyword" value="<?= getPostValue('keyword') ?>" title="スペースのみ不可" required><br>
                     </div>
 
                     <!-- カテゴリー -->

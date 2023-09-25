@@ -26,7 +26,7 @@ try {
     $message = '登録が完了しました。ログインして引き続きPKstoreをお楽しみください';
 } catch (PDOException $e) {
 
-    $message = 'エラーが発生したためアカウント登録できません。';
+    $message = 'エラーが発生したため商品を登録できません。';
 }
 ?>
 <!DOCTYPE html>
@@ -43,6 +43,7 @@ try {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="htmlstyle.css">
+</head>
 
 <body>
     <div class="header0">
@@ -100,10 +101,8 @@ try {
         <h3>会員登録完了フォーム</h3>
         <div class="confirm">
             <div><?php echo htmlspecialchars($message, ENT_QUOTES); ?></div>
-            <form action="index.php">
-                <button onclick="location.href='index.php'" class="btn btn-secondary" value="HOMEへ戻る">TOPページへ戻る</button>
-                <button onclick="location.href='authority.php'" class="btn btn-secondary" value="管理者メニューへ戻る">管理者メニューへ戻る</button>
-            </form>
+            <button onclick="location.href='index.php'" class="btn btn-secondary" value="HOMEへ戻る">HOMEへ戻る</button>
+            <button onclick="location.href='authority.php'" class="btn btn-secondary" value="HOMEへ戻る">管理者メニューへ戻る</button>
         </div>
     </main>
     <footer>

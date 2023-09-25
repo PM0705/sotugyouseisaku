@@ -692,10 +692,10 @@ textarea,
 /* ECサイト */
 .pk-f td,.pk-f th {
   padding-top:1vw;
+  text-align: center;
 }
 .pk-f th{
   padding-top: 1.5vw;
-
 }
 .pk-f {
   display: flex;
@@ -883,7 +883,6 @@ textarea,
   margin-left: 5vw;
   margin-right: 5vw;
   margin-bottom: 10vw;
-  background-color: lightskyblue;
 }
 
 /* アカウント情報編集 */

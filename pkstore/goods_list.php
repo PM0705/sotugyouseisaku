@@ -95,7 +95,6 @@
             <table class="pk-f">
                 <thead>
                     <tr>
-
                         <th>アイテム名</th>
                         <td>
                             <input type="text" name="item_name" id="item_name" maxlength="100" value="<?= $_POST['item_name'] ?>" class="form-control">
@@ -104,7 +103,7 @@
                     <tr>
                         <th>キーワード</th>
                         <td>
-                            <input type="text" name="keyword" id="keyword" maxlength="100" class="form-select" value="<?= $_POST['keyword'] ?>">
+                            <input type="text" name="keyword" id="keyword" maxlength="100" class="form-control" value="<?= $_POST['keyword'] ?>">
                         </td>
                     </tr>
                     <tr>
