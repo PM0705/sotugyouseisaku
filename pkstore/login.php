@@ -75,102 +75,101 @@ if (isset($_POST["login"])) {
 </head>
 
 <body>
-    <div class="header0">
-        <!-- ログインしていない -->
-        <?php if (empty($_SESSION['id'])) : ?>
+    <div class="wrapper">
+        <div class="header0">
+            <!-- ログインしていない -->
+            <?php if (empty($_SESSION['id'])) : ?>
 
-            <ul>
-                <li><a href="sns.php">SNS</li>
-                <li><a href="news.php">新着情報</li>
-                <li><a href="store_info.php">店舗情報</a></li>
-                <li><a href="mail.php">お問い合わせ</a></li>
-                <li><a href="login.php">ログイン・会員登録はこちら</a></li>
-            </ul>
-            <!-- 管理者 -->
-        <?php elseif ($_SESSION['authority'] == 1) : ?>
-            <?php $message1 = $_SESSION['mail'] . "さんようこそ"; ?>
-            <ul>
-                <li><a href="pk_onlineshop.php">shop</a></li>
-                <li><a href="sns.php">SNS</li>
-                <li><a href="news.php">新着情報</li>
-                <li><a href="store_info.php">店舗情報</a></li>
-                <li><a href="mail.php">お問い合わせ</a></li>
-                <li><a href="authority.php">管理者用メニュー</a></li>
-                <li><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
-                <li><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></li>
-            </ul>
+                <ul>
+                    <li><a href="sns.php">SNS</li>
+                    <li><a href="news.php">新着情報</li>
+                    <li><a href="store_info.php">店舗情報</a></li>
+                    <li><a href="mail.php">お問い合わせ</a></li>
+                    <li><a href="login.php">ログイン・会員登録はこちら</a></li>
+                </ul>
+                <!-- 管理者 -->
+            <?php elseif ($_SESSION['authority'] == 1) : ?>
+                <?php $message1 = $_SESSION['mail'] . "さんようこそ"; ?>
+                <ul>
+                    <li><a href="pk_onlineshop.php">shop</a></li>
+                    <li><a href="sns.php">SNS</li>
+                    <li><a href="news.php">新着情報</li>
+                    <li><a href="store_info.php">店舗情報</a></li>
+                    <li><a href="mail.php">お問い合わせ</a></li>
+                    <li><a href="authority.php">管理者用メニュー</a></li>
+                    <li><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></li>
+                </ul>
 
 
-        <?php else : ?>
-            <?php $message1 = $_SESSION['mail'] . "さんようこそ"; ?>
-            <ul>
-                <li><a href="pk_onlineshop.php">shop</a></li>
-                <li><a href="sns.php">SNS</li>
-                <li><a href="news.php">新着情報</li>
-                <li><a href="store_info.php">店舗情報</a></li>
-                <li><a href="mail.php">お問い合わせ</a></li>
-                <li><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
-                <li><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></li>
+            <?php else : ?>
+                <?php $message1 = $_SESSION['mail'] . "さんようこそ"; ?>
+                <ul>
+                    <li><a href="pk_onlineshop.php">shop</a></li>
+                    <li><a href="sns.php">SNS</li>
+                    <li><a href="news.php">新着情報</li>
+                    <li><a href="store_info.php">店舗情報</a></li>
+                    <li><a href="mail.php">お問い合わせ</a></li>
+                    <li><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></li>
 
-            </ul>
-        <?php endif; ?>
-    </div>
-    <header>
-        <div class="header-left">
-            <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
+                </ul>
+            <?php endif; ?>
         </div>
-        <div class="input-group header-right">
-            <input type="text" id="txt-search" class="form-control input-group-prepend" placeholder="キーワードを入力(機能は未実装）"></input>
-            <span class="input-group-btn input-group-append">
-                <submit type="submit" id="btn-search" class="btn btn-primary"><i class="fas fa-search"></i></submit>
-            </span>
-        </div>
-    </header>
-    <main class="login-page">
-        <h3>ログイン</h3>
-        <div class="loginform">
-            <form id="loginForm" name="form" action="login.php" method="POST">
-                <div class="err-msg"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></div>
-                <div class="loginform-b">
-                    <label for="mail" class="form-label">メールアドレス</label>
-                    <input type="text" name="mail" class="form-control" id="exampleFormControlInput1" maxlength="100" title="半角英数字、半角ハイフンでご入力ください"><br>
-
-                </div>
-
-                <!-- パスワード -->
-                <div class="loginform-b">
-                    <label for="password" class="form-label">パスワード<br>※半角英数字のみ入力可</label>
-                    <input type="password" name="password" class="form-control" id="exampleFormControlInput1" maxlength="10" title="半角英数字でご入力ください"><br>
-
-                </div>
-
-                <!-- ログインボタン -->
-
-                <div class="contact-submit">
-                    <input type="submit" class="btn btn-primary" value="ログインする" name="login">
-                </div>
-            </form>
-            <div class="new-ac">
-                <button onclick="location.href='regist.php'" class="btn btn-warning" value="会員登録はこちらをクリック！">会員登録はこちらをクリック！</button>
+        <header>
+            <div class="header-left">
+                <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
             </div>
+            <div class="input-group header-right">
+                <input type="text" id="txt-search" class="form-control input-group-prepend" placeholder="キーワードを入力(機能は未実装）"></input>
+                <span class="input-group-btn input-group-append">
+                    <submit type="submit" id="btn-search" class="btn btn-primary"><i class="fas fa-search"></i></submit>
+                </span>
+            </div>
+        </header>
+        <main class="login-page">
+            <h3>ログイン</h3>
+            <div class="loginform">
+                <form id="loginForm" name="form" action="login.php" method="POST">
+                    <div class="err-msg"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></div>
+                    <div class="loginform-b">
+                        <label for="mail" class="form-label">メールアドレス</label>
+                        <input type="text" name="mail" class="form-control" id="exampleFormControlInput1" maxlength="100" title="半角英数字、半角ハイフンでご入力ください"><br>
 
+                    </div>
 
-        </div>
+                    <!-- パスワード -->
+                    <div class="loginform-b">
+                        <label for="password" class="form-label">パスワード<br>※半角英数字のみ入力可</label>
+                        <input type="password" name="password" class="form-control" id="exampleFormControlInput1" maxlength="10" title="半角英数字でご入力ください"><br>
 
-    </main>
-    <footer>
-        <div class="footer-l">
-            <a href="index.php"><img src="img/PKlogo.png" alt="PKstoreのロゴ" class="h-img logo"></a>
-            <ul>
-                <li><a href="company.php" class="fotter-text">Company</a></li>
-                <li><a href="mail.php" class="fotter-text">Contact</a></li>
-                <li><a href="store_info.php" class="fotter-text">Map</a></li>
-                <li><a href="index.php"><img src="img/twittericon.png" alt="Xのロゴ" class="img1"></a></li>
-                <li><a href="index.php"><img src="img/instaicon.png" alt="Instagramのロゴ" class="img1"></a></li>
-                <li><a href="index.php"><img src="img/youtubeicon.png" alt="Youtubeのロゴ" class="img1 youtubeicon"></a></li>
-            </ul>
-        </div>
-    </footer>
+                    </div>
+
+                    <!-- ログインボタン -->
+
+                    <div class="contact-submit">
+                        <input type="submit" class="btn btn-primary" value="ログインする" name="login">
+                    </div>
+                </form>
+                <div class="new-ac">
+                    <button onclick="location.href='regist.php'" class="btn btn-warning" value="会員登録はこちらをクリック！">会員登録はこちらをクリック！</button>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-l">
+                <a href="index.php"><img src="img/PKlogo.png" alt="PKstoreのロゴ" class="h-img logo"></a>
+                <ul>
+                    <li><a href="company.php" class="fotter-text">Company</a></li>
+                    <li><a href="mail.php" class="fotter-text">Contact</a></li>
+                    <li><a href="store_info.php" class="fotter-text">Map</a></li>
+                    <li><a href="index.php"><img src="img/twittericon.png" alt="Xのロゴ" class="img1"></a></li>
+                    <li><a href="index.php"><img src="img/instaicon.png" alt="Instagramのロゴ" class="img1"></a></li>
+                    <li><a href="index.php"><img src="img/youtubeicon.png" alt="Youtubeのロゴ" class="img1 youtubeicon"></a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/9e0ab757d4.js" crossorigin="anonymous"></script>
 

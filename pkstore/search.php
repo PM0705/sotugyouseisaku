@@ -25,7 +25,7 @@
         $password = "root";
         $options = [];
         $pdo = new PDO($dsn, $username, $password, $options);
-        if ((isset($_POST["keyword"])) && (isset($_POST["category"]))) {
+        if ((isset($_POST["seach"]))) {
             $stmt = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' ORDER BY id DESC");
             //SQL文を実行して、結果を$stmtに代入する。
         }
@@ -107,62 +107,28 @@
                 <div class="header-left">
                     <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
                 </div>
-                <div class="input-group header-right">
-                    <input type="text" id="txt-search" class="form-control input-group-prepend" placeholder="キーワードを入力(機能は未実装）"></input>
-                    <span class="input-group-btn input-group-append">
-                        <submit type="submit" id="btn-search" class="btn btn-primary"><i class="fas fa-search"></i></submit>
-                    </span>
-                </div>
+                <form action="search.php" method="post">
+                    <div class="input-group header-right sa">
+                        <input type="text" id="txt-search" name="seach" class="form-control input-group-prepend fas" placeholder="キーワードを入力(実装途中）"></input>
+                        <span class="input-group-btn input-group-append">
+                            <input type="submit" id="btn-search" class="btn btn-primary fas" value=&#xf002;></input>
+                        </span>
+                    </div>
+                </form>
             </header>
             <main>
                 <div>
-                    <h3>商品購入</h3>
-                    <form action="pk_onlineshop.php" method="post">
-                        <table class="pk-f">
-                            <thead>
-                                <tr>
-                                    <th>キーワード</th>
-                                    <td>
-                                        <input type="text" name="keyword" id="keyword" class="form-control" size="45" value="<?= $_POST['keyword'] ?>">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>カテゴリー</th>
-                                    <td>
-                                        <select name="category" id="category" value=array() class="form-select">
-                                            <option value="" selected>選択無し</option>
-                                            <option value="カバン" <?php if (isset($_POST['category']) && $_POST['category'] == "カバン") echo 'selected'; ?>>カバン</option>
-                                            <option value="文房具" <?php if (isset($_POST['category']) && $_POST['category'] == "文房具") echo 'selected'; ?>>文房具</option>
-                                            <option value="タオル" <?php if (isset($_POST['category']) && $_POST['category'] == "タオル") echo 'selected'; ?>>タオル</option>
-                                            <option value="その他" <?php if (isset($_POST['category']) && $_POST['category'] == "その他") echo 'selected'; ?>>その他</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>条件</th>
-                                    <td>
-                                        <select name="ip" id="ip" value=array() class="form-select">
-                                            <option value="" selected>選択無し</option>
-                                            <option value="新着のみ" <?php if (isset($_POST['ip']) && $_POST['ip'] == "新着のみ") echo 'selected'; ?>>新着のみ</option>
-                                            <option value="値段の安い順" <?php if (isset($_POST['ip']) && $_POST['ip'] == "値段の安い順") echo 'selected'; ?>>値段の安い順</option>
-                                            <option value="値段の高い順" <?php if (isset($_POST['ip']) && $_POST['ip'] == "値段の高い順") echo 'selected'; ?>>値段の高い順</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                            </thead>
-                        </table>
-                        <div class="contact-submit">
-                            <input type="submit" class="btn btn-primary" value="検索する">
-                        </div>
-                    </form>
+                    <h3>検索結果</h3>
+
                     <?php
                     $count = $stmt->rowCount();
                     // var_dump($count);
-                    if ($count == 0) {
-                        $errmessage = "検索結果はありません";
+                    if (empty($_POST["seach"])) {
+                        $errmessage = "検索キーワードが空欄です。キーワードを入力して検索してください。";
                     }
                     ?>
-                    <h3>商品リスト</h3>
+                    <p class="noseach"><?php echo htmlspecialchars($errmessage, ENT_QUOTES); ?></p>
+
                     <div class="result-field">
 
                         <!-- ここでPHPのforeachを使って結果をループさせる -->
@@ -207,7 +173,6 @@
                             </li>
                         <?php endforeach; ?>
                     </div>
-                    <p class="nodate"><?php echo htmlspecialchars($errmessage, ENT_QUOTES); ?></p>
 
                 </div>
             </main>

@@ -78,12 +78,14 @@ $stmt_rank4 = $pdo->query("SELECT * FROM item_info_transaction where delete_flag
             <div class="header-left">
                 <a href="index.php"><img src="img/pkstore.png" alt="PKstoreのロゴ" class="h-img"></a>
             </div>
-            <div class="input-group header-right">
-                <input type="text" id="txt-search" class="form-control input-group-prepend" placeholder="キーワードを入力(機能は未実装）"></input>
-                <span class="input-group-btn input-group-append">
-                    <submit type="submit" id="btn-search" class="btn btn-primary"><i class="fas fa-search"></i></submit>
-                </span>
-            </div>
+            <form action="search.php" method="post">
+                <div class="input-group header-right sa">
+                    <input type="text" id="txt-search" name="seach" class="form-control input-group-prepend fas" placeholder="キーワードを入力(実装途中）"></input>
+                    <span class="input-group-btn input-group-append">
+                        <input type="submit" id="btn-search" class="btn btn-primary fas" value=&#xf002;></input>
+                    </span>
+                </div>
+            </form>
         </header>
         <div class="top_msg">
             <p>ようこそPKstoreへ!会員登録でオンラインショップが使えます！</p>
@@ -99,7 +101,7 @@ $stmt_rank4 = $pdo->query("SELECT * FROM item_info_transaction where delete_flag
             </ul>
             <div class="cl">
                 <div class="left">
-                    <h6>ジャンル（以下未実装）</h6>
+                    <h6>ジャンル（以下実装予定）</h6>
                     <p><i class="fa-solid fa-bag-shopping"></i>カバン</p>
                     <p><i class="fa-solid fa-layer-group"></i>タオル</p>
                     <p><i class="fa-solid fa-pen"></i>文房具</p>
@@ -134,7 +136,7 @@ $stmt_rank4 = $pdo->query("SELECT * FROM item_info_transaction where delete_flag
                         <?php foreach ($stmt_newgoods as $row) : ?>
                             <div class="relative img_container">
                                 <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo ($row['id']) ?>'">
-                                <img src="img/newicon.png" alt="newicon" class="absolute">
+                                <img src="img/newicon.png" alt="newicon" class="absolute6">
                             </div>
                         <?php endforeach; ?>
                     </div>
