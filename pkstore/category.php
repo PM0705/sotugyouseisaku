@@ -1,3 +1,6 @@
+<?php
+var_dump($_POST);
+?>
 <!DOCTYPE html>
 <html lang="jp">
 
@@ -25,17 +28,10 @@
         $password = "root";
         $options = [];
         $pdo = new PDO($dsn, $username, $password, $options);
-        if ((isset($_POST["seach"]))) {
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' ORDER BY id DESC");
+        if ((isset($_POST["bag"]))) {
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'カバン' AND display = '0' ORDER BY id DESC");
             //SQL文を実行して、結果を$stmtに代入する。
-        }
-        if ($_POST["seach"] != "") { //IDおよびユーザー名の入力有無を確認
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction WHERE item_name LIKE  '%" . $_POST["seach"] . "%' 
-                                                                        OR keyword LIKE  '%" . $_POST["seach"] . "%' 
-                                                                        OR category	 LIKE  '%" . $_POST["seach"] . "%' 
-                                                                        AND delete_flag = '0'
-                                                                        AND display = '0'
-                                                                        ORDER BY item_price DESC"); //SQL文を実行して、結果を$stmtに代入する。                                                          
+
         }
 
         ?>
@@ -97,8 +93,8 @@
                     <?php
                     $count = $stmt->rowCount();
                     // var_dump($count);
-                    if (empty($_POST["seach"])) {
-                        $errmessage = "検索キーワードが空欄です。キーワードを入力して検索してください。";
+                    if ($count == 0) {
+                        $errmessage = "商品はありません。入荷までお待ちくださいませ";
                     }
                     ?>
                     <p class="noseach"><?php echo htmlspecialchars($errmessage, ENT_QUOTES); ?></p>

@@ -203,12 +203,20 @@ main {
   width: 80%;
   height: auto;
 }
-.left i {
+.left i{
   color: red;
   width: 20%;
   height: auto;
   text-align: center;
 }
+.left .i{
+  color: red;
+}
+.left label:hover{
+  color: red;
+  opacity: 0.6;
+}
+
 
 /* leftカラム */
 .left p {

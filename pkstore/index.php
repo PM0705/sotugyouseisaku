@@ -14,6 +14,8 @@ $stmt_rank1 = $pdo->query("SELECT * FROM item_info_transaction where delete_flag
 $stmt_rank2 = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' AND display = '0' ORDER BY  buy_count DESC limit 1,1");
 $stmt_rank3 = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' AND display = '0' ORDER BY  buy_count DESC limit 2,1");
 $stmt_rank4 = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' AND display = '0' ORDER BY  buy_count DESC limit 3,1");
+// カテゴリー仮
+$stmt_category = $pdo->query("SELECT * FROM item_info_transaction where delete_flag = '0' AND display = '0' limit 1");
 //SQL文を実行して、結果を$stmtに代入する。
 ?>
 <!DOCTYPE html>
@@ -80,7 +82,7 @@ $stmt_rank4 = $pdo->query("SELECT * FROM item_info_transaction where delete_flag
             </div>
             <form action="search.php" method="post">
                 <div class="input-group header-right sa">
-                    <input type="text" id="txt-search" name="seach" class="form-control input-group-prepend fas" placeholder="キーワードを入力(実装途中）"></input>
+                    <input type="text" id="txt-search" name="seach" class="form-control input-group-prepend fas" placeholder="キーワードを入力"></input>
                     <span class="input-group-btn input-group-append">
                         <input type="submit" id="btn-search" class="btn btn-primary fas" value=&#xf002;></input>
                     </span>
@@ -101,7 +103,11 @@ $stmt_rank4 = $pdo->query("SELECT * FROM item_info_transaction where delete_flag
             </ul>
             <div class="cl">
                 <div class="left">
-                    <h6>ジャンル（以下実装予定）</h6>
+                    <h6>ジャンル（以下実装中）</h6>
+                    <form action="category.php" method="post">
+                        <label><input type="submit" name="bag" class="fa-solid fa-bag-shopping fas i" value=&#xf290;>カバンテスト</input></label>
+                        <input type="hidden" id="bag" name="bag" value="bag">
+                    </form>
                     <p><i class="fa-solid fa-bag-shopping"></i>カバン</p>
                     <p><i class="fa-solid fa-layer-group"></i>タオル</p>
                     <p><i class="fa-solid fa-pen"></i>文房具</p>
