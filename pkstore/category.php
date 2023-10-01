@@ -30,8 +30,54 @@ var_dump($_POST);
         $pdo = new PDO($dsn, $username, $password, $options);
         if ((isset($_POST["bag"]))) {
             $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'カバン' AND display = '0' ORDER BY id DESC");
-            //SQL文を実行して、結果を$stmtに代入する。
-
+        }
+        if ((isset($_POST["towel"]))) {
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'タオル' AND display = '0' ORDER BY id DESC");
+        }
+        if ((isset($_POST["pen"]))) {
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = '文房具' AND display = '0' ORDER BY id DESC");
+        }
+        if ((isset($_POST["camera"]))) {
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'カメラ' AND display = '0' ORDER BY id DESC");
+        }
+        if ((isset($_POST["gift"]))) {
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'プレゼント' AND display = '0' ORDER BY id DESC");
+        }
+        if ((isset($_POST["umbrella"]))) {
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = '雨具' AND display = '0' ORDER BY id DESC");
+        }
+        if ((isset($_POST["music"]))) {
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = '音楽' AND display = '0' ORDER BY id DESC");
+        }
+        if ((isset($_POST["game"]))) {
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'ゲーム' AND display = '0' ORDER BY id DESC");
+        }
+        if ((isset($_POST["mug"]))) {
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = '食器' AND display = '0' ORDER BY id DESC");
+        }
+        if ((isset($_POST["shirt"]))) {
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = '衣類' AND display = '0' ORDER BY id DESC");
+        }
+        if ((isset($_POST["car"]))) {
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = '車用品' AND display = '0' ORDER BY id DESC");
+        }
+        if ((isset($_POST["clock"]))) {
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = '時計' AND display = '0' ORDER BY id DESC");
+        }
+        if ((isset($_POST["wallet"]))) {
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = '財布' AND display = '0' ORDER BY id DESC");
+        }
+        if ((isset($_POST["stamp"]))) {
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'スタンプ' AND display = '0' ORDER BY id DESC");
+        }
+        if ((isset($_POST["mobile"]))) {
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'スマホアクセサリー' AND display = '0' ORDER BY id DESC");
+        }
+        if ((isset($_POST["pc"]))) {
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'pcアクセサリー' AND display = '0' ORDER BY id DESC");
+        }
+        if ((isset($_POST["pet"]))) {
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'ペット用品' AND display = '0' ORDER BY id DESC");
         }
 
         ?>
@@ -94,7 +140,7 @@ var_dump($_POST);
                     $count = $stmt->rowCount();
                     // var_dump($count);
                     if ($count == 0) {
-                        $errmessage = "商品はありません。入荷までお待ちくださいませ";
+                        $errmessage = "商品はありません。入荷までお待ちくださいませ！";
                     }
                     ?>
                     <p class="noseach"><?php echo htmlspecialchars($errmessage, ENT_QUOTES); ?></p>

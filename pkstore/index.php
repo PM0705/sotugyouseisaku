@@ -105,27 +105,73 @@ $stmt_category = $pdo->query("SELECT * FROM item_info_transaction where delete_f
                 <div class="left">
                     <h6>ジャンル（以下実装中）</h6>
                     <form action="category.php" method="post">
-                        <label><input type="submit" name="bag" class="fa-solid fa-bag-shopping fas i" value=&#xf290;>カバンテスト</input></label>
+                        <label><input type="submit" name="bag" class="fas i" value=&#xf290;><span>カバン</span></input></label>
                         <input type="hidden" id="bag" name="bag" value="bag">
                     </form>
-                    <p><i class="fa-solid fa-bag-shopping"></i>カバン</p>
-                    <p><i class="fa-solid fa-layer-group"></i>タオル</p>
-                    <p><i class="fa-solid fa-pen"></i>文房具</p>
-                    <p><i class="fa-solid fa-camera-retro"></i>カメラ</p>
-                    <p><i class="fa-solid fa-gift"></i>プレゼント</p>
-                    <p><i class="fa-solid fa-umbrella"></i>雨具</p>
-                    <p><i class="fa-solid fa-headphones"></i>音楽</p>
-                    <p><i class="fa-solid fa-gamepad"></i>ゲーム</p>
-                    <p><i class="fa-solid fa-mug-saucer"></i>食器</p>
-                    <p><i class="fa-solid fa-shirt"></i>衣服</p>
-                    <p><i class="fa-solid fa-car-side"></i>車用品</p>
-                    <p><i class="fa-solid fa-clock"></i>時計</p>
-                    <p><i class="fa-solid fa-wallet"></i>財布</p>
-                    <p><i class="fa-solid fa-stamp"></i>スタンプ</p>
-                    <p><i class="fa-solid fa-socks"></i>靴下</p>
-                    <p><i class="fa-solid fa-mobile-screen"></i>スマホアクセサリー</p>
-                    <p><i class="fa-solid fa-computer"></i>PCアクセサリー</p>
-                    <p><i class="fa-solid fa-dog"></i>ペット用品</p>
+                    <form action="category.php" method="post">
+                        <label><input type="submit" name="towel" class="fas i" value=&#xf5fd;><span>タオル</span></input></label>
+                        <input type="hidden" id="towel" name="towel" value="towel">
+                    </form>
+                    <form action="category.php" method="post">
+                        <label><input type="submit" name="pen" class="fas i" value=&#xf304;><span>文房具</span></input></label>
+                        <input type="hidden" id="pen" name="pen" value="pen">
+                    </form>
+                    <form action="category.php" method="post">
+                        <label><input type="submit" name="camera" class="fas i" value=&#xf083;><span>カメラ</span></input></label>
+                        <input type="hidden" id="camera" name="camera" value="camera">
+                    </form>
+                    <form action="category.php" method="post">
+                        <label><input type="submit" name="gift" class="fas i" value=&#xf06b;><span>プレゼント</span></input></label>
+                        <input type="hidden" id="gift" name="gift" value="gift">
+                    </form>
+                    <form action="category.php" method="post">
+                        <label><input type="submit" name="umbrella" class="fas i" value=&#xf0e9;><span>雨具</span></input></label>
+                        <input type="hidden" id="umbrella" name="umbrella" value="umbrella">
+                    </form>
+                    <form action="category.php" method="post">
+                        <label><input type="submit" name="music" class="fas i" value=&#xf025;><span>音楽</span></input></label>
+                        <input type="hidden" id="music" name="music" value="music">
+                    </form>
+                    <form action="category.php" method="post">
+                        <label><input type="submit" name="game" class="fas i" value=&#xf11b;><span>ゲーム</span></input></label>
+                        <input type="hidden" id="game" name="game" value="game">
+                    </form>
+                    <form action="category.php" method="post">
+                        <label><input type="submit" name="mug" class="fas i" value=&#xf0f4;><span>食器</span></input></label>
+                        <input type="hidden" id="mug" name="mug" value="mug">
+                    </form>
+                    <form action="category.php" method="post">
+                        <label><input type="submit" name="shirt" class="fas i" value=&#xf553;><span>衣類</span></input></label>
+                        <input type="hidden" id="shirt" name="shirt" value="shirt">
+                    </form>
+                    <form action="category.php" method="post">
+                        <label><input type="submit" name="car" class="fas i" value=&#xf5e4;><span>車用品</span></input></label>
+                        <input type="hidden" id="car" name="car" value="car">
+                    </form>
+                    <form action="category.php" method="post">
+                        <label><input type="submit" name="clock" class="fas i" value=&#xf017;><span>時計</span></input></label>
+                        <input type="hidden" id="clock" name="clock" value="clock">
+                    </form>
+                    <form action="category.php" method="post">
+                        <label><input type="submit" name="wallet" class="fas i" value=&#xf555;><span>財布</span></input></label>
+                        <input type="hidden" id="wallet" name="wallet" value="wallet">
+                    </form>
+                    <form action="category.php" method="post">
+                        <label><input type="submit" name="stamp" class="fas i" value=&#xf5bf;><span>スタンプ</span></input></label>
+                        <input type="hidden" id="stamp" name="stamp" value="stamp">
+                    </form>
+                    <form action="category.php" method="post">
+                        <label><input type="submit" name="mobile" class="fas i" value=&#xf3cf;><span>スマホアクセサリー</span></input></label>
+                        <input type="hidden" id="mobile" name="mobile" value="mobile">
+                    </form>
+                    <form action="category.php" method="post">
+                        <label><input type="submit" name="pc" class="fas i" value=&#xe4e5><span>PCアクセサリー</span></input></label>
+                        <input type="hidden" id="pc" name="pc" value="pc">
+                    </form>
+                    <form action="category.php" method="post">
+                        <label><input type="submit" name="pet" class="fas i" value=&#xf6d3><span>ペット用品</span></input></label>
+                        <input type="hidden" id="pet" name="pet" value="pet">
+                    </form>
                 </div>
                 <div class="right">
                     <h3>NEW〜情報〜</h3>
