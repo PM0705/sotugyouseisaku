@@ -195,6 +195,7 @@ main {
 .left h6 {
   font-weight: bold;
   line-height: 2;
+  text-align: center;
 }
 .left p {
   font-size: 1.5vw;
@@ -244,7 +245,7 @@ h3 {
 /* NEW〜ランキング〜 */
 .info,
 .info-img {
-  width: 94%;
+  width: 90%;
   margin: 0 auto;
   padding: 2.5% 0;
   display: flex;

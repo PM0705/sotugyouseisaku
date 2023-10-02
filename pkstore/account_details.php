@@ -87,14 +87,13 @@ if (isset($_GET['id'])) {
             </div>
             <form action="search.php" method="post">
                 <div class="input-group header-right sa">
-                    <input type="text" id="txt-search" name="seach" class="form-control input-group-prepend fas" placeholder="キーワードを入力(実装途中）"></input>
+                    <input type="text" id="txt-search" name="seach" class="form-control input-group-prepend fas" placeholder="キーワードを入力"></input>
                     <span class="input-group-btn input-group-append">
                         <input type="submit" id="btn-search" class="btn btn-primary fas" value=&#xf002;></input>
                     </span>
                 </div>
             </form>
         </header>
-
         <main class="regist-page">
 
             <h3>会員情報</h3>

@@ -103,7 +103,7 @@ $stmt_category = $pdo->query("SELECT * FROM item_info_transaction where delete_f
             </ul>
             <div class="cl">
                 <div class="left">
-                    <h6>ジャンル（以下実装中）</h6>
+                    <h6>ジャンル</h6>
                     <form action="category.php" method="post">
                         <label><input type="submit" name="bag" class="fas i" value=&#xf290;><span>カバン</span></input></label>
                         <input type="hidden" id="bag" name="bag" value="bag">
