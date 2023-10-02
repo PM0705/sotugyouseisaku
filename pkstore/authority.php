@@ -87,6 +87,7 @@ include 'vars.php';
                 <a href="account_list.php" class="authority">会員リスト</a>
                 <a href="mail_box.php" class="authority">お問い合わせ受信リスト</a>
                 <a href="transaction_box.php" class="authority">受注BOX</a>
+                <a href="regist_a.php" class="authority">管理者用アカウント新規作成</a>
             </div>
 
 

@@ -9,7 +9,7 @@ include 'vars.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>会員登録フォーム</title>
+    <title>管理者登録フォーム</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,9 +75,9 @@ include 'vars.php';
             </form>
         </header>
         <main class="regist-page">
-            <h3>会員登録フォーム</h3>
+            <h3>管理者登録フォーム</h3>
             <div class="registbox">
-                <form method="post" action="regist_confirm.php" name="form">
+                <form method="post" action="regist_a_confirm.php" name="form">
                     <div class="contact-form errorMsg">
 
                         <!-- お名前 -->
@@ -126,10 +126,10 @@ include 'vars.php';
                         <div class="contactbox-text1 gender">
                             <label for="必須" class="red">必須</label>
                             <label for="gender" class="form-label">性別</label>
-                            <span class="gender">
+                            <div class="gender">
                                 <label><input type="radio" name="gender" value="0" checked class="form-check-label gender">男</label>
                                 <label><input type="radio" name="gender" value="1" <?= getPostValue('gender') ?> class="form-check-label gender">女</label>
-                            </span>
+                            </div>
                         </div>
                         <div class="err-msg-gender"></div>
                         <!-- 郵便番号 -->
@@ -208,6 +208,16 @@ include 'vars.php';
                             <input type="text" class="form-control" name="address_2" id="address_2" maxlength="10" size="45" pattern="[\d\u30A1-\u30F6\u4E00-\u9FFF\u3040-\u309Fー\s　\-]*" value="<?= getPostValue('address_2') ?>" title="全角で入力してください/スペースのみ不可"><br>
                         </div>
                         <div class="err-msg-address_2"></div>
+
+                        <!-- 権限 -->
+                        <div class="contactbox-text1 gender">
+                            <label for="必須" class="red">必須</label>
+                            <label for="gender" class="form-label">権限</label>
+                            <div class="gender">
+                                <label><input type="radio" name="authority" value="0" checked class="form-check-label gender">一般</label>
+                                <label><input type="radio" name="authority" value="1" <?= getPostValue('authority') ?> class="form-check-label gender">管理者</label>
+                            </div>
+                        </div>
 
                         <!-- 送信ボタン -->
                         <div class="submit-confirm">
