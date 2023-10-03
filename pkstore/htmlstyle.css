@@ -313,7 +313,7 @@ h3 {
   width: 30%;
   position: absolute;
   left: 40%;
-  bottom: 50px;
+  bottom: -50px;
 }
 .absolute5 {
   width: 5vw;
