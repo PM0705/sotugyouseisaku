@@ -119,7 +119,7 @@ include 'vars.php';
                         <div class="contactbox-text1">
                             <label for="必須" class="red">必須</label>
                             <label for="password" class="form-label">パスワード※半角英数字のみ入力可</label>
-                            <input type="text" class="form-control" name="password" id="password" maxlength="10" size="45" pattern="^[a-zA-Z0-9]+$" value="<?= getPostValue('password') ?>" title="半角英数字でご入力ください"><br>
+                            <input type="password" class="form-control" name="password" id="password" maxlength="10" size="45" pattern="^[a-zA-Z0-9]+$" value="<?= getPostValue('password') ?>" title="半角英数字でご入力ください"><br>
                         </div>
                         <div class="err-msg-password"></div>
                         <!-- 性別 -->

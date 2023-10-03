@@ -190,7 +190,7 @@ main {
   max-width: 200px;
   min-width: 200px;
   height: auto;
-  padding-left: 1vw;
+  padding-left: 0.5vw;
 }
 .left h6 {
   font-weight: bold;
@@ -210,12 +210,15 @@ main {
   color: red;
   line-height: 3;
   font-size: min(3vmin, 12px);
+  padding-right: 10px;
+}
+.left input{
+  width: 20px;
+  text-align: center;
 }
 .left span{
   line-height: 1;
   font-size: min(3vmin, 12px);
-  align-items: center;
-
 }
 .left label:hover{
   color: red;
