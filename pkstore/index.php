@@ -262,7 +262,7 @@ $stmt_category = $pdo->query("SELECT * FROM item_info_transaction where delete_f
             infinite: true, //スライドをループさせるかどうか。初期値はtrue。
             speed: 500, //スライドのスピード。初期値は300。
             slidesToShow: 1, //スライドを画面に3枚見せる
-            slidesToScroll: 3, //1回のスクロールで1枚の写真を移動して見せる
+            slidesToScroll: 1, //1回のスクロールで1枚の写真を移動して見せる
             prevArrow: '<div class="slick-prev"></div>', //矢印部分PreviewのHTMLを変更
             nextArrow: '<div class="slick-next"></div>', //矢印部分NextのHTMLを変更
             centerMode: true, //要素を中央ぞろえにする
