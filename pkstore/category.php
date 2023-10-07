@@ -1,6 +1,3 @@
-<?php
-var_dump($_POST);
-?>
 <!DOCTYPE html>
 <html lang="jp">
 
@@ -31,55 +28,55 @@ var_dump($_POST);
         $options = [];
         $pdo = new PDO($dsn, $username, $password, $options);
         if ((isset($_POST["bag"]))) {
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'カバン' AND display = '0' ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where  delete_flag = '0' AND category = 'カバン' AND display = '0' ORDER BY id DESC");
         }
         if ((isset($_POST["towel"]))) {
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'タオル' AND display = '0' ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where  delete_flag = '0' AND category = 'タオル' AND display = '0' ORDER BY id DESC");
         }
         if ((isset($_POST["pen"]))) {
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = '文房具' AND display = '0' ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where  delete_flag = '0' AND category = '文房具' AND display = '0' ORDER BY id DESC");
         }
         if ((isset($_POST["camera"]))) {
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'カメラ' AND display = '0' ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where  delete_flag = '0' AND category = 'カメラ' AND display = '0' ORDER BY id DESC");
         }
         if ((isset($_POST["gift"]))) {
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'プレゼント' AND display = '0' ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where  delete_flag = '0' AND category = 'プレゼント' AND display = '0' ORDER BY id DESC");
         }
         if ((isset($_POST["umbrella"]))) {
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = '雨具' AND display = '0' ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where  delete_flag = '0' AND category = '雨具' AND display = '0' ORDER BY id DESC");
         }
         if ((isset($_POST["music"]))) {
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = '音楽' AND display = '0' ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where  delete_flag = '0' AND category = '音楽' AND display = '0' ORDER BY id DESC");
         }
         if ((isset($_POST["game"]))) {
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'ゲーム' AND display = '0' ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where  delete_flag = '0' AND category = 'ゲーム' AND display = '0' ORDER BY id DESC");
         }
         if ((isset($_POST["mug"]))) {
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = '食器' AND display = '0' ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where  delete_flag = '0' AND category = '食器' AND display = '0' ORDER BY id DESC");
         }
         if ((isset($_POST["shirt"]))) {
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = '衣類' AND display = '0' ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where  delete_flag = '0' AND category = '衣類' AND display = '0' ORDER BY id DESC");
         }
         if ((isset($_POST["car"]))) {
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = '車用品' AND display = '0' ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where  delete_flag = '0' AND category = '車用品' AND display = '0' ORDER BY id DESC");
         }
         if ((isset($_POST["clock"]))) {
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = '時計' AND display = '0' ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where  delete_flag = '0' AND category = '時計' AND display = '0' ORDER BY id DESC");
         }
         if ((isset($_POST["wallet"]))) {
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = '財布' AND display = '0' ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where  delete_flag = '0' AND category = '財布' AND display = '0' ORDER BY id DESC");
         }
         if ((isset($_POST["stamp"]))) {
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'スタンプ' AND display = '0' ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where  delete_flag = '0' AND category = 'スタンプ' AND display = '0' ORDER BY id DESC");
         }
         if ((isset($_POST["mobile"]))) {
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'スマホアクセサリー' AND display = '0' ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where  delete_flag = '0' AND category = 'スマホアクセサリー' AND display = '0' ORDER BY id DESC");
         }
         if ((isset($_POST["pc"]))) {
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'pcアクセサリー' AND display = '0' ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where  delete_flag = '0' AND category = 'pcアクセサリー' AND display = '0' ORDER BY id DESC");
         }
         if ((isset($_POST["pet"]))) {
-            $stmt = $pdo->query("SELECT * FROM item_info_transaction where category = 'ペット用品' AND display = '0' ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT * FROM item_info_transaction where  delete_flag = '0' AND category = 'ペット用品' AND display = '0' ORDER BY id DESC");
         }
 
         ?>
@@ -156,11 +153,11 @@ var_dump($_POST);
                                     <!-- NEW０の時だけNEWアイコン表示 -->
                                     <?php if (($row['new']) == 0) { ?>
                                         <div class="relative">
-                                            <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="auto" height="100">
+                                            <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="auto" height="100" alt="スライド" onclick="location.href='new-goods.php?id=<?php echo ($row['id']) ?>'">
                                             <img src="img/newicon.png" alt="newicon" class="absolute absolute2 ">
                                         </div>
                                     <?php } else { ?>
-                                        <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="auto" height="100">
+                                        <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="auto" height="100" alt="スライド" onclick="location.href='new-goods.php?id=<?php echo ($row['id']) ?>'">
                                     <?php } ?>
                                     <p class="item-name" name='item_name'><?php echo $row['item_name'] ?></p>
                                     <p class="item_price" name='item_price'>¥<?php echo $row['item_price'] ?></p>

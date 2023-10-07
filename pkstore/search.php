@@ -114,11 +114,11 @@
                                     <!-- NEW０の時だけNEWアイコン表示 -->
                                     <?php if (($row['new']) == 0) { ?>
                                         <div class="relative">
-                                            <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="auto" height="100">
+                                            <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="auto" height="100" alt="スライド" onclick="location.href='new-goods.php?id=<?php echo ($row['id']) ?>'">>
                                             <img src="img/newicon.png" alt="newicon" class="absolute absolute2 ">
                                         </div>
                                     <?php } else { ?>
-                                        <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="auto" height="100">
+                                        <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="auto" height="100" alt="スライド" onclick="location.href='new-goods.php?id=<?php echo ($row['id']) ?>'">
                                     <?php } ?>
                                     <p class="item-name" name='item_name'><?php echo $row['item_name'] ?></p>
                                     <p class="item_price" name='item_price'>¥<?php echo $row['item_price'] ?></p>
