@@ -1010,12 +1010,12 @@ footer a {
   width: 4vh;
   margin-right: 3px;
   margin-left: 1vw;
-  padding-top: 1vw;
+
 }
 
 .footer-l .logo {
   position: static;
-  align-items: center;
+
   min-height: 70px;
   max-height: 90px;
   height: 9vw; /*スライダー内の画像を60vwにしてレスポンシブ化*/
@@ -1027,6 +1027,7 @@ footer > .footer-l {
   font-size: 1vw;
 }
 .footer-l ul {
-  padding-top: 5%;
+  display: flex;
   align-items: center;
+
 }
