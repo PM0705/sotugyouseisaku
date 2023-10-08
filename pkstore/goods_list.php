@@ -162,19 +162,19 @@
         <div class="goods-list-f">
             <table>
                 <tr>
-                    <th>ID</th>
-                    <th>画像</th>
-                    <th>アイテム名</th>
-                    <th>最終更新日</th>
-                    <th>操作</th>
+                    <th class="title-tr">ID</th>
+                    <th class="title-tr">画像</th>
+                    <th class="title-tr">アイテム名</th>
+                    <th class="title-tr">最終更新日</th>
+                    <th class="title-tr">操作</th>
                 </tr>
                 <!-- ここでPHPのforeachを使って結果をループさせる -->
                 <?php foreach ($stmt as $row) : ?>
                     <tr>
-                        <td>
+                        <td class="list-tr">
                             <?php echo $row['id'] ?>
                         </td>
-                        <td>
+                        <td class="list-tr">
                             <!-- NEW０の時だけNEWアイコン表示 -->
                             <?php if (($row['new']) == 0) { ?>
                                 <div class="relative">
@@ -187,15 +187,15 @@
                             <?php } ?>
 
                         </td>
-                        <td>
+                        <td class="list-tr">
                             <?php echo $row['item_name'] ?>
                         </td>
-                        <td>
+                        <td class="list-tr">
                             <?php
                             echo date('Y/m/d', strtotime($row['update_time']));
                             ?>
                         </td>
-                        <td>
+                        <td class="list-tr">
                             <!-- ★追加：削除★ -->
                             <button type="button" onclick="location.href='goods_details.php?id=<?php echo ($row['id']) ?>'" class="btn btn-outline-secondary">詳細</button>
                         </td>

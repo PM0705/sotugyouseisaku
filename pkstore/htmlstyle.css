@@ -89,6 +89,7 @@ li {
   font-weight: bold;
 }
 /* top_msg */
+
 .top_msg p {
   margin-left: 1vw;
 }
@@ -656,6 +657,7 @@ textarea,
 
 .news-page-img {
   width: 50vw; /*スライダー内の画像を60vwにしてレスポンシブ化*/
+  min-width: 500px;
   height: auto;
   margin: auto;
 }
@@ -740,7 +742,7 @@ textarea,
   display: flex;
 }
 .result-item {
-  background-color: lemonchiffon;
+  
   width: 200px;
   height: 300px;
 }
@@ -943,6 +945,17 @@ textarea,
   margin-bottom: 25vw;
 }
 /* 商品登録 */
+.goods-list-f .title-tr{
+  color: red;
+
+}
+.goods-list-f th{
+  text-align: center;
+}
+.list-tr{
+  padding-bottom: 50px;
+  text-align: center;
+}
 .goods-list-f {
   display: flex;
   justify-content: center;
