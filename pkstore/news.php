@@ -87,8 +87,8 @@
             <div class="info news_f">
                 <?php foreach ($stmt as $row) : ?>
                     <div class="relative news_img new_img_box">
-                        <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img" onclick="location.href='new-goods.php?id=<?php echo ($row['id']) ?>'">
-                        <img src="img/newicon.png" alt="newicon" class="absolute5">
+                        <img src="images_comp/<?php echo $row['item_img_path']; ?>" alt="newg" class="info-img news_f-img" onclick="location.href='new-goods.php?id=<?php echo ($row['id']) ?>'">
+                        <img src="img/newicon.png" alt="newicon" class="absolute6">
                     </div>
                 <?php endforeach; ?>
             </div>

@@ -388,6 +388,9 @@ h3 {
 .news_img:hover img {
   opacity: 0.6;
 }
+.news_f-img{
+  margin-bottom: 40px;
+}
 
 /* 店舗情報 */
 
