@@ -113,7 +113,7 @@ if (isset($_GET['id'])) {
                     <div class="relative newimg_text">
                         <div class="new_img">
                             <img src="images_comp/<?php echo ($member->item_img_path); ?>" class="news-page-img info-img">
-                            <img src="img/newicon.png" alt="newicon" class="absolute">
+                            <img src="img/newicon.png" alt="newicon" class="absolute6">
                         </div>
                         <div class="new_text">
                             <span class="news_text">【<?php echo ($member->category); ?>】<?php echo ($member->item_name); ?></span><br>
@@ -139,12 +139,12 @@ if (isset($_GET['id'])) {
                                     </div>
                             </form>
                             <div class="contact-submit">
-                                <button onclick="location.href='index.php'" class="btn btn-secondary">HOMEへ戻る</button>
+                                <button onclick="location.href='pk_onlineshop.php'" class="btn btn-secondary">SHOPへ</button>
                             </div>
 
                         <?php } else { ?>
                             <p>売切</p>
-                            <button onclick="location.href='index.php'" class="btn btn-secondary">HOMEへ戻る</button>
+                            <button onclick="location.href='pk_onlineshop.php'" class="btn btn-secondary">SHOPへ</button>
                         <?php } ?>
                         </div>
                     </div>

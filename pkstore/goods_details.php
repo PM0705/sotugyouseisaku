@@ -106,7 +106,16 @@ if (isset($_GET['id'])) {
                     <!-- ID -->
                     <input type="hidden" name="id" value="<?php echo ($member->id) ?>">
                     <!-- タイトル・内容 -->
-                    <img src="images_comp/<?php echo ($member->item_img_path); ?>"><br>
+                    <!-- NEW０の時だけNEWアイコン表示 -->
+                    <?php if (($member->new) == 0) { ?>
+                        <div class="relative">
+                            <img src="images_comp/<?php echo ($member->item_img_path); ?>" width="auto" height="100">
+                            <img src="img/newicon.png" alt="newicon" class="absolute absolute2 ">
+                        </div>
+
+                    <?php } else { ?>
+                        <img src="images_comp/<?php echo ($member->item_img_path); ?>" width="auto" height="100">
+                    <?php } ?><br>
                     <span class="account_text">商品名:</span><span class="account_text"><?php echo ($member->item_name); ?></span><br>
                     <span class="account_text">値段:</span><span class="account_text"><?php echo ($member->item_price); ?></span><br>
                     <span class="account_text">在庫:</span><span class="account_text"><?php echo ($member->item_stock); ?></span><br>

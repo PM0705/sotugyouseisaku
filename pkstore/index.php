@@ -55,11 +55,11 @@ $stmt_category = $pdo->query("SELECT * FROM item_info_transaction where delete_f
                 <?php $message1 = $_SESSION['mail'] . "さんようこそ"; ?>
                 <ul>
                     <li><a href="pk_onlineshop.php">shop</a></li>
-                    <li><a href="sns.php">SNS</li>
-                    <li><a href="news.php">新着情報</li>
+                    <li><a href="sns.php">SNS</a></li>
+                    <li><a href="news.php">新着情報</a></li>
                     <li><a href="store_info.php">店舗情報</a></li>
                     <li><a href="mail.php">お問い合わせ</a></li>
-                    <li><a href="authority.php">管理者用メニュー</a></li>
+                    <li><a href="authority.php">管理者用メニュー</a><span class="tooltip blue">ここで商品等の登録が行えます</span></li>
                     <li><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
                     <li><?php echo htmlspecialchars($message1, ENT_QUOTES); ?><a href="logout.php">(ログアウト)</a></li>
                 </ul>
