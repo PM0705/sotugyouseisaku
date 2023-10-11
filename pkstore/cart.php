@@ -147,7 +147,7 @@ $_SESSION["cart"] = $array;
                     foreach ($array as $key => $value) : ?>
 
                         <tr>
-                            <td><img src="images_comp/<?php echo $value['item_img_path']; ?>" width="100" height="100"></td>
+                            <td><img src="images_comp/<?php echo $value['item_img_path']; ?>" width="auto" height="100"></td>
                             <td><?php echo $value['item_name']; ?></td>
                             <td><?php echo $value['buy_count']; ?></td>
                             <td><?php echo $value['item_price'] * $value['buy_count']; ?> 円</td>

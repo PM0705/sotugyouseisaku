@@ -113,14 +113,14 @@ if (isset($_GET['id'])) {
                     <div class="relative newimg_text">
                         <div class="new_img">
                             <img src="images_comp/<?php echo ($member->item_img_path); ?>" class="news-page-img info-img">
-                            <img src="img/newicon.png" alt="newicon" class="absolute6">
+                            <img src="img/newicon.png" alt="newicon" class="absolute">
                         </div>
                         <div class="new_text">
                             <span class="news_text">【<?php echo ($member->category); ?>】<?php echo ($member->item_name); ?></span><br>
                             <span class="news_text price">¥<?php echo ($member->item_price); ?>(税込)</span><br>
                             <form method="post" action="cart.php" enctype="multipart/form-data">
                                 <span>個数</span>
-                                <select name="buy_count">
+                                <select name="buy_count" class="form-select form-select-sm">
                                     <?php for ($i = 1; $i < 10; $i++) : ?>
                                         <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                                     <?php endfor; ?>
@@ -139,18 +139,17 @@ if (isset($_GET['id'])) {
                                     </div>
                             </form>
                             <div class="contact-submit">
-                                <button onclick="location.href='pk_onlineshop.php'" class="btn btn-secondary">SHOPへ</button>
+                                <button onclick="location.href='index.php'" class="btn btn-secondary">HOMEへ戻る</button>
                             </div>
 
                         <?php } else { ?>
                             <p>売切</p>
-                            <button onclick="location.href='pk_onlineshop.php'" class="btn btn-secondary">SHOPへ</button>
+                            <button onclick="location.href='index.php'" class="btn btn-secondary">HOMEへ戻る</button>
                         <?php } ?>
                         </div>
                     </div>
                 </div>
             </div>
-
         </main>
         <footer>
             <div class="footer-l">

@@ -770,6 +770,11 @@ textarea,
 .newimg_text {
   margin-left: 5vw;
 }
+.newgoods_f .form-select-sm{
+  width: 20%;
+  margin-left: 40%;
+
+}
 /* ECサイト */
 .pk-f td,.pk-f th {
   padding-top:1vw;
@@ -785,11 +790,13 @@ textarea,
 .result-field {
   display: flex;
 }
-.result-item {
-  
+.result-field li {
+  margin: 4vw;
+  background-color: lightyellow;
   width: 200px;
-  height: 300px;
+  height: 400px;
 }
+
 .result-item img:hover{
   opacity: 0.6;
 }

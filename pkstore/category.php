@@ -153,11 +153,11 @@
                                     <!-- NEW０の時だけNEWアイコン表示 -->
                                     <?php if (($row['new']) == 0) { ?>
                                         <div class="relative">
-                                            <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="auto" height="100" alt="スライド" onclick="location.href='new-goods.php?id=<?php echo ($row['id']) ?>'">
+                                            <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="auto" height="100">
                                             <img src="img/newicon.png" alt="newicon" class="absolute absolute2 ">
                                         </div>
                                     <?php } else { ?>
-                                        <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="auto" height="100" alt="スライド" onclick="location.href='new-goods.php?id=<?php echo ($row['id']) ?>'">
+                                        <img src="images_comp/<?php echo $row['item_img_path']; ?>" width="auto" height="100">
                                     <?php } ?>
                                     <p class="item-name" name='item_name'><?php echo $row['item_name'] ?></p>
                                     <p class="item_price" name='item_price'>¥<?php echo $row['item_price'] ?></p>
@@ -166,8 +166,8 @@
                                     <form method="post" action="cart.php" enctype="multipart/form-data">
                                         <!-- 売り切れの場合は、formを置換 -->
                                         <?php if ($row['item_stock'] > 0) { ?>
-                                            <select name="buy_count">
-                                                <?php for ($i = 1; $i < 10; $i++) : ?>
+                                            <select name="buy_count" class="form-select form-select-sm">
+                                                <?php for ($i = 0; $i < 10; $i++) : ?>
                                                     <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                                                 <?php endfor; ?>
                                             </select>
@@ -175,7 +175,7 @@
                                             <input type="hidden" name="item_img_path" value="<?php echo $row['item_img_path'] ?>">
                                             <input type="hidden" name="item_name" value="<?php echo $row['item_name'] ?>">
                                             <input type="hidden" name="item_price" value="<?php echo $row['item_price'] ?>">
-                                            <input type="submit" name="item_id" value="カートへ" class="btn btn-danger btnsize1"></button>>
+                                            <input type="submit" name="item_id" value="カートへ" class="btn btn-danger btnsize1">
                                     </form>
                                 <?php } else { ?>
                                     <input type="hidden" name="item_img_path" value="<?php echo $_SESSION['id'] ?>">
